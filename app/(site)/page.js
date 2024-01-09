@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Home = async () => {
   const projects = await getProjects();
-  console.log("PROJECTS!!!!", projects);
+  // console.log("PROJECTS!!!!", projects);
   return (
     <section className="home_section">
       <div className="bloc_text">
