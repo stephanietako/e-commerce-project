@@ -45,7 +45,7 @@ const Newest = async () => {
         }}
       >
         <div
-          className="top_bloc"
+          className="bloc_link"
           style={{
             display: "flex",
             width: "100%",
@@ -74,12 +74,18 @@ const Newest = async () => {
           }}
         >
           {data.map((product) => (
-            <div key={product._id} className="product_card_group">
+            <div
+              key={product._id}
+              className="product_card_group"
+              style={{
+                padding: "20px",
+              }}
+            >
               <div
                 className="images_products"
                 style={{
                   display: "flex",
-                  justifyContent: "space-around",
+                  justifyContent: "center",
                   border: "3px solid black",
                 }}
               >
@@ -89,6 +95,9 @@ const Newest = async () => {
                   className="product__img"
                   width={200}
                   height={200}
+                  style={{
+                    objectFit: "contain",
+                  }}
                 />
               </div>
 

@@ -8,7 +8,16 @@ const Home = async () => {
   // console.log("PROJECTS!!!!", projects);
   return (
     <>
-      <section className="first_section">
+      <section
+        className="first_section"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+          alignContent: "center",
+          alignItems: "center",
+        }}
+      >
         <div className="bloc_text">
           <h1>This is the Home page</h1>{" "}
           <p>

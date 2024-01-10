@@ -6,7 +6,7 @@ const CartBtn = ({ img, onClick }) => {
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    backgroundColor: "none",
+    cursor: "pointer",
   };
   const spanStyle = {
     textAlign: "center",
