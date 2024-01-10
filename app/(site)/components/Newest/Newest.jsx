@@ -50,7 +50,7 @@ const Newest = async () => {
             display: "flex",
             width: "100%",
             height: "auto",
-            justifyContent: "flex-end",
+            justifyContent: "space-between",
             border: "2px solid blue",
             alignItems: "center",
           }}
@@ -81,14 +81,7 @@ const Newest = async () => {
                 padding: "20px",
               }}
             >
-              <div
-                className="images_products"
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  border: "3px solid black",
-                }}
-              >
+              <div className="images_products">
                 <Image
                   src={product.images}
                   alt={product.name}
