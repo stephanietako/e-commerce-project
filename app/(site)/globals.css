@@ -96,7 +96,7 @@ a {
 
 .header {
   display: flex;
-  height: 79px;
+  height: auto;
   width: 100%;
   top: 0;
   position: sticky;
@@ -104,6 +104,7 @@ a {
   justify-content: space-between;
   align-content: center;
   border: 3px solid red;
+  position: relative;
 }
 
 .logo {
@@ -118,13 +119,16 @@ a {
 .links {
   display: flex;
   border: 2px solid blueviolet;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .link {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   border: 3px solid red;
   margin-right: 15px;
+  justify-content: flex-end;
 }
 
 .home_section {

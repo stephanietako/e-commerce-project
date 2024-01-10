@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { getPages } from "@/sanity/lib/client";
 import Link from "next/link";
+import Navbar from "./components/Navbar/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -17,9 +18,8 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <header className="header">
-          <Link href="/" className="logo">
-            LOGO
-          </Link>
+          <Navbar />
+          {/* c'est page */}
           <div className="links">
             {pages.map((page) => (
               <Link key={page._id} href={`/${page.slug}`} className="link">
@@ -27,6 +27,7 @@ export default async function RootLayout({ children }) {
               </Link>
             ))}
           </div>
+          {/* /////// */}
         </header>
         <main className="main">{children}</main>
       </body>
