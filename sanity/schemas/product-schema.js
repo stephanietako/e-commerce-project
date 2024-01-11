@@ -1,18 +1,27 @@
-import { defineField } from "sanity";
 // c'est par exemple pour une section produit du mois
 const product = {
   name: "product",
   type: "document",
   title: "Product",
   fields: [
-    defineField({
-      name: "name",
-      type: "string",
-      title: "Name of Product",
-    }),
-    defineField({
-      name: "coverImage",
-      title: "Cover Image",
+    { name: "name", type: "string", title: "Name of Product" },
+    // {
+    //   name: "coverImage",
+    //   title: "Cover Image",
+    //   type: "image",
+    //   options: { hotspot: true },
+    //   fields: [
+    //     {
+    //       name: "alt",
+    //       title: "Alt",
+    //       type: "string",
+    //     },
+    //   ],
+    //   validation: (Rule) => Rule.required().error("Cover Image is required"),
+    // },
+    {
+      name: "image",
+      title: "Image",
       type: "image",
       options: { hotspot: true },
       fields: [
@@ -22,8 +31,13 @@ const product = {
           type: "string",
         },
       ],
-      validation: (Rule) => Rule.required().error("Cover Image is required"),
-    }),
+    },
+    {
+      name: "url",
+      title: "URL",
+      type: "url",
+    },
+
     {
       name: "content",
       title: "Content",
