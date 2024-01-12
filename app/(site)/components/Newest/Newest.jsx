@@ -50,11 +50,12 @@ const Newest = async () => {
           className="bloc_link"
           style={{
             display: "flex",
-            width: "100%",
+            width: "auto",
             height: "auto",
             justifyContent: "space-between",
             border: "2px solid blue",
             alignItems: "center",
+            padding: "33px",
           }}
         >
           {" "}
