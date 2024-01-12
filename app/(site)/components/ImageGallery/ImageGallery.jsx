@@ -17,7 +17,6 @@ const ImageGallery = ({ images }) => {
         width: "100%",
         height: "100%",
         border: "3px solid red",
-        justifyContent: "center",
         alignItems: "center",
       }}
     >
@@ -26,7 +25,7 @@ const ImageGallery = ({ images }) => {
         className="__container"
         style={{
           display: "flex",
-          width: "70%",
+          width: "25%",
           height: "auto",
           border: "3px solid blue",
           justifyContent: "center",
@@ -55,8 +54,8 @@ const ImageGallery = ({ images }) => {
         <Image
           src={urlFor(bigImage).url()}
           alt="Photo"
-          width={500}
-          height={500}
+          width={300}
+          height={300}
           className="__img"
         />
       </div>
