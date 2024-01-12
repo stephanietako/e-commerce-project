@@ -31,8 +31,10 @@ const ProductPage = async ({ params }) => {
         <PortableText value={data.content} />
       </div>
       <div>
-        {" "}
-        <ImageGallery images={data.images} />
+        <div>
+          {" "}
+          <ImageGallery images={data.images} />
+        </div>
       </div>
     </>
   );
