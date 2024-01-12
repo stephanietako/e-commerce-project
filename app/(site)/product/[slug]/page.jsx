@@ -1,6 +1,8 @@
 import clientConfig from "../../../../sanity/config/client-config";
 import { createClient, groq } from "next-sanity";
 import { PortableText } from "@portabletext/react";
+import ImageGallery from "../../components/ImageGallery/ImageGallery";
+export const dynamic = "force-dynamic";
 
 export async function getData(slug) {
   return createClient(clientConfig).fetch(
@@ -19,12 +21,15 @@ name,
 }
 
 const ProductPage = async ({ params }) => {
-  const slug = params.product;
   const data = await getData(params.slug);
   return (
     <>
       <div>
         <h1>{data.name}</h1>
+      </div>
+      <div>
+        {" "}
+        <ImageGallery images={data.images} />
       </div>
       <div>
         <PortableText value={data.content} />

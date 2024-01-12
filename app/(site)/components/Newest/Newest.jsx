@@ -89,7 +89,7 @@ const Newest = async () => {
                 {product.images && (
                   <Image
                     src={product.images}
-                    alt={product.alt}
+                    alt="les fleurs"
                     className="product__img"
                     width={200}
                     height={200}
