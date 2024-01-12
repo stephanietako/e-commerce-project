@@ -29,7 +29,7 @@ const category = {
     // },
 
     defineField({
-      name: "covermage",
+      name: "coverimage",
       title: "Cover Image",
       type: "array",
       of: [

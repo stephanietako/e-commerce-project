@@ -5,6 +5,7 @@ import { createClient, groq } from "next-sanity";
 import Link from "next/link";
 import Image from "next/image";
 import arrow from "@/public/arrow.png";
+
 export async function getData() {
   return createClient(clientConfig).fetch(
     groq`*[_type == 'product'][0...7] | order(_createdAt desc){
@@ -14,8 +15,7 @@ export async function getData() {
     name,
     "slug":slug.current,
     "categoryName": category->name,
-    "images":image.asset->url,
- "alt": image.alt,
+ "images": images[0].asset->url,
     content,
       
     }`,
@@ -33,7 +33,7 @@ const Newest = async () => {
         display: "flex",
         width: "100%",
         height: "auto",
-        border: "2px solid blue",
+        border: "2px solid violet",
         alignItems: "center",
       }}
     >
@@ -73,6 +73,7 @@ const Newest = async () => {
             alignItems: "center",
             justifyContent: "center",
             border: "3px solid yellow",
+            flexWrap: "wrap",
           }}
         >
           {data.map((product) => (
@@ -84,16 +85,19 @@ const Newest = async () => {
               }}
             >
               <div className="images_products">
-                <Image
-                  src={product.images}
-                  alt={product.alt}
-                  className="product__img"
-                  width={200}
-                  height={200}
-                  style={{
-                    objectFit: "contain",
-                  }}
-                />
+                {/* j'évite les blocages d'erreurs du reload si j'ai fait des changements */}
+                {product.images && (
+                  <Image
+                    src={product.images}
+                    alt={product.alt}
+                    className="product__img"
+                    width={200}
+                    height={200}
+                    style={{
+                      objectFit: "contain",
+                    }}
+                  />
+                )}
               </div>
 
               <div className="content">

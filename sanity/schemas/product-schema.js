@@ -7,17 +7,11 @@ const product = {
   fields: [
     { name: "name", type: "string", title: "Name of Product" },
     {
-      name: "image",
-      title: "Image",
-      type: "image",
+      name: "images",
+      type: "array",
+      title: "Product Images",
       options: { hotspot: true },
-      fields: [
-        {
-          name: "alt",
-          title: "Alt",
-          type: "string",
-        },
-      ],
+      of: [{ type: "image" }],
     },
     {
       name: "url",

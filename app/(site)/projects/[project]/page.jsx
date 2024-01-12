@@ -17,13 +17,18 @@ const Project = async ({ params }) => {
       <div>
         <PortableText value={project.content} />
       </div>
-      <Image
-        src={project.image}
-        alt={project.name}
-        width={250}
-        height={100}
-        className="project_img"
-      />
+      {project.image && (
+        <Image
+          src={project.image}
+          alt={project.name}
+          width={250}
+          height={100}
+          className="project_img"
+          style={{
+            objectFit: "contain",
+          }}
+        />
+      )}
       <div>
         <div>{project.body}</div>
       </div>
