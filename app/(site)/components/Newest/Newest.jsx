@@ -95,7 +95,7 @@ const Newest = async () => {
                     width={200}
                     height={200}
                     style={{
-                      objectFit: "contain",
+                      objectFit: "cover",
                     }}
                   />
                 )}
