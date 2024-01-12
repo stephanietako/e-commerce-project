@@ -28,11 +28,11 @@ const ProductPage = async ({ params }) => {
         <h1>{data.name}</h1>
       </div>
       <div>
-        {" "}
-        <ImageGallery images={data.images} />
+        <PortableText value={data.content} />
       </div>
       <div>
-        <PortableText value={data.content} />
+        {" "}
+        <ImageGallery images={data.images} />
       </div>
     </>
   );
