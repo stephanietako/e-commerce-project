@@ -18,6 +18,7 @@ const ImageGallery = ({ images }) => {
         height: "100%",
         border: "3px solid red",
         alignItems: "center",
+        padding: "3rem",
       }}
     >
       {/*  5 colonnes */}
@@ -25,7 +26,7 @@ const ImageGallery = ({ images }) => {
         className="__container"
         style={{
           display: "flex",
-          width: "25%",
+          width: "100%",
           height: "auto",
           border: "3px solid blue",
           justifyContent: "center",
@@ -39,24 +40,35 @@ const ImageGallery = ({ images }) => {
               src={urlFor(image).url()}
               alt="les fleurs"
               className="gallery__img"
-              width={200}
-              height={200}
+              width={300}
+              height={300}
               onClick={() => handleSmallImageClick(image)}
               style={{
-                objectFit: "contain",
+                objectFit: "cover",
                 cursor: "pointer",
               }}
             />
           </div>
         ))}
       </div>
-      <div className="main_img_productpage">
+      <div
+        className="selectBig_img_productpage"
+        style={{
+          border: "3px solid pink",
+        }}
+      >
         <Image
           src={urlFor(bigImage).url()}
           alt="Photo"
-          width={300}
-          height={300}
+          width={350}
+          height={350}
           className="__img"
+          style={{
+            display: "flex",
+            objectFit: "cover",
+            border: "3px solid yellow",
+            padding: "1rem",
+          }}
         />
       </div>
     </div>
