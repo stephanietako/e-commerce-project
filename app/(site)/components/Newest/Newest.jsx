@@ -1,31 +1,28 @@
-// ici c'est le composant de la section des propositions de produits genre les produits en vedette
-
-import clientConfig from "../../../../sanity/config/client-config";
-import { createClient, groq } from "next-sanity";
+import { getDataProduct } from "@/sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
 import arrow from "@/public/arrow.png";
 
-export async function getData() {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == 'product'][0...7] | order(_createdAt desc){
-  _id,
-    price,
-       currency,
-    name,
-    "slug":slug.current,
-    "categoryName": category->name,
- "images": images[0].asset->url,
-    content,
-      
-    }`,
-    {
-      cache: "no-store",
-    }
-  );
-}
+// export async function getData() {
+//   return createClient(clientConfig).fetch(
+//     groq`*[_type == 'product'][0...7] | order(_createdAt desc){
+//   _id,
+//     price,
+//        currency,
+//     name,
+//     "slug":slug.current,
+//     "categoryName": category->name,
+//  "images": images[0].asset->url,
+//     content,
+
+//     }`,
+//     {
+//       cache: "no-store",
+//     }
+//   );
+// }
 const Newest = async () => {
-  const data = await getData();
+  const data = await getDataProduct();
   return (
     <section
       className="newest_section"

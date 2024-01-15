@@ -1,26 +1,13 @@
-import clientConfig from "../../../../sanity/config/client-config";
-import { createClient, groq } from "next-sanity";
+import { getData } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
-export const dynamic = "force-dynamic";
 
-export async function getData(slug) {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "product" && slug.current == $slug][0]{
- _id,
-    "coverImages": images[0].asset->url,
-    images,
-      price,
-    name,
-    "slug": slug.current,
-    "categoryName": category->name,
-    }`,
-    { slug }
-  );
-}
+export const dynamic = "force-dynamic";
 
 const ProductPage = async ({ params }) => {
   const data = await getData(params.slug);
+  console.log("TITLE SLUG PRODUCT", params.slug);
+  console.log("DATA DANS PRODUCT SLUG !!!!!!", data);
   return (
     <>
       <div>

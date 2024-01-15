@@ -1,48 +1,27 @@
-import clientConfig from "../../../sanity/config/client-config";
-import { createClient, groq } from "next-sanity";
+import { getDataCategory } from "@/sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
-import { getData as fetchProductData } from "../components/Newest/Newest";
-async function getData(category) {
-  console.log("La valeur de la variable category est :", category);
-
-  const query = groq`*[_type == 'product' && category->name == "${category}"]{
-  _id,
-    "images": images[0].asset->url,
-      price,
-       name,
-    "slug": slug.current,
-    "categoryName": category->name,
-}
-`;
-  console.log("La valeur de la variable $category est :", `${category}`);
-  console.log("La requête Groq est :", query);
-  const data = await createClient(clientConfig).fetch(query, {
-    cache: "no-store",
-  });
-  console.log("La valeur de la variable data est ", data);
-  console.log("La valeur de la variable category est :", category);
-  console.log("La requête Groq est :", query);
-
-  return data;
-}
+export const dynamic = "force-dynamic";
 
 const Category = async ({ params }) => {
-  const data = await fetchProductData(params.category);
-  console.log("Data for category:", data);
-  console.log("PARAMS !!!!!!!!", params);
+  const slug = params.category;
+  const category = await getDataCategory(slug);
 
-  console.log("La valeur de la variable data est ?????????", data);
-
+  console.log("CATEGORY !!!!!!", category);
+  //////////////////////////////////////
+  // console.log("PARAMS CATEGORY !!!!!!!!", params.category);
+  // console.log("CATEGORY !!!!!!", category);
+  // console.log("La valeur de la variable category est ?????????", category);
   return (
     <section className="newest_section">
       <div className="newest_container">
+        <h1>{category.name}</h1>
         <div className="bloc_link">
-          <h2>Products of the category {params.category} !!!!</h2>
+          <h2>Products of the category {params.catagory}</h2>
         </div>
 
         <div className="display_product">
-          {data.map((product) => (
+          {category.map((product) => (
             <div key={product._id} className="product_card_group">
               <div className="images_products">
                 {product.images && (

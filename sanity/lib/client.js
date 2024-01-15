@@ -78,3 +78,52 @@ export async function getPage(slug) {
     { slug }
   );
 }
+
+// PRODUCT & PRODUCT CATEGORY & PRODUCT SLUG//////////////////////
+export async function getDataProduct() {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == 'product'][0...7] | order(_createdAt desc){
+  _id,
+    price,
+       currency,
+    name,
+    "slug":slug.current,
+    "categoryName": category->name,
+ "images": images[0].asset->url,
+    content,
+      
+    }`,
+    {
+      cache: "no-store",
+    }
+  );
+}
+/////////////////////////
+export async function getDataCategory(category) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == 'product' && category->name == $category]{
+  _id,
+    "images": images[0].asset->url,
+      price,
+       name,
+    "slug": slug.current,
+    "categoryName": category->name,
+}`,
+    { category }
+  );
+}
+////////////
+export async function getData(slug) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "product" && slug.current == $slug][0]{
+ _id,
+    "coverImages": images[0].asset->url,
+    images,
+      price,
+    name,
+    "slug": slug.current,
+    "categoryName": category->name,
+    }`,
+    { slug }
+  );
+}
