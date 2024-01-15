@@ -45,7 +45,11 @@ const product = {
       name: "category",
       title: "Product Category",
       type: "reference",
-      to: [{ type: "category" }],
+      to: [
+        {
+          type: "category",
+        },
+      ],
     },
   ],
   initialValue: {

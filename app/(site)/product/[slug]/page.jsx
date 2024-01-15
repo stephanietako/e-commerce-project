@@ -7,14 +7,13 @@ export const dynamic = "force-dynamic";
 export async function getData(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "product" && slug.current == $slug][0]{
-       _id,
-       _createdAt,
-       images,
-       price,
-name,
-   content,
-       "slug":slug.current,
-       "categoryName": category->name,
+ _id,
+    "coverImages": images[0].asset->url,
+    images,
+      price,
+    name,
+    "slug": slug.current,
+    "categoryName": category->name,
     }`,
     { slug }
   );
