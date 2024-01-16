@@ -92,28 +92,37 @@ export async function getDataProduct() {
  "images": images[0].asset->url,
     content,
       
-    }`,
-    {
-      cache: "no-store",
-    }
+    }`
   );
 }
 /////////////////////////
-export async function getDataCategory(category) {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == 'product' && category->name == $category]{
+
+export async function getData(category) {
+  try {
+    const client = createClient(clientConfig);
+    const query = groq`*[_type == 'product' && category->name == $category]{
   _id,
     "images": images[0].asset->url,
       price,
        name,
     "slug": slug.current,
     "categoryName": category->name,
-}`,
-    { category }
-  );
+}`;
+
+    const params = { category };
+    const project = await client.fetch(query, params, {
+      cache: "no-store",
+    });
+
+    console.log("Fetched project !!!!!:", project);
+    return project;
+  } catch (error) {
+    console.error("Error fetching project:", error);
+    return null;
+  }
 }
 ////////////
-export async function getData(slug) {
+export async function getDataSlug(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "product" && slug.current == $slug][0]{
  _id,

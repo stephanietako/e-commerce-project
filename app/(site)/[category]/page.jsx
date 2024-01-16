@@ -1,11 +1,11 @@
-import { getDataCategory } from "@/sanity/lib/client";
+import { getData } from "@/sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
 export const dynamic = "force-dynamic";
 
 const Category = async ({ params }) => {
   const slug = params.category;
-  const category = await getDataCategory(slug);
+  const category = await getData(params.category);
 
   console.log("CATEGORY !!!!!!", category);
   //////////////////////////////////////

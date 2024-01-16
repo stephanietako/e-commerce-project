@@ -2,10 +2,13 @@ import Image from "next/image";
 import { getProjects } from "@/sanity/lib/client";
 import Link from "next/link";
 import Newest from "./components/Newest/Newest";
+import { getPages } from "@/sanity/lib/client";
 
 const Home = async () => {
   const projects = await getProjects();
   // console.log("PROJECTS!!!!", projects);
+  // get all of our pages
+  const pages = await getPages();
   return (
     <>
       <section
@@ -18,6 +21,15 @@ const Home = async () => {
           alignItems: "center",
         }}
       >
+        {/* c'est page */}
+        <div className="links">
+          {pages.map((page) => (
+            <Link key={page._id} href={`/pages/${page.slug}`} className="link">
+              {page.title}
+            </Link>
+          ))}
+        </div>
+        {/* /////// */}
         <div className="bloc_text">
           <h1>This is the Home page</h1>{" "}
           <p>

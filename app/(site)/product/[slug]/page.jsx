@@ -1,13 +1,10 @@
-import { getData } from "@/sanity/lib/client";
+import { getDataSlug } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
-
 export const dynamic = "force-dynamic";
 
 const ProductPage = async ({ params }) => {
-  const data = await getData(params.slug);
-  console.log("TITLE SLUG PRODUCT", params.slug);
-  console.log("DATA DANS PRODUCT SLUG !!!!!!", data);
+  const data = await getDataSlug(params.slug);
   return (
     <>
       <div>
