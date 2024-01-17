@@ -21,7 +21,7 @@ export async function getProjects() {
     }
   );
 }
-
+/////////////////////
 export async function getProject(slug) {
   try {
     const client = createClient(clientConfig);
@@ -79,7 +79,7 @@ export async function getPage(slug) {
   );
 }
 
-// PRODUCT & PRODUCT CATEGORY & PRODUCT SLUG//////////////////////
+// PRODUCT & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG//////////////////////
 export async function getDataProduct() {
   return createClient(clientConfig).fetch(
     groq`*[_type == 'product'][0...7] | order(_createdAt desc){
@@ -96,7 +96,6 @@ export async function getDataProduct() {
   );
 }
 /////////////////////////
-
 export async function getData(category) {
   try {
     const client = createClient(clientConfig);
@@ -121,7 +120,7 @@ export async function getData(category) {
     return null;
   }
 }
-////////////
+///////////////////////////////
 export async function getDataSlug(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "product" && slug.current == $slug][0]{
@@ -136,3 +135,27 @@ export async function getDataSlug(slug) {
     { slug }
   );
 }
+/////////////
+// Exemple de fonction pour récupérer les produits par catégorie
+export async function getCategoryData(category) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "product" && category->name == "Fleurs roses"]{
+    _id,
+    "images": images[0].asset->url,
+      price,
+       name,
+    "slug": slug.current,
+    "categoryName": category->name,
+    }`,
+    { category }
+  );
+}
+//Resultat
+// […] 1 item
+// 0:{…} 6 properties
+// price:45
+// name:First
+// slug:first
+// categoryName:Fleurs roses
+// _id:b89127d9-7dfa-4ed0-9686-714536ffed37
+// images:https://cdn.sanity.io/images/bajw1buo/production/d400a7a4a0b710b5dac120a313e38162f74ed3d8-6000x4000.jpg

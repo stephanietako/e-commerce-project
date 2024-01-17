@@ -5,6 +5,12 @@ export const dynamic = "force-dynamic";
 
 const ProductPage = async ({ params }) => {
   const data = await getDataSlug(params.slug);
+  console.log(" DATA RECUPERATION DES ELEMENTS DE CATEGORY PAR PRODUIT", data);
+  console.log(
+    " PARAMS.SLUG DATA RECUPERATION DES ELEMENTS DE CATEGORY PAR PRODUIT",
+    params.slug
+  );
+  console.log(" PARAMS DE CATEGORY PAR PRODUIT", params);
   return (
     <>
       <div>

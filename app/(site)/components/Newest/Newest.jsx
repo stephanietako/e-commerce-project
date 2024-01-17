@@ -2,6 +2,7 @@ import { getDataProduct } from "@/sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
 import arrow from "@/public/arrow.png";
+export const dynamic = "force-dynamic";
 
 const Newest = async () => {
   const data = await getDataProduct();
@@ -89,7 +90,7 @@ const Newest = async () => {
                   </h3>
                   <p className="category_name">{product.categoryName}</p>
                 </div>
-                {/* <p className="price_content">${product.price}</p> */}
+
                 <p className="price_content">€{product.price.toFixed(2)}</p>
               </div>
             </div>
