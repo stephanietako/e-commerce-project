@@ -2,7 +2,7 @@ import { createClient, groq } from "next-sanity";
 import clientConfig from "../config/client-config";
 export const revalidate = 10;
 
-// PROJECTS & PROJECT //////////////////////
+//PROJECTS & PROJECT //////////////////////
 export async function getProjects() {
   return createClient(clientConfig).fetch(
     groq`*[_type == "project"]{
@@ -99,14 +99,14 @@ export async function getDataProduct() {
 export async function getData(category) {
   try {
     const client = createClient(clientConfig);
-    const query = groq`*[_type == 'product' && category->name == $category]{
-  _id,
-    "images": images[0].asset->url,
-      price,
-       name,
-    "slug": slug.current,
-    "categoryName": category->name,
-}`;
+    const query = groq`*[_type == "product" && category->name == "${category}"] {
+        _id,
+          "imageUrl": images[0].asset->url,
+          price,
+          name,
+          "slug": slug.current,
+          "categoryName": category->name
+      }`;
 
     const params = { category };
     const project = await client.fetch(query, params, {
@@ -139,7 +139,7 @@ export async function getDataSlug(slug) {
 // Exemple de fonction pour récupérer les produits par catégorie
 export async function getCategoryData(category) {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "product" && category->name == "Fleurs roses"]{
+    groq`*[_type == "product" && category->name == $category]{
     _id,
     "images": images[0].asset->url,
       price,
@@ -150,7 +150,25 @@ export async function getCategoryData(category) {
     { category }
   );
 }
-//Resultat
+export async function getTest() {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "category"] {
+  _id,
+  name,
+  "products": *[_type == 'product' && references(^._id)][0...7] | order(_createdAt desc) {
+    _id,
+    price,
+    currency,
+    name,
+    "slug": slug.current,
+    "categoryName": category->name,
+    "images": images[0].asset->url,
+    content
+  }
+}`
+  );
+}
+//resultat de getCategoryData
 // […] 1 item
 // 0:{…} 6 properties
 // price:45
@@ -159,3 +177,139 @@ export async function getCategoryData(category) {
 // categoryName:Fleurs roses
 // _id:b89127d9-7dfa-4ed0-9686-714536ffed37
 // images:https://cdn.sanity.io/images/bajw1buo/production/d400a7a4a0b710b5dac120a313e38162f74ed3d8-6000x4000.jpg
+//////////////////////////CATEGORY UNIQUEMENT
+// *[_type == "category"] [0...4]| order(_createdAt desc){
+//   _id,
+//     name,
+//     "slug": slug.current
+// }
+/////
+// […] 4 items
+// 0:{…} 3 properties
+// _id:fe2f6896-31fd-453d-a500-ffcb6b5fb393
+// name:Category awards
+// slug:null
+// 1:{…} 3 properties
+// _id:4eec7c03-f166-4c6f-a14d-add6c4b84b7d
+// name:Fleurs roses
+// slug:null
+// 2:{…} 3 properties
+// _id:92c07ab2-50d4-40a2-8a80-3a1b9b18ab94
+// name:Fleurs jaunes
+// slug:null
+// 3:{…} 3 properties
+// _id:14d101c2-e887-437b-8106-4faae7f9cc8d
+// name:Fleurs bleues
+// slug:null
+//////////////////////////
+// *[_type == "category"] {
+//   ...,
+//   "count": count(*[_type == "post" && references(^._id)])
+// } | order(count desc) [0...4]
+////
+// […] 4 items
+// 0:{…} 7 properties
+// _rev:Ix9j2sEkmf1IMBHEJJPRhK
+// _type:category
+// name:Fleurs bleues
+// _id:14d101c2-e887-437b-8106-4faae7f9cc8d
+// count:0
+// _updatedAt:2024-01-14T18:45:43Z
+// _createdAt:2024-01-10T11:46:43Z
+// 1:{…} 7 properties
+// _createdAt:2024-01-10T11:59:05Z
+// _rev:P1MV7DVvfGswgczEKmIsxW
+// count:0
+// _type:category
+// name:Fleurs roses
+// _id:4eec7c03-f166-4c6f-a14d-add6c4b84b7d
+// _updatedAt:2024-01-14T18:45:30Z
+// 2:{…} 7 properties
+// _id:92c07ab2-50d4-40a2-8a80-3a1b9b18ab94
+// _updatedAt:2024-01-14T18:45:25Z
+// count:0
+// _createdAt:2024-01-10T11:52:04Z
+// _rev:Ix9j2sEkmf1IMBHEJJPOes
+// _type:category
+// name:Fleurs jaunes
+// 3:{…} 7 properties
+// name:Category awards
+// _id:fe2f6896-31fd-453d-a500-ffcb6b5fb393
+// _updatedAt:2024-01-14T18:46:04Z
+// _createdAt:2024-01-11T12:38:17Z
+// _rev:Ix9j2sEkmf1IMBHEJJPU8u
+// _type:category
+// count:0
+////////////////////////////
+// *[ _type == "category"]{ ..., "product": *[_type=="product" && references(^._id ) ]}{
+//   _id,
+//     _type,
+//     name,
+// }
+/////
+// […] 4 items
+// 0:{…} 3 properties
+// _id:14d101c2-e887-437b-8106-4faae7f9cc8d
+// _type:category
+// name:Fleurs bleues
+// 1:{…} 3 properties
+// _id:4eec7c03-f166-4c6f-a14d-add6c4b84b7d
+// _type:category
+// name:Fleurs roses
+// 2:{…} 3 properties
+// _id:92c07ab2-50d4-40a2-8a80-3a1b9b18ab94
+// _type:category
+// name:Fleurs jaunes
+// 3:{…} 3 properties
+// _id:fe2f6896-31fd-453d-a500-ffcb6b5fb393
+// _type:category
+// name:Category awards
+// export async function getTest() {
+//   return createClient(clientConfig).fetch(
+//     groq`
+//     *[_type == "product" && references($slug)] {
+//         ...,
+//         "id": _id,
+//         "slug": slug.current,
+//         "images": images.asset->url,
+//         category->{ name, "image": image.asset->url  },
+//     }
+// `,
+//     { slug }
+//   );
+// }
+export async function getProductsByCategory(categoryName) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "product" && references(^._id) && category->name == $categoryName] {
+      _id,
+      price,
+      currency,
+      name,
+      "slug": slug.current,
+      "categoryName": category->name,
+      "images": images[0].asset->url,
+      content
+    }`,
+    { categoryName }
+  );
+}
+// client.js
+export async function getSlug(categorySlug) {
+  return createClient(clientConfig).fetch(
+    `*[_type == "category" && slug.current == $categorySlug] {
+      _id,
+      name,
+      "products": *[_type == 'product' && references(^._id)] {
+        _id,
+        price,
+        currency,
+        name,
+        "slug": slug.current,
+        "categoryName": category->name,
+        "images": images[0].asset->url,
+        content
+      }
+    }[0]`,
+    { categorySlug }
+  );
+}

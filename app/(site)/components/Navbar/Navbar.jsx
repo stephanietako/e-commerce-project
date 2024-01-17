@@ -8,20 +8,12 @@ import logo from "@/public/logo192.png";
 import cart from "@/public/cart.png";
 import CartBtn from "../CartBtn/Cartbtn";
 
-// const navLinks = [
-//   { href: "/", text: "Home" },
-//   { href: "/shopping", text: "Shopping" },
-//   { href: "/shopping/products", text: "Products" },
-//   { href: "/shopping/categories", text: "Categories" },
-//   { href: "/shopping/order", text: "Order" },
-//   { href: "/auth", text: "Authentification" },
-// ];
-
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Fleurs bleues", href: "/Fleurs-bleues" },
   { name: "Fleurs jaunes", href: "/Fleurs-jaunes" },
   { name: "Fleurs roses", href: "/Fleurs-roses" },
+  { name: "Category awards", href: "/awards" },
 ];
 const Navbar = () => {
   const pathname = usePathname();
