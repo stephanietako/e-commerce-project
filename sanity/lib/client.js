@@ -101,7 +101,7 @@ export async function getData(category) {
     const client = createClient(clientConfig);
     const query = groq`*[_type == "product" && category->name == "${category}"] {
         _id,
-          "imageUrl": images[0].asset->url,
+          "images": images[0].asset->url,
           price,
           name,
           "slug": slug.current,
@@ -294,7 +294,7 @@ export async function getProductsByCategory(categoryName) {
   );
 }
 // client.js
-export async function getSlug(categorySlug) {
+export async function get(categorySlug) {
   return createClient(clientConfig).fetch(
     `*[_type == "category" && slug.current == $categorySlug] {
       _id,

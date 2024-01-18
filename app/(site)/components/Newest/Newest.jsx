@@ -65,19 +65,22 @@ const Newest = async () => {
                 padding: "20px",
               }}
             >
-              <div className="images_products">
-                {/* j'évite les blocages d'erreurs du reload si j'ai fait des changements */}
-                {product.images && (
-                  <Image
-                    src={product.images}
-                    alt="les fleurs"
-                    className="product__img"
-                    width={200}
-                    height={200}
-                    style={{
-                      objectFit: "cover",
-                    }}
-                  />
+              <div className="images">
+                {product.images ? (
+                  <>
+                    <Image
+                      src={product.images}
+                      alt="les fleurs"
+                      className="product__img"
+                      width={200}
+                      height={200}
+                      style={{
+                        objectFit: "cover",
+                      }}
+                    />
+                  </>
+                ) : (
+                  <p>No image available</p>
                 )}
               </div>
 

@@ -13,8 +13,9 @@ const navLinks = [
   { name: "Fleurs bleues", href: "/Fleurs-bleues" },
   { name: "Fleurs jaunes", href: "/Fleurs-jaunes" },
   { name: "Fleurs roses", href: "/Fleurs-roses" },
-  { name: "Category awards", href: "/awards" },
+  { name: "Awards", href: "/awards" },
 ];
+
 const Navbar = () => {
   const pathname = usePathname();
   return (
