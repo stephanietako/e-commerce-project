@@ -2,7 +2,7 @@ import { getProject } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 export const dynamic = "force-dynamic";
-
+// ici page individuelle get project
 const Project = async ({ params }) => {
   const slug = params.project;
   const project = await getProject(slug);

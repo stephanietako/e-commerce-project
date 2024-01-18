@@ -1,11 +1,11 @@
-import { getDataProduct } from "@/sanity/lib/client";
+import { getDataProducts } from "@/sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
 import arrow from "@/public/arrow.png";
 export const dynamic = "force-dynamic";
 
 const Newest = async () => {
-  const data = await getDataProduct();
+  const data = await getDataProducts();
   return (
     <section
       className="newest_section"

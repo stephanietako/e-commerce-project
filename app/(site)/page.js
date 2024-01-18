@@ -6,8 +6,6 @@ import { getPages } from "@/sanity/lib/client";
 
 const Home = async () => {
   const projects = await getProjects();
-  // console.log("PROJECTS!!!!", projects);
-  // get all of our pages
   const pages = await getPages();
   return (
     <>
@@ -21,7 +19,7 @@ const Home = async () => {
           alignItems: "center",
         }}
       >
-        {/* c'est page */}
+        {/* MENU de page */}
         <div className="links">
           {pages.map((page) => (
             <Link key={page._id} href={`/pages/${page.slug}`} className="link">
@@ -36,7 +34,8 @@ const Home = async () => {
             This is the starting project of ecommerce with next js 14 and Sanity
           </p>
         </div>
-        <div className="container">
+        {/* // MENU des projects get projects */}
+        <div className="container__projects">
           {projects.map((project) => (
             <Link
               href={`/projects/${project.slug}`}
@@ -56,8 +55,9 @@ const Home = async () => {
             </Link>
           ))}
         </div>
+        {/* ///////////////// */}
       </section>
-      <section className="second_section">
+      <section className="newest_section">
         <Newest />
       </section>
     </>

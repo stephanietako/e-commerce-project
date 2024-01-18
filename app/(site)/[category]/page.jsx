@@ -1,24 +1,27 @@
-import { getTest } from "@/sanity/lib/client";
+import { getProductsByCategories } from "@/sanity/lib/client";
 import Image from "next/image";
-
 export const dynamic = "force-dynamic";
+import { PortableText } from "@portabletext/react";
 
 const Category = async ({ params }) => {
-  const categoryName = params.category;
-  const products = await getTest(categoryName);
+  const slug = params.category;
+  const category = await getProductsByCategories(slug);
+
   console.log("PARAMS CATEGORY !!!!!!!!", params.category);
-  console.log(" products !!!!!!", products);
+  console.log("PRODUCTS!!!!!!", category);
 
   return (
-    <section
-      className="section"
-      style={{
-        display: "flex",
-        border: "3px solid red",
-      }}
-    >
+    <>
+      <header>
+        <h1>{category.name}</h1>
+        <h2>GATEGORY PAGE</h2>
+        <h3 className="title_slug_category">Our Products for {slug}</h3>
+      </header>
+      <div>
+        <PortableText value={category.content} />
+      </div>
       <div
-        className="_container"
+        className="categories_container"
         style={{
           display: "flex",
           border: "3px solid blue",
@@ -27,22 +30,6 @@ const Category = async ({ params }) => {
           height: " auto",
         }}
       >
-        <h1>{categoryName}</h1>
-        <div className="bloc_link">
-          <h2>GATEGORY PAGE</h2>
-        </div>
-        <div
-          className="display_category_slug"
-          style={{
-            display: "flex",
-            border: "3px solid green",
-          }}
-        >
-          <h3 className="title_slug_category">
-            Our Products for {categoryName}
-          </h3>
-        </div>
-
         <div
           className="display_category"
           style={{
@@ -52,7 +39,7 @@ const Category = async ({ params }) => {
             flexWrap: "wrap",
           }}
         >
-          {products.map((category) => (
+          {category.map((category) => (
             <div key={category._id}>
               <h2>Category {category.name}</h2>
               {category.products && category.products.length > 0 ? (
@@ -114,7 +101,7 @@ const Category = async ({ params }) => {
           ))}
         </div>
       </div>
-    </section>
+    </>
   );
 };
 

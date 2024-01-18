@@ -79,8 +79,8 @@ export async function getPage(slug) {
   );
 }
 
-// PRODUCT & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG//////////////////////
-export async function getDataProduct() {
+// PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
+export async function getDataProducts() {
   return createClient(clientConfig).fetch(
     groq`*[_type == 'product'][0...7] | order(_createdAt desc){
   _id,
@@ -95,7 +95,7 @@ export async function getDataProduct() {
     }`
   );
 }
-/////////////////////////
+////
 export async function getData(category) {
   try {
     const client = createClient(clientConfig);
@@ -120,7 +120,7 @@ export async function getData(category) {
     return null;
   }
 }
-///////////////////////////////
+/////
 export async function getDataSlug(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "product" && slug.current == $slug][0]{
@@ -137,20 +137,21 @@ export async function getDataSlug(slug) {
 }
 /////////////
 // Exemple de fonction pour récupérer les produits par catégorie
-export async function getCategoryData(category) {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "product" && category->name == $category]{
-    _id,
-    "images": images[0].asset->url,
-      price,
-       name,
-    "slug": slug.current,
-    "categoryName": category->name,
-    }`,
-    { category }
-  );
-}
-export async function getTest() {
+// export async function getCategoryData(category) {
+//   return createClient(clientConfig).fetch(
+//     groq`*[_type == "product" && category->name == $category]{
+//     _id,
+//     "images": images[0].asset->url,
+//       price,
+//        name,
+//     "slug": slug.current,
+//     "categoryName": category->name,
+//     }`,
+//     { category }
+//   );
+// }
+// produits par categories avec slug pour les references
+export async function getProductsByCategories() {
   return createClient(clientConfig).fetch(
     groq`*[_type == "category"] {
   _id,
@@ -278,38 +279,3 @@ export async function getTest() {
 //     { slug }
 //   );
 // }
-export async function getProductsByCategory(categoryName) {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "product" && references(^._id) && category->name == $categoryName] {
-      _id,
-      price,
-      currency,
-      name,
-      "slug": slug.current,
-      "categoryName": category->name,
-      "images": images[0].asset->url,
-      content
-    }`,
-    { categoryName }
-  );
-}
-// client.js
-export async function get(categorySlug) {
-  return createClient(clientConfig).fetch(
-    `*[_type == "category" && slug.current == $categorySlug] {
-      _id,
-      name,
-      "products": *[_type == 'product' && references(^._id)] {
-        _id,
-        price,
-        currency,
-        name,
-        "slug": slug.current,
-        "categoryName": category->name,
-        "images": images[0].asset->url,
-        content
-      }
-    }[0]`,
-    { categorySlug }
-  );
-}

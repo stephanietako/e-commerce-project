@@ -12,7 +12,7 @@ const Page = async ({ params }) => {
 
   return (
     <>
-      <div>
+      <div className="title_slug_page">
         <h1>{page.title}</h1>
       </div>
       <div>
