@@ -131,6 +131,22 @@ a {
   justify-content: flex-end;
 }
 
+/* .links_products {
+  display: flex;
+  border: 2px solid blueviolet;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.link {
+  display: flex;
+  height: 5rem;
+  width: 5rem;
+  border: 3px solid red;
+  margin-right: 15px;
+  justify-content: flex-end;
+} */
+
 .home_section {
   display: flex;
   flex-direction: column;

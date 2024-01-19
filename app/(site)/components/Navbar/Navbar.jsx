@@ -10,9 +10,11 @@ import CartBtn from "../CartBtn/Cartbtn";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Fleurs bleues", href: "/Fleurs-bleues" },
-  { name: "Fleurs jaunes", href: "/Fleurs-jaunes" },
-  { name: "Fleurs roses", href: "/Fleurs-roses" },
+  { name: "Products", href: "/products" },
+  { name: "Fleurs", href: "/fleurs" },
+  { name: "Résines", href: "/resines" },
+  { name: "E-Liquides", href: "/e-liquides" },
+  { name: "Tisanes", href: "/tisanes" },
   { name: "Awards", href: "/awards" },
 ];
 

@@ -28,7 +28,7 @@ const product = {
     {
       name: "slug",
       type: "slug",
-      title: "Product Slug",
+      title: "Slug",
       options: {
         source: "name",
       },

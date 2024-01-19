@@ -1,10 +1,10 @@
 import { getDataSlug } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
-
+import ProductsPages from "../../components/ProductsPages/ProductsPages";
 export const dynamic = "force-dynamic";
 // SINGLE PAGE
-const Product = async ({ params }) => {
+const Shop = async ({ params }) => {
   const data = await getDataSlug(params.slug);
   console.log(" DATA RECUPERATION DES ELEMENTS DE CATEGORY PAR PRODUIT", data);
   console.log(
@@ -15,9 +15,12 @@ const Product = async ({ params }) => {
   return (
     <>
       <div>
-        <h1>{data.name} Product Page HELLO WORLD !!!!</h1>
+        <h1>{data.name} SHOPPING Product Page</h1>
       </div>
-      <div
+      <div>
+        <ProductsPages />
+      </div>
+      {/* <div
         className="gallery_container"
         style={{
           display: "flex",
@@ -117,9 +120,9 @@ const Product = async ({ params }) => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
     </>
   );
 };
-export default Product;
+export default Shop;

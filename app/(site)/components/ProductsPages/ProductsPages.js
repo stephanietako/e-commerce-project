@@ -1,14 +1,14 @@
-import { getDataProducts } from "@/sanity/lib/client";
+import { getDataProductsPages } from "@/sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
-import arrow from "@/public/arrow.png";
 export const dynamic = "force-dynamic";
 
-const Newest = async () => {
-  const data = await getDataProducts();
+const Products = async () => {
+  const data = await getDataProductsPages();
+
   return (
     <section
-      className="newest_section"
+      className="products_section"
       style={{
         display: "flex",
         width: "100%",
@@ -18,7 +18,7 @@ const Newest = async () => {
       }}
     >
       <div
-        className="newest_container"
+        className="products_container"
         style={{
           display: "flex",
           width: "100%",
@@ -39,11 +39,7 @@ const Newest = async () => {
           }}
         >
           {" "}
-          <h2>Our newest products !!!!</h2>
-          <Link className="all_products" href="/all">
-            {" "}
-            <Image className="__img" src={arrow} alt="icon flêche" />
-          </Link>
+          <h2>product Page!!!!</h2>
         </div>
         <div
           className="display_product"
@@ -93,7 +89,6 @@ const Newest = async () => {
                   </h3>
                   <p> {product.categoryName}</p>
                 </div>
-
                 <p className="price_content">€{product.price.toFixed(2)}</p>
               </div>
             </div>
@@ -104,4 +99,4 @@ const Newest = async () => {
   );
 };
 
-export default Newest;
+export default Products;
