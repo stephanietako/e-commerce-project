@@ -9,7 +9,7 @@ const Category = async ({ params }) => {
   const category = await getProductsByCategories(slug);
 
   console.log("PARAMS CATEGORY !!!!!!!!", params.category);
-  console.log("PRODUCTS!!!!!!", category);
+  console.log("CATEGORY !!!!!!", category);
 
   return (
     <>

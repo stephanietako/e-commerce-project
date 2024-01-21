@@ -1,26 +1,23 @@
-import { getDataSlug } from "@/sanity/lib/client";
+import { getDataProduct } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
+// import { urlFor } from "@/sanity/config/client-config";
+import Image from "next/image";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
-import ProductsPages from "../../components/ProductsPages/ProductsPages";
 export const dynamic = "force-dynamic";
-// SINGLE PAGE
-const Shop = async ({ params }) => {
-  const data = await getDataSlug(params.slug);
-  console.log(" DATA RECUPERATION DES ELEMENTS DE CATEGORY PAR PRODUIT", data);
-  console.log(
-    " PARAMS.SLUG DATA RECUPERATION DES ELEMENTS DE CATEGORY PAR PRODUIT",
-    params.slug
-  );
-  console.log(" PARAMS DE CATEGORY PAR PRODUIT", params);
+
+const Product = async ({ params, images }) => {
+  const slug = params.product;
+  const product = await getDataProduct(slug);
+
+  console.log("TITLE SLUG Product", params);
+  console.log("Product!!!!!!!!!!!!", product);
+
   return (
     <>
-      <div>
-        <h1>{data.name} SHOPPING Product Page</h1>
+      <div className="title_slug_page">
+        <h1>{product.name} ICI C EST PRODUCTS PRODUCT</h1>
       </div>
-      <div>
-        <ProductsPages />
-      </div>
-      {/* <div
+      <div
         className="gallery_container"
         style={{
           display: "flex",
@@ -37,7 +34,29 @@ const Shop = async ({ params }) => {
             width: "100%",
           }}
         >
-          <ImageGallery images={data.images} />
+          {product.imageUrl && (
+            <Image
+              src={product.imageUrl}
+              alt={product.name}
+              width={250}
+              height={250}
+              className="project_img"
+              style={{
+                objectFit: "cover",
+              }}
+            />
+          )}
+          <ImageGallery images={product.images} />
+          {/* <div className="display_images">
+            <Image
+              src={urlFor(images && images[0])}
+              width={250}
+              height={250}
+              alt="les produits"
+              className="product-image"
+            />
+          </div> */}
+
           <div
             className="category_text_container"
             style={{
@@ -57,8 +76,8 @@ const Shop = async ({ params }) => {
               }}
             >
               <span>
-                {data.categoryName}
-                <h2>{data.name}</h2>
+                {product.categoryName}
+                <h2>{product.name}</h2>
               </span>
               <div
                 className="category_price"
@@ -76,7 +95,7 @@ const Shop = async ({ params }) => {
                       fontSize: "3rem",
                     }}
                   >
-                    €{data.price.toFixed(2)}
+                    €{product.price.toFixed(2)}
                   </p>
                 </span>
                 <span>
@@ -113,16 +132,15 @@ const Shop = async ({ params }) => {
                 </button>
               </div>
               <div className="category_description">
-                <span>
-                  {" "}
-                  <PortableText value={data.content} />
-                </span>
+                <div>
+                  <PortableText value={product.content} />
+                </div>
               </div>
             </div>
           </div>
-        </div> */}
-      {/* </div> */}
+        </div>
+      </div>
     </>
   );
 };
-export default Shop;
+export default Product;

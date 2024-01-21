@@ -66,10 +66,10 @@ const Newest = async () => {
               }}
             >
               <div className="images">
-                {product.images ? (
+                {product.coverImages ? (
                   <>
                     <Image
-                      src={product.images}
+                      src={product.coverImages}
                       alt="les fleurs"
                       className="product__img"
                       width={200}
@@ -87,7 +87,7 @@ const Newest = async () => {
               <div className="content">
                 <div>
                   <h3 className="title_product_newest">
-                    <Link href={`/product/${product.slug}`}>
+                    <Link href={`/products/${product.slug}`}>
                       {product.name}
                     </Link>
                   </h3>

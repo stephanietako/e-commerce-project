@@ -1,8 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 // import { getPages } from "@/sanity/lib/client";
-// import Link from "next/link";
+import Link from "next/link";
 import Navbar from "./components/Navbar/Navbar";
+import { getDataProducts } from "@/sanity/lib/client";
 
 const inter = Inter({ subsets: ["latin"] });
 export const dynamic = "force-dynamic";
@@ -13,7 +14,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   // get all of our pages
-  // const pages = await getPages();
+  const products = await getDataProducts();
 
   return (
     <html lang="en">
@@ -29,6 +30,18 @@ export default async function RootLayout({ children }) {
               </Link>
             ))}
           </div> */}
+          {/* MENU de products */}
+          <div className="links">
+            {products.map((product) => (
+              <Link
+                key={product._id}
+                href={`/products/${product.slug}`}
+                className="link"
+              >
+                {product.name}
+              </Link>
+            ))}
+          </div>
           {/* /////// */}
         </header>
         <main className="main">{children}</main>

@@ -89,6 +89,7 @@ export async function getDataProducts() {
     name,
     "slug":slug.current,
     "categoryName": category->name,
+    "coverImages": images[0].asset->url,
  "images": images[0].asset->url,
     content,
       
@@ -121,16 +122,18 @@ export async function getData(category) {
   }
 }
 /////
-export async function getDataSlug(slug) {
+export async function getDataProduct(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "product" && slug.current == $slug][0]{
  _id,
+   _createdAt,
     "coverImages": images[0].asset->url,
     images,
       price,
     name,
     "slug": slug.current,
     "categoryName": category->name,
+    content,
     }`,
     { slug }
   );
@@ -156,23 +159,23 @@ export async function getProductsByCategories() {
 }
 //////////////SHOPPING ////////////////////
 //  Products: PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
-export async function getDataProductsPages() {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "product"]{
-        _id,
-        _createdAt,
-     name,
-     price,
-        "slug": slug.current,
-            "categoryName": category->name,
-    "images": images[0].asset->url,
-    content
-    }`,
-    {
-      cache: "no-store",
-    }
-  );
-}
+// export async function getDataProductsPages() {
+//   return createClient(clientConfig).fetch(
+//     groq`*[_type == "product"]{
+//         _id,
+//         _createdAt,
+//      name,
+//      price,
+//         "slug": slug.current,
+//             "categoryName": category->name,
+//     "images": images[0].asset->url,
+//     content
+//     }`,
+//     {
+//       cache: "no-store",
+//     }
+//   );
+// }
 /////////////////////
 // export async function getProductPage(slug) {
 //   return createClient(clientConfig).fetch(

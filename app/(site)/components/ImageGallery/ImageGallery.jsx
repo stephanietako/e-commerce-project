@@ -6,6 +6,7 @@ import { useState } from "react";
 const ImageGallery = ({ images }) => {
   console.log("IMAGE GALLERY", images);
   const [bigImage, setBigImage] = useState(images[0]);
+
   const handleSmallImageClick = (image) => {
     setBigImage(image);
   };
@@ -21,7 +22,6 @@ const ImageGallery = ({ images }) => {
         padding: "3rem",
       }}
     >
-      {/*  5 colonnes */}
       <div
         className="__container"
         style={{

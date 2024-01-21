@@ -3,13 +3,15 @@ import { getProjects } from "@/sanity/lib/client";
 import Link from "next/link";
 import Newest from "./components/Newest/Newest";
 import { getPages } from "@/sanity/lib/client";
-import { getDataProductsPages } from "@/sanity/lib/client";
-// import ProductsPages from "./components/ProductsPages/ProductsPages";
+//import { getDataProductsPages } from "@/sanity/lib/client";
+
 const Home = async () => {
   const projects = await getProjects();
   const pages = await getPages();
-  const products = await getDataProductsPages();
+  // const products = await getDataProductsPages();
   console.log("PAGES !!!!!!", pages);
+  console.log("PAGES !!!!!!", projects);
+  // console.log("PAGES !!!!!!", products);
   return (
     <>
       <section
@@ -23,17 +25,17 @@ const Home = async () => {
         }}
       >
         {/* MENU de products */}
-        <div className="links">
+        {/* <div className="links">
           {products.map((product) => (
             <Link
               key={product._id}
-              href={`/shop/${product.slug}`}
+              href={`/products/${product.slug}`}
               className="link"
             >
               {product.name}
             </Link>
           ))}
-        </div>
+        </div> */}
         {/* MENU de page */}
         <div className="links">
           {pages.map((page) => (
@@ -75,6 +77,7 @@ const Home = async () => {
       <section className="newest_section">
         <Newest />
       </section>
+
       {/* <ProductsPages /> */}
     </>
   );

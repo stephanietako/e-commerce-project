@@ -1,17 +1,17 @@
-import { getDataSlug } from "@/sanity/lib/client";
+import { getDataProduct } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
-import ImageGallery from "../../components/ImageGallery/ImageGallery";
-
+import ImageGallery from "../ImageGallery/ImageGallery";
+import { urlFor } from "../lib/client";
 export const dynamic = "force-dynamic";
 // SINGLE PAGE
-const Product = async ({ params }) => {
-  const data = await getDataSlug(params.slug);
-  console.log(" DATA RECUPERATION DES ELEMENTS DE CATEGORY PAR PRODUIT", data);
-  console.log(
-    " PARAMS.SLUG DATA RECUPERATION DES ELEMENTS DE CATEGORY PAR PRODUIT",
-    params.slug
-  );
-  console.log(" PARAMS DE CATEGORY PAR PRODUIT", params);
+const Product = async ({ product: { image, name, slug, price } }) => {
+  const data = await getDataProduct(slug);
+  console.log(" DATA ", data);
+  console.log(" SLUG ", slug);
+  console.log(" IMAGE ", image);
+  console.log(" NAME ", name);
+  console.log(" PRICE ", price);
+
   return (
     <>
       <div>
