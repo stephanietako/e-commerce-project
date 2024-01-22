@@ -42,7 +42,7 @@ const Newest = async () => {
           <h2>NEWEST PRODUCTS SECTION </h2>
           <span>
             <h3>All Products</h3>{" "}
-            <Link className="all_products" href="/products/all">
+            <Link className="all_products" href="/all">
               <Image className="__img" src={arrow} alt="icon flêche" />
             </Link>
           </span>
