@@ -5,7 +5,7 @@ import Image from "next/image";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 export const dynamic = "force-dynamic";
 
-const Product = async ({ params, images }) => {
+const Product = async ({ params }) => {
   const slug = params.product;
   const product = await getDataProduct(slug);
 

@@ -10,12 +10,7 @@ import CartBtn from "../CartBtn/Cartbtn";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Products", href: "/products" },
-  { name: "Fleurs", href: "/fleurs" },
-  { name: "Résines", href: "/resines" },
-  { name: "E-Liquides", href: "/e-liquides" },
-  { name: "Tisanes", href: "/tisanes" },
-  { name: "Awards", href: "/awards" },
+  { name: "Products", href: "/products/all" },
 ];
 
 const Navbar = () => {

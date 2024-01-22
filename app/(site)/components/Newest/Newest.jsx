@@ -40,10 +40,10 @@ const Newest = async () => {
         >
           {" "}
           <h2>Our newest products !!!!</h2>
-          <Link className="all_products" href="/all">
+          {/* <Link className="all_products" href="/products/all">
             {" "}
             <Image className="__img" src={arrow} alt="icon flêche" />
-          </Link>
+          </Link> */}
         </div>
         <div
           className="display_product"

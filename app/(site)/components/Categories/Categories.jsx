@@ -4,22 +4,18 @@ import { PortableText } from "@portabletext/react";
 
 export const dynamic = "force-dynamic";
 
-const Category = async ({ params }) => {
-  const slug = params.category;
-  const category = await getProductsByCategories(slug);
+const Category = async () => {
+  const data = await getProductsByCategories();
 
-  console.log("PARAMS CATEGORY !!!!!!!!", params.category);
-  console.log("CATEGORY !!!!!!", category);
+  console.log("PARAMS CATEGORY !!!!!!!!", data);
 
   return (
     <>
       <header>
-        <h1>{category.name}</h1>
-        <h2>GATEGORY PAGE</h2>
-        <h3 className="title_slug_category">Our Products for {slug}</h3>
+        <h1 className="_category">Our Categories</h1>
       </header>
       <div>
-        <PortableText value={category.content} />
+        <PortableText value={data.content} />
       </div>
       <div
         className="categories_container"
@@ -40,7 +36,7 @@ const Category = async ({ params }) => {
             flexWrap: "wrap",
           }}
         >
-          {category.map((category) => (
+          {data.map((category) => (
             <div key={category._id}>
               <h2>Category {category.name}</h2>
               {category.products && category.products.length > 0 ? (

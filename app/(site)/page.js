@@ -3,15 +3,17 @@ import { getProjects } from "@/sanity/lib/client";
 import Link from "next/link";
 import Newest from "./components/Newest/Newest";
 import { getPages } from "@/sanity/lib/client";
+import { getProductsByCategories } from "@/sanity/lib/client";
 //import { getDataProductsPages } from "@/sanity/lib/client";
-
+import Categories from "./components/Categories/Categories";
 const Home = async () => {
   const projects = await getProjects();
   const pages = await getPages();
   // const products = await getDataProductsPages();
+  const categories = await getProductsByCategories();
   console.log("PAGES !!!!!!", pages);
   console.log("PAGES !!!!!!", projects);
-  // console.log("PAGES !!!!!!", products);
+  //  console.log("PAGES !!!!!!", products);
   return (
     <>
       <section
@@ -77,8 +79,9 @@ const Home = async () => {
       <section className="newest_section">
         <Newest />
       </section>
-
-      {/* <ProductsPages /> */}
+      <section className="categories_section">
+        <Categories />
+      </section>
     </>
   );
 };

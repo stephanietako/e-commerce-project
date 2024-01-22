@@ -21,7 +21,7 @@ export async function getProjects() {
     }
   );
 }
-/////////////////////
+
 export async function getProject(slug) {
   try {
     const client = createClient(clientConfig);
@@ -64,7 +64,7 @@ export async function getPages() {
     }
   );
 }
-//
+
 export async function getPage(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "page" && slug.current == $slug][0]{
@@ -79,7 +79,7 @@ export async function getPage(slug) {
   );
 }
 
-//  Newest: PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
+//  Newest et products: PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
 export async function getDataProducts() {
   return createClient(clientConfig).fetch(
     groq`*[_type == 'product'][0...3] | order(_createdAt desc){
@@ -96,7 +96,45 @@ export async function getDataProducts() {
     }`
   );
 }
-////
+
+export async function getDataProduct(slug) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "product" && slug.current == $slug][0]{
+ _id,
+   _createdAt,
+    "coverImages": images[0].asset->url,
+    images,
+      price,
+    name,
+    "slug": slug.current,
+    "categoryName": category->name,
+    content,
+    }`,
+    { slug }
+  );
+}
+// CATEGORY
+// produits par categories
+export async function getProductsByCategories() {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "category"] {
+  _id,
+  name,
+  "products": *[_type == 'product' && references(^._id)][0...7] | order(_createdAt desc) {
+    _id,
+    price,
+    currency,
+    name,
+    "slug": slug.current,
+    "categoryName": category->name,
+    "images": images[0].asset->url,
+    content
+  }
+}`
+  );
+}
+
+//// slug CATEGORY single page
 export async function getData(category) {
   try {
     const client = createClient(clientConfig);
@@ -120,42 +158,6 @@ export async function getData(category) {
     console.error("Error fetching project:", error);
     return null;
   }
-}
-/////
-export async function getDataProduct(slug) {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "product" && slug.current == $slug][0]{
- _id,
-   _createdAt,
-    "coverImages": images[0].asset->url,
-    images,
-      price,
-    name,
-    "slug": slug.current,
-    "categoryName": category->name,
-    content,
-    }`,
-    { slug }
-  );
-}
-// produits par categories avec slug pour les references
-export async function getProductsByCategories() {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "category"] {
-  _id,
-  name,
-  "products": *[_type == 'product' && references(^._id)][0...7] | order(_createdAt desc) {
-    _id,
-    price,
-    currency,
-    name,
-    "slug": slug.current,
-    "categoryName": category->name,
-    "images": images[0].asset->url,
-    content
-  }
-}`
-  );
 }
 //////////////SHOPPING ////////////////////
 //  Products: PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
