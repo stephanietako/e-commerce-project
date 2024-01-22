@@ -3,17 +3,15 @@ import { getProjects } from "@/sanity/lib/client";
 import Link from "next/link";
 import Newest from "./components/Newest/Newest";
 import { getPages } from "@/sanity/lib/client";
-import { getProductsByCategories } from "@/sanity/lib/client";
-//import { getDataProductsPages } from "@/sanity/lib/client";
 import Categories from "./components/Categories/Categories";
+import Products from "./components/Products/Products";
 const Home = async () => {
   const projects = await getProjects();
   const pages = await getPages();
-  // const products = await getDataProductsPages();
-  const categories = await getProductsByCategories();
+
   console.log("PAGES !!!!!!", pages);
   console.log("PAGES !!!!!!", projects);
-  //  console.log("PAGES !!!!!!", products);
+
   return (
     <>
       <section
@@ -26,18 +24,6 @@ const Home = async () => {
           alignItems: "center",
         }}
       >
-        {/* MENU de products */}
-        {/* <div className="links">
-          {products.map((product) => (
-            <Link
-              key={product._id}
-              href={`/products/${product.slug}`}
-              className="link"
-            >
-              {product.name}
-            </Link>
-          ))}
-        </div> */}
         {/* MENU de page */}
         <div className="links">
           {pages.map((page) => (
@@ -46,7 +32,6 @@ const Home = async () => {
             </Link>
           ))}
         </div>
-
         <div className="bloc_text">
           <h1>This is the Home page</h1>{" "}
           <p>
@@ -81,6 +66,9 @@ const Home = async () => {
       </section>
       <section className="categories_section">
         <Categories />
+      </section>
+      <section>
+        <Products />
       </section>
     </>
   );

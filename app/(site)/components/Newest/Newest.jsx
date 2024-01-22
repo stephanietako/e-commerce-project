@@ -6,6 +6,7 @@ export const dynamic = "force-dynamic";
 
 const Newest = async () => {
   const data = await getDataProducts();
+
   return (
     <section
       className="newest_section"
@@ -38,15 +39,16 @@ const Newest = async () => {
             padding: "33px",
           }}
         >
-          {" "}
-          <h2>Our newest products !!!!</h2>
-          {/* <Link className="all_products" href="/products/all">
-            {" "}
-            <Image className="__img" src={arrow} alt="icon flêche" />
-          </Link> */}
+          <h2>NEWEST PRODUCTS SECTION </h2>
+          <span>
+            <h3>All Products</h3>{" "}
+            <Link className="all_products" href="/products/all">
+              <Image className="__img" src={arrow} alt="icon flêche" />
+            </Link>
+          </span>
         </div>
         <div
-          className="display_product"
+          className="display_product_newest"
           style={{
             display: "flex",
             width: "100%",
@@ -60,7 +62,7 @@ const Newest = async () => {
           {data.map((product) => (
             <div
               key={product._id}
-              className="product_card_group"
+              className="newest_card_group"
               style={{
                 padding: "20px",
               }}
@@ -84,7 +86,7 @@ const Newest = async () => {
                 )}
               </div>
 
-              <div className="content">
+              <div className="newest_content">
                 <div>
                   <h3 className="title_product_newest">
                     <Link href={`/products/${product.slug}`}>

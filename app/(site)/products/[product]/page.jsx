@@ -4,7 +4,7 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 export const dynamic = "force-dynamic";
-
+// single page
 const Product = async ({ params }) => {
   const slug = params.product;
   const product = await getDataProduct(slug);
@@ -47,16 +47,6 @@ const Product = async ({ params }) => {
             />
           )}
           <ImageGallery images={product.images} />
-          {/* <div className="display_images">
-            <Image
-              src={urlFor(images && images[0])}
-              width={250}
-              height={250}
-              alt="les produits"
-              className="product-image"
-            />
-          </div> */}
-
           <div
             className="category_text_container"
             style={{

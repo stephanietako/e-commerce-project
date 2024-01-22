@@ -1,7 +1,7 @@
 import { getProductsByCategories } from "@/sanity/lib/client";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
-
+import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 const Category = async () => {
@@ -11,9 +11,32 @@ const Category = async () => {
 
   return (
     <>
-      <header>
-        <h1 className="_category">Our Categories</h1>
+      <header
+        className="header_category"
+        style={{
+          display: "flex",
+          width: "auto",
+          height: "auto",
+          justifyContent: "space-between",
+          border: "2px solid blue",
+          alignItems: "center",
+          padding: "33px",
+        }}
+      >
+        <h2 className="_category">OUR CATEGORIES</h2>
       </header>
+      {/* MENU LINK de categories avec ça j'ai tous mes slug en menu */}
+      <div className="links">
+        {data.map((category) => (
+          <Link
+            key={category._id}
+            href={`/categories/${category.slug}`}
+            className="link"
+          >
+            {category.name}
+          </Link>
+        ))}
+      </div>
       <div>
         <PortableText value={data.content} />
       </div>
@@ -27,6 +50,7 @@ const Category = async () => {
           height: " auto",
         }}
       >
+        {/* map categories avec ça j'ai tout mon contenu  */}
         <div
           className="display_category"
           style={{

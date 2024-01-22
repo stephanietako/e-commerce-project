@@ -119,6 +119,7 @@ export async function getProductsByCategories() {
   return createClient(clientConfig).fetch(
     groq`*[_type == "category"] {
   _id,
+      _createdAt,
   name,
   "products": *[_type == 'product' && references(^._id)][0...7] | order(_createdAt desc) {
     _id,
@@ -140,6 +141,7 @@ export async function getData(category) {
     const client = createClient(clientConfig);
     const query = groq`*[_type == "product" && category->name == "${category}"] {
         _id,
+            _createdAt,
           "images": images[0].asset->url,
           price,
           name,
@@ -159,41 +161,26 @@ export async function getData(category) {
     return null;
   }
 }
-//////////////SHOPPING ////////////////////
-//  Products: PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
-// export async function getDataProductsPages() {
-//   return createClient(clientConfig).fetch(
-//     groq`*[_type == "product"]{
-//         _id,
-//         _createdAt,
-//      name,
-//      price,
-//         "slug": slug.current,
-//             "categoryName": category->name,
-//     "images": images[0].asset->url,
-//     content
-//     }`,
-//     {
-//       cache: "no-store",
-//     }
-//   );
-// }
+////////////// ALL PRODUCTS ////////////////////
+export async function getDataProductsPages() {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == 'product']{
+    _id,
+    price,
+       currency,
+    name,
+    "slug":slug.current,
+    "categoryName": category->name,
+    "coverImages": images[0].asset->url,
+ "images": images[0].asset->url,
+    content,
+    }`,
+    {
+      cache: "no-store",
+    }
+  );
+}
 /////////////////////
-// export async function getProductPage(slug) {
-//   return createClient(clientConfig).fetch(
-//     groq`*[_type == "product" && slug.current == $slug][0]{
-//  _id,
-//     "coverImages": images[0].asset->url,
-//     images,
-//       price,
-//     name,
-//     "slug": slug.current,
-//     "categoryName": category->name,
-//     }`,
-//     { slug }
-//   );
-// }
-////////////////////////////////
 //resultat de getCategoryData
 // […] 1 item
 // 0:{…} 6 properties
