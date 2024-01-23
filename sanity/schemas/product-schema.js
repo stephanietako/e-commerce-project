@@ -18,20 +18,6 @@ const product = {
       title: "URL",
       type: "url",
     },
-    // {
-    //   name: "image",
-    //   title: "Image",
-    //   type: "image",
-    //   options: { hotspot: true },
-    //   fields: [
-    //     {
-    //       name: "alt",
-    //       title: "Alt",
-    //       type: "string",
-    //     },
-    //   ],
-    // },
-
     {
       name: "content",
       title: "Content",
@@ -54,15 +40,21 @@ const product = {
     },
 
     { name: "currency", title: "Currency", type: "string" },
+    // {
+    //   name: "category",
+    //   title: "Product Category",
+    //   type: "reference",
+    //   to: [
+    //     {
+    //       type: "category",
+    //     },
+    //   ],
+    // },
     {
-      name: "category",
+      name: "categories",
       title: "Product Category",
-      type: "reference",
-      to: [
-        {
-          type: "category",
-        },
-      ],
+      type: "array",
+      of: [{ type: "reference", to: { type: "category" } }],
     },
   ],
   initialValue: {

@@ -22,7 +22,7 @@ const Products = async () => {
           padding: "33px",
         }}
       >
-        <h2 className="_category">ALL PRODUCTS</h2>
+        <h2 className="_products">ALL PRODUCTS</h2>
         <p> ICI</p>
         {allProducts.name}
       </header>
@@ -100,10 +100,71 @@ const Products = async () => {
                           {product.name}
                         </Link>
                       </h3>
-                      <p> {product.categoryName}</p>
-                    </div>
+                      {/* // display des categories */}
+                      {allProducts.map((category) => (
+                        <div key={category._id}>
+                          <h2>categories {category.name}</h2>
+                          {category.categories &&
+                          category.categories.length > 0 ? (
+                            <div
+                              className="display_infos"
+                              style={{
+                                display: "flex",
+                                border: "3px solid black",
+                              }}
+                            >
+                              {category.categories.map((subCategory) => (
+                                <div
+                                  key={subCategory._id} // Utilisez un identifiant unique pour subCategory
+                                  className="data_group"
+                                  style={{
+                                    padding: "20px",
+                                  }}
+                                >
+                                  <div className="images">
+                                    {subCategory.images && (
+                                      <Image
+                                        src={subCategory.images}
+                                        alt="les fleurs"
+                                        className="product__img"
+                                        width={200}
+                                        height={200}
+                                        style={{
+                                          objectFit: "cover",
+                                        }}
+                                      />
+                                    )}
+                                  </div>
 
-                    <p className="price_content">€{product.price.toFixed(2)}</p>
+                                  <div
+                                    className="content"
+                                    style={{
+                                      display: "flex",
+                                      border: "3px solid pink",
+                                      flexDirection: "column",
+                                    }}
+                                  >
+                                    <div>
+                                      <h3 className="title">
+                                        {subCategory.name}
+                                      </h3>
+                                      <p className="category_name">
+                                        {subCategory.categories}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          ) : (
+                            <p>No products available for this category.</p>
+                          )}
+                        </div>
+                      ))}
+                      {/* Fin du display de categories */}
+
+                      {/* <p> {product.categories}</p> */}
+                    </div>
                   </div>
                 </div>
               ))}

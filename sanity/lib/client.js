@@ -1,7 +1,8 @@
 import { createClient, groq } from "next-sanity";
 import clientConfig from "../config/client-config";
 export const revalidate = 10;
-
+// "categoryName": category->name,
+// "images": images[0].asset->url,
 //PROJECTS & PROJECT //////////////////////
 export async function getProjects() {
   return createClient(clientConfig).fetch(
@@ -82,7 +83,7 @@ export async function getPage(slug) {
 //  Newest et products: PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
 export async function getDataProducts() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == 'product'][0...6] | order(_createdAt desc){
+    groq`*[_type == 'product'][0...4] | order(_createdAt desc){
   _id,
     price,
        currency,
@@ -107,7 +108,7 @@ export async function getDataProduct(slug) {
       price,
     name,
     "slug": slug.current,
-    "categoryName": category->name,
+  categories,
     content,
     }`,
     { slug }
@@ -166,11 +167,10 @@ export async function getDataProductsPages() {
   return createClient(clientConfig).fetch(
     groq`*[_type == 'product']{
     _id,
-    price,
-       currency,
+      _createdAt,
     name,
     "slug":slug.current,
-    "categoryName": category->name,
+categories,
     "coverImages": images[0].asset->url,
  "images": images[0].asset->url,
     content,

@@ -93,7 +93,7 @@ const Newest = async () => {
                       {product.name}
                     </Link>
                   </h3>
-                  <p> {product.categoryName}</p>
+                  <p>{product.categories}</p>
                 </div>
 
                 <p className="price_content">€{product.price.toFixed(2)}</p>
