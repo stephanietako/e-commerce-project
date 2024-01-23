@@ -74,7 +74,7 @@ const Products = async () => {
                     padding: "20px",
                   }}
                 >
-                  <div className="images">
+                  {/* <div className="images">
                     {product.coverImages ? (
                       <>
                         <Image
@@ -91,19 +91,19 @@ const Products = async () => {
                     ) : (
                       <p>No image available</p>
                     )}
-                  </div>
+                  </div> */}
 
                   <div className="product_content">
                     <div>
                       <h3 className="title_product_products">
                         <Link href={`/products/${product.slug}`}>
-                          {product.name}
+                          product {product.name}
                         </Link>
                       </h3>
                       {/* // display des categories */}
                       {allProducts.map((category) => (
                         <div key={category._id}>
-                          <h2>categories {category.name}</h2>
+                          <h4>categories {category.name}</h4>
                           {category.categories &&
                           category.categories.length > 0 ? (
                             <div
@@ -115,7 +115,7 @@ const Products = async () => {
                             >
                               {category.categories.map((subCategory) => (
                                 <div
-                                  key={subCategory._id} // Utilisez un identifiant unique pour subCategory
+                                  key={subCategory._id}
                                   className="data_group"
                                   style={{
                                     padding: "20px",
@@ -162,7 +162,6 @@ const Products = async () => {
                         </div>
                       ))}
                       {/* Fin du display de categories */}
-
                       {/* <p> {product.categories}</p> */}
                     </div>
                   </div>

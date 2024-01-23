@@ -104,7 +104,7 @@ export async function getDataProduct(slug) {
  _id,
    _createdAt,
     "coverImages": images[0].asset->url,
-    images,
+  "categoryName": category->name,
       price,
     name,
     "slug": slug.current,
@@ -165,16 +165,21 @@ export async function getData(category) {
 ////////////// ALL PRODUCTS ////////////////////
 export async function getDataProductsPages() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == 'product']{
-    _id,
+    groq`*[_type == "product"] {
+  _id,
       _createdAt,
+  name,
+  "categories": *[_type == 'category' && references(^._id)][0...15] | order(_createdAt desc) {
+    _id,
+    price,
+    currency,
     name,
-    "slug":slug.current,
-categories,
-    "coverImages": images[0].asset->url,
- "images": images[0].asset->url,
-    content,
-    }`,
+    "slug": slug.current,
+ categories,
+    "images": images[0].asset->url,
+    content
+  }
+}`,
     {
       cache: "no-store",
     }
