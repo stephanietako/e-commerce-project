@@ -1,5 +1,4 @@
 import { getDataProductsPages } from "@/sanity/lib/client";
-// import ImageGallery from "../ImageGallery/ImageGallery";
 import Link from "next/link";
 import Image from "next/image";
 export const dynamic = "force-dynamic";
@@ -67,26 +66,17 @@ const Products = async () => {
                 flexWrap: "wrap",
               }}
             >
-              {/* {allProducts.map((product) => (
-                <div
-                  key={product._id}
-                  className="product_card_group"
-                  style={{
-                    padding: "20px",
-                  }}
-                > */}
-
               <div className="product_content">
                 <div>
-                  {/* <h3 className="title_product_products">
-                    <Link href={`/products/${product.slug}`}>
-                      product {product.name}
-                    </Link>
-                  </h3> */}
                   {/* // display des categories */}
                   {allProducts.map((category) => (
                     <div key={category._id}>
-                      <h4>categories {category.name}</h4>
+                      <h3 className="title_product_products">
+                        <Link href={`/categories/${category.slug}`}>
+                          product {category.name}
+                        </Link>
+                      </h3>
+
                       {category.categories && category.categories.length > 0 ? (
                         <div
                           className="display_infos"
@@ -142,14 +132,11 @@ const Products = async () => {
                     </div>
                   ))}
                   {/* Fin du display de categories */}
-                  {/* <p> {product.categories}</p> */}
                 </div>
               </div>
             </div>
-            {/* ))} */}
           </div>
         </div>
-        {/* </div> */}
       </section>
     </>
   );
