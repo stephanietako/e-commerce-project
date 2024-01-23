@@ -82,7 +82,7 @@ export async function getPage(slug) {
 //  Newest et products: PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
 export async function getDataProducts() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == 'product'][0...3] | order(_createdAt desc){
+    groq`*[_type == 'product'][0...6] | order(_createdAt desc){
   _id,
     price,
        currency,
@@ -121,7 +121,7 @@ export async function getProductsByCategories() {
   _id,
       _createdAt,
   name,
-  "products": *[_type == 'product' && references(^._id)][0...7] | order(_createdAt desc) {
+  "products": *[_type == 'product' && references(^._id)][0...15] | order(_createdAt desc) {
     _id,
     price,
     currency,

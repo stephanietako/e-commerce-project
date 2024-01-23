@@ -66,7 +66,7 @@ const product = {
     },
   ],
   initialValue: {
-    currency: "USD",
+    currency: "EUR",
   },
 };
 
