@@ -175,7 +175,7 @@ export async function getDataProductsPages() {
     currency,
     name,
     "slug": slug.current,
- categories,
+     "coverImages": images[0].asset->url,
     "images": images[0].asset->url,
     content
   }

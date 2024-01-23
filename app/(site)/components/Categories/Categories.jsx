@@ -37,6 +37,7 @@ const Category = async () => {
           </Link>
         ))}
       </div>
+      {/* MENU LINK FIN */}
       <div>
         <PortableText value={data.content} />
       </div>
@@ -50,7 +51,7 @@ const Category = async () => {
           height: " auto",
         }}
       >
-        {/* map categories avec ça j'ai tout mon contenu  */}
+        {/* DISPLAY CATEGORY map categories avec ça j'ai tout mon contenu  */}
         <div
           className="display_category"
           style={{
