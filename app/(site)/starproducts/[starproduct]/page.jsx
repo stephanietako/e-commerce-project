@@ -14,7 +14,7 @@ const Product = async ({ params }) => {
 
   return (
     <>
-      <div className="title_slug_page">
+      <div className="title_singlepage_starproduct">
         <h1>{product.name} ICI C EST PRODUCTS PRODUCT</h1>
       </div>
       <div

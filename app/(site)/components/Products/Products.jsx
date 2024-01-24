@@ -23,7 +23,7 @@ const Products = async () => {
       >
         <h2 className="_products">ALL PRODUCTS</h2>
         <p> ICI</p>
-        {allProducts.name}
+        <Link href={`/products/${allProducts.slug}`}>{allProducts.name}</Link>
       </header>
       <section
         className="products_section"
@@ -57,7 +57,7 @@ const Products = async () => {
             }}
           >
             <div
-              className="display_product"
+              className="display_products"
               style={{
                 display: "flex",
                 border: "3px solid violet",
@@ -65,19 +65,23 @@ const Products = async () => {
                 flexWrap: "wrap",
               }}
             >
-              <div className="product_content">
+              <div className="products_content">
+                <h3 className="title_product_products">
+                  <Link href={`/products/${allProducts.slug}`}>
+                    {allProducts.name}
+                  </Link>
+                </h3>
                 <div className="categories_map">
                   {allProducts.map((product) => (
                     <div key={product._id}>
-                      <h3 className="title_product_products">
-                        <Link href={`/products/${product.slug}`}>
-                          {product.name}
-                        </Link>
-                      </h3>
+                      <h3 className="title_products">{product.name}</h3>
+                      <Link href={`/products/${product.name}`}>
+                        {product.name}
+                      </Link>
                       {/* // display des categories */}
                       {product.categories && product.categories.length > 0 ? (
                         <div
-                          className="display_infos"
+                          className="display_infos_products"
                           style={{
                             display: "flex",
                             border: "3px solid black",
@@ -91,7 +95,7 @@ const Products = async () => {
                                 padding: "20px",
                               }}
                             >
-                              <div className="images">
+                              <div className="images_products">
                                 {subCategory.coverImages && (
                                   <Image
                                     src={subCategory.coverImages}
@@ -107,7 +111,7 @@ const Products = async () => {
                               </div>
 
                               <div
-                                className="content"
+                                className="content_products"
                                 style={{
                                   display: "flex",
                                   border: "3px solid pink",
@@ -115,7 +119,9 @@ const Products = async () => {
                                 }}
                               >
                                 <div>
-                                  <h3 className="title">{subCategory.name}</h3>
+                                  <h3 className="title_products">
+                                    {subCategory.name}
+                                  </h3>
                                   <p className="category_name">
                                     {subCategory.categories}
                                   </p>

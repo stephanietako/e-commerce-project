@@ -1,7 +1,7 @@
 import { getDataProduct } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 // import { urlFor } from "@/sanity/config/client-config";
-import Image from "next/image";
+// import Image from "next/image";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 export const dynamic = "force-dynamic";
 // single page
@@ -14,7 +14,7 @@ const Products = async ({ params }) => {
 
   return (
     <>
-      <div className="title_slug_page">
+      <div className="title_slug_singlepage_product">
         <h1>{product.name} ICI C EST PRODUCTS PRODUCT</h1>
       </div>
       <div

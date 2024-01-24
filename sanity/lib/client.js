@@ -80,23 +80,7 @@ export async function getPage(slug) {
   );
 }
 
-//  Newest et products: PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
-export async function getDataProducts() {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == 'product'][0...10] | order(_createdAt desc){
-  _id,
-    price,
-       currency,
-    name,
-    "slug":slug.current,
-    "categoryName": category->name,
-    "coverImages": images[0].asset->url,
- "images": images[0].asset->url,
-    content,
-      
-    }`
-  );
-}
+//  STARPRODUCTS &  ALL PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
 export async function getDataStarProducts() {
   return createClient(clientConfig).fetch(
     groq`*[_type == 'product'][0...3] | order(_createdAt desc){
@@ -115,6 +99,48 @@ export async function getDataStarProducts() {
   }`
   );
 }
+///////////// ALL PRODUCTS ////////////////////
+export async function getDataProductsPages() {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "product"] {
+  _id,
+      _createdAt,
+  name,
+  "categories": *[_type == 'category' && references(^._id)][0...15] | order(_createdAt desc) {
+    _id,
+    price,
+    currency,
+    name,
+    "slug": slug.current,
+     "coverImages": images[0].asset->url,
+    "images": images[0].asset->url,
+    content,
+    "categories": categories[0]->name,
+  }
+}`,
+    {
+      cache: "no-store",
+    }
+  );
+}
+///////////////////
+export async function getDataProducts() {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == 'product'][0...10] | order(_createdAt desc){
+  _id,
+    price,
+       currency,
+    name,
+    "slug":slug.current,
+    "categoryName": category->name,
+    "coverImages": images[0].asset->url,
+ "images": images[0].asset->url,
+    content,
+      
+    }`
+  );
+}
+
 export async function getDataStarProduct(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "starProduct" && slug.current == $slug][0]{
@@ -142,7 +168,7 @@ export async function getDataProduct(slug) {
       price,
     name,
     "slug": slug.current,
-  categories,
+     "categories": categories[0]->name,
     content,
     }`,
     { slug }
@@ -170,55 +196,32 @@ export async function getProductsByCategories() {
 }
 
 //// slug CATEGORY single page
-export async function getData(slug) {
-  try {
-    const client = createClient(clientConfig);
-    const query = groq`*[_type == "category" && slug.current == $slug][0]{
-       _id,
-         name,
-   _createdAt,
-    "coverImages": images[0].asset->url,
-    images,
-      price,
-    "slug": slug.current,
-    content,
-    }`;
+// export async function getData(slug) {
+//   try {
+//     const client = createClient(clientConfig);
+//     const query = groq`*[_type == "category" && slug.current == $slug][0]{
+//        _id,
+//          name,
+//    _createdAt,
+//     "coverImages": images[0].asset->url,
+//     images,
+//       price,
+//     "slug": slug.current,
+//     content,
+//     }`;
 
-    const params = { slug };
-    const project = await client.fetch(query, params, {
-      cache: "no-store",
-    });
+//     const params = { slug };
+//     const project = await client.fetch(query, params, {
+//       cache: "no-store",
+//     });
 
-    console.log("Fetched project !!!!!:", project);
-    return project;
-  } catch (error) {
-    console.error("Error fetching project:", error);
-    return null;
-  }
-}
-////////////// ALL PRODUCTS ////////////////////
-export async function getDataProductsPages() {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "product"] {
-  _id,
-      _createdAt,
-  name,
-  "categories": *[_type == 'category' && references(^._id)][0...15] | order(_createdAt desc) {
-    _id,
-    price,
-    currency,
-    name,
-    "slug": slug.current,
-     "coverImages": images[0].asset->url,
-    "images": images[0].asset->url,
-    content
-  }
-}`,
-    {
-      cache: "no-store",
-    }
-  );
-}
+//     console.log("Fetched project !!!!!:", project);
+//     return project;
+//   } catch (error) {
+//     console.error("Error fetching project:", error);
+//     return null;
+//   }
+// }
 /////////////////////
 //resultat de getCategoryData
 // […] 1 item
