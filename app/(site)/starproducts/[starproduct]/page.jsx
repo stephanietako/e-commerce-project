@@ -5,7 +5,7 @@ import Image from "next/image";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 export const dynamic = "force-dynamic";
 // single page
-const Products = async ({ params }) => {
+const Product = async ({ params }) => {
   const slug = params.product;
   const product = await getDataProduct(slug);
 
@@ -34,18 +34,18 @@ const Products = async ({ params }) => {
             width: "100%",
           }}
         >
-          {/* {product.images && (
+          {product.imageUrl && (
             <Image
-              src={product.images}
+              src={product.imageUrl}
               alt={product.name}
               width={250}
               height={250}
-              className="product_img"
+              className="starproduct_img"
               style={{
                 objectFit: "cover",
               }}
             />
-          )} */}
+          )}
           <ImageGallery images={product.images} />
           <div
             className="category_text_container"
@@ -133,4 +133,4 @@ const Products = async ({ params }) => {
     </>
   );
 };
-export default Products;
+export default Product;

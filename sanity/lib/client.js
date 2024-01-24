@@ -83,7 +83,7 @@ export async function getPage(slug) {
 //  Newest et products: PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
 export async function getDataProducts() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == 'product'][0...4] | order(_createdAt desc){
+    groq`*[_type == 'product'][0...10] | order(_createdAt desc){
   _id,
     price,
        currency,
@@ -97,13 +97,47 @@ export async function getDataProducts() {
     }`
   );
 }
-
+export async function getDataStarProducts() {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == 'product'][0...3] | order(_createdAt desc){
+  _id,
+      _createdAt,
+  name,
+    _id,
+    price,
+    currency,
+    name,
+    "slug": slug.current,
+     "coverImages": images[0].asset->url,
+    content,
+    "categories": categories[0]->name,
+      
+  }`
+  );
+}
+export async function getDataStarProduct(slug) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "starProduct" && slug.current == $slug][0]{
+ _id,
+   _createdAt,
+    "coverImages": images[0].asset->url,
+    images,
+      price,
+    name,
+    "slug": slug.current,
+  categories,
+    content,
+    }`,
+    { slug }
+  );
+}
 export async function getDataProduct(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "product" && slug.current == $slug][0]{
  _id,
    _createdAt,
     "coverImages": images[0].asset->url,
+    images,
   "categoryName": category->name,
       price,
     name,
@@ -128,7 +162,6 @@ export async function getProductsByCategories() {
     currency,
     name,
     "slug": slug.current,
-    "categoryName": category->name,
     "images": images[0].asset->url,
     content
   }
@@ -137,20 +170,21 @@ export async function getProductsByCategories() {
 }
 
 //// slug CATEGORY single page
-export async function getData(category) {
+export async function getData(slug) {
   try {
     const client = createClient(clientConfig);
-    const query = groq`*[_type == "product" && category->name == "${category}"] {
-        _id,
-            _createdAt,
-          "images": images[0].asset->url,
-          price,
-          name,
-          "slug": slug.current,
-          "categoryName": category->name
-      }`;
+    const query = groq`*[_type == "category" && slug.current == $slug][0]{
+       _id,
+         name,
+   _createdAt,
+    "coverImages": images[0].asset->url,
+    images,
+      price,
+    "slug": slug.current,
+    content,
+    }`;
 
-    const params = { category };
+    const params = { slug };
     const project = await client.fetch(query, params, {
       cache: "no-store",
     });

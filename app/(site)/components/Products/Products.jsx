@@ -56,7 +56,6 @@ const Products = async () => {
               flexWrap: "wrap",
             }}
           >
-            {/* DISPLAY product map product avec ça j'ai tout mon contenu  */}
             <div
               className="display_product"
               style={{
@@ -67,17 +66,16 @@ const Products = async () => {
               }}
             >
               <div className="product_content">
-                <div>
-                  {/* // display des categories */}
-                  {allProducts.map((category) => (
-                    <div key={category._id}>
+                <div className="categories_map">
+                  {allProducts.map((product) => (
+                    <div key={product._id}>
                       <h3 className="title_product_products">
-                        <Link href={`/categories/${category.slug}`}>
-                          product {category.name}
+                        <Link href={`/products/${product.slug}`}>
+                          {product.name}
                         </Link>
                       </h3>
-
-                      {category.categories && category.categories.length > 0 ? (
+                      {/* // display des categories */}
+                      {product.categories && product.categories.length > 0 ? (
                         <div
                           className="display_infos"
                           style={{
@@ -85,7 +83,7 @@ const Products = async () => {
                             border: "3px solid black",
                           }}
                         >
-                          {category.categories.map((subCategory) => (
+                          {product.categories.map((subCategory) => (
                             <div
                               key={subCategory._id}
                               className="data_group"
@@ -94,9 +92,9 @@ const Products = async () => {
                               }}
                             >
                               <div className="images">
-                                {subCategory.images && (
+                                {subCategory.coverImages && (
                                   <Image
-                                    src={subCategory.images}
+                                    src={subCategory.coverImages}
                                     alt="les fleurs"
                                     className="product__img"
                                     width={200}
@@ -127,7 +125,7 @@ const Products = async () => {
                           ))}
                         </div>
                       ) : (
-                        <p>No products available for this category.</p>
+                        <p>No category available for this product.</p>
                       )}
                     </div>
                   ))}

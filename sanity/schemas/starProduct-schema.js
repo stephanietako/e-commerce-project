@@ -1,11 +1,11 @@
 // c'est par exemple pour une section produit du mois
 
-const product = {
-  name: "product",
+const starProduct = {
+  name: "starProduct",
   type: "document",
-  title: "Product",
+  title: "star Product",
   fields: [
-    { name: "name", type: "string", title: "Name of Product" },
+    { name: "name", type: "string", title: "Name of Star Product" },
     {
       name: "images",
       type: "array",
@@ -64,4 +64,4 @@ const product = {
   },
 };
 
-export default product;
+export default starProduct;

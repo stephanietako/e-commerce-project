@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { getProjects } from "@/sanity/lib/client";
 import Link from "next/link";
-import Newest from "./components/Newest/Newest";
+
 import { getPages } from "@/sanity/lib/client";
 import Categories from "./components/Categories/Categories";
 import Products from "./components/Products/Products";
+import StarProducts from "./components/StarProducts/StarProducts";
 const Home = async () => {
   const projects = await getProjects();
   const pages = await getPages();
@@ -62,7 +63,7 @@ const Home = async () => {
         {/* ///////////////// */}
       </section>
       <section className="newest_section">
-        <Newest />
+        <StarProducts />
       </section>
       <section className="categories_section">
         <Categories />

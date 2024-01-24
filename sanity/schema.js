@@ -3,6 +3,8 @@ import blockContent from "./schemas/blockContent";
 import page from "./schemas/page-schema";
 import product from "./schemas/product-schema";
 import category from "./schemas/category-schema";
+import starProduct from "./schemas/starProduct-schema";
+
 export const schema = {
-  types: [project, blockContent, page, product, category],
+  types: [project, blockContent, page, product, category, starProduct],
 };
