@@ -3,7 +3,7 @@ import "./globals.css";
 import Link from "next/link";
 import Navbar from "./components/Navbar/Navbar";
 import { getDataProducts } from "@/sanity/lib/client";
-
+import { getCategories } from "@/sanity/lib/client";
 const inter = Inter({ subsets: ["latin"] });
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -14,6 +14,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   // get all of our pages
   const products = await getDataProducts();
+  const categories = await getCategories();
 
   return (
     <html lang="en">
@@ -33,6 +34,17 @@ export default async function RootLayout({ children }) {
             ))}
           </div>
           {/* /////// */}
+          <div className="links">
+            {categories.map((category) => (
+              <Link
+                key={category._id}
+                href={`/categories/${category.slug}`}
+                className="link"
+              >
+                {category.name}
+              </Link>
+            ))}
+          </div>
         </header>
         <main className="main">{children}</main>
       </body>

@@ -1,6 +1,6 @@
 import { getDataProductsPages } from "@/sanity/lib/client";
 import Image from "next/image";
-
+import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 const Products = async () => {
@@ -64,7 +64,6 @@ const Products = async () => {
               {allProducts.map((product) => (
                 <div key={product._id}>
                   <h3 className="title_products">{product.name}</h3>
-
                   {/* Vérification de la disponibilité de catégories pour ce produit */}
                   {product.categories && product.categories.length > 0 ? (
                     <div

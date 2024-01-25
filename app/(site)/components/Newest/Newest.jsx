@@ -110,12 +110,7 @@ const Newest = async () => {
                               product {category.name}
                             </Link>
                           </h3>
-                          {/* <div>
-                    <h3 className="title_product_newest">
-                      <Link href={`/products/${product.slug}`}>
-                        {product.name}
-                      </Link>
-                    </h3> */}
+
                           {/* DISPLAY DES CATEGORIES */}
                           {data.categories && data.categories.length > 0 ? (
                             <div

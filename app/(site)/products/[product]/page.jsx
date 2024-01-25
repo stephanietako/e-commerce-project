@@ -1,15 +1,14 @@
 import { getDataProduct } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
-// import { urlFor } from "@/sanity/config/client-config";
-// import Image from "next/image";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
+
 export const dynamic = "force-dynamic";
 // single page
 const Products = async ({ params }) => {
   const slug = params.product;
   const product = await getDataProduct(slug);
 
-  console.log("TITLE SLUG Product", params);
+  console.log("TITLE SLUG Product", slug);
   console.log("Product!!!!!!!!!!!!", product);
 
   return (
@@ -34,21 +33,9 @@ const Products = async ({ params }) => {
             width: "100%",
           }}
         >
-          {/* {product.images && (
-            <Image
-              src={product.images}
-              alt={product.name}
-              width={250}
-              height={250}
-              className="product_img"
-              style={{
-                objectFit: "cover",
-              }}
-            />
-          )} */}
           <ImageGallery images={product.images} />
           <div
-            className="category_text_container"
+            className="products_text_container"
             style={{
               display: "flex",
               width: "100%",
@@ -56,7 +43,7 @@ const Products = async ({ params }) => {
             }}
           >
             <div
-              className="category_content"
+              className="products_content"
               style={{
                 display: "flex",
                 width: "auto",
@@ -70,7 +57,7 @@ const Products = async ({ params }) => {
                 <h2>{product.name}</h2>
               </span>
               <div
-                className="category_price"
+                className="products_price"
                 style={{
                   border: "3px solid black",
                   marginTop: "25px",
@@ -93,7 +80,7 @@ const Products = async ({ params }) => {
                 </span>
               </div>
               <div
-                className="category_btns"
+                className="products_btns"
                 style={{
                   display: "flex",
                   width: "100%",
@@ -121,7 +108,7 @@ const Products = async ({ params }) => {
                   Checkout now
                 </button>
               </div>
-              <div className="category_description">
+              <div className="products_description">
                 <div>
                   <PortableText value={product.content} />
                 </div>

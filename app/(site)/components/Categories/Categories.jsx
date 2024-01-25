@@ -25,19 +25,6 @@ const Category = async () => {
       >
         <h2 className="_category">OUR CATEGORIES</h2>
       </header>
-      {/* MENU LINK de categories avec ça j'ai tous mes slug en menu */}
-      <div className="links">
-        {data.map((category) => (
-          <Link
-            key={category._id}
-            href={`/categories/${category.slug}`}
-            className="link"
-          >
-            {category.name}
-          </Link>
-        ))}
-      </div>
-      {/* MENU LINK FIN */}
       <div>
         <PortableText value={data.content} />
       </div>
