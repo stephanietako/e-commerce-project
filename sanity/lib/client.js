@@ -189,7 +189,7 @@ export async function getProductsByCategories() {
     name,
     "slug": slug.current,
     "images": images[0].asset->url,
-    content
+    content,
   }
 }`
   );

@@ -97,7 +97,6 @@ const StarProducts = async () => {
                   </h3>
                   <p>{product.categories}</p>
                 </div>
-
                 <p className="price_content">€{product.price.toFixed(2)}</p>
               </div>
             </div>

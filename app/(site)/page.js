@@ -6,6 +6,7 @@ import { getPages } from "@/sanity/lib/client";
 import Categories from "./components/Categories/Categories";
 import Products from "./components/Products/Products";
 import StarProducts from "./components/StarProducts/StarProducts";
+
 const Home = async () => {
   const projects = await getProjects();
   const pages = await getPages();
@@ -62,7 +63,7 @@ const Home = async () => {
         </div>
         {/* ///////////////// */}
       </section>
-      <section className="newest_section">
+      <section className="starproducts_section">
         <StarProducts />
       </section>
       <section className="categories_section">

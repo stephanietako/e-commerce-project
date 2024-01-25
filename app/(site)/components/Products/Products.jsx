@@ -1,6 +1,6 @@
 import { getDataProductsPages } from "@/sanity/lib/client";
-import Link from "next/link";
 import Image from "next/image";
+
 export const dynamic = "force-dynamic";
 
 const Products = async () => {
@@ -23,8 +23,9 @@ const Products = async () => {
       >
         <h2 className="_products">ALL PRODUCTS</h2>
         <p> ICI</p>
-        <Link href={`/products/${allProducts.slug}`}>{allProducts.name}</Link>
       </header>
+
+      {/* Section principale des produits */}
       <section
         className="products_section"
         style={{
@@ -35,6 +36,7 @@ const Products = async () => {
           alignItems: "center",
         }}
       >
+        {/* Conteneur des produits */}
         <div
           className="products_container"
           style={{
@@ -44,6 +46,7 @@ const Products = async () => {
             flexDirection: "column",
           }}
         >
+          {/* Affichage de tous les produits disponibles */}
           <div
             className="display_all_products"
             style={{
@@ -56,88 +59,73 @@ const Products = async () => {
               flexWrap: "wrap",
             }}
           >
-            <div
-              className="display_products"
-              style={{
-                display: "flex",
-                border: "3px solid violet",
-                justifyContent: "space-evenly",
-                flexWrap: "wrap",
-              }}
-            >
-              <div className="products_content">
-                <h3 className="title_product_products">
-                  <Link href={`/products/${allProducts.slug}`}>
-                    {allProducts.name}
-                  </Link>
-                </h3>
-                <div className="categories_map">
-                  {allProducts.map((product) => (
-                    <div key={product._id}>
-                      <h3 className="title_products">{product.name}</h3>
-                      <Link href={`/products/${product.name}`}>
-                        {product.name}
-                      </Link>
-                      {/* // display des categories */}
-                      {product.categories && product.categories.length > 0 ? (
+            <div className="products_content">
+              {/* Boucle à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
+              {allProducts.map((product) => (
+                <div key={product._id}>
+                  <h3 className="title_products">{product.name}</h3>
+
+                  {/* Vérification de la disponibilité de catégories pour ce produit */}
+                  {product.categories && product.categories.length > 0 ? (
+                    <div
+                      className="display_infos_products"
+                      style={{
+                        display: "flex",
+                        border: "3px solid black",
+                      }}
+                    >
+                      {/* Boucle à travers toutes les sous-catégories du produit */}
+                      {product.categories.map((subCategory) => (
                         <div
-                          className="display_infos_products"
+                          key={subCategory._id}
+                          className="data_group"
                           style={{
-                            display: "flex",
-                            border: "3px solid black",
+                            padding: "20px",
                           }}
                         >
-                          {product.categories.map((subCategory) => (
-                            <div
-                              key={subCategory._id}
-                              className="data_group"
-                              style={{
-                                padding: "20px",
-                              }}
-                            >
-                              <div className="images_products">
-                                {subCategory.coverImages && (
-                                  <Image
-                                    src={subCategory.coverImages}
-                                    alt="les fleurs"
-                                    className="product__img"
-                                    width={200}
-                                    height={200}
-                                    style={{
-                                      objectFit: "cover",
-                                    }}
-                                  />
-                                )}
-                              </div>
-
-                              <div
-                                className="content_products"
+                          <div className="images_products">
+                            {/* Affichage de l'image de la sous-catégorie, s'il y en a une */}
+                            {subCategory.coverImages && (
+                              <Image
+                                src={subCategory.coverImages}
+                                alt="les fleurs"
+                                className="product__img"
+                                width={200}
+                                height={200}
                                 style={{
-                                  display: "flex",
-                                  border: "3px solid pink",
-                                  flexDirection: "column",
+                                  objectFit: "cover",
                                 }}
-                              >
-                                <div>
-                                  <h3 className="title_products">
-                                    {subCategory.name}
-                                  </h3>
-                                  <p className="category_name">
-                                    {subCategory.categories}
-                                  </p>
-                                </div>
-                              </div>
+                              />
+                            )}
+                          </div>
+
+                          {/* Contenu détaillé de la sous-catégorie */}
+                          <div
+                            className="content_products"
+                            style={{
+                              display: "flex",
+                              border: "3px solid pink",
+                              flexDirection: "column",
+                            }}
+                          >
+                            <div>
+                              <h3 className="title_products">
+                                {subCategory.name}
+                              </h3>
+                              <p className="category_name">
+                                {subCategory.categories}
+                              </p>
                             </div>
-                          ))}
+                          </div>
                         </div>
-                      ) : (
-                        <p>No category available for this product.</p>
-                      )}
+                      ))}
                     </div>
-                  ))}
-                  {/* Fin du display de categories */}
+                  ) : (
+                    // Affichage d'un message si aucune catégorie n'est disponible pour ce produit
+                    <p>No category available for this product.</p>
+                  )}
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -145,4 +133,6 @@ const Products = async () => {
     </>
   );
 };
+
+// En résumé, la boucle externe traverse tous les produits, et la boucle interne traverse toutes les sous-catégories pour chaque produit. Cela permet de traiter les informations liées aux sous-catégories de chaque produit de manière structurée et d'afficher les détails de chaque sous-catégorie associée à un produit particulier.
 export default Products;

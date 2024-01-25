@@ -74,14 +74,10 @@ const category = {
       type: "boolean",
     },
     {
-      name: "product",
-      title: " Cetegory Product",
-      type: "reference",
-      to: [
-        {
-          type: "product",
-        },
-      ],
+      name: "products",
+      title: " Category Product",
+      type: "array",
+      of: [{ type: "reference", to: { type: "product" } }],
     },
   ],
   initialValue: {
