@@ -193,6 +193,21 @@ export async function getProductsByCategories() {
   );
 }
 
+export async function getCategories() {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "category" ]{
+       _id,
+         name,
+   _createdAt,
+    "coverImages": images[0].asset->url,
+    images,
+  "products": products[0]->name,
+      price,
+    "slug": slug.current,
+    content,
+    }`
+  );
+}
 //// slug CATEGORY single page
 export async function getData(slug) {
   return createClient(clientConfig).fetch(
