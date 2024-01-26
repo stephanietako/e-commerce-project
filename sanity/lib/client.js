@@ -96,7 +96,6 @@ export async function getDataStarProducts() {
      images,
     content,
     "categories": categories[0]->name,
-      
   }`
   );
 }
@@ -180,20 +179,19 @@ export async function getDataProduct(slug) {
 // produits par categories
 export async function getProductsByCategories() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "category"] {
+    groq`*[_type == 'category'][0...20] | order(_createdAt desc){
   _id,
       _createdAt,
   name,
-  "products": *[_type == 'product' && references(^._id)][0...15] | order(_createdAt desc) {
     _id,
     price,
     currency,
     name,
     "slug": slug.current,
-    "images": images[0].asset->url,
+     "coverImages": images[0].asset->url,
     content,
-  }
-}`
+    products,
+  }`
   );
 }
 
@@ -216,14 +214,14 @@ export async function getCategories() {
 export async function getData(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "category" && slug.current == $slug][0]{
-       _id,
+    _id,
    _createdAt,
-       name,
     "coverImages": images[0].asset->url,
     images,
-  "products": products[0]->name,
       price,
+    name,
     "slug": slug.current,
+     "products": products[0]->name,
     content,
     }`,
     { slug }

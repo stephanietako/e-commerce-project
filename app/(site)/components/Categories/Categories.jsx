@@ -1,6 +1,7 @@
 import { getProductsByCategories } from "@/sanity/lib/client";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
+import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 const Category = async () => {
@@ -49,7 +50,18 @@ const Category = async () => {
         >
           {data.map((category) => (
             <div key={category._id}>
-              <h2>Category {category.name}</h2>
+              <div>
+                <h2 className="title_product_starproducts">
+                  <Link href={`/categories/${category.slug}`}>
+                    {category.name}
+                  </Link>
+                </h2>
+                {/* :::::::::::::::::::: */}
+
+                {/* <p>{category.products}</p> */}
+
+                {/* :::::::::::::::::::: */}
+              </div>
               {category.products && category.products.length > 0 ? (
                 <div
                   className="display_infos"
@@ -67,17 +79,21 @@ const Category = async () => {
                       }}
                     >
                       <div className="images">
-                        {product.images && (
-                          <Image
-                            src={product.images}
-                            alt="les fleurs"
-                            className="product__img"
-                            width={200}
-                            height={200}
-                            style={{
-                              objectFit: "cover",
-                            }}
-                          />
+                        {category.coverImages ? (
+                          <>
+                            <Image
+                              src={category.coverImages}
+                              alt="les fleurs"
+                              className="product__img"
+                              width={200}
+                              height={200}
+                              style={{
+                                objectFit: "cover",
+                              }}
+                            />
+                          </>
+                        ) : (
+                          <p>No image available</p>
                         )}
                       </div>
 
@@ -90,13 +106,13 @@ const Category = async () => {
                         }}
                       >
                         <div>
-                          <h3 className="title">{product.name}</h3>
-                          <p className="category_name">
-                            {product.categoryName}
-                          </p>
+                          {/* <h3 className="title">{product.name}</h3> */}
+                          {/* <p className="category_name">
+                            {product.name}
+                          </p> */}
                         </div>
                         <p className="price_content">
-                          €{product.price.toFixed(2)}
+                          €{category.price.toFixed(2)}
                         </p>
                       </div>
                     </div>
