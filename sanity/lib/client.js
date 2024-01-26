@@ -183,10 +183,8 @@ export async function getProductsByCategories() {
   _id,
       _createdAt,
   name,
-    _id,
     price,
     currency,
-    name,
     "slug": slug.current,
      "coverImages": images[0].asset->url,
     content,
@@ -195,21 +193,6 @@ export async function getProductsByCategories() {
   );
 }
 
-export async function getCategories() {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "category" ]{
-       _id,
-         name,
-   _createdAt,
-    "coverImages": images[0].asset->url,
-    images,
-  "products": products[0]->name,
-      price,
-    "slug": slug.current,
-    content,
-    }`
-  );
-}
 //// slug CATEGORY single page
 export async function getData(slug) {
   return createClient(clientConfig).fetch(
@@ -227,6 +210,21 @@ export async function getData(slug) {
     { slug }
   );
 }
+///////////////////////////////
+// *[_type == "category"] {
+//   _id,
+//       _createdAt,
+//   name,
+//   "products": *[_type == 'product' && references(^._id)][0...15] | order(_createdAt desc) {
+//     _id,
+//     price,
+//     currency,
+//     name,
+//     "slug": slug.current,
+//     "images": images[0].asset->url,
+//     content,
+//   }
+// }
 /////////////////////
 //resultat de getCategoryData
 // […] 1 item

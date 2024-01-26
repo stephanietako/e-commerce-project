@@ -2,7 +2,7 @@ import { getProductsByCategories } from "@/sanity/lib/client";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
-import category from "@/sanity/schemas/category-schema";
+
 export const dynamic = "force-dynamic";
 
 const Category = async () => {
@@ -101,12 +101,6 @@ const Category = async () => {
                           flexDirection: "column",
                         }}
                       >
-                        <div>
-                          {/* <h3 className="title">{product.name}</h3> */}
-                          {/* <p className="category_name">
-                            {product.name}
-                          </p> */}
-                        </div>
                         <p className="price_content">
                           €{category.price.toFixed(2)}
                         </p>

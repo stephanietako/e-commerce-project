@@ -1,5 +1,4 @@
 import { getData } from "@/sanity/lib/client";
-import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 export const dynamic = "force-dynamic";
