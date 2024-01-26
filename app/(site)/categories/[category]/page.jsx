@@ -15,7 +15,7 @@ const Category = async ({ params }) => {
       <div className="title_slug_singlepage_categoy">
         <h1>{data.name}ICI C EST CATEGORY</h1>
       </div>
-      {/* <div
+      <div
         className="gallery_container"
         style={{
           display: "flex",
@@ -32,7 +32,7 @@ const Category = async ({ params }) => {
             width: "100%",
           }}
         >
-          <ImageGallery images={category.images} />
+          <ImageGallery images={data.images} />
           <div
             className="products_text_container"
             style={{
@@ -52,8 +52,8 @@ const Category = async ({ params }) => {
               }}
             >
               <span>
-                {category.categoryName}
-                <h2>{category.name}</h2>
+                {data.products}
+                <h2>{data.name}</h2>
               </span>
               <div
                 className="products_price"
@@ -71,7 +71,7 @@ const Category = async ({ params }) => {
                       fontSize: "3rem",
                     }}
                   >
-                    €{category.price.toFixed(2)}
+                    €{data.price.toFixed(2)}
                   </p>
                 </span>
                 <span>
@@ -109,13 +109,13 @@ const Category = async ({ params }) => {
               </div>
               <div className="products_description">
                 <div>
-                  <PortableText value={category.content} />
+                  <PortableText value={data.content} />
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };

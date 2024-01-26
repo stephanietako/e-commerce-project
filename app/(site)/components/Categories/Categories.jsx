@@ -1,7 +1,6 @@
 import { getProductsByCategories } from "@/sanity/lib/client";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
-import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 const Category = async () => {
