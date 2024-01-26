@@ -2,6 +2,7 @@ import { getProductsByCategories } from "@/sanity/lib/client";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
+import category from "@/sanity/schemas/category-schema";
 export const dynamic = "force-dynamic";
 
 const Category = async () => {
@@ -56,11 +57,6 @@ const Category = async () => {
                     {category.name}
                   </Link>
                 </h2>
-                {/* :::::::::::::::::::: */}
-
-                {/* <p>{category.products}</p> */}
-
-                {/* :::::::::::::::::::: */}
               </div>
               {category.products && category.products.length > 0 ? (
                 <div
@@ -123,6 +119,7 @@ const Category = async () => {
               )}
             </div>
           ))}
+          {/* :::::::::::: */}
         </div>
       </div>
     </>
