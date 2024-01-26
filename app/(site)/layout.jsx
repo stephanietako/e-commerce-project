@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+// import NavCart from "./components/NavCart/NavCart";
 import { getDataProducts } from "@/sanity/lib/client";
 import { getCategories } from "@/sanity/lib/client";
 const inter = Inter({ subsets: ["latin"] });
@@ -21,6 +23,7 @@ export default async function RootLayout({ children }) {
       <body className={inter.className}>
         <header className="header">
           <Navbar />
+          {/* <NavCart /> */}
           {/* MENU de products */}
           <div className="links">
             {products.map((product) => (
@@ -47,6 +50,7 @@ export default async function RootLayout({ children }) {
           </div>
         </header>
         <main className="main">{children}</main>
+        <Footer />
       </body>
     </html>
   );
