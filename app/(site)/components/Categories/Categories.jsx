@@ -101,9 +101,7 @@ const Category = async () => {
                           flexDirection: "column",
                         }}
                       >
-                        <p className="price_content">
-                          €{category.price.toFixed(2)}
-                        </p>
+                        <p className="price_content">€{category.price}</p>
                       </div>
                     </div>
                   ))}
@@ -113,7 +111,6 @@ const Category = async () => {
               )}
             </div>
           ))}
-          {/* :::::::::::: */}
         </div>
       </div>
     </>

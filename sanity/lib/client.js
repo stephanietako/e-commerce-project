@@ -87,10 +87,8 @@ export async function getDataStarProducts() {
   _id,
       _createdAt,
   name,
-    _id,
     price,
     currency,
-    name,
     "slug": slug.current,
      "coverImages": images[0].asset->url,
      images,
@@ -225,21 +223,26 @@ export async function getData(slug) {
     { slug }
   );
 }
+export async function getBycategories() {
+  return createClient(clientConfig).fetch(
+    groq` *[_type == "category"] {
+   _id,
+       _createdAt,
+   name,
+   "products": *[_type == 'product' && references(^._id)][0...15] | order(_createdAt desc) {
+     _id,
+     price,
+     currency,
+     name,
+     "slug": slug.current,
+     "images": images[0].asset->url,
+     content,
+   }
+ }`
+  );
+}
 ///////////////////////////////
-// *[_type == "category"] {
-//   _id,
-//       _createdAt,
-//   name,
-//   "products": *[_type == 'product' && references(^._id)][0...15] | order(_createdAt desc) {
-//     _id,
-//     price,
-//     currency,
-//     name,
-//     "slug": slug.current,
-//     "images": images[0].asset->url,
-//     content,
-//   }
-// }
+
 /////////////////////
 //resultat de getCategoryData
 // […] 1 item

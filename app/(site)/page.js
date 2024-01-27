@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { getPages } from "@/sanity/lib/client";
 import Categories from "./components/Categories/Categories";
+import Bycategories from "./components/Bycategories/Bycategories";
 import Products from "./components/Products/Products";
 import StarProducts from "./components/StarProducts/StarProducts";
 
@@ -66,11 +67,14 @@ const Home = async () => {
       <section className="starproducts_section">
         <StarProducts />
       </section>
+      <section>
+        <Products />
+      </section>
       <section className="categories_section">
         <Categories />
       </section>
-      <section>
-        <Products />
+      <section className="by_categories_section">
+        <Bycategories />
       </section>
     </>
   );

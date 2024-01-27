@@ -107,7 +107,7 @@ const Products = async () => {
                               flexDirection: "column",
                             }}
                           >
-                            <div>
+                            <div className="product">
                               <h3 className="title_products">
                                 {subCategory.name}
                               </h3>
