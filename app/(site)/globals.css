@@ -121,6 +121,7 @@ a {
   border: 2px solid blueviolet;
   justify-content: flex-end;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .link {

@@ -185,7 +185,6 @@ export async function getProductsByCategories() {
     currency,
     "slug": slug.current,
      "coverImages": images[0].asset->url,
-    content,
     products,
   }`
   );
@@ -195,14 +194,13 @@ export async function getCategories() {
   return createClient(clientConfig).fetch(
     groq`*[_type == "category" ]{
        _id,
-         name,
    _createdAt,
+       name,
     "coverImages": images[0].asset->url,
     images,
-  "products": products[0]->name,
       price,
     "slug": slug.current,
-    content,
+      "products": products[0]->name,
     }`
   );
 }

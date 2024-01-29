@@ -34,6 +34,8 @@ const Products = async () => {
           height: "auto",
           border: "2px solid violet",
           alignItems: "center",
+          justifyContent: "space-evenly",
+          flexWrap: "wrap",
         }}
       >
         {/* Conteneur des produits */}
@@ -59,7 +61,13 @@ const Products = async () => {
               flexWrap: "wrap",
             }}
           >
-            <div className="products_content">
+            <div
+              className="products_content"
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+              }}
+            >
               {/* Boucle à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
               {allProducts.map((product) => (
                 <div key={product._id}>
@@ -71,6 +79,7 @@ const Products = async () => {
                       style={{
                         display: "flex",
                         border: "3px solid black",
+                        flexWrap: "wrap",
                       }}
                     >
                       {/* Boucle à travers toutes les sous-catégories du produit */}
