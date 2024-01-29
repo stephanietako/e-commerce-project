@@ -27,56 +27,74 @@ const ByCategory = async () => {
         }}
       >
         <h2 className="_bycategory_title">BY CATEGORIES</h2>
-        {/* /////////// SUBDATA SLUG SLUG & DISPLAY CATEGORIES//////////*/}
-        <div className="_bycategories_bloc">
-          {subdata.map((categories) => (
-            <>
-              <div key={categories._id}>
-                <p>
-                  <Link href={`/categories/${categories.slug}`}>
-                    {categories.name}
-                  </Link>
-                </p>
-                <div className="images">
-                  {categories.coverImages ? (
-                    <>
-                      <Image
-                        src={categories.coverImages}
-                        alt="les fleurs"
-                        className="product__img"
-                        width={200}
-                        height={200}
-                        style={{
-                          objectFit: "cover",
-                        }}
-                      />
-                    </>
-                  ) : (
-                    <p>No image available</p>
-                  )}
-                </div>
+      </header>
+      {/* /////////// BOUCLE EXTERNE SUBDATA SLUG SLUG & DISPLAY CATEGORIES//////////*/}
+      <div className="_bycategories_bloc">
+        {subdata.map((categories) => (
+          <>
+            <div key={categories._id}>
+              <p>
+                <Link href={`/categories/${categories.slug}`}>
+                  {categories.name}
+                </Link>
+              </p>
+
+              <div className="images">
+                {categories.coverImages ? (
+                  <>
+                    <Image
+                      src={categories.coverImages}
+                      alt="les fleurs"
+                      className="product__img"
+                      width={200}
+                      height={200}
+                      style={{
+                        objectFit: "cover",
+                      }}
+                    />
+                  </>
+                ) : (
+                  <p>No image available</p>
+                )}
               </div>
-              {/* /////////// DATA SLUG & DISPLAY PRODUCTS //////////*/}
               <div
-                className="display_products_bycategories"
+                className="content"
                 style={{
                   display: "flex",
-                  border: "3px solid violet",
+                  border: "3px solid pink",
+                  flexDirection: "column",
+                }}
+              >
+                <p className="price_content">€{categories.price.toFixed(2)}</p>
+              </div>
+
+              <div
+                className="display_products_content_bycategories"
+                style={{
+                  display: "flex",
+                  border: "5px solid yellow",
                   justifyContent: "space-evenly",
                   flexWrap: "wrap",
                 }}
               >
-                {data.map((categories) => (
-                  <div key={categories._id}>
-                    {categories.products && categories.products.length > 0 ? (
+                {/* /////////// BOUCLE INTERNE DATA SLUG & DISPLAY PRODUCTS //////////*/}
+                {data.map((products) => (
+                  <div
+                    key={products._id}
+                    className="data_group"
+                    style={{
+                      padding: "20px",
+                    }}
+                  >
+                    {products.products && products.products.length > 0 ? (
                       <div
                         className="display_infos"
                         style={{
                           display: "flex",
-                          border: "3px solid yellow",
+                          border: "3px solid red",
                         }}
                       >
-                        {categories.products.map((product) => (
+                        {products.products.map((product) => (
                           <div
                             key={product._id}
                             className="data_group"
@@ -84,35 +102,8 @@ const ByCategory = async () => {
                               padding: "20px",
                             }}
                           >
-                            {/* <div className="images">
-                              {product.images && (
-                                <Image
-                                  src={product.images}
-                                  alt="les fleurs"
-                                  className="product__img"
-                                  width={200}
-                                  height={200}
-                                  style={{
-                                    objectFit: "cover",
-                                  }}
-                                />
-                              )}
-                            </div> */}
-
-                            <div
-                              className="content"
-                              style={{
-                                display: "flex",
-                                border: "3px solid pink",
-                                flexDirection: "column",
-                              }}
-                            >
-                              <p className="price_content">
-                                €{product.price.toFixed(2)}
-                              </p>
-                            </div>
                             <div>
-                              <h3 className="title_product_starproducts">
+                              <h3 className="title_products">
                                 <Link href={`/products/${product.slug}`}>
                                   {product.name}
                                 </Link>
@@ -124,15 +115,31 @@ const ByCategory = async () => {
                     ) : (
                       <p>No products available for this category.</p>
                     )}
+
+                    {/* Contenu détaillé de la sous-catégorie */}
+                    <div
+                      className="content_products"
+                      style={{
+                        display: "flex",
+                        border: "3px solid pink",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <div className="product">
+                        <h3 className="title_products">{products.name}</h3>
+                        <p className="category_name">{products.categories}</p>
+                      </div>
+                    </div>
                   </div>
                 ))}
                 {/* /////////// FIN DATA //////////*/}
               </div>
-            </>
-          ))}
-          {/* /////////// FIN SUBDATA //////////*/}
-        </div>
-      </header>
+            </div>
+          </>
+        ))}
+        {/* /////////// FIN SUBDATA //////////*/}
+      </div>
+
       {/* <div
         className="categories_container"
         style={{

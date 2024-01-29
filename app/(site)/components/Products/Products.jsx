@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 const Products = async () => {
   const allProducts = await getDataProductsPages();
   console.log(" ALL PRODUCTS ", allProducts);
-
+  // ALL PRODUCTS : CATEGORIES PAR PRODUITS
   return (
     <>
       <header
@@ -68,7 +68,7 @@ const Products = async () => {
                 flexWrap: "wrap",
               }}
             >
-              {/* Boucle à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
+              {/* Boucle EXTERNE à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
               {allProducts.map((product) => (
                 <div key={product._id}>
                   <h3 className="title_products">{product.name}</h3>
@@ -82,7 +82,7 @@ const Products = async () => {
                         flexWrap: "wrap",
                       }}
                     >
-                      {/* Boucle à travers toutes les sous-catégories du produit */}
+                      {/* DATA GROUP key - Boucle INTERNE SUBCATEGORIES à travers toutes les sous-catégories du produit */}
                       {product.categories.map((subCategory) => (
                         <div
                           key={subCategory._id}
@@ -92,7 +92,6 @@ const Products = async () => {
                           }}
                         >
                           <div className="images_products">
-                            {/* Affichage de l'image de la sous-catégorie, s'il y en a une */}
                             {subCategory.coverImages && (
                               <Image
                                 src={subCategory.coverImages}
@@ -125,15 +124,16 @@ const Products = async () => {
                               </p>
                             </div>
                           </div>
+                          {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
                         </div>
                       ))}
                     </div>
                   ) : (
-                    // Affichage d'un message si aucune catégorie n'est disponible pour ce produit
                     <p>No category available for this product.</p>
                   )}
                 </div>
               ))}
+              {/* // FIN PRODUCT KEY CLASS PRODUCT CONTENT BOUCLE EXTERIEURE EN DESSOUS DE LA DIV EN DESSOUS DE LA DIV */}
             </div>
           </div>
         </div>
