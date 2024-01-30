@@ -42,22 +42,22 @@ const starProduct = {
     },
 
     { name: "currency", title: "Currency", type: "string" },
-    // {
-    //   name: "category",
-    //   title: "Product Category",
-    //   type: "reference",
-    //   to: [
-    //     {
-    //       type: "category",
-    //     },
-    //   ],
-    // },
     {
-      name: "categories",
+      name: "category",
       title: "Product Category",
-      type: "array",
-      of: [{ type: "reference", to: { type: "category" } }],
+      type: "reference",
+      to: [
+        {
+          type: "category",
+        },
+      ],
     },
+    // {
+    //   name: "categories",
+    //   title: "Product Category",
+    //   type: "array",
+    //   of: [{ type: "reference", to: { type: "category" } }],
+    // },
   ],
   initialValue: {
     currency: "EUR",

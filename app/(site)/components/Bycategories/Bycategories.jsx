@@ -1,5 +1,4 @@
 import { getCategories } from "@/sanity/lib/client";
-// import { getProductsByCategories } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,7 +6,6 @@ export const dynamic = "force-dynamic";
 
 const ByCategory = async () => {
   const data = await getCategories();
-  //   const subdata = await getProductsByCategories();
 
   return (
     <>

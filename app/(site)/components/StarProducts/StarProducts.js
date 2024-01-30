@@ -96,9 +96,12 @@ const StarProducts = async () => {
                         {product.name}
                       </Link>
                     </h3>
-                    <p>{product.categories}</p>
+                    <Link href={`/categories/${product.slug}`}>
+                      {product.categoryName}
+                    </Link>
+                    {/* <p>{product.categoryName}</p> */}
                   </div>
-                  <p className="price_content">€{product.price}</p>
+                  <p className="price_content">€{product.price.toFixed(2)}</p>
                 </div>
               </div>
             ))}

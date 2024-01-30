@@ -93,7 +93,7 @@ export async function getDataStarProducts() {
      "coverImages": images[0].asset->url,
      images,
     content,
-    "categories": categories[0]->name,
+     "categoryName": category->name,
   }`
   );
 }
@@ -121,6 +121,9 @@ export async function getDataProductsPages() {
   _id,
       _createdAt,
   name,
+    "slug": slug.current,
+         "coverImages": images[0].asset->url,
+           content,
   "categories": *[_type == 'category' && references(^._id)][0...15] | order(_createdAt desc) {
     _id,
     price,
@@ -169,6 +172,7 @@ export async function getDataProduct(slug) {
     "slug": slug.current,
      "categories": categories[0]->name,
     content,
+       body,
     }`,
     { slug }
   );

@@ -23,7 +23,7 @@ const Category = async () => {
           padding: "33px",
         }}
       >
-        <h2 className="_category">ALL CATEGORIES</h2>
+        <h2 className="_category">ALL CATEGORIES OF PRODUCTS</h2>
       </header>
 
       <div
@@ -49,11 +49,11 @@ const Category = async () => {
           {data.map((categories) => (
             <div key={categories._id}>
               <div>
-                <p className="title_categories">
+                <h2 className="title_categories">
                   <Link href={`/categories/${categories.slug}`}>
                     {categories.name}
                   </Link>
-                </p>
+                </h2>
               </div>
               {categories.products && categories.products.length > 0 ? (
                 <div

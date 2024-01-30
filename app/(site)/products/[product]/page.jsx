@@ -112,6 +112,9 @@ const Products = async ({ params }) => {
                 <div>
                   <PortableText value={product.content} />
                 </div>
+                <div>
+                  <PortableText value={product.body} />
+                </div>
               </div>
             </div>
           </div>

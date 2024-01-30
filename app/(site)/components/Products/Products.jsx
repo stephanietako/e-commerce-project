@@ -1,5 +1,7 @@
 import { getDataProductsPages } from "@/sanity/lib/client";
 import Image from "next/image";
+import Link from "next/link";
+
 export const dynamic = "force-dynamic";
 
 const Products = async () => {
@@ -70,7 +72,11 @@ const Products = async () => {
               {/* Boucle EXTERNE à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
               {allProducts.map((product) => (
                 <div key={product._id}>
-                  <h3 className="title_products">{product.name}</h3>
+                  <h2>
+                    <Link href={`/products/${product.slug}`}>
+                      {product.name}
+                    </Link>
+                  </h2>
                   {/* Vérification de la disponibilité de catégories pour ce produit */}
                   {product.categories && product.categories.length > 0 ? (
                     <div
@@ -115,8 +121,10 @@ const Products = async () => {
                             }}
                           >
                             <div className="product">
-                              <h3 className="title_products">
-                                {subCategory.name}
+                              <h3>
+                                <Link href={`/categories/${subCategory.slug}`}>
+                                  {subCategory.name}
+                                </Link>
                               </h3>
                               <p className="category_name">
                                 {subCategory.categories}

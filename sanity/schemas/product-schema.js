@@ -58,6 +58,11 @@ const product = {
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }],
     },
+    {
+      name: "body",
+      title: "Body",
+      type: "blockContent",
+    },
   ],
   initialValue: {
     currency: "EUR",
