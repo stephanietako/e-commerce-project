@@ -23,7 +23,7 @@ const Category = async () => {
           padding: "33px",
         }}
       >
-        <h2 className="_category">OUR CATEGORIES</h2>
+        <h2 className="_category">ALL CATEGORIES</h2>
       </header>
 
       <div
@@ -115,3 +115,87 @@ const Category = async () => {
 };
 
 export default Category;
+
+{
+  /* <div
+        className="categories_container"
+        style={{
+          display: "flex",
+          border: "3px solid green",
+          flexDirection: "column",
+          width: " 100%",
+          height: " auto",
+        }}
+      >
+        <div
+          className="display_category"
+          style={{
+            display: "flex",
+            border: "3px solid violet",
+            justifyContent: "space-evenly",
+            flexWrap: "wrap",
+          }}
+        >
+          {data.map((category) => (
+            <div key={category._id}>
+              {category.products && category.products.length > 0 ? (
+                <div
+                  className="display_infos"
+                  style={{
+                    display: "flex",
+                    border: "3px solid yellow",
+                  }}
+                >
+                  {category.products.map((product) => (
+                    <div
+                      key={product._id}
+                      className="data_group"
+                      style={{
+                        padding: "20px",
+                      }}
+                    >
+                      <div className="images">
+                        {product.images && (
+                          <Image
+                            src={product.images}
+                            alt="les fleurs"
+                            className="product__img"
+                            width={200}
+                            height={200}
+                            style={{
+                              objectFit: "cover",
+                            }}
+                          />
+                        )}
+                      </div>
+
+                      <div
+                        className="content"
+                        style={{
+                          display: "flex",
+                          border: "3px solid pink",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <p className="price_content">
+                          €{product.price.toFixed(2)}
+                        </p>
+                      </div>
+                      <div>
+                        <h3 className="title_product_starproducts">
+                          <Link href={`/products/${product.slug}`}>
+                            {product.name}
+                          </Link>
+                        </h3>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p>No products available for this category.</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div> */
+}

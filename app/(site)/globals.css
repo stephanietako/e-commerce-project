@@ -168,6 +168,10 @@ h1 {
   font-weight: bolder;
 }
 
+h2 {
+  color: turquoise;
+}
+
 p {
   font-weight: bold;
   font-size: 1rem;

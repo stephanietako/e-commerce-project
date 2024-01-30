@@ -201,6 +201,7 @@ export async function getCategories() {
       price,
     "slug": slug.current,
       "products": products[0]->name,
+
     }`
   );
 }
