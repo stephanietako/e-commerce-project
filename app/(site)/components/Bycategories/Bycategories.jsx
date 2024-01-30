@@ -1,13 +1,13 @@
-import { getDataProductsPages } from "@/sanity/lib/client";
-import { getProductsByCategories } from "@/sanity/lib/client";
+import { getCategories } from "@/sanity/lib/client";
+// import { getProductsByCategories } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
 const ByCategory = async () => {
-  const data = await getDataProductsPages();
-  const subdata = await getProductsByCategories();
+  const data = await getCategories();
+  //   const subdata = await getProductsByCategories();
 
   return (
     <>
@@ -48,7 +48,7 @@ const ByCategory = async () => {
           }}
         >
           {/* Boucle EXTERNE à travers toutes les categories */}
-          {subdata.map((categories) => (
+          {data.map((categories) => (
             <div key={categories._id}>
               <h3
                 className="title_products"
@@ -60,6 +60,7 @@ const ByCategory = async () => {
                   CATEGORY NAME {categories.name}
                 </Link>
               </h3>
+
               {/* Vérification de la disponibilité de produits pour cette categorie */}
               {categories.products && categories.products.length > 0 ? (
                 <div
@@ -88,50 +89,66 @@ const ByCategory = async () => {
                       <p>No image available</p>
                     )}
                   </div>
-                  <div
-                    className="content"
-                    style={{
-                      display: "flex",
-                      border: "3px solid green",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <p className="price_content">€{categories.price}</p>
-                  </div>
 
                   {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}
-                  {data.map((products) => (
-                    <div
-                      key={products._id}
-                      className="data_group"
-                      style={{
-                        padding: "20px",
-                      }}
-                    >
-                      {/* Contenu détaillé des sous-produits */}
+                  {categories.products.map((subCategory) => (
+                    <>
                       <div
-                        className="content_sous_products"
+                        key={subCategory._id}
+                        className="data_group"
                         style={{
-                          display: "flex",
-                          border: "3px solid pink",
-                          flexDirection: "column",
+                          padding: "20px",
                         }}
                       >
-                        <div className="product">
-                          <h4
-                            className="title_products"
-                            style={{
-                              color: "white",
-                            }}
-                          >
-                            <Link href={`/products/${products.slug}`}>
-                              PRODUCT NAME {products.name}
-                            </Link>
-                          </h4>
+                        <h3
+                          className="title_products"
+                          style={{
+                            color: "turquoise",
+                          }}
+                        >
+                          <Link href={`/categories/${subCategory.slug}`}>
+                            CATEGORY NAME 2{subCategory.name}
+                          </Link>
+                        </h3>
+                        <div className="images_products">
+                          {subCategory.coverImages && (
+                            <Image
+                              src={subCategory.coverImages}
+                              alt="les fleurs"
+                              className="product__img"
+                              width={200}
+                              height={200}
+                              style={{
+                                objectFit: "cover",
+                              }}
+                            />
+                          )}
                         </div>
+
+                        {/* Contenu détaillé de la sous-catégorie */}
+                        <div
+                          className="content_products"
+                          style={{
+                            display: "flex",
+                            border: "3px solid pink",
+                            flexDirection: "column",
+                          }}
+                        >
+                          <div className="product">
+                            <h3 className="title_products">
+                              {subCategory.name}
+                            </h3>
+                            <p className="category_name">
+                              {subCategory.products}
+                            </p>
+                            <p className="price_content">
+                              €{subCategory.price.toFixed(2)}
+                            </p>
+                          </div>
+                        </div>
+                        {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
                       </div>
-                      {/* /////////////////////*/}
-                    </div>
+                    </>
                   ))}
                   {/* fin boucle interne de map de data */}
                 </div>
