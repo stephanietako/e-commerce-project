@@ -189,22 +189,39 @@ export async function getProductsByCategories() {
   }`
   );
 }
-
+// produits par categories
 export async function getCategories() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "category" ]{
-       _id,
-   _createdAt,
-       name,
-    "coverImages": images[0].asset->url,
-    images,
-      price,
+    groq`*[_type == "category"] {
+  _id,
+      _createdAt,
+  name,
+  "products": *[_type == 'product' && references(^._id)][0...15] | order(_createdAt desc) {
+    price,
+    currency,
+    name,
     "slug": slug.current,
-      "products": products[0]->name,
-
-    }`
+    "images": images[0].asset->url,
+    content
+  }
+}`
   );
 }
+// export async function getCategories() {
+//   return createClient(clientConfig).fetch(
+//     groq`*[_type == "category" ]{
+//        _id,
+//    _createdAt,
+//        name,
+//     "coverImages": images[0].asset->url,
+//     images,
+//       price,
+//     "slug": slug.current,
+//       "products": products[0]->name,
+
+//     }`
+//   );
+// }
 //// slug CATEGORY single page
 export async function getData(slug) {
   return createClient(clientConfig).fetch(

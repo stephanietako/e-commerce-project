@@ -1,4 +1,4 @@
-import { getBycategories } from "@/sanity/lib/client";
+import { getDataProductsPages } from "@/sanity/lib/client";
 import { getProductsByCategories } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,10 +6,8 @@ import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 const ByCategory = async () => {
-  const data = await getBycategories();
+  const data = await getDataProductsPages();
   const subdata = await getProductsByCategories();
-  //   console.log("DATA !!!!!!!!", data);
-  //   console.log("SUBDATA !!!!!!!!", subdata);
 
   return (
     <>
@@ -98,9 +96,7 @@ const ByCategory = async () => {
                       flexDirection: "column",
                     }}
                   >
-                    <p className="price_content">
-                      €{categories.price.toFixed(2)}
-                    </p>
+                    <p className="price_content">€{categories.price}</p>
                   </div>
 
                   {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}
@@ -135,8 +131,6 @@ const ByCategory = async () => {
                         </div>
                       </div>
                       {/* /////////////////////*/}
-
-                      {/* /////////////////////*/}
                     </div>
                   ))}
                   {/* fin boucle interne de map de data */}
@@ -146,6 +140,7 @@ const ByCategory = async () => {
               )}
             </div>
           ))}
+
           {/* fin boucle externe */}
         </div>
       </section>
