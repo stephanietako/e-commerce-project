@@ -50,16 +50,11 @@ const ByCategory = async () => {
           {/* Boucle EXTERNE à travers toutes les categories */}
           {data.map((categories) => (
             <div key={categories._id}>
-              <h3
-                className="title_products"
-                style={{
-                  color: "turquoise",
-                }}
-              >
+              <h2>
                 <Link href={`/categories/${categories.slug}`}>
-                  CATEGORY NAME {categories.name}
+                  {categories.name}
                 </Link>
-              </h3>
+              </h2>
 
               {/* Vérification de la disponibilité de produits pour cette categorie */}
               {categories.products && categories.products.length > 0 ? (
@@ -71,25 +66,6 @@ const ByCategory = async () => {
                     flexWrap: "wrap",
                   }}
                 >
-                  <div className="images_categories">
-                    {categories.coverImages ? (
-                      <>
-                        <Image
-                          src={categories.coverImages}
-                          alt="les fleurs"
-                          className="product__img"
-                          width={200}
-                          height={200}
-                          style={{
-                            objectFit: "cover",
-                          }}
-                        />
-                      </>
-                    ) : (
-                      <p>No image available</p>
-                    )}
-                  </div>
-
                   {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}
                   {categories.products.map((subCategory) => (
                     <>
@@ -100,31 +76,6 @@ const ByCategory = async () => {
                           padding: "20px",
                         }}
                       >
-                        <h3
-                          className="title_products"
-                          style={{
-                            color: "turquoise",
-                          }}
-                        >
-                          <Link href={`/categories/${subCategory.slug}`}>
-                            CATEGORY NAME 2{subCategory.name}
-                          </Link>
-                        </h3>
-                        <div className="images_products">
-                          {subCategory.coverImages && (
-                            <Image
-                              src={subCategory.coverImages}
-                              alt="les fleurs"
-                              className="product__img"
-                              width={200}
-                              height={200}
-                              style={{
-                                objectFit: "cover",
-                              }}
-                            />
-                          )}
-                        </div>
-
                         {/* Contenu détaillé de la sous-catégorie */}
                         <div
                           className="content_products"
@@ -135,14 +86,32 @@ const ByCategory = async () => {
                           }}
                         >
                           <div className="product">
-                            <h3 className="title_products">
-                              {subCategory.name}
+                            <h3
+                              className="title_products"
+                              style={{
+                                color: "white",
+                              }}
+                            >
+                              <Link href={`/products/${subCategory.slug}`}>
+                                {subCategory.name}
+                              </Link>
                             </h3>
-                            <p className="category_name">
-                              {subCategory.products}
-                            </p>
+                            <div className="images_products">
+                              {categories.coverImages && (
+                                <Image
+                                  src={categories.coverImages}
+                                  alt="les fleurs"
+                                  className="product__img"
+                                  width={200}
+                                  height={200}
+                                  style={{
+                                    objectFit: "cover",
+                                  }}
+                                />
+                              )}
+                            </div>
                             <p className="price_content">
-                              €{subCategory.price.toFixed(2)}
+                              €{categories.price.toFixed(2)}
                             </p>
                           </div>
                         </div>
@@ -150,6 +119,7 @@ const ByCategory = async () => {
                       </div>
                     </>
                   ))}
+
                   {/* fin boucle interne de map de data */}
                 </div>
               ) : (
@@ -157,7 +127,6 @@ const ByCategory = async () => {
               )}
             </div>
           ))}
-
           {/* fin boucle externe */}
         </div>
       </section>

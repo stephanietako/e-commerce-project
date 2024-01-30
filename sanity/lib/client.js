@@ -196,6 +196,9 @@ export async function getCategories() {
   _id,
       _createdAt,
   name,
+    "coverImages": images[0].asset->url,
+  price,
+   "slug": slug.current,
   "products": *[_type == 'product' && references(^._id)][0...25] | order(_createdAt desc) {
     _id,
     price,
