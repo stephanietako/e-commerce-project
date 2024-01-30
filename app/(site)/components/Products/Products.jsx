@@ -126,13 +126,14 @@ const Products = async () => {
                           {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
                         </div>
                       ))}
+                      {/* fin boucle interne */}
                     </div>
                   ) : (
                     <p>No category available for this product.</p>
                   )}
                 </div>
               ))}
-              {/* // FIN PRODUCT KEY CLASS PRODUCT CONTENT BOUCLE EXTERIEURE EN DESSOUS DE LA DIV EN DESSOUS DE LA DIV */}
+              {/* // FIN BOUCLE EXTERIEURE EN DESSOUS DE LA DIV EN DESSOUS DE LA DIV */}
             </div>
           </div>
         </div>
