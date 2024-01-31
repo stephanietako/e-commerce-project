@@ -40,24 +40,18 @@ const starProduct = {
       type: "number",
       options: { prefix: "€ " },
     },
-
+    {
+      name: "body",
+      title: "Body",
+      type: "blockContent",
+    },
     { name: "currency", title: "Currency", type: "string" },
     {
-      name: "category",
+      name: "categories",
       title: "Product Category",
-      type: "reference",
-      to: [
-        {
-          type: "category",
-        },
-      ],
+      type: "array",
+      of: [{ type: "reference", to: { type: "category" } }],
     },
-    // {
-    //   name: "categories",
-    //   title: "Product Category",
-    //   type: "array",
-    //   of: [{ type: "reference", to: { type: "category" } }],
-    // },
   ],
   initialValue: {
     currency: "EUR",

@@ -83,9 +83,13 @@ export async function getPage(slug) {
 //  STARPRODUCTS &  ALL PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
 export async function getDataStarProducts() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == 'starProduct'][0...3] | order(_createdAt desc){
+    groq`*[ _type == "product"][0...3]{
   _id,
       _createdAt,
+  name,
+    "slug": slug.current,
+    "categories": *[_type == 'category' && references(^._id)][0...1] | order(_createdAt desc) {
+_id,
   name,
     price,
     currency,
@@ -93,27 +97,12 @@ export async function getDataStarProducts() {
      "coverImages": images[0].asset->url,
      images,
     content,
-     "categoryName": category->name,
-  }`
+    body,
+}
+}`
   );
 }
 
-export async function getDataProductPage(slug) {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "allproducts" && slug.current == $slug][0]{
- _id,
-   _createdAt,
-    "coverImages": images[0].asset->url,
-    images,
-      price,
-    name,
-    "slug": slug.current,
-  categories,
-    content,
-    }`,
-    { slug }
-  );
-}
 ///////////// ALL PRODUCTS ////////////////////
 export async function getDataProductsPages() {
   return createClient(clientConfig).fetch(
@@ -158,7 +147,7 @@ export async function getDataProducts() {
     }`
   );
 }
-
+//// slug PRODUCT single page
 export async function getDataProduct(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "product" && slug.current == $slug][0]{
@@ -217,38 +206,7 @@ export async function getCategories() {
 }`
   );
 }
-// export async function getCategories() {
-//   return createClient(clientConfig).fetch(
-//     groq`*[_type == "category" ]{
-//        _id,
-//    _createdAt,
-//        name,
-//     "coverImages": images[0].asset->url,
-//     images,
-//       price,
-//     "slug": slug.current,
-//       "products": products[0]->name,
 
-//     }`
-//   );
-// }
-//// slug CATEGORY single page
-export async function getData(slug) {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "category" && slug.current == $slug][0]{
-    _id,
-   _createdAt,
-    "coverImages": images[0].asset->url,
-    images,
-      price,
-    name,
-    "slug": slug.current,
-     "products": products[0]->name,
-    content,
-    }`,
-    { slug }
-  );
-}
 export async function getBycategories() {
   return createClient(clientConfig).fetch(
     groq` *[_type == "category"] {
@@ -268,7 +226,23 @@ export async function getBycategories() {
   );
 }
 ///////////////////////////////
-
+//// slug CATEGORY single page
+export async function getData(slug) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "category" && slug.current == $slug][0]{
+    _id,
+   _createdAt,
+    "coverImages": images[0].asset->url,
+    images,
+      price,
+    name,
+    "slug": slug.current,
+     "products": products[0]->name,
+    content,
+    }`,
+    { slug }
+  );
+}
 /////////////////////
 //resultat de getCategoryData
 // […] 1 item

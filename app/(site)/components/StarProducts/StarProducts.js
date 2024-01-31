@@ -1,7 +1,6 @@
 import { getDataStarProducts } from "@/sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
-import arrow from "@/public/arrow.png";
 
 export const dynamic = "force-dynamic";
 
@@ -11,101 +10,120 @@ const StarProducts = async () => {
 
   return (
     <>
+      <header
+        className="header_category"
+        style={{
+          display: "flex",
+          width: "auto",
+          height: "auto",
+          justifyContent: "space-between",
+          border: "2px solid blue",
+          alignItems: "center",
+          padding: "33px",
+          flexWrap: "wrap",
+        }}
+      >
+        <h2 className="_bycategory_title">STARPRODUCTS</h2>
+      </header>
+      {/* Section principale des produits */}
       <section
-        className="starproducts_section"
+        className="products_section"
         style={{
           display: "flex",
           width: "100%",
           height: "auto",
           border: "2px solid violet",
           alignItems: "center",
+          justifyContent: "space-evenly",
+          flexWrap: "wrap",
         }}
       >
         <div
-          className="starproducts_container"
+          className="_bycategories_bloc"
           style={{
             display: "flex",
-            width: "100%",
-            height: "auto",
-            flexDirection: "column",
+            border: "3px solid yellow",
           }}
         >
-          <div
-            className="bloc_link"
-            style={{
-              display: "flex",
-              width: "auto",
-              height: "auto",
-              justifyContent: "space-between",
-              border: "2px solid blue",
-              alignItems: "center",
-              padding: "33px",
-            }}
-          >
-            <h2>STARPRODUCTS PRODUCTS SECTION </h2>
-            <span>
-              <h3>All Products</h3>{" "}
-              <Link className="all_products" href="/all">
-                <Image className="__img" src={arrow} alt="icon flêche" />
-              </Link>
-            </span>
-          </div>
-          <div
-            className="display_product_starproducts"
-            style={{
-              display: "flex",
-              width: "100%",
-              height: "auto",
-              alignItems: "center",
-              justifyContent: "center",
-              border: "3px solid yellow",
-              flexWrap: "wrap",
-            }}
-          >
-            {data.map((product) => (
-              <div
-                key={product._id}
-                className="starproducts_card_group"
-                style={{
-                  padding: "20px",
-                }}
-              >
-                <div className="images">
-                  {product.coverImages ? (
-                    <>
-                      <Image
-                        src={product.coverImages}
-                        alt="les fleurs"
-                        className="product__img"
-                        width={200}
-                        height={200}
-                        style={{
-                          objectFit: "cover",
-                        }}
-                      />
-                    </>
-                  ) : (
-                    <p>No image available</p>
-                  )}
-                </div>
+          {/* Boucle EXTERNE à travers toutes les categories */}
+          {data.map((product) => (
+            <div key={product._id}>
+              <h2>
+                <Link href={`/products/${product.slug}`}>{product.name}</Link>
+              </h2>
 
-                <div className="starproducts_content">
-                  <div>
-                    <h3 className="title_product_starproducts">
-                      <Link href={`/products/${product.slug}`}>
-                        {product.name}
-                      </Link>
-                    </h3>
-                    <Link href={`/categories/${product.slug}`}>
-                      {product.categoryName}
-                    </Link>
-                    {/* <p>{product.categoryName}</p> */}
-                  </div>
-                  <p className="price_content">€{product.price.toFixed(2)}</p>
+              {/* Vérification de la disponibilité de produits pour cette categorie */}
+              {product.categories && product.categories.length > 0 ? (
+                <div
+                  className="display_infos_products"
+                  style={{
+                    display: "flex",
+                    border: "3px solid black",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}
+                  {product.categories.map((subCategory) => (
+                    <>
+                      <div
+                        key={subCategory._id}
+                        className="data_group"
+                        style={{
+                          padding: "20px",
+                        }}
+                      >
+                        {/* Contenu détaillé de la sous-catégorie */}
+                        <div
+                          className="content_products"
+                          style={{
+                            display: "flex",
+                            border: "3px solid pink",
+                            flexDirection: "column",
+                          }}
+                        >
+                          <div className="product">
+                            <h3
+                              className="title_products"
+                              style={{
+                                color: "white",
+                              }}
+                            >
+                              <Link href={`/categories/${subCategory.slug}`}>
+                                {subCategory.name}
+                              </Link>
+                            </h3>
+                            <div className="images_products">
+                              {subCategory.coverImages && (
+                                <Image
+                                  src={subCategory.coverImages}
+                                  alt="les fleurs"
+                                  className="product__img"
+                                  width={200}
+                                  height={200}
+                                  style={{
+                                    objectFit: "cover",
+                                  }}
+                                />
+                              )}
+                            </div>
+                            <p className="price_content">
+                              €{subCategory.price.toFixed(2)}
+                            </p>
+                          </div>
+                        </div>
+                        {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
+                      </div>
+                    </>
+                  ))}
+
+                  {/* fin boucle interne de map de data */}
                 </div>
-              </div>
-            ))}
-          </div>
+              ) : (
+                <p>No category available for this product.</p>
+              )}
+            </div>
+          ))}
+          {/* fin boucle externe */}
         </div>
       </section>
     </>
