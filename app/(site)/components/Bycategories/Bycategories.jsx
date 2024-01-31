@@ -38,7 +38,7 @@ const ByCategory = async () => {
         }}
       >
         <div
-          className="_bycategories_bloc"
+          className="__bycategories_bloc"
           style={{
             display: "flex",
             border: "3px solid yellow",

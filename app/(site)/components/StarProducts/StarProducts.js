@@ -11,7 +11,7 @@ const StarProducts = async () => {
   return (
     <>
       <header
-        className="header_category"
+        className="header_starproducts"
         style={{
           display: "flex",
           width: "auto",
@@ -23,11 +23,11 @@ const StarProducts = async () => {
           flexWrap: "wrap",
         }}
       >
-        <h2 className="_bycategory_title">STARPRODUCTS</h2>
+        <h2 className="_bycategory_title">STARPRODUCTS SELECTION</h2>
       </header>
       {/* Section principale des produits */}
       <section
-        className="products_section"
+        className="starproducts_section"
         style={{
           display: "flex",
           width: "100%",
@@ -39,7 +39,7 @@ const StarProducts = async () => {
         }}
       >
         <div
-          className="_bycategories_bloc"
+          className="__starproducts_bloc"
           style={{
             display: "flex",
             border: "3px solid yellow",
@@ -74,16 +74,16 @@ const StarProducts = async () => {
                       >
                         {/* Contenu détaillé de la sous-catégorie */}
                         <div
-                          className="content_products"
+                          className="content_starproducts"
                           style={{
                             display: "flex",
                             border: "3px solid pink",
                             flexDirection: "column",
                           }}
                         >
-                          <div className="product">
+                          <div className="starproducts">
                             <h3
-                              className="title_products"
+                              className="title_starproducts_categories"
                               style={{
                                 color: "white",
                               }}
@@ -92,7 +92,7 @@ const StarProducts = async () => {
                                 {subCategory.name}
                               </Link>
                             </h3>
-                            <div className="images_products">
+                            <div className="images_starproducts">
                               {subCategory.coverImages && (
                                 <Image
                                   src={subCategory.coverImages}

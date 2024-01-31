@@ -56,62 +56,7 @@ const Products = async ({ params }) => {
                 {product.categoryName}
                 <h2>{product.name}</h2>
               </span>
-              <div
-                className="products_price"
-                style={{
-                  border: "3px solid black",
-                  marginTop: "25px",
-                  fontSize: "3rem",
-                }}
-              >
-                <span>
-                  {" "}
-                  <p
-                    className="price_content"
-                    style={{
-                      fontSize: "3rem",
-                    }}
-                  >
-                    €{product.price.toFixed(2)}
-                  </p>
-                </span>
-                <span>
-                  <p>2-4 Day Shipping</p>
-                </span>
-              </div>
-              <div
-                className="products_btns"
-                style={{
-                  display: "flex",
-                  width: "100%",
-                  height: "100%",
-                  justifyContent: "center",
-                  flexDirection: "column",
-                  marginTop: "30px",
-                }}
-              >
-                <button
-                  style={{
-                    marginTop: "20px",
-                    cursor: "pointer",
-                  }}
-                >
-                  {" "}
-                  Add to Bag
-                </button>
-                <button
-                  style={{
-                    marginTop: "20px",
-                    cursor: "pointer",
-                  }}
-                >
-                  Checkout now
-                </button>
-              </div>
-              <div className="products_description">
-                <div>
-                  <PortableText value={product.content} />
-                </div>
+              <div className="products_description_body">
                 <div>
                   <PortableText value={product.body} />
                 </div>
