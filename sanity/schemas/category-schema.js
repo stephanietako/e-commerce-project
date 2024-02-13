@@ -70,6 +70,13 @@ const category = {
     },
     { name: "currency", title: "Currency", type: "string" },
     {
+      name: "discount",
+      title: "Discount",
+      type: "number",
+      initialValue: 0,
+      validation: (Rule) => Rule.min(0),
+    },
+    {
       name: "active",
       type: "boolean",
     },

@@ -7,6 +7,7 @@ import Categories from "./components/Categories/Categories";
 import Bycategories from "./components/Bycategories/Bycategories";
 import Products from "./components/Products/Products";
 import StarProducts from "./components/StarProducts/StarProducts";
+import Header from "./components/Header/Header";
 
 const Home = async () => {
   const projects = await getProjects();
@@ -35,8 +36,12 @@ const Home = async () => {
             </Link>
           ))}
         </div>
+
         <div className="bloc_text">
-          <h1>This is the Home page</h1>{" "}
+          <div>
+            <Header />
+          </div>
+          <h1>This is the Home page !!!!!!!</h1>{" "}
           <p>
             This is the starting project of ecommerce with next js 14 and Sanity
           </p>

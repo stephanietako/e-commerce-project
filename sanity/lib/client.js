@@ -202,6 +202,7 @@ export async function getCategories() {
     "images": images[0].asset->url,
     content,
       products,
+   
   }
 }`
   );
@@ -239,6 +240,7 @@ export async function getData(slug) {
     "slug": slug.current,
      "products": products[0]->name,
     content,
+       type,
     }`,
     { slug }
   );
