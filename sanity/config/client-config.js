@@ -25,5 +25,4 @@ export function urlFor(source) {
   return builder.image(source);
 }
 
-// Exportez également la configuration si nécessaire
 export default config;

@@ -1,98 +1,127 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { signUp } from "next-auth-sanity/client";
+import { signIn, useSession } from "next-auth/react";
+import Image from "next/image";
+// Assets
+import GithubIcon from "@/public/github.png";
+import GoogleIcon from "@/public/google.png";
+const defaultFormData = {
+  email: "",
+  name: "",
+  password: "",
+};
 
 const Auth = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({});
-  const [isFormValid, setIsFormValid] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Nouvelle variable d'état pour suivre l'état de connexion
+  const [formData, setFormData] = useState(defaultFormData);
 
-  useEffect(() => {
-    validateForm();
-  }, [name, email, password]);
-
-  const validateForm = () => {
-    let errors = {};
-
-    if (!name) {
-      errors.name = "Name is required.";
-    }
-
-    if (!email) {
-      errors.email = "Email is required.";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      errors.email = "Email is invalid.";
-    }
-
-    if (!password) {
-      errors.password = "Password is required.";
-    } else if (password.length < 6) {
-      errors.password = "Password must be at least 6 characters.";
-    }
-
-    setErrors(errors);
-    setIsFormValid(Object.keys(errors).length === 0);
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = () => {
-    if (isFormValid) {
-      // Simuler la connexion réussie
-      setIsLoggedIn(true);
-      // Afficher l'alerte
-      alert("Vous êtes connecté !");
-    } else {
-      alert("Form has errors. Please correct them.");
+  const { data: session } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session) router.push("/");
+  }, [router, session]);
+
+  const loginHandler = async () => {
+    try {
+      await signIn();
+      router.push("/");
+    } catch (error) {
+      console.log(error);
+      toast.error("Something wen't wrong");
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const user = await signUp(formData);
+      if (user) {
+        toast.success("Success. Please sign in");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something wen't wrong");
+    } finally {
+      setFormData(defaultFormData);
     }
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.form}>
-        <h1 style={styles.heading}>Create an account</h1>
-        <h3 style={styles.subHeading}>Login Page</h3>
-        <input
-          style={styles.input}
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        {errors.name && <p style={styles.error}>{errors.name}</p>}
-        <input
-          style={styles.input}
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        {errors.email && <p style={styles.error}>{errors.email}</p>}
-        <input
-          style={styles.input}
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          type="password"
-        />
-        {errors.password && <p style={styles.error}>{errors.password}</p>}
-        <button
-          style={{ ...styles.button, opacity: isFormValid ? 1 : 0.5 }}
-          disabled={!isFormValid}
-          onClick={handleSubmit}
-        >
-          Sign up
-        </button>
-        <button
-          style={{ ...styles.button, opacity: isFormValid ? 1 : 0.5 }}
-          disabled={!isFormValid}
-          onClick={handleSubmit}
-        >
-          Login
+    <section className={styles.container}>
+      <div className={styles.form}>
+        <div className={styles.heading}>
+          <h2 className={styles.subHeading}>Create an account</h2>
+          <p>OR</p>
+          <span className={styles.icons}>
+            <Image
+              src={GoogleIcon}
+              alt="icon de google"
+              width={50}
+              height={50}
+              onClick={loginHandler}
+            />
+
+            <Image
+              src={GithubIcon}
+              alt="iconde github"
+              width={50}
+              height={50}
+              onClick={loginHandler}
+            />
+          </span>
+        </div>
+
+        <form className={styles.input} onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="name@company.com"
+            required
+            className={styles.input}
+            value={formData.email}
+            onChange={handleInputChange}
+          />
+          <input
+            type="text"
+            name="name"
+            placeholder="John Doe"
+            required
+            className={styles.input}
+            value={formData.name}
+            onChange={handleInputChange}
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            required
+            minLength={6}
+            className={styles.input}
+            value={formData.password}
+            onChange={handleInputChange}
+          />
+
+          <button type="submit" className={styles.button}>
+            Sign Up
+          </button>
+        </form>
+
+        <button onClick={loginHandler} className={styles.button}>
+          login
         </button>
       </div>
-    </div>
+    </section>
   );
 };
-
 const styles = {
   container: {
     display: "flex",
@@ -104,7 +133,7 @@ const styles = {
   heading: {
     fontWeight: "bold",
     fontSize: "25px",
-    color: "green",
+    color: "blue",
     textAlign: "center",
   },
   subHeading: {
@@ -128,12 +157,11 @@ const styles = {
     border: "1px solid #ccc",
     borderRadius: "10px",
     fontSize: "16px",
-    transition: "border-color 0.2s ease",
   },
   button: {
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "green",
+    backgroundColor: "blue",
     color: "#fff",
     fontWeight: "bold",
     fontSize: "16px",
@@ -142,14 +170,7 @@ const styles = {
     borderRadius: "10px",
     cursor: "pointer",
     width: "40%",
-    transition: "opacity 0.2s ease",
     marginTop: "10px",
   },
-  error: {
-    color: "red",
-    fontSize: "14px",
-    marginBottom: "6px",
-  },
 };
-
 export default Auth;

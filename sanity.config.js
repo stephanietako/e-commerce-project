@@ -11,7 +11,7 @@ import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
 
 export default defineConfig({
-  title: "Vibes ecommerce",
+  title: "projet-vibes",
   basePath: "/studio",
   projectId,
   dataset,

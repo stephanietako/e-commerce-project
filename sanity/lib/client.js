@@ -1,8 +1,7 @@
 import { createClient, groq } from "next-sanity";
 import clientConfig from "../config/client-config";
 export const revalidate = 10;
-// "categoryName": category->name,
-// "images": images[0].asset->url,
+
 //PROJECTS & PROJECT //////////////////////
 export async function getProjects() {
   return createClient(clientConfig).fetch(

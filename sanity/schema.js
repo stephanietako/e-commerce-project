@@ -6,6 +6,7 @@ import category from "./schemas/category-schema";
 import starProduct from "./schemas/starProduct-schema";
 import user from "./schemas/user-schema";
 import account from "./schemas/account-schema";
+import verificationToken from "./schemas/verificationToken-schema";
 
 export const schema = {
   types: [
@@ -17,5 +18,6 @@ export const schema = {
     starProduct,
     user,
     account,
+    verificationToken,
   ],
 };
