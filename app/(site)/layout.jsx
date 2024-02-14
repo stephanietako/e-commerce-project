@@ -4,6 +4,7 @@ import Link from "next/link";
 import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Toast from "./components/Toasts/Toasts";
 // import NavCart from "./components/NavCart/NavCart";
 import { getDataProducts } from "@/sanity/lib/client";
 import { getCategories } from "@/sanity/lib/client";
@@ -27,6 +28,7 @@ export default async function RootLayout({ children, session }) {
     <html lang="en">
       <body className={inter.className}>
         <NextAuthProvider session={session}>
+          <Toast />
           <main className="main">
             <header className="header">
               <Header />

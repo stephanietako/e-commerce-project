@@ -8,6 +8,7 @@ import Image from "next/image";
 // Assets
 import GithubIcon from "@/public/github.png";
 import GoogleIcon from "@/public/google.png";
+
 const defaultFormData = {
   email: "",
   name: "",
