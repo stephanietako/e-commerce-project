@@ -1,8 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
+import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 // import NavCart from "./components/NavCart/NavCart";
 import { getDataProducts } from "@/sanity/lib/client";
@@ -29,10 +29,8 @@ export default async function RootLayout({ children, session }) {
         <NextAuthProvider session={session}>
           <main className="main">
             <header className="header">
+              <Header />
               <Navbar />
-              <div>
-                <Header />
-              </div>
               <div className="links">
                 {products.map((product) => (
                   <Link

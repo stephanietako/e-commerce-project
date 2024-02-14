@@ -3,33 +3,46 @@
 // Styles
 import styles from "./styles.module.scss";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-const navLinks = [{ name: "Form", href: "/auth" }];
+import { useSession } from "next-auth/react";
+import userCircleImage from "@/public/user-circle.png";
+import Image from "next/image";
 
 const Header = () => {
-  const pathname = usePathname();
+  const { data: session } = useSession();
   return (
     <div className={styles.header_container}>
       <ul>
-        <div className={styles.__link_container}>
-          {navLinks.map((link, index) => (
-            <li key={index}>
-              {pathname === link.href ? (
-                <Link className={`${link} ${link.className}`} href={link.href}>
-                  {link.name}
-                </Link>
+        <li className="flex items-center">
+          {session?.user ? (
+            <Link href={`/users/${session.user.id}`}>
+              {session.user.image ? (
+                <div className="test">
+                  <Image
+                    src={session.user.image}
+                    alt={session.user.name}
+                    width={40}
+                    height={40}
+                    className="scale-animation img"
+                  />
+                </div>
               ) : (
-                <Link
-                  href={link.href}
-                  className={styles.autre_classe_link_hover_transition}
-                >
-                  {link.name}
-                </Link>
+                <Image
+                  src={userCircleImage}
+                  alt="User Circle"
+                  className="cursor-pointer"
+                />
               )}
-            </li>
-          ))}
-        </div>
+            </Link>
+          ) : (
+            <Link href="/auth">
+              <Image
+                src={userCircleImage}
+                alt="User Circle"
+                className="cursor-pointer"
+              />
+            </Link>
+          )}
+        </li>
       </ul>
     </div>
   );
