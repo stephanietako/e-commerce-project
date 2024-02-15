@@ -29,7 +29,7 @@ const account = {
     },
     {
       name: "user",
-      title: "user",
+      title: "User",
       type: "reference",
       to: { type: "user" },
     },

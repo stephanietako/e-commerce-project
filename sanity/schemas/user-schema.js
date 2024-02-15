@@ -5,7 +5,7 @@ const user = {
   fields: [
     {
       name: "isAdmin",
-      title: "is Admin",
+      title: "Is Admin",
       type: "boolean",
       description: "Check if the user is admin",
       initialValue: false,
@@ -14,7 +14,7 @@ const user = {
       // hidden: true,
     },
     {
-      name: "Name",
+      name: "name",
       title: "Name",
       type: "string",
       description: "Name of the user",
@@ -29,6 +29,16 @@ const user = {
     {
       name: "password",
       type: "string",
+      hidden: true,
+    },
+    {
+      name: "email",
+      type: "string",
+      title: "Email",
+    },
+    {
+      name: "emailVerified",
+      type: "datetime",
       hidden: true,
     },
     {

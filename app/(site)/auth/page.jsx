@@ -1,10 +1,14 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+
+// SignUp
 import { signUp } from "next-auth-sanity/client";
+// SignIn
 import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+import toast from "react-hot-toast";
 // Assets
 import GithubIcon from "@/public/github.png";
 import GoogleIcon from "@/public/google.png";
@@ -39,7 +43,7 @@ const Auth = () => {
       toast.error("Something wen't wrong");
     }
   };
-
+  // finally est utilisé pour garantir que quoi qu'il arrive que la promesse de signUp réussisse ou échoue setFormData(defaultFormData) sera appelé
   const handleSubmit = async (event) => {
     event.preventDefault();
 

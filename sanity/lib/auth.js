@@ -1,10 +1,9 @@
 import { SanityAdapter, SanityCredentials } from "next-auth-sanity";
-// import { NextAuthOptions } from "next-auth";
-import NextAuth, { NextAuthOptions } from "next-auth";
-import { NextApiRequest, NextApiResponse } from "next";
+import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
-import { config } from "../config/client-config";
+// import clientConfig from "../config/client-config";
+import sanityClient from "./sanity";
 
 export const authOptions = {
   providers: [
@@ -16,14 +15,32 @@ export const authOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
-    SanityCredentials(config),
+    SanityCredentials(sanityClient),
   ],
   session: {
     strategy: "jwt",
   },
-  adapter: SanityAdapter(config),
+  adapter: SanityAdapter(sanityClient),
   debug: process.env.NODE_ENV === "development",
   secret: process.env.NEXTAUTH_SECRET,
-  callbacks: {},
+  callbacks: {
+    session: async ({ session, token }) => {
+      const userEmail = token.email;
+      const userIdObj =
+        (await sanityClient.fetch) <
+        { _id: string } >
+        (`*[_type == "user" && email == $email][0] {
+            _id
+        }`,
+        { email: userEmail });
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: userIdObj._id,
+        },
+      };
+    },
+  },
 };
 export default NextAuth(authOptions);
