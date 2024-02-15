@@ -28,7 +28,7 @@ export const authOptions = {
       const userEmail = token.email;
       const userIdObj =
         (await sanityClient.fetch) <
-        { _id: string } >
+        { _id } >
         (`*[_type == "user" && email == $email][0] {
             _id
         }`,
