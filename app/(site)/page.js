@@ -41,7 +41,7 @@ const Home = async () => {
           {/* <div>
             <Header />
           </div> */}
-          <h1>This is the Home page !!!!!!!</h1>{" "}
+          <h1>This is the Home page </h1>{" "}
           <p>
             This is the starting project of ecommerce with next js 14 and Sanity
           </p>

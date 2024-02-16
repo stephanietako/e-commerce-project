@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <div className={styles.header_container}>
       <ul>
-        <li className="flex items-center">
+        <li className="session_users">
           {session?.user ? (
             <Link href={`/users/${session.user.id}`}>
               {session.user.image ? (
@@ -22,14 +22,14 @@ const Header = () => {
                     alt={session.user.name}
                     width={40}
                     height={40}
-                    className="scale-animation img"
+                    className="image_profil_user"
                   />
                 </div>
               ) : (
                 <Image
                   src={userCircleImage}
                   alt="User Circle"
-                  className="cursor-pointer"
+                  className="icon_image_user-identification_page"
                 />
               )}
             </Link>
@@ -38,7 +38,7 @@ const Header = () => {
               <Image
                 src={userCircleImage}
                 alt="User Circle"
-                className="cursor-pointer"
+                className="icon_image_user"
               />
             </Link>
           )}

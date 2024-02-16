@@ -31,8 +31,8 @@ export default async function RootLayout({ children, session }) {
           <Toast />
           <main className="main">
             <header className="header">
-              <Header />
               <Navbar />
+              <Header />
               <div className="links">
                 {products.map((product) => (
                   <Link
