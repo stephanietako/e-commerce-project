@@ -26,9 +26,10 @@ export const authOptions = {
   callbacks: {
     session: async ({ session, token }) => {
       const userEmail = token.email;
+      const id = token._id;
       const userIdObj =
         (await sanityClient.fetch) <
-        { _id } >
+        { id } >
         (`*[_type == "user" && email == $email][0] {
             _id
         }`,

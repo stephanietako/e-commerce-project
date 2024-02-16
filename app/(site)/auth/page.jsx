@@ -28,6 +28,7 @@ const Auth = () => {
   };
 
   const { data: session } = useSession();
+  console.log("SESSION !!!!", session);
   const router = useRouter();
 
   useEffect(() => {
@@ -37,6 +38,7 @@ const Auth = () => {
   const loginHandler = async () => {
     try {
       await signIn();
+      // push user to homepage
       router.push("/");
     } catch (error) {
       console.log(error);
@@ -66,7 +68,7 @@ const Auth = () => {
         <div className={styles.heading}>
           <h2 className={styles.subHeading}>Create an account</h2>
           <p>OR</p>
-          <span className={styles.icons}>
+          <span className={styles.icons_google_github}>
             <Image
               src={GoogleIcon}
               alt="icon de google"
