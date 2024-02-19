@@ -1,11 +1,11 @@
-import { getCategories } from "@/sanity/lib/client";
+// import { getCategories } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
-const ByCategory = async () => {
-  const data = await getCategories();
+const ByCategory = async ({ bycategory }) => {
+  // const data = await getCategories();
 
   return (
     <>
@@ -46,7 +46,7 @@ const ByCategory = async () => {
           }}
         >
           {/* Boucle EXTERNE à travers toutes les categories */}
-          {data.map((categories) => (
+          {bycategory.map((categories) => (
             <div key={categories._id}>
               <h2>
                 <Link href={`/categories/${categories.slug}`}>

@@ -19,7 +19,7 @@ export const metadata = {
   description: "Découvrez la boutique Vibes saint-Tropez",
 };
 
-export default async function RootLayout({ children, session }) {
+export default async function RootLayout({ children, session, test }) {
   // get all of our pages
   const products = await getDataProducts();
   const categories = await getCategories();
@@ -44,6 +44,18 @@ export default async function RootLayout({ children, session }) {
                   </Link>
                 ))}
               </div>
+              {/* <div className="links">
+                 <label className={styles.__label_search_products}>Products Search</label>
+                <select onChange={(e) => handleProductChange(e.target.value)}>
+                  <option value="Products">Products</option>
+                  {products.map((product) => (
+                    <option key={product._id} value={product.slug}>
+                      {product.name}
+                    </option>
+                  ))}
+                </select>
+              </div> */}
+
               {/* /////// */}
               <div className="links">
                 {categories.map((category) => (

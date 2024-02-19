@@ -1,12 +1,12 @@
-import { getDataStarProducts } from "@/sanity/lib/client";
+// import { getDataStarProducts } from "@/sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
-const StarProducts = async () => {
-  const data = await getDataStarProducts();
-  console.log("STAR PRODUCTS ", data);
+const StarProducts = async ({ starproducts }) => {
+  // const data = await getDataStarProducts();
+  // console.log("STAR PRODUCTS ", data);
 
   return (
     <>
@@ -46,7 +46,7 @@ const StarProducts = async () => {
           }}
         >
           {/* Boucle EXTERNE à travers toutes les categories */}
-          {data.map((product) => (
+          {starproducts.map((product) => (
             <div key={product._id}>
               <h2>
                 <Link href={`/products/${product.slug}`}>{product.name}</Link>

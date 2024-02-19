@@ -1,18 +1,23 @@
 import Image from "next/image";
 import { getProjects } from "@/sanity/lib/client";
 import Link from "next/link";
-
+import { getProductsByCategories } from "@/sanity/lib/client";
+import { getCategories } from "@/sanity/lib/client";
 import { getPages } from "@/sanity/lib/client";
 import Categories from "./components/Categories/Categories";
 import Bycategories from "./components/Bycategories/Bycategories";
 import Products from "./components/Products/Products";
+import { getDataProductsPages } from "@/sanity/lib/client";
 import StarProducts from "./components/StarProducts/StarProducts";
-// import Header from "./components/Header/Header";
+import { getDataStarProducts } from "@/sanity/lib/client";
 
 const Home = async () => {
   const projects = await getProjects();
   const pages = await getPages();
-
+  const category = await getProductsByCategories();
+  const bycategory = await getCategories();
+  const starproducts = await getDataStarProducts();
+  const allproducts = await getDataProductsPages();
   console.log("PAGES !!!!!!", pages);
   console.log("PAGES !!!!!!", projects);
 
@@ -70,16 +75,16 @@ const Home = async () => {
         {/* ///////////////// */}
       </section>
       <section className="starproducts_section">
-        <StarProducts />
+        <StarProducts starproducts={starproducts} />
       </section>
       <section>
-        <Products />
+        <Products allproducts={allproducts} />
       </section>
       <section className="categories_section">
-        <Categories />
+        <Categories category={category} />
       </section>
       <section className="by_categories_section">
-        <Bycategories />
+        <Bycategories bycategory={bycategory} />
       </section>
     </>
   );

@@ -2,12 +2,13 @@
   display: flex;
   width: 100%;
   height: auto;
-  border: 2px solid #fff;
-  justify-content: flex-end;
+  flex-direction: column;
 
-  ul {
-    width: auto;
+  li {
+    display: flex;
+    width: 100%;
     height: auto;
-    border: 3px solid red;
+    border: 2px solid white;
+    justify-content: flex-end;
   }
 }

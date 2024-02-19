@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import userCircleImage from "@/public/user-circle.png";
 import Image from "next/image";
+import PageSearch from "../PageSearch/PageSearch";
 
 const Header = () => {
   const { data: session } = useSession();
@@ -44,6 +45,9 @@ const Header = () => {
           )}
         </li>
       </ul>
+      <div>
+        <PageSearch />
+      </div>
     </div>
   );
 };

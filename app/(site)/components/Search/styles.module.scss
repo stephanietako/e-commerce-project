@@ -1,0 +1,35 @@
+.section_search_categories {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  margin-bottom: 2rem;
+
+  .search_container {
+    display: flex;
+    width: auto;
+    height: 100%;
+    border: 3px solid fuchsia;
+    // justify-content: space-between;
+
+    .__search_content {
+      display: flex;
+      width: auto;
+      height: auto;
+
+      .__label_search_select {
+        display: flex;
+        width: auto;
+        height: auto;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .__searchbar {
+    display: flex;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+  }
+}

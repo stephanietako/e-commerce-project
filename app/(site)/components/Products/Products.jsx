@@ -1,12 +1,12 @@
-import { getDataProductsPages } from "@/sanity/lib/client";
+// import { getDataProductsPages } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
-const Products = async () => {
-  const allProducts = await getDataProductsPages();
-  console.log(" ALL PRODUCTS ", allProducts);
+const Products = async ({ allproducts }) => {
+  // const allProducts = await getDataProductsPages();
+  // console.log(" ALL PRODUCTS ", allProducts);
   // ALL PRODUCTS : CATEGORIES PAR PRODUITS
   return (
     <>
@@ -70,7 +70,7 @@ const Products = async () => {
               }}
             >
               {/* Boucle EXTERNE à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
-              {allProducts.map((product) => (
+              {allproducts.map((product) => (
                 <div key={product._id}>
                   <h2>
                     <Link href={`/products/${product.slug}`}>

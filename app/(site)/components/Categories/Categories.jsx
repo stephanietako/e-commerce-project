@@ -4,10 +4,10 @@ import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
-const Category = async () => {
-  const data = await getProductsByCategories();
+const Categories = async ({ category }) => {
+  // const data = await getProductsByCategories();
 
-  console.log("CATEGORY !!!!!!!!", data);
+  // console.log("CATEGORY !!!!!!!!", data);
 
   return (
     <>
@@ -46,7 +46,7 @@ const Category = async () => {
             flexWrap: "wrap",
           }}
         >
-          {data.map((categories) => (
+          {category.map((categories) => (
             <div key={categories._id}>
               <div>
                 <h2 className="title_categories">
@@ -114,88 +114,4 @@ const Category = async () => {
   );
 };
 
-export default Category;
-
-{
-  /* <div
-        className="categories_container"
-        style={{
-          display: "flex",
-          border: "3px solid green",
-          flexDirection: "column",
-          width: " 100%",
-          height: " auto",
-        }}
-      >
-        <div
-          className="display_category"
-          style={{
-            display: "flex",
-            border: "3px solid violet",
-            justifyContent: "space-evenly",
-            flexWrap: "wrap",
-          }}
-        >
-          {data.map((category) => (
-            <div key={category._id}>
-              {category.products && category.products.length > 0 ? (
-                <div
-                  className="display_infos"
-                  style={{
-                    display: "flex",
-                    border: "3px solid yellow",
-                  }}
-                >
-                  {category.products.map((product) => (
-                    <div
-                      key={product._id}
-                      className="data_group"
-                      style={{
-                        padding: "20px",
-                      }}
-                    >
-                      <div className="images">
-                        {product.images && (
-                          <Image
-                            src={product.images}
-                            alt="les fleurs"
-                            className="product__img"
-                            width={200}
-                            height={200}
-                            style={{
-                              objectFit: "cover",
-                            }}
-                          />
-                        )}
-                      </div>
-
-                      <div
-                        className="content"
-                        style={{
-                          display: "flex",
-                          border: "3px solid pink",
-                          flexDirection: "column",
-                        }}
-                      >
-                        <p className="price_content">
-                          €{product.price.toFixed(2)}
-                        </p>
-                      </div>
-                      <div>
-                        <h3 className="title_product_starproducts">
-                          <Link href={`/products/${product.slug}`}>
-                            {product.name}
-                          </Link>
-                        </h3>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p>No products available for this category.</p>
-              )}
-            </div>
-          ))}
-        </div>
-      </div> */
-}
+export default Categories;
