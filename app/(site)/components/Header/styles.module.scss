@@ -1,6 +1,13 @@
 .header_container {
   display: flex;
-  width: auto;
+  width: 100%;
   height: auto;
-  border: 3px solid white;
+  border: 2px solid #fff;
+  justify-content: flex-end;
+
+  ul {
+    width: auto;
+    height: auto;
+    border: 3px solid red;
+  }
 }

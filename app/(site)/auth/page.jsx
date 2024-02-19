@@ -28,7 +28,7 @@ const Auth = () => {
   };
 
   const { data: session } = useSession();
-  console.log("SESSION !!!!", session);
+  // console.log("SESSION !!!!", session);
   const router = useRouter();
 
   useEffect(() => {

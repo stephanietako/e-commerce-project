@@ -16,7 +16,7 @@ const Header = () => {
           {session?.user ? (
             <Link href={`/users/${session.user.id}`}>
               {session.user.image ? (
-                <div className="test">
+                <div className="profil_user_header">
                   <Image
                     src={session.user.image}
                     alt={session.user.name}
