@@ -34,7 +34,11 @@ export async function getProject(slug) {
         "body": pt::text(body),
  
     }`,
-    { slug }
+
+    { slug },
+    {
+      cache: "no-store",
+    }
   );
 }
 
@@ -63,7 +67,10 @@ export async function getPage(slug) {
              content,
 
     }`,
-    { slug }
+    { slug },
+    {
+      cache: "no-store",
+    }
   );
 }
 
@@ -86,7 +93,10 @@ _id,
     content,
     body,
 }
-}`
+}`,
+    {
+      cache: "no-store",
+    }
   );
 }
 
@@ -131,7 +141,10 @@ export async function getDataProducts() {
  "images": images[0].asset->url,
     content,
       
-    }`
+    }`,
+    {
+      cache: "no-store",
+    }
   );
 }
 //// slug PRODUCT single page
@@ -150,7 +163,10 @@ export async function getDataProduct(slug) {
     content,
        body,
     }`,
-    { slug }
+    { slug },
+    {
+      cache: "no-store",
+    }
   );
 }
 // CATEGORY
@@ -166,7 +182,10 @@ export async function getProductsByCategories() {
     "slug": slug.current,
      "coverImages": images[0].asset->url,
     products,
-  }`
+  }`,
+    {
+      cache: "no-store",
+    }
   );
 }
 // produits par categories
@@ -191,7 +210,10 @@ export async function getCategories() {
       products,
    
   }
-}`
+}`,
+    {
+      cache: "no-store",
+    }
   );
 }
 
@@ -210,7 +232,10 @@ export async function getBycategories() {
      "images": images[0].asset->url,
      content,
    }
- }`
+ }`,
+    {
+      cache: "no-store",
+    }
   );
 }
 ///////////////////////////////
@@ -229,6 +254,9 @@ export async function getData(slug) {
     content,
        type,
     }`,
-    { slug }
+    { slug },
+    {
+      cache: "no-store",
+    }
   );
 }

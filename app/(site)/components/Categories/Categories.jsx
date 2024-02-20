@@ -6,7 +6,6 @@ export const dynamic = "force-dynamic";
 
 const Categories = async ({ category }) => {
   // const data = await getProductsByCategories();
-
   // console.log("CATEGORY !!!!!!!!", data);
 
   return (
@@ -36,7 +35,6 @@ const Categories = async ({ category }) => {
           height: " auto",
         }}
       >
-        {/* DISPLAY CATEGORY map categories avec ça j'ai tout mon contenu  */}
         <div
           className="display_category"
           style={{

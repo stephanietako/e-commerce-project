@@ -10,6 +10,8 @@ import Products from "./components/Products/Products";
 import { getDataProductsPages } from "@/sanity/lib/client";
 import StarProducts from "./components/StarProducts/StarProducts";
 import { getDataStarProducts } from "@/sanity/lib/client";
+// import { Suspense } from "react";
+// import LoadingSpinner from "./loading";
 
 const Home = async () => {
   const projects = await getProjects();
@@ -18,8 +20,8 @@ const Home = async () => {
   const bycategory = await getCategories();
   const starproducts = await getDataStarProducts();
   const allproducts = await getDataProductsPages();
-  console.log("PAGES !!!!!!", pages);
-  console.log("PAGES !!!!!!", projects);
+  // console.log("PAGES !!!!!!", pages);
+  // console.log("PAGES !!!!!!", projects);
 
   return (
     <>
@@ -33,6 +35,7 @@ const Home = async () => {
           alignItems: "center",
         }}
       >
+        {/* <Suspense fallback={<LoadingSpinner />}> */}
         {/* MENU de page */}
         <div className="links">
           {pages.map((page) => (
@@ -54,26 +57,27 @@ const Home = async () => {
         {/* // MENU des projects get projects */}
         <div className="container__projects">
           {projects.map((project) => (
-            <Link
-              href={`/projects/${project.slug}`}
-              key={project._id}
-              className="box"
-            >
-              {project.image && (
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  width={250}
-                  height={100}
-                  className="project_img"
-                />
-              )}
-              <div className="project_name">{project.name}</div>
-            </Link>
+            <div key={project._id}>
+              <h2>
+                <Link href={`/projects/${project.slug}`} className="box">
+                  {project.image && (
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      width={250}
+                      height={100}
+                      className="project_img"
+                    />
+                  )}
+                  <div className="project_name">{project.name}</div>
+                </Link>
+              </h2>
+            </div>
           ))}
         </div>
-        {/* ///////////////// */}
+        {/* </Suspense> */}
       </section>
+      {/* //////////////////////////////////////////// */}
       <section className="starproducts_section">
         <StarProducts starproducts={starproducts} />
       </section>

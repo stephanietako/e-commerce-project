@@ -9,6 +9,7 @@ import Toast from "./components/Toasts/Toasts";
 import { getDataProducts } from "@/sanity/lib/client";
 import { getCategories } from "@/sanity/lib/client";
 import { NextAuthProvider } from "./components/AuthProvider/AuthProvider";
+// import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,17 +45,6 @@ export default async function RootLayout({ children, session, test }) {
                   </Link>
                 ))}
               </div>
-              {/* <div className="links">
-                 <label className={styles.__label_search_products}>Products Search</label>
-                <select onChange={(e) => handleProductChange(e.target.value)}>
-                  <option value="Products">Products</option>
-                  {products.map((product) => (
-                    <option key={product._id} value={product.slug}>
-                      {product.name}
-                    </option>
-                  ))}
-                </select>
-              </div> */}
 
               {/* /////// */}
               <div className="links">
