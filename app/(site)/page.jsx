@@ -12,6 +12,8 @@ import StarProducts from "./components/StarProducts/StarProducts";
 import { getDataStarProducts } from "@/sanity/lib/client";
 // import { Suspense } from "react";
 // import LoadingSpinner from "./loading";
+import { getDataProducts } from "@/sanity/lib/client";
+// import { getCategories } from "@/sanity/lib/client";
 
 const Home = async () => {
   const projects = await getProjects();
@@ -22,6 +24,8 @@ const Home = async () => {
   const allproducts = await getDataProductsPages();
   // console.log("PAGES !!!!!!", pages);
   // console.log("PAGES !!!!!!", projects);
+  const products = await getDataProducts();
+  const categories = await getCategories();
 
   return (
     <>
@@ -76,6 +80,33 @@ const Home = async () => {
           ))}
         </div>
         {/* </Suspense> */}
+      </section>
+      {/* //////////////////////////////////////////// */}
+      <section>
+        <div className="links">
+          {products.map((product) => (
+            <Link
+              key={product._id}
+              href={`/products/${product.slug}`}
+              className="link"
+            >
+              {product.name}
+            </Link>
+          ))}
+        </div>
+      </section>
+      <section>
+        <div className="links">
+          {categories.map((category) => (
+            <Link
+              key={category._id}
+              href={`/categories/${category.slug}`}
+              className="link"
+            >
+              {category.name}
+            </Link>
+          ))}
+        </div>
       </section>
       {/* //////////////////////////////////////////// */}
       <section className="starproducts_section">

@@ -53,6 +53,7 @@ const Category = async ({ params }) => {
               <span>
                 {data.products}
                 <h2>{data.name}</h2>
+                <p>{data.type}</p>
               </span>
               <div
                 className="products_price"

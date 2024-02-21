@@ -2,6 +2,7 @@
 // Styles
 import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
+
 const Search = ({
   categoryFilter,
   searchQuery,
@@ -19,8 +20,6 @@ const Search = ({
   };
 
   const handleFilterClick = () => {
-    // Navigate to category page with the query
-    //    router.push(`/categories?${categoryFilter} && ${searchQuery}`);
     router.push(
       `/categories?categoryFilter=${categoryFilter}&searchQuery=${searchQuery}`
     );
@@ -37,11 +36,11 @@ const Search = ({
               onChange={handleCategoryChange}
               className={styles.__label_search_select_content}
             >
-              <option value="All">All</option>
-              <option value="Unique">Unique</option>
-              <option value="Basic 2 grammes">Basic 2 grammes</option>
-              <option value="Medium 5 grammes">Medium 5 grammes</option>
-              <option value="Large 10 grammes">Large 10 grammes</option>
+              <option value="all">All</option>
+              <option value="unique">Unique</option>
+              <option value="basic ">Basic </option>
+              <option value="medium">Medium </option>
+              <option value="large ">Large </option>
             </select>
           </div>
         </div>

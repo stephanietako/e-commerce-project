@@ -238,6 +238,26 @@ export async function getBycategories() {
     }
   );
 }
+
+export async function getCategory() {
+  return createClient(clientConfig).fetch(
+    groq` *[_type == "category" ]{
+    _id,
+   _createdAt,
+    "coverImages": images[0].asset->url,
+    images,
+      price,
+    name,
+    "slug": slug.current,
+     "products": products[0]->name,
+    content,
+       type,
+    }`,
+    {
+      cache: "no-store",
+    }
+  );
+}
 ///////////////////////////////
 //// slug CATEGORY single page
 export async function getData(slug) {
