@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
-//import Search from "../components/Search/Search";
+import Search from "../components/Search/Search";
 import { fetchData } from "../../../sanity/lib/api";
 // import { getCategory } from "@/sanity/lib/client";
 import CategoriesPages from "../components/CategoriesPages/CategoriesPages";
@@ -55,15 +55,16 @@ const CategoriesPage = () => {
 
   const filteredCategories = filterCategories(data || []);
   console.log("filteredCategories!!!!!:", filteredCategories);
+  console.log("data!!!!!:");
   return (
     <div className="search_components">
       <h2> PAGE DE L AFFICHAGE DES CATEGORIES </h2>
-      {/* <Search
+      <Search
         categoryTypeFilter={categoryTypeFilter}
         searchQuery={searchQuery}
         setCategoryFilter={setCategoryTypeFilter}
         setSearchQuery={setSearchQuery}
-      /> */}
+      />
 
       <div className="filteredCategories">
         {isLoading ? (
