@@ -23,18 +23,15 @@ const CategoriesPages = ({ category }) => {
         )}
       </div>
 
-      <div className="p-4 bg-white">
-        <div className="flex justify-between text-xl font-semibold">
+      <div className="infos_content">
+        <div className="infos">
           <p>{category.name}</p>
           <p>$ {category.price}</p>
         </div>
 
         <p className="pt-2 text-xs">{category.type} CATEGORY</p>
 
-        <Link
-          href={`/categories/${category.slug}`}
-          className="bg-primary inline-block text-center w-full py-4 rounded-xl text-white text-xl font-bold hover:-translate-y-2 hover:shadow-lg transition-all duration-500"
-        >
+        <Link href={`/categories/${category.slug}`} className="link_items">
           View Details
         </Link>
       </div>
