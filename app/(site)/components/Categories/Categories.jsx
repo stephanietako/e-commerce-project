@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 // import { getProductsByCategories } from "@/sanity/lib/client";
 export const dynamic = "force-dynamic";
-
+// AFFICHAGE
 const Categories = async ({ category }) => {
   // const data = await getProductsByCategories();
   // console.log("CATEGORY !!!!!!!!", data);

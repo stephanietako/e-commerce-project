@@ -1,18 +1,18 @@
-"client use";
+"use client";
 import { useState } from "react";
 import Search from "../Search/Search";
 // Styles
 import styles from "./styles.module.scss";
 
 const PageSearch = () => {
-  const [categoryFilter, setCategoryFilter] = useState("");
+  const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   return (
     <div className={styles.pagesearch_container}>
       <Search
-        categoryFilter={categoryFilter}
+        categoryTypeFilter={categoryTypeFilter}
         searchQuery={searchQuery}
-        setCategoryFilter={setCategoryFilter}
+        setCategoryTypeFilter={setCategoryTypeFilter}
         setSearchQuery={setSearchQuery}
       />
     </div>

@@ -280,3 +280,22 @@ export async function getData(slug) {
     }
   );
 }
+
+export async function getCategoriesDetails(slug) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "category" && slug.current == $slug]][0] {
+    _id,
+    coverImages,
+    images,
+    name,
+    price,
+    slug,
+    type,
+    
+}`,
+    { slug },
+    {
+      cache: "no-store",
+    }
+  );
+}

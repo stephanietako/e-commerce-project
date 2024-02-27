@@ -1,28 +1,32 @@
 "use client";
+
 // Styles
 import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
 
 const Search = ({
-  categoryFilter,
+  categoryTypeFilter,
   searchQuery,
-  setCategoryFilter,
+  setCategoryTypeFilter,
   setSearchQuery,
 }) => {
   const router = useRouter();
 
-  const handleCategoryChange = (event) => {
-    setCategoryFilter(event.target.value);
+  const handleCategoryTypeChange = (event) => {
+    const selectedCategory = event.target.value;
+    setCategoryTypeFilter(selectedCategory);
   };
 
   const handleSearchQuerychange = (event) => {
-    setSearchQuery(event.target.value);
+    const selectedQuery = event.target.value;
+    setSearchQuery(selectedQuery);
   };
 
   const handleFilterClick = () => {
     router.push(
-      `/categories?categoryFilter=${categoryFilter}&searchQuery=${searchQuery}`
+      `/categories?categoryType=${categoryTypeFilter}&searchQuery=${searchQuery}`
     );
+    console.log("CLICK !!!!!", handleFilterClick);
   };
   return (
     <section className={styles.section_search_categories}>
@@ -32,15 +36,15 @@ const Search = ({
           <div className={styles.__label_search_select}>
             <label className={styles.__label_search}>Category Type</label>
             <select
-              value={categoryFilter}
-              onChange={handleCategoryChange}
+              value={categoryTypeFilter}
+              onChange={handleCategoryTypeChange}
               className={styles.__label_search_select_content}
             >
-              <option value="all">All</option>
-              <option value="unique">Unique</option>
-              <option value="basic ">Basic </option>
-              <option value="medium">Medium </option>
-              <option value="large ">Large </option>
+              <option value="All">All</option>
+              <option value="Unique">Unique</option>
+              <option value="Basic ">Basic </option>
+              <option value="Medium">Medium </option>
+              <option value="Large ">Large </option>
             </select>
           </div>
         </div>

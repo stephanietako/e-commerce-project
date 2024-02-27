@@ -2,6 +2,7 @@ import { getData } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 export const dynamic = "force-dynamic";
+
 // single page
 const Category = async ({ params }) => {
   const slug = params.category;

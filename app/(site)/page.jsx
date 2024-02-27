@@ -2,18 +2,22 @@ import Image from "next/image";
 import { getProjects } from "@/sanity/lib/client";
 import Link from "next/link";
 import { getProductsByCategories } from "@/sanity/lib/client";
-import { getCategories } from "@/sanity/lib/client";
 import { getPages } from "@/sanity/lib/client";
+import { getCategories } from "@/sanity/lib/client";
 import Categories from "./components/Categories/Categories";
 import Bycategories from "./components/Bycategories/Bycategories";
 import Products from "./components/Products/Products";
 import { getDataProductsPages } from "@/sanity/lib/client";
 import StarProducts from "./components/StarProducts/StarProducts";
 import { getDataStarProducts } from "@/sanity/lib/client";
-// import { Suspense } from "react";
-// import LoadingSpinner from "./loading";
 import { getDataProducts } from "@/sanity/lib/client";
-// import { getCategories } from "@/sanity/lib/client";
+import PageSearch from "./components/PageSearch/PageSearch";
+import { fetchCategories } from "@/sanity/lib/fetchCategories";
+import { getCategory } from "@/sanity/lib/client";
+// import LoadingSpinner from "./loading";
+// import { getCategory } from "@/sanity/lib/client";
+import CategoriesPages from "./components/CategoriesPages/CategoriesPages";
+// import CategoriesPages from "./components/CategoriesPages/CategoriesPages";
 
 const Home = async () => {
   const projects = await getProjects();
@@ -22,11 +26,12 @@ const Home = async () => {
   const bycategory = await getCategories();
   const starproducts = await getDataStarProducts();
   const allproducts = await getDataProductsPages();
-  // console.log("PAGES !!!!!!", pages);
-  // console.log("PAGES !!!!!!", projects);
   const products = await getDataProducts();
   const categories = await getCategories();
-
+  // const categoryitem = await getCategory();
+  ///////////////
+  // const categorypages = getProductsByCategories();
+  /////////////////
   return (
     <>
       <section
@@ -50,9 +55,6 @@ const Home = async () => {
         </div>
 
         <div className="bloc_text">
-          {/* <div>
-            <Header />
-          </div> */}
           <h1>This is the Home page </h1>{" "}
           <p>
             This is the starting project of ecommerce with next js 14 and Sanity
@@ -80,6 +82,15 @@ const Home = async () => {
           ))}
         </div>
         {/* </Suspense> */}
+      </section>
+      {/* ///////////////////// */}
+
+      <section>
+        <nav>
+          <PageSearch />
+        </nav>
+        {/* /////////AFFICHAGE CATEGORY PAGE//////////// */}
+        {/* <CategoriesPages categoryitem={categoryitem} /> */}
       </section>
       {/* //////////////////////////////////////////// */}
       <section>
@@ -109,6 +120,7 @@ const Home = async () => {
         </div>
       </section>
       {/* //////////////////////////////////////////// */}
+
       <section className="starproducts_section">
         <StarProducts starproducts={starproducts} />
       </section>

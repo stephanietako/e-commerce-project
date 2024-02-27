@@ -1,52 +1,47 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import Search from "../components/Search/Search";
-// import { getProductsByCategories } from "@/sanity/lib/client";
-import CategoriesPages from "../components/CategoriesPages/CategoriesPages";
-import { fetchData } from "@/sanity/lib/api";
 import useSWR from "swr";
+//import Search from "../components/Search/Search";
+import { fetchData } from "../../../sanity/lib/api";
+// import { getCategory } from "@/sanity/lib/client";
+import CategoriesPages from "../components/CategoriesPages/CategoriesPages";
+// import Categories from "../components/Categories/Categories";
 
 const CategoriesPage = () => {
-  const [categoryFilter, setCategoryFilter] = useState("");
+  const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
-
   const searchParams = useSearchParams();
 
   useEffect(() => {
     const searchQuery = searchParams.get("searchQuery");
     const categoryType = searchParams.get("categoryType");
     console.log("SEARCHQUERY", searchQuery);
-    console.log("CATEGORYTYPE", categoryType);
-
-    fetchData();
+    console.log("CATEGORYFILTER", categoryType);
+    if (categoryType) setCategoryTypeFilter(categoryType);
+    if (searchQuery) setSearchQuery(searchQuery);
   }, [searchParams]);
 
-  // async function fetchData() {
-  //   return getProductsByCategories();
-  // }
-  ///////////////////////////////
-  // useSWR est un hook React utilisé principalement pour le chargement de données à partir d'une source externe, comme une API. Il fait partie de la bibliothèque SWR (stale-while-revalidate), qui fournit une gestion simple de la mise en cache, de l'expiration des données et de leur rechargement.
-  const { data, error, isLoading } = useSWR("get/categories", fetchData);
+  // Utilisation de useSWR pour récupérer les données avec fetchData
+  const { data, error, isLoading } = useSWR("/categories", fetchData);
 
+  // Gestion de l'erreur
   if (error) throw new Error("Cannot fetch data");
   if (typeof data === "undefined" && !isLoading)
     throw new Error("Cannot fetch data");
-  /////////////////////////
 
+  // Filtrage des catégories
   const filterCategories = (categories) => {
     return categories.filter((category) => {
-      // Apply room type filter
-
       if (
-        categoryFilter &&
-        categoryFilter.toLowerCase() !== "all" &&
-        category.type.toLowerCase() !== categoryFilter.toLowerCase()
+        categoryTypeFilter &&
+        categoryTypeFilter.toLowerCase() !== "all" &&
+        category.type.toLowerCase() !== categoryTypeFilter.toLowerCase()
       ) {
         return false;
       }
 
-      //   Apply search query filter
       if (
         searchQuery &&
         !category.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -59,29 +54,27 @@ const CategoriesPage = () => {
   };
 
   const filteredCategories = filterCategories(data || []);
-
+  console.log("filteredCategories!!!!!:", filteredCategories);
   return (
     <div className="search_components">
-      <Search
-        roomTypeFilter={categoryFilter}
+      <h2> PAGE DE L AFFICHAGE DES CATEGORIES </h2>
+      {/* <Search
+        categoryTypeFilter={categoryTypeFilter}
         searchQuery={searchQuery}
-        setRoomTypeFilter={setCategoryFilter}
+        setCategoryFilter={setCategoryTypeFilter}
         setSearchQuery={setSearchQuery}
-      />
+      /> */}
 
-      {/* <div className="filteredCategories">
+      <div className="filteredCategories">
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          filteredCategories.map((category) => (
-            <Categories key={category._id} category={category} />
-          ))
+          filteredCategories.map((category) => {
+            console.log("Category !!!!!:", category);
+            console.log("Category ID !!!!!:", category._id);
+            return <CategoriesPages key={category._id} category={category} />;
+          })
         )}
-      </div> */}
-      <div className="category_link">
-        {filteredCategories.map((category) => (
-          <CategoriesPages key={category._id} category={category} />
-        ))}
       </div>
     </div>
   );

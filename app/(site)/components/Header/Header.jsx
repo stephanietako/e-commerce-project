@@ -6,11 +6,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import userCircleImage from "@/public/user-circle.png";
 import Image from "next/image";
-import PageSearch from "../PageSearch/PageSearch";
-// import { Suspense } from "react";
-// function SearchBarFallback() {
-//   return <>placeholder</>;
-// }
+
 const Header = () => {
   const { data: session } = useSession();
   return (
@@ -48,13 +44,6 @@ const Header = () => {
           )}
         </li>
       </ul>
-      <PageSearch />
-      {/* <nav>
-        <Suspense fallback={<SearchBarFallback />}>
-          <PageSearch />
-        </Suspense>
-      </nav> */}
-      <h1>Dashboard</h1>
     </div>
   );
 };
