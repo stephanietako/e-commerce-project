@@ -4,7 +4,7 @@ import ImageGallery from "../../components/ImageGallery/ImageGallery";
 export const dynamic = "force-dynamic";
 
 // single page
-const Category = async ({ params }) => {
+const CategoryDetails = async ({ params }) => {
   const slug = params.category;
   const data = await getData(slug);
 
@@ -120,4 +120,4 @@ const Category = async ({ params }) => {
     </>
   );
 };
-export default Category;
+export default CategoryDetails;

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import styles from "./Auth.module.css";
+import styles from "./styles.module.css";
 // SignUp
 import { signUp } from "next-auth-sanity/client";
 // SignIn

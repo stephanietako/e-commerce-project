@@ -1,5 +1,4 @@
 "use client";
-
 // Styles
 import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
@@ -47,25 +46,25 @@ const Search = ({
               <option value="Large ">Large </option>
             </select>
           </div>
+          <div className={styles.__searchbar}>
+            <label className={styles.__search}> Search</label>
+            <input
+              type="search"
+              id="search"
+              placeholder="search..."
+              className={styles.__search_input}
+              value={searchQuery}
+              onChange={handleSearchQuerychange}
+            />
+          </div>
+          <button
+            className={styles.__btn_search}
+            type="button"
+            onClick={handleFilterClick}
+          >
+            Search
+          </button>
         </div>
-        <div className={styles.__searchbar}>
-          <label className={styles.__search}> Search</label>
-          <input
-            type="search"
-            id="search"
-            placeholder="search..."
-            className={styles.__search_input}
-            value={searchQuery}
-            onChange={handleSearchQuerychange}
-          />
-        </div>
-        <button
-          className={styles.__btn_search}
-          type="button"
-          onClick={handleFilterClick}
-        >
-          Search
-        </button>
       </div>
     </section>
   );

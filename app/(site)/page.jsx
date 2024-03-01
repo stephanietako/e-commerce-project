@@ -12,12 +12,12 @@ import StarProducts from "./components/StarProducts/StarProducts";
 import { getDataStarProducts } from "@/sanity/lib/client";
 import { getDataProducts } from "@/sanity/lib/client";
 import PageSearch from "./components/PageSearch/PageSearch";
-import { fetchCategories } from "@/sanity/lib/fetchCategories";
-import { getCategory } from "@/sanity/lib/client";
-// import LoadingSpinner from "./loading";
-// import { getCategory } from "@/sanity/lib/client";
-import CategoriesPages from "./components/CategoriesPages/CategoriesPages";
-// import CategoriesPages from "./components/CategoriesPages/CategoriesPages";
+//////////////////////
+import CheckboxPage from "./components/CheckboxPage/CheckboxPage";
+import Checkboxs from "./components/Checkboxs/Checkboxs";
+import Select from "./components/Select/Select";
+// import RadioPage from "./components/RadioPage/RadioPage";
+//import RadioPage from "./components/RadioPage/RadioPage";
 
 const Home = async () => {
   const projects = await getProjects();
@@ -34,6 +34,56 @@ const Home = async () => {
   /////////////////
   return (
     <>
+      {/* MENU de page about contact*/}
+      <div className="links">
+        {pages.map((page) => (
+          <Link key={page._id} href={`/pages/${page.slug}`} className="link">
+            {page.title}
+          </Link>
+        ))}
+      </div>
+      <section>
+        <div className="links">
+          {products.map((product) => (
+            <Link
+              key={product._id}
+              href={`/products/${product.slug}`}
+              className="link"
+            >
+              {product.name}
+            </Link>
+          ))}
+        </div>
+      </section>
+      <section>
+        <h3>ESSAIS CHECKBOXS</h3>
+
+        <div
+          className="section_essai_checkboxs"
+          style={{
+            border: "4px solid red",
+            display: "flex",
+            width: "auto",
+            height: "auto",
+            justifyContent: "center",
+          }}
+        >
+          <CheckboxPage />
+        </div>
+
+        <div
+          className="section_essai_checkbox"
+          style={{
+            border: "4px solid red",
+            display: "flex",
+            width: "auto",
+            height: "auto",
+            justifyContent: "center",
+          }}
+        >
+          <Select />
+        </div>
+      </section>
       <section
         className="first_section"
         style={{
@@ -45,14 +95,6 @@ const Home = async () => {
         }}
       >
         {/* <Suspense fallback={<LoadingSpinner />}> */}
-        {/* MENU de page */}
-        <div className="links">
-          {pages.map((page) => (
-            <Link key={page._id} href={`/pages/${page.slug}`} className="link">
-              {page.title}
-            </Link>
-          ))}
-        </div>
 
         <div className="bloc_text">
           <h1>This is the Home page </h1>{" "}
@@ -84,28 +126,12 @@ const Home = async () => {
         {/* </Suspense> */}
       </section>
       {/* ///////////////////// */}
-
       <section>
         <nav>
           <PageSearch />
         </nav>
-        {/* /////////AFFICHAGE CATEGORY PAGE//////////// */}
-        {/* <CategoriesPages categoryitem={categoryitem} /> */}
       </section>
-      {/* //////////////////////////////////////////// */}
-      <section>
-        <div className="links">
-          {products.map((product) => (
-            <Link
-              key={product._id}
-              href={`/products/${product.slug}`}
-              className="link"
-            >
-              {product.name}
-            </Link>
-          ))}
-        </div>
-      </section>
+
       <section>
         <div className="links">
           {categories.map((category) => (

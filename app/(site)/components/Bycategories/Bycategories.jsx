@@ -15,7 +15,7 @@ const ByCategory = async ({ bycategory }) => {
           display: "flex",
           width: "auto",
           height: "auto",
-          justifyContent: "space-between",
+          justifyContent: "space-evenly",
           border: "2px solid blue",
           alignItems: "center",
           padding: "33px",
@@ -23,6 +23,19 @@ const ByCategory = async ({ bycategory }) => {
         }}
       >
         <h2 className="_bycategory_title">BY CATEGORIES</h2>
+        {/* <div
+          className="nav_filter_radio"
+          style={{
+            display: "flex",
+            width: "auto",
+            height: "auto",
+            justifyContent: "space-between",
+            border: "2px solid blue",
+            alignItems: "center",
+            padding: "33px",
+            flexWrap: "wrap",
+          }}
+        ></div> */}
       </header>
       {/* Section principale des produits */}
       <section

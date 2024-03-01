@@ -3,13 +3,11 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
-import Search from "../components/Search/Search";
+// import Search from "../components/Search/Search";
 import { fetchData } from "../../../sanity/lib/api";
-// import { getCategory } from "@/sanity/lib/client";
 import CategoriesPages from "../components/CategoriesPages/CategoriesPages";
-// import Categories from "../components/Categories/Categories";
 
-const CategoriesPage = () => {
+const CategoriesFilters = () => {
   const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const searchParams = useSearchParams();
@@ -17,8 +15,8 @@ const CategoriesPage = () => {
   useEffect(() => {
     const searchQuery = searchParams.get("searchQuery");
     const categoryType = searchParams.get("categoryType");
-    console.log("SEARCHQUERY", searchQuery);
-    console.log("CATEGORYFILTER", categoryType);
+    // console.log("SEARCHQUERY", searchQuery);
+    // console.log("CATEGORYFILTER", categoryType);
     if (categoryType) setCategoryTypeFilter(categoryType);
     if (searchQuery) setSearchQuery(searchQuery);
   }, [searchParams]);
@@ -59,12 +57,13 @@ const CategoriesPage = () => {
   return (
     <div className="search_components">
       <h2> PAGE DE L AFFICHAGE DES CATEGORIES </h2>
+      {/* 
       <Search
         categoryTypeFilter={categoryTypeFilter}
         searchQuery={searchQuery}
-        setCategoryFilter={setCategoryTypeFilter}
+        setCategoryTypeFilter={setCategoryTypeFilter}
         setSearchQuery={setSearchQuery}
-      />
+      /> */}
 
       <div className="filteredCategories">
         {isLoading ? (
@@ -81,4 +80,4 @@ const CategoriesPage = () => {
   );
 };
 
-export default CategoriesPage;
+export default CategoriesFilters;

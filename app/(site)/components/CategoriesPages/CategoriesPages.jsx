@@ -26,7 +26,17 @@ const CategoriesPages = ({ category }) => {
       <div className="infos_content">
         <div className="infos">
           <p>{category.name}</p>
-          <p>$ {category.price}</p>
+          <span>
+            {" "}
+            <p
+              className="price_content"
+              style={{
+                fontSize: "3rem",
+              }}
+            >
+              €{category.price.toFixed(2)}
+            </p>
+          </span>
         </div>
 
         <p className="pt-2 text-xs">{category.type} CATEGORY</p>
