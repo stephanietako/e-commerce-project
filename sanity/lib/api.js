@@ -4,7 +4,7 @@ import sanityClient from "./sanity";
 import { groq } from "next-sanity";
 //import { getProductsByCategories } from "@/sanity/lib/client";
 // import { getCategories } from "@/sanity/lib/client";
-export async function fetchData() {
+export async function fetchDataCategory() {
   return await sanityClient.fetch(
     groq`*[_type == "category" ]{
     _id,
@@ -23,30 +23,30 @@ export async function fetchData() {
     }
   );
 }
-// export async function fetchDataCat() {
-//   const result = await sanityClient.fetch(
-//     getProductsByCategories,
-//     {},
-//     { cache: "no-store" }
-//   );
-//   return result;
-// }
-// export async function fetchDataCat() {
-//   return getProductsByCategories();
-// }
-// export async function fetchData(slug) {
-//   const result = await sanityClient.fetch(
-//     getCategoriesDetails,
-//     { slug },
-//     { cache: "no-store" }
-//   );
-//   return result;
-// }
-// export async function fetchData() {
-//   const result = await sanityClient.fetch(
-//     getCategories,
-//     {},
-//     { cache: "no-cache" }
-//   );
-//   return result;
-// }
+
+export async function fetchDataProduct() {
+  return await sanityClient.fetch(
+    groq`*[_type == "product"] {
+  _id,
+      _createdAt,
+  name,
+    "slug": slug.current,
+         "coverImages": images[0].asset->url,
+           content,
+  "categories": *[_type == 'category' && references(^._id)][0...15] | order(_createdAt desc) {
+    _id,
+    price,
+    currency,
+    name,
+    "slug": slug.current,
+     "coverImages": images[0].asset->url,
+    "images": images[0].asset->url,
+    content,
+    "categories": categories[0]->name,
+  }
+}`,
+    {
+      cache: "no-cache",
+    }
+  );
+}

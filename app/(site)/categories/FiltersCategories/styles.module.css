@@ -3,13 +3,8 @@
   vertical-align: text-bottom;
 }
 
-.result {
-  margin-top: 1rem;
-}
-
-.category_list,
-.total {
-  width: 30%;
+.category_list {
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -18,7 +13,7 @@
   padding: 0;
 }
 
-.categories_list li {
+.category_list li {
   margin-bottom: 0.5rem;
 }
 
@@ -27,7 +22,7 @@
   justify-content: space-between;
 }
 
-.categories_list li:last-child {
+.category_list li:last-child {
   border-top: 1px solid #ccc;
   margin-top: 1rem;
   padding-top: 1rem;

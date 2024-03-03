@@ -14,10 +14,7 @@ import { getDataProducts } from "@/sanity/lib/client";
 import PageSearch from "./components/PageSearch/PageSearch";
 //////////////////////
 import CheckboxPage from "./components/CheckboxPage/CheckboxPage";
-import Checkboxs from "./components/Checkboxs/Checkboxs";
 import Select from "./components/Select/Select";
-// import RadioPage from "./components/RadioPage/RadioPage";
-//import RadioPage from "./components/RadioPage/RadioPage";
 
 const Home = async () => {
   const projects = await getProjects();
@@ -61,7 +58,7 @@ const Home = async () => {
         <div
           className="section_essai_checkboxs"
           style={{
-            border: "4px solid red",
+            border: "4px solid pink",
             display: "flex",
             width: "auto",
             height: "auto",
@@ -71,18 +68,7 @@ const Home = async () => {
           <CheckboxPage />
         </div>
 
-        <div
-          className="section_essai_checkbox"
-          style={{
-            border: "4px solid red",
-            display: "flex",
-            width: "auto",
-            height: "auto",
-            justifyContent: "center",
-          }}
-        >
-          <Select />
-        </div>
+        <Select />
       </section>
       <section
         className="first_section"

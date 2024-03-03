@@ -3,28 +3,26 @@ import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 // DISPLAY
-const CategoriesPages = ({ category }) => {
+const ProductsPages = ({ product }) => {
   return (
     <>
       <header
-        className="header_categoriespages"
+        className="header_productspages"
         style={{
           display: "flex",
           width: "auto",
           height: "auto",
           justifyContent: "space-between",
-          border: "2px solid blue",
+          border: "2px solid turquoise",
           alignItems: "center",
           padding: "33px",
           flexWrap: "wrap",
         }}
       >
-        <h2 className="_bycategory_title">
-          CATEGORIES PAGES CHECKBOX SELECTION
-        </h2>
+        <h2 className="_byproduct_title">PRODUCTS PAGES CHECKBOX SELECTION</h2>
       </header>
       <section
-        className="categoriespages_section"
+        className="productspages_section"
         style={{
           display: "flex",
           width: "100%",
@@ -36,7 +34,7 @@ const CategoriesPages = ({ category }) => {
         }}
       >
         <div
-          className="__categoriespages_bloc"
+          className="__productspages_bloc"
           style={{
             display: "flex",
             border: "3px solid yellow",
@@ -50,12 +48,12 @@ const CategoriesPages = ({ category }) => {
               height: "100%",
             }}
           >
-            {category.coverImages ? (
+            {product.coverImages ? (
               <>
                 <Image
-                  src={category.coverImages}
+                  src={product.coverImages}
                   alt="les fleurs"
-                  className="category__img"
+                  className="product__img"
                   width={200}
                   height={200}
                   style={{
@@ -70,8 +68,8 @@ const CategoriesPages = ({ category }) => {
 
           <div className="infos_content">
             <div className="infos">
-              <p>{category.name}</p>
-              <span>
+              <p>{product.name}</p>
+              {/* <span>
                 {" "}
                 <p
                   className="price_content"
@@ -79,14 +77,14 @@ const CategoriesPages = ({ category }) => {
                     fontSize: "3rem",
                   }}
                 >
-                  €{category.price.toFixed(2)}
+                  €{product.price.toFixed(2)}
                 </p>
-              </span>
+              </span> */}
             </div>
 
-            <p className="pt-2 text-xs">{category.type} CATEGORY</p>
+            <p className="pt-2 text-xs">{product.type} PRODUCT</p>
             <div
-              className="categoriespages_display"
+              className="productspages_display"
               style={{
                 border: "4px solid black",
                 display: "flex",
@@ -95,10 +93,7 @@ const CategoriesPages = ({ category }) => {
                 justifyContent: "center",
               }}
             >
-              <Link
-                href={`/categories/${category.slug}`}
-                className="link_items"
-              >
+              <Link href={`/products/${product.slug}`} className="link_items">
                 View Details
               </Link>
             </div>
@@ -109,4 +104,4 @@ const CategoriesPages = ({ category }) => {
   );
 };
 
-export default CategoriesPages;
+export default ProductsPages;

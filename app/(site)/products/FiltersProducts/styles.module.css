@@ -1,0 +1,34 @@
+.topping {
+  margin-top: 0.3rem;
+  vertical-align: text-bottom;
+}
+
+.product_list {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.product_list {
+  list-style: none;
+  padding: 0;
+}
+
+.product_list li {
+  margin-bottom: 0.5rem;
+}
+
+.products_list_item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product_list li:last-child {
+  border-top: 1px solid #ccc;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.products_list_tem label {
+  vertical-align: text-bottom;
+  margin-left: 0.2rem;
+}

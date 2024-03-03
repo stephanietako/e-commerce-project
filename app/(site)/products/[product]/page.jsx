@@ -4,7 +4,7 @@ import ImageGallery from "../../components/ImageGallery/ImageGallery";
 
 export const dynamic = "force-dynamic";
 // single page
-const Products = async ({ params }) => {
+const ProductsDetails = async ({ params }) => {
   const slug = params.product;
   const product = await getDataProduct(slug);
 
@@ -14,7 +14,7 @@ const Products = async ({ params }) => {
   return (
     <>
       <div className="title_slug_singlepage_product">
-        <h1>{product.name} ICI C EST PRODUCTS PRODUCT</h1>
+        <h1>{product.name} ICI C EST PRODUCT </h1>
       </div>
       <div
         className="gallery_container"
@@ -68,4 +68,4 @@ const Products = async ({ params }) => {
     </>
   );
 };
-export default Products;
+export default ProductsDetails;

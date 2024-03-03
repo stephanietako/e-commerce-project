@@ -5,11 +5,12 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
-import { fetchData } from "../../../../sanity/lib/api";
+import { fetchDataCategory } from "../../../../sanity/lib/api";
+import CategoriesPages from "../../components/CategoriesPages/CategoriesPages";
 // Importation des styles
 import styles from "./styles.module.css";
 
-const Checkboxs = () => {
+const FiltersCategories = () => {
   // Utilisation de useState pour gérer l'état de la case à cocher et du total
   const [checkedState, setCheckedState] = useState([]);
   const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
@@ -26,7 +27,7 @@ const Checkboxs = () => {
   }, [searchParams]);
   ////
   // Utilisation de useSWR pour récupérer les données avec fetchData
-  const { data, error, isLoading } = useSWR("/categories", fetchData);
+  const { data, error, isLoading } = useSWR("/categories", fetchDataCategory);
   // Gestion de l'erreur
   if (error) throw new Error("Cannot fetch data");
   if (typeof data === "undefined" && !isLoading)
@@ -67,13 +68,13 @@ const Checkboxs = () => {
   // Rendu du composant
   return (
     <div className={styles.container}>
-      <h3>Select Toppings</h3>
-      <ul className={styles.toppings_list}>
+      <h3>Select Sort By Categories</h3>
+      <ul className={styles.category_list}>
         {/* Mapping à travers la liste de garnitures */}
         {filteredCategories.map(({ name }, index) => {
           return (
             <li key={index}>
-              <div className={styles.toppings_list_item}>
+              <div className={styles.categories_list_item}>
                 {/* Case à cocher et libellé */}
                 <div className={styles.left_section}>
                   <input
@@ -91,11 +92,23 @@ const Checkboxs = () => {
           );
         })}
         <li>
-          <div className={styles.toppings_list_item}></div>
+          <div className="filteredCategories">
+            {isLoading ? (
+              <div>Loading...</div>
+            ) : (
+              filteredCategories.map((category) => {
+                console.log("Category !!!!!:", category);
+                console.log("Category ID !!!!!:", category._id);
+                return (
+                  <CategoriesPages key={category._id} category={category} />
+                );
+              })
+            )}
+          </div>
         </li>
       </ul>
     </div>
   );
 };
 
-export default Checkboxs;
+export default FiltersCategories;

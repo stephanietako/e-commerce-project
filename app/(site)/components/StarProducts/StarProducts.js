@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
-const StarProducts = async ({ starproducts }) => {
+const StarProducts = ({ starproducts }) => {
   // const data = await getDataStarProducts();
   // console.log("STAR PRODUCTS ", data);
 

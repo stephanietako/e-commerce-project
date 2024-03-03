@@ -1,8 +1,8 @@
 import { getData } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
-export const dynamic = "force-dynamic";
 
+export const dynamic = "force-dynamic";
 // single page
 const CategoryDetails = async ({ params }) => {
   const slug = params.category;
@@ -13,7 +13,8 @@ const CategoryDetails = async ({ params }) => {
   return (
     <>
       <div className="title_slug_singlepage_categoy">
-        <h1>{data.name}ICI C EST CATEGORY</h1>
+        <h1>ICI C EST CATEGORY</h1>
+        {/* <h1>{data.name}ICI C EST CATEGORY</h1> */}
       </div>
       <div
         className="gallery_container"
