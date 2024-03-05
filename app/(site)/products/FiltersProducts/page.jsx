@@ -1,16 +1,14 @@
 "use client";
 
-// Importation de la liste des garnitures depuis le fichier utils
-// import { toppings } from "../../../utils/utils";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { fetchDataProduct } from "../../../../sanity/lib/api";
 import ProductsPages from "../../components/ProductsPages/ProductsPages";
-// Importation des styles
+// Styles
 import styles from "./styles.module.css";
 
-const FiltersProducts = ({ products }) => {
+const FiltersProducts = () => {
   // Utilisation de useState pour gérer l'état de la case à cocher et du total
   const [checkedState, setCheckedState] = useState([]);
   const [productTypeFilter, setProductTypeFilter] = useState("");
@@ -21,7 +19,7 @@ const FiltersProducts = ({ products }) => {
     const searchQuery = searchParams.get("searchQuery");
     const productType = searchParams.get("productType");
     // console.log("SEARCHQUERY", searchQuery);
-    // console.log("CATEGORYFILTER", product);
+    // console.log("PRODUCTFILTER", productType);
     if (productType) setProductTypeFilter(productType);
     if (searchQuery) setSearchQuery(searchQuery);
   }, [searchParams]);
@@ -70,8 +68,6 @@ const FiltersProducts = ({ products }) => {
                     id={`custom-checkbox-${index}`}
                     name={name}
                     value={name}
-                    // checked={checkedState[index]}
-                    // onChange={() => handleOnChange(index)}
                     onChange={handleChange}
                   />
                   <label htmlFor={`custom-checkbox-${index}`}>{name}</label>

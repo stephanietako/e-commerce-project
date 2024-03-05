@@ -43,18 +43,12 @@ const CategoriesPages = ({ category }) => {
             flexDirection: "column",
           }}
         >
-          <div
-            className="images"
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
-          >
+          <div className="images">
             {category.coverImages ? (
               <>
                 <Image
                   src={category.coverImages}
-                  alt="les fleurs"
+                  alt="les fleurs de CBD"
                   className="category__img"
                   width={200}
                   height={200}

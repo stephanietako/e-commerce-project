@@ -207,7 +207,7 @@ export async function getCategories() {
      "coverImages": images[0].asset->url,
     "images": images[0].asset->url,
     content,
-      products,
+    categories,
    
   }
 }`,
@@ -219,10 +219,13 @@ export async function getCategories() {
 
 export async function getBycategories() {
   return createClient(clientConfig).fetch(
-    groq` *[_type == "category"] {
+    groq`  *[_type == "category"] {
    _id,
        _createdAt,
    name,
+      price,
+     currency,
+      "coverImages": images[0].asset->url,
    "products": *[_type == 'product' && references(^._id)][0...15] | order(_createdAt desc) {
      _id,
      price,

@@ -46,7 +46,7 @@ const Checkbox = ({
         />
         <label htmlFor={id}>{name}</label>
       </div>
-      <div className={styles.right_section}>
+      {/* <div className={styles.right_section}>
         <input
           type="checkbox"
           id={id}
@@ -56,7 +56,7 @@ const Checkbox = ({
           value={searchQuery}
         />
         <label htmlFor={id}>{name}</label>
-      </div>
+      </div> */}
     </>
   );
 };

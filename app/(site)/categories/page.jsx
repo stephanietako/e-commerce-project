@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import Search from "../components/Search/Search";
-import { fetchData } from "../../../sanity/lib/api";
+import { fetchDataCategory } from "../../../sanity/lib/api";
 import CategoriesPages from "../components/CategoriesPages/CategoriesPages";
 
 const FiltersSearchCategories = () => {
@@ -22,7 +22,7 @@ const FiltersSearchCategories = () => {
   }, [searchParams]);
 
   // Utilisation de useSWR pour récupérer les données avec fetchData
-  const { data, error, isLoading } = useSWR("/categories", fetchData);
+  const { data, error, isLoading } = useSWR("/categories", fetchDataCategory);
 
   // Gestion de l'erreur
   if (error) throw new Error("Cannot fetch data");

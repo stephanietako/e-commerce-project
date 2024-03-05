@@ -82,7 +82,7 @@ const ProductsPages = ({ product }) => {
               </span> */}
             </div>
 
-            <p className="pt-2 text-xs">{product.type} PRODUCT</p>
+            {/* <p className="pt-2 text-xs">{product.type} PRODUCT</p> */}
             <div
               className="productspages_display"
               style={{

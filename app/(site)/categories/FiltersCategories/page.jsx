@@ -3,23 +3,24 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
-import { fetchDataCategory } from "../../../../sanity/lib/api";
+// import Search from "../components/Search/Search";
+import { fetchDataCategory } from "@/sanity/lib/api";
 import CategoriesPages from "../../components/CategoriesPages/CategoriesPages";
 // Styles
 import styles from "./styles.module.css";
 
-const FiltersCheckCategories = () => {
+const FiltersCategories = () => {
   // Utilisation de useState pour gérer l'état de la case à cocher et du total
   const [checkedState, setCheckedState] = useState([]);
   const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState([]);
   const searchParams = useSearchParams();
   /////////////////////////
   useEffect(() => {
     const searchQuery = searchParams.get("searchQuery");
     const categoryType = searchParams.get("categoryType");
     // console.log("SEARCHQUERY", searchQuery);
-    // console.log("CATEGORYFILTER", category);
+    // console.log("CATEGORYFILTER", categoryType);
     if (categoryType) setCategoryTypeFilter(categoryType);
     if (searchQuery) setSearchQuery(searchQuery);
   }, [searchParams]);
@@ -39,40 +40,28 @@ const FiltersCheckCategories = () => {
     setCheckedState(updatedCheckedState);
   };
   ////////////////
-  // Filtrage des catégories
+  // Filtrage des produits
+  //Our search filter function
   const filterCategories = (categories) => {
-    return categories.filter((category) => {
-      if (
-        categoryTypeFilter &&
-        categoryTypeFilter.toLowerCase() !== "all" &&
-        category.name.toLowerCase() !== categoryTypeFilter.toLowerCase()
-      ) {
-        return false;
-      }
-
-      if (
-        searchQuery &&
-        !category.name.toLowerCase().includes(searchQuery.toLowerCase())
-      ) {
-        return false;
-      }
-
-      return true;
-    });
+    return categories.filter((el) => el.name.includes(searchQuery));
   };
   /////////////////////////
-
+  //Applying our search filter function to our array of countries recieved from the API
+  //const filtered = searchFilter(countries);
   const filteredCategories = filterCategories(data || []);
-  // Rendu du composant
+  //Handling the input on our search bar
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
   return (
     <div className={styles.container}>
-      <h3>Select Sort By Categories</h3>
-      <ul className={styles.category_list}>
+      <h3>Select Categories</h3>
+      <ul className={styles.categories_list}>
         {/* Mapping à travers la liste de garnitures */}
         {filteredCategories.map(({ name }, index) => {
           return (
             <li key={index}>
-              <div className={styles.categories_list_item}>
+              <div className={styles.categories_list_tem}>
                 {/* Case à cocher et libellé */}
                 <div className={styles.left_section}>
                   <input
@@ -80,8 +69,7 @@ const FiltersCheckCategories = () => {
                     id={`custom-checkbox-${index}`}
                     name={name}
                     value={name}
-                    checked={checkedState[index]}
-                    onChange={() => handleOnChange(index)}
+                    onChange={handleChange}
                   />
                   <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
                 </div>
@@ -94,11 +82,11 @@ const FiltersCheckCategories = () => {
             {isLoading ? (
               <div>Loading...</div>
             ) : (
-              filteredCategories.map((category) => {
-                // console.log("Category !!!!!:", category);
-                // console.log("Category ID !!!!!:", category._id);
+              filteredCategories.map((categories) => {
+                console.log("category !!!!!:", categories);
+                console.log("category ID !!!!!:", categories._id);
                 return (
-                  <CategoriesPages key={category._id} category={category} />
+                  <CategoriesPages key={categories._id} product={categories} />
                 );
               })
             )}
@@ -109,4 +97,4 @@ const FiltersCheckCategories = () => {
   );
 };
 
-export default FiltersCheckCategories;
+export default FiltersCategories;
