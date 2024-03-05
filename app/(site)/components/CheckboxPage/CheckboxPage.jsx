@@ -7,22 +7,27 @@ import FiltersProducts from "../../products/FiltersProducts/page";
 // import styles from "./styles.module.scss";
 
 const CheckboxPage = () => {
-  const [productItemFilter, setProductItemFilter] = useState("");
+  const [productItemFilter, setProductTypeFilter] = useState("");
   const [categoryItemFilter, setCategoryItemFilter] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [checkedState, setCheckedState] = useState([]);
+
   return (
     <div className="checkboxPage_container">
       <div className="filtersproducts_container">
         <FiltersProducts
-          categoryFilter={productItemFilter}
+          productFilter={productItemFilter}
           searchQuery={searchQuery}
-          setCategoryItemFilter={setProductItemFilter}
+          setProductTypeFilter={setProductTypeFilter}
           setSearchQuery={setSearchQuery}
           checkedState={checkedState}
           setCheckedState={setCheckedState}
+
+          // onCheckChange={sortedProducts}
         />
       </div>
+      {/* // Ce que je veux ici c est faire le tri des categories par produits */}
+      {/* // ensuite faire le display des produits par categories */}
       <div className="categoriespages_container">
         <FiltersCategories
           categoryFilter={categoryItemFilter}

@@ -1,16 +1,14 @@
 "use client";
 
-// Importation de la liste des garnitures depuis le fichier utils
-// import { toppings } from "../../../utils/utils";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { fetchDataCategory } from "../../../../sanity/lib/api";
 import CategoriesPages from "../../components/CategoriesPages/CategoriesPages";
-// Importation des styles
+// Styles
 import styles from "./styles.module.css";
 
-const FiltersCategories = () => {
+const FiltersCheckCategories = () => {
   // Utilisation de useState pour gérer l'état de la case à cocher et du total
   const [checkedState, setCheckedState] = useState([]);
   const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
@@ -19,10 +17,10 @@ const FiltersCategories = () => {
   /////////////////////////
   useEffect(() => {
     const searchQuery = searchParams.get("searchQuery");
-    const category = searchParams.get("category");
+    const categoryType = searchParams.get("categoryType");
     // console.log("SEARCHQUERY", searchQuery);
     // console.log("CATEGORYFILTER", category);
-    if (category) setCategoryTypeFilter(category);
+    if (categoryType) setCategoryTypeFilter(categoryType);
     if (searchQuery) setSearchQuery(searchQuery);
   }, [searchParams]);
   ////
@@ -97,8 +95,8 @@ const FiltersCategories = () => {
               <div>Loading...</div>
             ) : (
               filteredCategories.map((category) => {
-                console.log("Category !!!!!:", category);
-                console.log("Category ID !!!!!:", category._id);
+                // console.log("Category !!!!!:", category);
+                // console.log("Category ID !!!!!:", category._id);
                 return (
                   <CategoriesPages key={category._id} category={category} />
                 );
@@ -111,4 +109,4 @@ const FiltersCategories = () => {
   );
 };
 
-export default FiltersCategories;
+export default FiltersCheckCategories;

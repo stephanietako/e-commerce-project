@@ -8,8 +8,8 @@ const ProductsDetails = async ({ params }) => {
   const slug = params.product;
   const product = await getDataProduct(slug);
 
-  console.log("TITLE SLUG Product", slug);
-  console.log("Product!!!!!!!!!!!!", product);
+  // console.log("TITLE SLUG Product", slug);
+  // console.log("Product!!!!!!!!!!!!", product);
 
   return (
     <>

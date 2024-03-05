@@ -9,5 +9,4 @@ const HR = (props) => {
   return <hr className={[className, styles.hr].filter(Boolean).join(" ")} />;
 };
 
-// Exportation du composant HR
-module.exports = HR;
+export default HR;

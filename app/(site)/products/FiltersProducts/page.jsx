@@ -10,19 +10,19 @@ import ProductsPages from "../../components/ProductsPages/ProductsPages";
 // Importation des styles
 import styles from "./styles.module.css";
 
-const FiltersProducts = () => {
+const FiltersProducts = ({ products }) => {
   // Utilisation de useState pour gérer l'état de la case à cocher et du total
   const [checkedState, setCheckedState] = useState([]);
   const [productTypeFilter, setProductTypeFilter] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState([]);
   const searchParams = useSearchParams();
   /////////////////////////
   useEffect(() => {
     const searchQuery = searchParams.get("searchQuery");
-    const product = searchParams.get("product");
+    const productType = searchParams.get("productType");
     // console.log("SEARCHQUERY", searchQuery);
     // console.log("CATEGORYFILTER", product);
-    if (product) setProductTypeFilter(product);
+    if (productType) setProductTypeFilter(productType);
     if (searchQuery) setSearchQuery(searchQuery);
   }, [searchParams]);
   ////
@@ -41,31 +41,19 @@ const FiltersProducts = () => {
     setCheckedState(updatedCheckedState);
   };
   ////////////////
-  // Filtrage des catégories
-  const filterProducts = (allproducts) => {
-    return allproducts.filter((product) => {
-      if (
-        productTypeFilter &&
-        productTypeFilter.toLowerCase() !== "all" &&
-        product.name.toLowerCase() !== productTypeFilter.toLowerCase()
-      ) {
-        return false;
-      }
-
-      if (
-        searchQuery &&
-        !product.name.toLowerCase().includes(searchQuery.toLowerCase())
-      ) {
-        return false;
-      }
-
-      return true;
-    });
+  // Filtrage des produits
+  //Our search filter function
+  const filterProducts = (products) => {
+    return products.filter((el) => el.name.includes(searchQuery));
   };
   /////////////////////////
-
+  //Applying our search filter function to our array of countries recieved from the API
+  //const filtered = searchFilter(countries);
   const filteredProducts = filterProducts(data || []);
-  // Rendu du composant
+  //Handling the input on our search bar
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
   return (
     <div className={styles.container}>
       <h3>Select Products</h3>
@@ -82,8 +70,9 @@ const FiltersProducts = () => {
                     id={`custom-checkbox-${index}`}
                     name={name}
                     value={name}
-                    checked={checkedState[index]}
-                    onChange={() => handleOnChange(index)}
+                    // checked={checkedState[index]}
+                    // onChange={() => handleOnChange(index)}
+                    onChange={handleChange}
                   />
                   <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
                 </div>
@@ -96,10 +85,10 @@ const FiltersProducts = () => {
             {isLoading ? (
               <div>Loading...</div>
             ) : (
-              filteredProducts.map((product) => {
-                console.log("product !!!!!:", product);
-                console.log("product ID !!!!!:", product._id);
-                return <ProductsPages key={product._id} product={product} />;
+              filteredProducts.map((products) => {
+                console.log("product !!!!!:", products);
+                console.log("product ID !!!!!:", products._id);
+                return <ProductsPages key={products._id} product={products} />;
               })
             )}
           </div>

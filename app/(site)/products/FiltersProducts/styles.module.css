@@ -1,34 +1,34 @@
-.topping {
-  margin-top: 0.3rem;
-  vertical-align: text-bottom;
-}
-
-.product_list {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.product_list {
-  list-style: none;
-  padding: 0;
-}
-
-.product_list li {
-  margin-bottom: 0.5rem;
-}
-
-.products_list_item {
+.filters {
+  margin-top: 50px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.product_list li:last-child {
-  border-top: 1px solid #ccc;
-  margin-top: 1rem;
-  padding-top: 1rem;
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
 }
 
-.products_list_tem label {
-  vertical-align: text-bottom;
-  margin-left: 0.2rem;
+.title {
+  white-space: nowrap;
+}
+
+.priceSlider {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.sliderWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hr {
+  margin: 20px 0;
 }

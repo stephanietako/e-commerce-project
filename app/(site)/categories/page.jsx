@@ -7,7 +7,7 @@ import Search from "../components/Search/Search";
 import { fetchData } from "../../../sanity/lib/api";
 import CategoriesPages from "../components/CategoriesPages/CategoriesPages";
 
-const CategoriesFilters = () => {
+const FiltersSearchCategories = () => {
   const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const searchParams = useSearchParams();
@@ -50,28 +50,27 @@ const CategoriesFilters = () => {
       return true;
     });
   };
-
+  //////////////////////
   const filteredCategories = filterCategories(data || []);
-  console.log("filteredCategories!!!!!:", filteredCategories);
-  console.log("data!!!!!:");
+
   return (
     <div className="search_components">
       <h2> PAGE DE L AFFICHAGE DES CATEGORIES </h2>
-
+      {/* 
       <Search
         categoryTypeFilter={categoryTypeFilter}
         searchQuery={searchQuery}
         setCategoryTypeFilter={setCategoryTypeFilter}
         setSearchQuery={setSearchQuery}
-      />
+      /> */}
 
       <div className="filteredCategories">
         {isLoading ? (
           <div>Loading...</div>
         ) : (
           filteredCategories.map((category) => {
-            console.log("Category !!!!!:", category);
-            console.log("Category ID !!!!!:", category._id);
+            // console.log("Category !!!!!:", category);
+            // console.log("Category ID !!!!!:", category._id);
             return <CategoriesPages key={category._id} category={category} />;
           })
         )}
@@ -80,4 +79,4 @@ const CategoriesFilters = () => {
   );
 };
 
-export default CategoriesFilters;
+export default FiltersSearchCategories;

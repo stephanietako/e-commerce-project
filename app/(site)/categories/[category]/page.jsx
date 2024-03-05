@@ -8,13 +8,13 @@ const CategoryDetails = async ({ params }) => {
   const slug = params.category;
   const data = await getData(slug);
 
-  console.log("PARAMS CATEGORY !!!!!!!!", data);
-  console.log("TITLE SLUG CATEGORY", slug);
+  // console.log("PARAMS CATEGORY !!!!!!!!", data);
+  // console.log("TITLE SLUG CATEGORY", slug);
   return (
     <>
       <div className="title_slug_singlepage_categoy">
-        <h1>ICI C EST CATEGORY</h1>
-        {/* <h1>{data.name}ICI C EST CATEGORY</h1> */}
+        {/* <h1>ICI C EST CATEGORY</h1> */}
+        <h1>{data.name}ICI C EST CATEGORY</h1>
       </div>
       <div
         className="gallery_container"
