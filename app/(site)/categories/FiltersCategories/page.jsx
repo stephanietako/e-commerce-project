@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 // import Search from "../components/Search/Search";
-import { fetchDataCategory } from "@/sanity/lib/api";
+import { fetchData } from "@/sanity/lib/api";
 import CategoriesPages from "../../components/CategoriesPages/CategoriesPages";
 // Styles
 import styles from "./styles.module.css";
@@ -12,7 +12,7 @@ import styles from "./styles.module.css";
 const FiltersCategories = () => {
   // Utilisation de useState pour gérer l'état de la case à cocher et du total
   const [checkedState, setCheckedState] = useState([]);
-  const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
+  const [categoryTypeFilter, setCategoryTypeFilter] = useState([]);
   const [searchQuery, setSearchQuery] = useState([]);
   const searchParams = useSearchParams();
   /////////////////////////
@@ -26,7 +26,7 @@ const FiltersCategories = () => {
   }, [searchParams]);
   ////
   // Utilisation de useSWR pour récupérer les données avec fetchData
-  const { data, error, isLoading } = useSWR("/categories", fetchDataCategory);
+  const { data, error, isLoading } = useSWR("/categories", fetchData);
   // Gestion de l'erreur
   if (error) throw new Error("Cannot fetch data");
   if (typeof data === "undefined" && !isLoading)
@@ -86,7 +86,7 @@ const FiltersCategories = () => {
                 console.log("category !!!!!:", categories);
                 console.log("category ID !!!!!:", categories._id);
                 return (
-                  <CategoriesPages key={categories._id} product={categories} />
+                  <CategoriesPages key={categories._id} category={categories} />
                 );
               })
             )}

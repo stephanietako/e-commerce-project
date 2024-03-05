@@ -34,32 +34,35 @@ const Auth = () => {
   useEffect(() => {
     if (session) router.push("/");
   }, [router, session]);
-
-  const loginHandler = async () => {
-    try {
-      await signIn();
-      // push user to homepage
-      router.push("/");
-    } catch (error) {
-      console.log(error);
-      toast.error("Something wen't wrong");
-    }
+  const loginHandler = () => {
+    signIn()
+      .then(() => {
+        // push user to homepage
+        router.push("/");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Something went wrong");
+      });
   };
+
   // finally est utilisé pour garantir que quoi qu'il arrive que la promesse de signUp réussisse ou échoue setFormData(defaultFormData) sera appelé
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
-    try {
-      const user = await signUp(formData);
-      if (user) {
-        toast.success("Success. Please sign in");
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error("Something wen't wrong");
-    } finally {
-      setFormData(defaultFormData);
-    }
+    signUp(formData)
+      .then((user) => {
+        if (user) {
+          toast.success("Success. Please sign in");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Something went wrong");
+      })
+      .finally(() => {
+        setFormData(defaultFormData);
+      });
   };
 
   return (

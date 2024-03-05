@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Suspense } from "react";
 import { getProjects } from "@/sanity/lib/client";
 import Link from "next/link";
 import { getProductsByCategories } from "@/sanity/lib/client";
@@ -65,7 +66,9 @@ const Home = async () => {
             justifyContent: "center",
           }}
         >
-          <CheckboxPage />
+          <Suspense fallback={<h2>In Progress...</h2>}>
+            <CheckboxPage />
+          </Suspense>
         </div>
 
         <Select />

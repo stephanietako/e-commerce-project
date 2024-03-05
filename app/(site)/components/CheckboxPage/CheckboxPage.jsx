@@ -7,8 +7,8 @@ import FiltersProducts from "../../products/FiltersProducts/page";
 // import styles from "./styles.module.scss";
 
 const CheckboxPage = () => {
-  const [productItemFilter, setProductTypeFilter] = useState("");
-  const [categoryItemFilter, setCategoryItemFilter] = useState("");
+  const [productTypeFilter, setProductTypeFilter] = useState("");
+  const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [checkedState, setCheckedState] = useState([]);
 
@@ -16,7 +16,7 @@ const CheckboxPage = () => {
     <div className="checkboxPage_container">
       <div className="filtersproducts_container">
         <FiltersProducts
-          productFilter={productItemFilter}
+          productTypeFilter={productTypeFilter}
           searchQuery={searchQuery}
           setProductTypeFilter={setProductTypeFilter}
           setSearchQuery={setSearchQuery}
@@ -30,9 +30,9 @@ const CheckboxPage = () => {
       {/* // ensuite faire le display des produits par categories */}
       <div className="categoriespages_container">
         <FiltersCategories
-          categoryFilter={categoryItemFilter}
+          categoryTypeFilter={categoryTypeFilter}
           searchQuery={searchQuery}
-          setCategoryItemFilter={setCategoryItemFilter}
+          setCategoryTypeFilter={setCategoryTypeFilter}
           setSearchQuery={setSearchQuery}
           checkedState={checkedState}
           setCheckedState={setCheckedState}

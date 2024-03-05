@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
-import Search from "../components/Search/Search";
-import { fetchDataCategory } from "../../../sanity/lib/api";
+// import Search from "../components/Search/Search";
+import { fetchData } from "../../../sanity/lib/api";
 import CategoriesPages from "../components/CategoriesPages/CategoriesPages";
 
 const FiltersSearchCategories = () => {
@@ -22,19 +22,23 @@ const FiltersSearchCategories = () => {
   }, [searchParams]);
 
   // Utilisation de useSWR pour récupérer les données avec fetchData
-  const { data, error, isLoading } = useSWR("/categories", fetchDataCategory);
+  const { data, error, isLoading } = useSWR("/categories", fetchData);
 
   // Gestion de l'erreur
   if (error) throw new Error("Cannot fetch data");
   if (typeof data === "undefined" && !isLoading)
     throw new Error("Cannot fetch data");
 
-  // Filtrage des catégories
   const filterCategories = (categories) => {
     return categories.filter((category) => {
+      if (!category) {
+        return false;
+      }
+
       if (
         categoryTypeFilter &&
         categoryTypeFilter.toLowerCase() !== "all" &&
+        category.type &&
         category.type.toLowerCase() !== categoryTypeFilter.toLowerCase()
       ) {
         return false;
@@ -42,6 +46,7 @@ const FiltersSearchCategories = () => {
 
       if (
         searchQuery &&
+        category.name &&
         !category.name.toLowerCase().includes(searchQuery.toLowerCase())
       ) {
         return false;
@@ -50,6 +55,7 @@ const FiltersSearchCategories = () => {
       return true;
     });
   };
+
   //////////////////////
   const filteredCategories = filterCategories(data || []);
 

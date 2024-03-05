@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-// Importation des styles
+// Styles
 import styles from "./styles.module.css";
 
 const Checkbox = ({
@@ -14,7 +14,6 @@ const Checkbox = ({
   setProductTypeFilter,
 }) => {
   const router = useRouter();
-  // store values in area
 
   const handleProductTypeChange = (event) => {
     const selectedProduct = event.target.value;
@@ -32,7 +31,7 @@ const Checkbox = ({
     );
     console.log("CLICK !!!!!", handleFilterClick);
   };
-  //   const [select, isSelected] = useState([]);
+
   return (
     <>
       <div className={styles.left_section}>
@@ -46,17 +45,6 @@ const Checkbox = ({
         />
         <label htmlFor={id}>{name}</label>
       </div>
-      {/* <div className={styles.right_section}>
-        <input
-          type="checkbox"
-          id={id}
-          name={name}
-          checked={checked}
-          onChange={onChange}
-          value={searchQuery}
-        />
-        <label htmlFor={id}>{name}</label>
-      </div> */}
     </>
   );
 };

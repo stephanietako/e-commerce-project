@@ -11,7 +11,7 @@ import styles from "./styles.module.css";
 const FiltersProducts = () => {
   // Utilisation de useState pour gérer l'état de la case à cocher et du total
   const [checkedState, setCheckedState] = useState([]);
-  const [productTypeFilter, setProductTypeFilter] = useState("");
+  const [productTypeFilter, setProductTypeFilter] = useState([]);
   const [searchQuery, setSearchQuery] = useState([]);
   const searchParams = useSearchParams();
   /////////////////////////
@@ -31,13 +31,14 @@ const FiltersProducts = () => {
   if (typeof data === "undefined" && !isLoading)
     throw new Error("Cannot fetch data");
   ///////////////
-  const handleOnChange = (position) => {
+  const handleOnChange = (value) => {
     const updatedCheckedState = checkedState.map((item, index) =>
-      index === position ? !item : item
+      index === value ? !item : item
     );
     // Mise à jour de l'état de checkedState avec le nouveau tableau mis à jour
     setCheckedState(updatedCheckedState);
   };
+
   ////////////////
   // Filtrage des produits
   //Our search filter function
@@ -52,6 +53,7 @@ const FiltersProducts = () => {
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
   };
+
   return (
     <div className={styles.container}>
       <h3>Select Products</h3>

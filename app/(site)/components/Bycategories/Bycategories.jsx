@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
-const ByCategory = async ({ bycategory }) => {
+const ByCategory = ({ bycategory }) => {
   // const data = await getCategories();
 
   return (

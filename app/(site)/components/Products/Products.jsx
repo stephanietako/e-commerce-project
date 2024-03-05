@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
-const Products = async ({ allproducts }) => {
+const Products = ({ allproducts }) => {
   // const allProducts = await getDataProductsPages();
   // console.log(" ALL PRODUCTS ", allProducts);
   // ALL PRODUCTS : CATEGORIES PAR PRODUITS

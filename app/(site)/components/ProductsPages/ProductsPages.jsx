@@ -69,20 +69,8 @@ const ProductsPages = ({ product }) => {
           <div className="infos_content">
             <div className="infos">
               <p>{product.name}</p>
-              {/* <span>
-                {" "}
-                <p
-                  className="price_content"
-                  style={{
-                    fontSize: "3rem",
-                  }}
-                >
-                  €{product.price.toFixed(2)}
-                </p>
-              </span> */}
             </div>
 
-            {/* <p className="pt-2 text-xs">{product.type} PRODUCT</p> */}
             <div
               className="productspages_display"
               style={{

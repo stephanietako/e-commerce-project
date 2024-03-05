@@ -228,8 +228,6 @@ export async function getBycategories() {
       "coverImages": images[0].asset->url,
    "products": *[_type == 'product' && references(^._id)][0...15] | order(_createdAt desc) {
      _id,
-     price,
-     currency,
      name,
      "slug": slug.current,
      "images": images[0].asset->url,
@@ -284,21 +282,21 @@ export async function getData(slug) {
   );
 }
 
-export async function getCategoriesDetails(slug) {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "category" && slug.current == $slug]][0] {
-    _id,
-    coverImages,
-    images,
-    name,
-    price,
-    slug,
-    type,
-    
-}`,
-    { slug },
-    {
-      cache: "no-store",
-    }
-  );
-}
+// export async function getCategoriesDetails(slug) {
+//   return createClient(clientConfig).fetch(
+//     groq`*[_type == "category" && slug.current == $slug]][0] {
+//     _id,
+//     coverImages,
+//     images,
+//     name,
+//     price,
+//     slug,
+//     type,
+
+// }`,
+//     { slug },
+//     {
+//       cache: "no-store",
+//     }
+//   );
+// }

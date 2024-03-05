@@ -4,6 +4,11 @@ import Link from "next/link";
 export const dynamic = "force-dynamic";
 // DISPLAY
 const CategoriesPages = ({ category }) => {
+  const price = null;
+
+  const result = typeof price === "number" ? price.toFixed(2) : 0;
+  console.log(result);
+
   return (
     <>
       <header
@@ -43,12 +48,18 @@ const CategoriesPages = ({ category }) => {
             flexDirection: "column",
           }}
         >
-          <div className="images">
+          <div
+            className="images"
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          >
             {category.coverImages ? (
               <>
                 <Image
                   src={category.coverImages}
-                  alt="les fleurs de CBD"
+                  alt="les fleurs"
                   className="category__img"
                   width={200}
                   height={200}
@@ -65,20 +76,9 @@ const CategoriesPages = ({ category }) => {
           <div className="infos_content">
             <div className="infos">
               <p>{category.name}</p>
-              <span>
-                {" "}
-                <p
-                  className="price_content"
-                  style={{
-                    fontSize: "3rem",
-                  }}
-                >
-                  €{category.price.toFixed(2)}
-                </p>
-              </span>
+              {/* <p>€{category.price.toFixed(2)}</p> */}
             </div>
 
-            <p className="pt-2 text-xs">{category.type} CATEGORY</p>
             <div
               className="categoriespages_display"
               style={{
