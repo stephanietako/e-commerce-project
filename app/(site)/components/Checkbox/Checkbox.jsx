@@ -6,7 +6,7 @@ import styles from "./styles.module.css";
 const Checkbox = ({
   id,
   name,
-  checked,
+  checkedState,
   onChange,
   searchQuery,
   setSearchQuery,
@@ -39,7 +39,7 @@ const Checkbox = ({
           type="checkbox"
           id={id}
           name={name}
-          checked={checked}
+          checked={checkedState}
           onChange={onChange}
           value={productTypeFilter}
         />
