@@ -15,21 +15,21 @@ const Checkbox = ({
 }) => {
   const router = useRouter();
 
-  const handleProductTypeChange = (event) => {
-    const selectedProduct = event.target.value;
-    setProductTypeFilter(selectedProduct);
-  };
+  // const handleProductTypeChange = (event) => {
+  //   const selectedProduct = event.target.value;
+  //   setProductTypeFilter(selectedProduct);
+  // };
 
-  const handleSearchQuerychange = (event) => {
-    const selectedQuery = event.target.value;
-    setSearchQuery(selectedQuery);
-  };
+  // const handleSearchQuerychange = (event) => {
+  //   const selectedQuery = event.target.value;
+  //   setSearchQuery(selectedQuery);
+  // };
 
   const handleFilterClick = () => {
     router.push(
       `/products?productType=${productTypeFilter}&searchQuery=${searchQuery}`
     );
-    console.log("CLICK !!!!!", handleFilterClick);
+    // console.log("CLICK !!!!!", handleFilterClick);
   };
 
   return (

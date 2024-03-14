@@ -46,7 +46,7 @@ const Navbar = () => {
             <div className={styles.btn_cart}>
               <CartBtn
                 img={cart}
-                onClick={() => console.log("Button clicked!")}
+                // onClick={() => console.log("Button clicked!")}
               />
             </div>
           </div>

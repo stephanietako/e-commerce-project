@@ -25,7 +25,7 @@ const Search = ({
     router.push(
       `/categories?categoryType=${categoryTypeFilter}&searchQuery=${searchQuery}`
     );
-    console.log("CLICK !!!!!", handleFilterClick);
+    // console.log("CLICK !!!!!", handleFilterClick);
   };
   return (
     <section className={styles.section_search_categories}>

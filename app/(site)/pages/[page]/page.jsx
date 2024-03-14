@@ -7,8 +7,8 @@ const Page = async ({ params }) => {
   const slug = params.page;
   const page = await getPage(slug);
 
-  console.log("TITLE SLUG PAGE", params);
-  console.log("PAGE!!!!!!!!!!!!!", page);
+  // console.log("TITLE SLUG PAGE", params);
+  // console.log("PAGE!!!!!!!!!!!!!", page);
 
   return (
     <>

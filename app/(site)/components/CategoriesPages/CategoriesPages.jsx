@@ -7,7 +7,7 @@ const CategoriesPages = ({ category }) => {
   const price = null;
 
   const result = typeof price === "number" ? price.toFixed(2) : 0;
-  console.log(result);
+  // console.log(result);
 
   return (
     <>

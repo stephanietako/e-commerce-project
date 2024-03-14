@@ -83,8 +83,8 @@ const FiltersCategories = () => {
               <div>Loading...</div>
             ) : (
               filteredCategories.map((categories) => {
-                console.log("category !!!!!:", categories);
-                console.log("category ID !!!!!:", categories._id);
+                // console.log("category !!!!!:", categories);
+                // console.log("category ID !!!!!:", categories._id);
                 return (
                   <CategoriesPages key={categories._id} category={categories} />
                 );

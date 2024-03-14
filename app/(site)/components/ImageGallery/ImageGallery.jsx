@@ -4,7 +4,7 @@ import { urlFor } from "@/sanity/config/client-config";
 import { useState } from "react";
 
 const ImageGallery = ({ images }) => {
-  console.log("IMAGE GALLERY", images);
+  // console.log("IMAGE GALLERY", images);
   const [bigImage, setBigImage] = useState(images[0]);
 
   const handleSmallImageClick = (image) => {

@@ -9,7 +9,7 @@ import ProductsPages from "../../components/ProductsPages/ProductsPages";
 import styles from "./styles.module.css";
 
 const FiltersProducts = () => {
-  const [checkedState, setCheckedState] = useState(false);
+  // const [checkedState, setCheckedState] = useState();
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [productTypeFilter, setProductTypeFilter] = useState([]);
   const [searchQuery, setSearchQuery] = useState([]);
@@ -34,42 +34,38 @@ const FiltersProducts = () => {
   };
 
   const filteredProducts = filterProducts(data || []);
-  const handleChange = (e, index) => {
-    e.preventDefault();
-    const { checked } = e.target;
+  console.log("data !!!!!!!!!!!!!!!!!!", data);
+  const handleChange = (event, index) => {
+    const checkedId = event.target.value;
+    const isChecked = event.target.checked;
 
-    // Mettre à jour l'état de la recherche
-    setSearchQuery(checked ? filteredProducts[index].name : "");
-    // Mettre à jour les produits sélectionnés
-    if (checked) {
-      setSelectedProducts([...selectedProducts, filteredProducts[index].name]);
+    if (isChecked === true) {
+      setSelectedProducts([...selectedProducts, checkedId, data]);
     } else {
-      if (checkedState) {
-        setSearchQuery(checked ? filteredProducts[index].name : "");
-      }
+      setSelectedProducts(selectedProducts.filter((_id) => _id !== data));
     }
-  };
 
+    setSearchQuery(isChecked ? filteredProducts[index].name : []);
+  };
+  console.log("filteredProducts !!!!!!!!!!!!!!!!!!", filteredProducts);
   return (
     <div className={styles.container}>
       <h3>Select Products</h3>
       <ul className={styles.products_list}>
         {filteredProducts.map(({ name }, index) => {
-          console.log("filteredProducts !!!!!", filteredProducts);
+          const isChecked = selectedProducts.includes(name);
+
           return (
             <li key={index}>
               <div className={styles.products_list_tem}>
-                {/* Case à cocher et libellé */}
                 <div className={styles.left_section}>
                   <input
                     type="checkbox"
                     id={`custom-checkbox-${index}`}
                     name={name}
                     value={name}
-                    checked={selectedProducts.includes(name)}
-                    onChange={(e) => handleChange(e, index)}
-
-                    // defaultChecked="true"
+                    checked={isChecked}
+                    onChange={(event) => handleChange(event, index)}
                   />
                   <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
                 </div>
@@ -78,7 +74,7 @@ const FiltersProducts = () => {
           );
         })}
         <li>
-          <div className="filteredProducts">
+          {/* <div className="filteredProducts">
             {isLoading ? (
               <div>Loading...</div>
             ) : (
@@ -87,6 +83,21 @@ const FiltersProducts = () => {
                 console.log("product ID !!!!!:", products._id);
                 return <ProductsPages key={products._id} product={products} />;
               })
+            )}
+          </div> */}
+          <div className="filteredProducts">
+            {isLoading ? (
+              <div>Loading...</div>
+            ) : (
+              data
+                .filter(({ name }) =>
+                  selectedProducts.length > 0
+                    ? selectedProducts.includes(name)
+                    : name.includes(searchQuery)
+                )
+                .map((product) => (
+                  <ProductsPages key={product._id} product={product} />
+                ))
             )}
           </div>
         </li>
