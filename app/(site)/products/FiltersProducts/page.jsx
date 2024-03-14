@@ -48,6 +48,7 @@ const FiltersProducts = () => {
     setSearchQuery(isChecked ? filteredProducts[index].name : []);
   };
   console.log("filteredProducts !!!!!!!!!!!!!!!!!!", filteredProducts);
+
   return (
     <div className={styles.container}>
       <h3>Select Products</h3>
@@ -90,16 +91,34 @@ const FiltersProducts = () => {
               <div>Loading...</div>
             ) : (
               data
-                .filter(({ name }) =>
-                  selectedProducts.length > 0
-                    ? selectedProducts.includes(name)
-                    : name.includes(searchQuery)
+                .filter(
+                  ({ name }) =>
+                    // Vérifie si le nom du produit est inclus dans les produits sélectionnés ET s'il correspond à la recherche
+                    selectedProducts.includes(name) &&
+                    name.includes(searchQuery)
                 )
                 .map((product) => (
                   <ProductsPages key={product._id} product={product} />
                 ))
             )}
           </div>
+
+          {/* <div className="filteredProducts">
+            {isLoading ? (
+              <div>Loading...</div>
+            ) : (
+              data
+                .filter(({ name, index }) =>
+                  selectedProducts.length !== 0
+                    ? selectedProducts.includes(name)
+                    : // : selectedProducts.includes(name)
+                      name.includes(searchQuery)
+                )
+                .map((product) => (
+                  <ProductsPages key={product._id} product={product} />
+                ))
+            )}
+          </div> */}
         </li>
       </ul>
     </div>
