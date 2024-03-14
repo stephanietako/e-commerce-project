@@ -34,19 +34,18 @@ const FiltersProducts = () => {
   };
 
   const filteredProducts = filterProducts(data || []);
-  console.log("data !!!!!!!!!!!!!!!!!!", data);
+
   const handleChange = (event, index) => {
     const checkedId = event.target.value;
     const isChecked = event.target.checked;
 
-    if (isChecked === true) {
-      setSelectedProducts([...selectedProducts, checkedId, data]);
+    if (isChecked) {
+      setSelectedProducts([...selectedProducts, checkedId]);
     } else {
-      setSelectedProducts(selectedProducts.filter((_id) => _id !== data));
+      setSelectedProducts(selectedProducts.filter((id) => id !== checkedId));
     }
-
-    setSearchQuery(isChecked ? filteredProducts[index].name : []);
   };
+
   console.log("filteredProducts !!!!!!!!!!!!!!!!!!", filteredProducts);
 
   return (
@@ -55,7 +54,7 @@ const FiltersProducts = () => {
       <ul className={styles.products_list}>
         {filteredProducts.map(({ name }, index) => {
           const isChecked = selectedProducts.includes(name);
-
+          console.log("isChecked !!!!!!!!!!!!!!!!!!", isChecked);
           return (
             <li key={index}>
               <div className={styles.products_list_tem}>
@@ -75,17 +74,6 @@ const FiltersProducts = () => {
           );
         })}
         <li>
-          {/* <div className="filteredProducts">
-            {isLoading ? (
-              <div>Loading...</div>
-            ) : (
-              filteredProducts.map((products) => {
-                console.log("product !!!!!:", products);
-                console.log("product ID !!!!!:", products._id);
-                return <ProductsPages key={products._id} product={products} />;
-              })
-            )}
-          </div> */}
           <div className="filteredProducts">
             {isLoading ? (
               <div>Loading...</div>
@@ -102,23 +90,6 @@ const FiltersProducts = () => {
                 ))
             )}
           </div>
-
-          {/* <div className="filteredProducts">
-            {isLoading ? (
-              <div>Loading...</div>
-            ) : (
-              data
-                .filter(({ name, index }) =>
-                  selectedProducts.length !== 0
-                    ? selectedProducts.includes(name)
-                    : // : selectedProducts.includes(name)
-                      name.includes(searchQuery)
-                )
-                .map((product) => (
-                  <ProductsPages key={product._id} product={product} />
-                ))
-            )}
-          </div> */}
         </li>
       </ul>
     </div>
