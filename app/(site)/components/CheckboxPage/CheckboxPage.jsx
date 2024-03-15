@@ -20,8 +20,8 @@ const CheckboxPage = () => {
           searchQuery={searchQuery}
           setProductTypeFilter={setProductTypeFilter}
           setSearchQuery={setSearchQuery}
-          checkedState={checkedState}
-          setCheckedState={setCheckedState}
+          // checkedState={checkedState}
+          // setCheckedState={setCheckedState}
 
           // onCheckChange={sortedProducts}
         />
@@ -34,8 +34,8 @@ const CheckboxPage = () => {
           searchQuery={searchQuery}
           setCategoryTypeFilter={setCategoryTypeFilter}
           setSearchQuery={setSearchQuery}
-          checkedState={checkedState}
-          setCheckedState={setCheckedState}
+          // checkedState={checkedState}
+          // setCheckedState={setCheckedState}
         />
       </div>
     </div>

@@ -9,7 +9,6 @@ import ProductsPages from "../../components/ProductsPages/ProductsPages";
 import styles from "./styles.module.css";
 
 const FiltersProducts = () => {
-  // const [checkedState, setCheckedState] = useState();
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [productTypeFilter, setProductTypeFilter] = useState([]);
   const [searchQuery, setSearchQuery] = useState([]);
@@ -35,7 +34,7 @@ const FiltersProducts = () => {
 
   const filteredProducts = filterProducts(data || []);
 
-  const handleChange = (event, index) => {
+  const handleChange = (event) => {
     const checkedId = event.target.value;
     const isChecked = event.target.checked;
 

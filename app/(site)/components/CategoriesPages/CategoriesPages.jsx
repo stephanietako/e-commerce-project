@@ -4,9 +4,9 @@ import Link from "next/link";
 export const dynamic = "force-dynamic";
 // DISPLAY
 const CategoriesPages = ({ category }) => {
-  const price = null;
+  // const price = null;
 
-  const result = typeof price === "number" ? price.toFixed(2) : 0;
+  // const result = typeof price === "number" ? price.toFixed(2) : 0;
   // console.log(result);
 
   return (
