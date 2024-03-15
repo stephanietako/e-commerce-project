@@ -55,7 +55,7 @@ const ByCategory = ({ bycategory }) => {
           style={{
             display: "flex",
             border: "3px solid yellow",
-            flexDirection: "column",
+            flexWrap: "wrap",
           }}
         >
           {/* Boucle EXTERNE à travers toutes les categories */}

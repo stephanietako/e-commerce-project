@@ -1,19 +1,25 @@
-.topping {
+.container {
   margin-top: 0.3rem;
   vertical-align: text-bottom;
+  width: auto;
+  height: auto;
+  border: 3px solid blue;
 }
 
-.category_list {
+/* .categories_list {
   width: 100%;
   margin: 0 auto;
+  width: auto;
+  height: auto;
+  border: 3px solid red;
 }
 
-.category_list {
+.categories_list {
   list-style: none;
   padding: 0;
 }
 
-.category_list li {
+.categories_list li {
   margin-bottom: 0.5rem;
 }
 
@@ -22,8 +28,8 @@
   justify-content: space-between;
 }
 
-.category_list li:last-child {
-  border-top: 1px solid #ccc;
+.categories_list li:last-child {
+  border-top: 1px solid red;
   margin-top: 1rem;
   padding-top: 1rem;
 }
@@ -31,4 +37,4 @@
 .categories_list_tem label {
   vertical-align: text-bottom;
   margin-left: 0.2rem;
-}
+} */

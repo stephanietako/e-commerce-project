@@ -1,6 +1,6 @@
-import Image from "next/image";
+// import Image from "next/image";
 import { Suspense } from "react";
-import { getProjects } from "@/sanity/lib/client";
+// import { getProjects } from "@/sanity/lib/client";
 import Link from "next/link";
 import { getProductsByCategories } from "@/sanity/lib/client";
 import { getPages } from "@/sanity/lib/client";
@@ -18,7 +18,7 @@ import CheckboxPage from "./components/CheckboxPage/CheckboxPage";
 import Select from "./components/Select/Select";
 
 const Home = async () => {
-  const projects = await getProjects();
+  // const projects = await getProjects();
   const pages = await getPages();
   const category = await getProductsByCategories();
   const bycategory = await getCategories();
@@ -53,26 +53,7 @@ const Home = async () => {
           ))}
         </div>
       </section>
-      <section>
-        <h3>ESSAIS CHECKBOXS</h3>
 
-        <div
-          className="section_essai_checkboxs"
-          style={{
-            border: "4px solid pink",
-            display: "flex",
-            width: "auto",
-            height: "auto",
-            justifyContent: "center",
-          }}
-        >
-          <Suspense fallback={<h2>In Progress...</h2>}>
-            <CheckboxPage />
-          </Suspense>
-        </div>
-
-        <Select />
-      </section>
       <section
         className="first_section"
         style={{
@@ -92,7 +73,7 @@ const Home = async () => {
           </p>
         </div>
         {/* // MENU des projects get projects */}
-        <div className="container__projects">
+        {/* <div className="container__projects">
           {projects.map((project) => (
             <div key={project._id}>
               <h2>
@@ -111,8 +92,28 @@ const Home = async () => {
               </h2>
             </div>
           ))}
-        </div>
+        </div> */}
         {/* </Suspense> */}
+      </section>
+      <section>
+        <h3>CHECKBOXS</h3>
+
+        <div
+          className="section_essai_checkboxs"
+          style={{
+            border: "4px solid pink",
+            display: "flex",
+            width: "auto",
+            height: "auto",
+            justifyContent: "center",
+          }}
+        >
+          <Suspense fallback={<h2>In Progress...</h2>}>
+            <CheckboxPage />
+          </Suspense>
+        </div>
+
+        <Select />
       </section>
       {/* ///////////////////// */}
       <section>

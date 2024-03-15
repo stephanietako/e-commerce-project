@@ -1,8 +1,11 @@
-.topping {
+.container {
   margin-top: 0.3rem;
   vertical-align: text-bottom;
+  width: auto;
+  height: auto;
+  border: 3px solid pink;
 }
-
+/* 
 .category_list {
   width: 100%;
   margin: 0 auto;
@@ -31,4 +34,4 @@
 .categories_list_tem label {
   vertical-align: text-bottom;
   margin-left: 0.2rem;
-}
+} */

@@ -14,7 +14,7 @@ const CategoryDetails = async ({ params }) => {
     <>
       <div className="title_slug_singlepage_categoy">
         {/* <h1>ICI C EST CATEGORY</h1> */}
-        <h1>{data.name}ICI C EST CATEGORY</h1>
+        <h1>{data.name} CATEGORY SINGLE PAGE</h1>
       </div>
       <div
         className="gallery_container"
@@ -40,13 +40,17 @@ const CategoryDetails = async ({ params }) => {
               display: "flex",
               width: "100%",
               height: "100%",
+              justifyContent: "center",
+              alignItems: "center",
+              position: "relative",
+              marginTop: "10%",
             }}
           >
             <div
               className="products_content"
               style={{
                 display: "flex",
-                width: "auto",
+                width: "22rem",
                 height: "100%",
                 border: "3px solid white",
                 flexDirection: "column",
