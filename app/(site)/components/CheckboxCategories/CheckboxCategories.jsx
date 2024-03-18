@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import FiltersProducts from "../../products/FiltersProducts/page";
+import FiltersCategories from "../../categories/FiltersCategories/page";
 // Styles
 // import styles from "./styles.module.scss";
 
-const CheckboxProducts = () => {
-  const [productTypeFilter, setProductTypeFilter] = useState("");
+const CheckboxCategories = () => {
+  const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
@@ -20,7 +20,7 @@ const CheckboxProducts = () => {
       }}
     >
       <div
-        className="filtersproducts_container"
+        className="categoriespages_container"
         style={{
           display: "flex",
           width: "63rem",
@@ -29,10 +29,10 @@ const CheckboxProducts = () => {
           padding: "2rem",
         }}
       >
-        <FiltersProducts
-          productTypeFilter={productTypeFilter}
+        <FiltersCategories
+          categoryTypeFilter={categoryTypeFilter}
           searchQuery={searchQuery}
-          setProductTypeFilter={setProductTypeFilter}
+          setCategoryTypeFilter={setCategoryTypeFilter}
           setSearchQuery={setSearchQuery}
         />
       </div>
@@ -40,4 +40,4 @@ const CheckboxProducts = () => {
   );
 };
 
-export default CheckboxProducts;
+export default CheckboxCategories;

@@ -64,11 +64,11 @@ const FiltersProducts = () => {
         <div className={styles.__box}>
           {filteredProducts.map(({ name }, index) => {
             const isChecked = selectedProducts.includes(name);
-            console.log("isChecked !!!!!!!!!!!!!!!!!!", isChecked);
+            console.log("isChecked for products !!!!!!!!!!!!!!!!!!", isChecked);
             return (
               <li key={index}>
                 <div className={styles.products_list_item}>
-                  <div className={styles.left_section}>
+                  <div className={styles.check_section}>
                     <input
                       type="checkbox"
                       id={`custom-checkbox-${index}`}

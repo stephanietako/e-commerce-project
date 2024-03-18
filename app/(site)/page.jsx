@@ -1,11 +1,11 @@
 // import Image from "next/image";
-import { Suspense } from "react";
+// import { Suspense } from "react";
 // import { getProjects } from "@/sanity/lib/client";
 import Link from "next/link";
 import { getProductsByCategories } from "@/sanity/lib/client";
 import { getPages } from "@/sanity/lib/client";
 import { getCategories } from "@/sanity/lib/client";
-// import Categories from "./components/Categories/Categories";
+import Categories from "./components/Categories/Categories";
 import Bycategories from "./components/Bycategories/Bycategories";
 import Products from "./components/Products/Products";
 import { getDataProductsPages } from "@/sanity/lib/client";
@@ -14,13 +14,13 @@ import { getDataStarProducts } from "@/sanity/lib/client";
 import { getDataProducts } from "@/sanity/lib/client";
 import PageSearch from "./components/PageSearch/PageSearch";
 //////////////////////
-import CheckboxPage from "./components/CheckboxPage/CheckboxPage";
+// import CheckboxPage from "./components/CheckboxPage/CheckboxPage";
 import Select from "./components/Select/Select";
 
 const Home = async () => {
   // const projects = await getProjects();
   const pages = await getPages();
-  // const category = await getProductsByCategories();
+  const category = await getProductsByCategories();
   const bycategory = await getCategories();
   const starproducts = await getDataStarProducts();
   const allproducts = await getDataProductsPages();
@@ -98,7 +98,7 @@ const Home = async () => {
       {/* ///////////////////// */}
       <section>
         <h3>CHECKBOXS</h3>
-        <div
+        {/* <div
           className="section_checkboxs"
           style={{
             border: "4px solid pink",
@@ -111,7 +111,7 @@ const Home = async () => {
           <Suspense fallback={<h2>In Progress...</h2>}>
             <CheckboxPage />
           </Suspense>
-        </div>
+        </div> */}
         {/* ///////////////////// */}
         <Select />
       </section>
@@ -148,6 +148,9 @@ const Home = async () => {
       </section> */}
       <section className="by_categories_section">
         <Bycategories bycategory={bycategory} />
+      </section>
+      <section className="all_categories_section">
+        <Categories category={category} />
       </section>
     </>
   );

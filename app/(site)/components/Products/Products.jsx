@@ -6,9 +6,6 @@ import { Suspense } from "react";
 export const dynamic = "force-dynamic";
 
 const Products = ({ allproducts }) => {
-  // const allProducts = await getDataProductsPages();
-  // console.log(" ALL PRODUCTS ", allProducts);
-  // ALL PRODUCTS : CATEGORIES PAR PRODUITS
   return (
     <>
       <header
@@ -24,7 +21,6 @@ const Products = ({ allproducts }) => {
         }}
       >
         <h2 className="_products">TOUS LES PRODUITS</h2>
-        <p> ICI</p>
       </header>
 
       {/* Section principale des produits */}
@@ -34,7 +30,6 @@ const Products = ({ allproducts }) => {
           display: "flex",
           width: "100%",
           height: "auto",
-
           alignItems: "center",
           justifyContent: "space-evenly",
           flexWrap: "wrap",
@@ -51,7 +46,6 @@ const Products = ({ allproducts }) => {
             flexDirection: "column",
           }}
         >
-          {/* Affichage de tous les produits disponibles */}
           <div
             className="display_all_products"
             style={{
@@ -112,6 +106,7 @@ const Products = ({ allproducts }) => {
                   justifyContent: "center",
                 }}
               >
+                <h3>Tous nos produits</h3>
                 {/* Boucle EXTERNE à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
                 {allproducts.map((product) => (
                   <div key={product._id}>
