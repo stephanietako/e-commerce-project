@@ -22,7 +22,7 @@ const ByCategory = ({ bycategory }) => {
           flexWrap: "wrap",
         }}
       >
-        <h2 className="_bycategory_title">BY CATEGORIES</h2>
+        <h2 className="_bycategory_title">TOUTES LES CATEGORIES</h2>
         {/* <div
           className="nav_filter_radio"
           style={{

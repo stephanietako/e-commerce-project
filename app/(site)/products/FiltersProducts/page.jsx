@@ -6,7 +6,7 @@ import useSWR from "swr";
 import { fetchDataProduct } from "../../../../sanity/lib/api";
 import ProductsPages from "../../components/ProductsPages/ProductsPages";
 // Styles
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 const FiltersProducts = () => {
   const [selectedProducts, setSelectedProducts] = useState([]);
@@ -48,48 +48,60 @@ const FiltersProducts = () => {
   console.log("filteredProducts !!!!!!!!!!!!!!!!!!", filteredProducts);
 
   return (
-    <div className={styles.container}>
-      <h3>Select Products</h3>
+    <div className={styles.container_filter_products}>
       <ul className={styles.products_list}>
-        {filteredProducts.map(({ name }, index) => {
-          const isChecked = selectedProducts.includes(name);
-          console.log("isChecked !!!!!!!!!!!!!!!!!!", isChecked);
-          return (
-            <li key={index}>
-              <div className={styles.products_list_tem}>
-                <div className={styles.left_section}>
-                  <input
-                    type="checkbox"
-                    id={`custom-checkbox-${index}`}
-                    name={name}
-                    value={name}
-                    checked={isChecked}
-                    onChange={(event) => handleChange(event, index)}
-                  />
-                  <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+        <div className={styles.products_title}>
+          {" "}
+          <h2>Select Products</h2>
+          <br />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+            mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+            voluptatum laborum numquam blanditiis harum quisquam eius sed odit
+            fugiat iusto fuga praesentium optio, eaque rerum!
+          </p>
+        </div>
+        <div className={styles.__box}>
+          {filteredProducts.map(({ name }, index) => {
+            const isChecked = selectedProducts.includes(name);
+            console.log("isChecked !!!!!!!!!!!!!!!!!!", isChecked);
+            return (
+              <li key={index}>
+                <div className={styles.products_list_item}>
+                  <div className={styles.left_section}>
+                    <input
+                      type="checkbox"
+                      id={`custom-checkbox-${index}`}
+                      name={name}
+                      value={name}
+                      checked={isChecked}
+                      onChange={(event) => handleChange(event, index)}
+                    />
+                    <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                  </div>
                 </div>
-              </div>
-            </li>
-          );
-        })}
-        <li>
-          <div className="filteredProducts">
-            {isLoading ? (
-              <div>Loading...</div>
-            ) : (
-              data
-                .filter(
-                  ({ name }) =>
-                    // Vérifie si le nom du produit est inclus dans les produits sélectionnés ET s'il correspond à la recherche
-                    selectedProducts.includes(name) &&
-                    name.includes(searchQuery)
-                )
-                .map((product) => (
-                  <ProductsPages key={product._id} product={product} />
-                ))
-            )}
-          </div>
-        </li>
+              </li>
+            );
+          })}
+          <li>
+            <div className={styles.__filtered_products}>
+              {isLoading ? (
+                <div>Loading...</div>
+              ) : (
+                data
+                  .filter(
+                    ({ name }) =>
+                      // Vérifie si le nom du produit est inclus dans les produits sélectionnés ET s'il correspond à la recherche
+                      selectedProducts.includes(name) &&
+                      name.includes(searchQuery)
+                  )
+                  .map((product) => (
+                    <ProductsPages key={product._id} product={product} />
+                  ))
+              )}
+            </div>
+          </li>
+        </div>
       </ul>
     </div>
   );

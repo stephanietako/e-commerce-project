@@ -6,38 +6,24 @@ export const dynamic = "force-dynamic";
 const ProductsPages = ({ product }) => {
   return (
     <>
-      <header
-        className="header_productspages"
-        style={{
-          display: "flex",
-          width: "auto",
-          height: "auto",
-          justifyContent: "space-between",
-          border: "2px solid turquoise",
-          alignItems: "center",
-          padding: "33px",
-          flexWrap: "wrap",
-        }}
-      >
-        <h2 className="_byproduct_title">PRODUCTS PAGES CHECKBOX SELECTION</h2>
-      </header>
       <section
         className="productspages_section"
         style={{
           display: "flex",
-          width: "100%",
+          width: "auto",
           height: "auto",
           border: "2px solid violet",
           alignItems: "center",
-          justifyContent: "space-evenly",
+          // justifyContent: "space-evenly",
           flexWrap: "wrap",
+          margin: "2rem",
         }}
       >
         <div
           className="__productspages_bloc"
           style={{
             display: "flex",
-            border: "3px solid yellow",
+            // border: "3px solid yellow",
             flexDirection: "column",
           }}
         >
@@ -66,7 +52,17 @@ const ProductsPages = ({ product }) => {
             )}
           </div>
 
-          <div className="infos_content">
+          <div
+            className="infos_content"
+            style={{
+              border: "4px solid blue",
+              display: "flex",
+              width: "auto",
+              height: "auto",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          >
             <div className="infos">
               <p>{product.name}</p>
             </div>
@@ -74,7 +70,7 @@ const ProductsPages = ({ product }) => {
             <div
               className="productspages_display"
               style={{
-                border: "4px solid black",
+                border: "4px solid yellow",
                 display: "flex",
                 width: "auto",
                 height: "auto",

@@ -40,12 +40,14 @@ const ImageGallery = ({ images }) => {
               src={urlFor(image).url()}
               alt="les fleurs"
               className="gallery__img"
-              width={300}
-              height={300}
+              width={200}
+              height={200}
               onClick={() => handleSmallImageClick(image)}
               style={{
+                display: "flex",
                 objectFit: "cover",
                 cursor: "pointer",
+                padding: "1rem",
               }}
             />
           </div>

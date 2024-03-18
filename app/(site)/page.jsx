@@ -5,7 +5,7 @@ import Link from "next/link";
 import { getProductsByCategories } from "@/sanity/lib/client";
 import { getPages } from "@/sanity/lib/client";
 import { getCategories } from "@/sanity/lib/client";
-import Categories from "./components/Categories/Categories";
+// import Categories from "./components/Categories/Categories";
 import Bycategories from "./components/Bycategories/Bycategories";
 import Products from "./components/Products/Products";
 import { getDataProductsPages } from "@/sanity/lib/client";
@@ -20,7 +20,7 @@ import Select from "./components/Select/Select";
 const Home = async () => {
   // const projects = await getProjects();
   const pages = await getPages();
-  const category = await getProductsByCategories();
+  // const category = await getProductsByCategories();
   const bycategory = await getCategories();
   const starproducts = await getDataStarProducts();
   const allproducts = await getDataProductsPages();
@@ -95,11 +95,11 @@ const Home = async () => {
         </div> */}
         {/* </Suspense> */}
       </section>
+      {/* ///////////////////// */}
       <section>
         <h3>CHECKBOXS</h3>
-
         <div
-          className="section_essai_checkboxs"
+          className="section_checkboxs"
           style={{
             border: "4px solid pink",
             display: "flex",
@@ -112,7 +112,7 @@ const Home = async () => {
             <CheckboxPage />
           </Suspense>
         </div>
-
+        {/* ///////////////////// */}
         <Select />
       </section>
       {/* ///////////////////// */}
@@ -121,7 +121,7 @@ const Home = async () => {
           <PageSearch />
         </nav>
       </section>
-
+      {/* ///////////////////// */}
       <section>
         <div className="links">
           {categories.map((category) => (
@@ -143,9 +143,9 @@ const Home = async () => {
       <section>
         <Products allproducts={allproducts} />
       </section>
-      <section className="categories_section">
+      {/* <section className="categories_section">
         <Categories category={category} />
-      </section>
+      </section> */}
       <section className="by_categories_section">
         <Bycategories bycategory={bycategory} />
       </section>

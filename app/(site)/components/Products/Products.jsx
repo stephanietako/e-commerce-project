@@ -1,7 +1,8 @@
 // import { getDataProductsPages } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
-
+import CheckboxProducts from "../CheckboxProducts/CheckboxProducts";
+import { Suspense } from "react";
 export const dynamic = "force-dynamic";
 
 const Products = ({ allproducts }) => {
@@ -22,7 +23,7 @@ const Products = ({ allproducts }) => {
           padding: "33px",
         }}
       >
-        <h2 className="_products">ALL PRODUCTS</h2>
+        <h2 className="_products">TOUS LES PRODUITS</h2>
         <p> ICI</p>
       </header>
 
@@ -33,10 +34,11 @@ const Products = ({ allproducts }) => {
           display: "flex",
           width: "100%",
           height: "auto",
-          border: "2px solid violet",
+
           alignItems: "center",
           justifyContent: "space-evenly",
           flexWrap: "wrap",
+          flexDirection: "column",
         }}
       >
         {/* Conteneur des produits */}
@@ -58,7 +60,7 @@ const Products = ({ allproducts }) => {
               height: "auto",
               alignItems: "center",
               justifyContent: "center",
-              border: "3px solid yellow",
+
               flexWrap: "wrap",
             }}
           >
@@ -67,81 +69,153 @@ const Products = ({ allproducts }) => {
               style={{
                 display: "flex",
                 flexWrap: "wrap",
+                width: "100%",
+                height: "auto",
+                justifyContent: "center",
+
+                flexDirection: "column",
               }}
             >
-              {/* Boucle EXTERNE à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
-              {allproducts.map((product) => (
-                <div key={product._id}>
-                  <h2>
-                    <Link href={`/products/${product.slug}`}>
-                      {product.name}
-                    </Link>
-                  </h2>
-                  {/* Vérification de la disponibilité de catégories pour ce produit */}
-                  {product.categories && product.categories.length > 0 ? (
-                    <div
-                      className="display_infos_products"
-                      style={{
-                        display: "flex",
-                        border: "3px solid black",
-                        flexWrap: "wrap",
-                      }}
-                    >
-                      {/* DATA GROUP key - Boucle INTERNE SUBCATEGORIES à travers toutes les sous-catégories du produit */}
-                      {product.categories.map((subCategory) => (
+              <div
+                className="section_checkbox_products"
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "100%",
+                  // justifyContent: "center",
+                  // border: "4px solid red",
+                  flexWrap: "wrap",
+                }}
+              >
+                <div
+                  className="_checkbox"
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    height: "auto",
+                    justifyContent: "center",
+                    // border: "4px solid pink",
+                  }}
+                >
+                  <Suspense fallback={<h2>In Progress...</h2>}>
+                    <CheckboxProducts />
+                  </Suspense>
+                </div>
+              </div>
+              <div
+                className="products_cards"
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  width: "100%",
+                  height: "auto",
+                  justifyContent: "center",
+                }}
+              >
+                {/* Boucle EXTERNE à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
+                {allproducts.map((product) => (
+                  <div key={product._id}>
+                    {/* Vérification de la disponibilité de catégories pour ce produit */}
+                    {product.categories && product.categories.length > 0 ? (
+                      <div
+                        className="display_infos_products"
+                        style={{
+                          display: "flex",
+                          border: "3px solid black",
+                          flexWrap: "wrap",
+                          justifyContent: "center",
+                          margin: "2rem",
+                        }}
+                      >
                         <div
-                          key={subCategory._id}
-                          className="data_group"
+                          className="main_title_products"
                           style={{
-                            padding: "20px",
+                            display: "flex",
+                            width: "100%",
+                            height: "auto",
+
+                            alignItems: "center",
+                            padding: "14px",
+                            flexWrap: "wrap",
                           }}
                         >
-                          <div className="images_products">
-                            {subCategory.coverImages && (
-                              <Image
-                                src={subCategory.coverImages}
-                                alt="les fleurs"
-                                className="product__img"
-                                width={200}
-                                height={200}
-                                style={{
-                                  objectFit: "cover",
-                                }}
-                              />
-                            )}
-                          </div>
+                          {" "}
+                          <h2>
+                            <Link href={`/products/${product.slug}`}>
+                              {product.name}
+                            </Link>
+                          </h2>
+                        </div>
 
-                          {/* Contenu détaillé de la sous-catégorie */}
+                        {/* DATA GROUP key - Boucle INTERNE SUBCATEGORIES à travers toutes les sous-catégories du produit */}
+                        {product.categories.map((subCategory) => (
                           <div
-                            className="content_products"
+                            key={subCategory._id}
+                            className="data_group_products"
                             style={{
-                              display: "flex",
-                              border: "3px solid pink",
-                              flexDirection: "column",
+                              padding: "20px",
                             }}
                           >
-                            <div className="product">
-                              <h3>
-                                <Link href={`/categories/${subCategory.slug}`}>
-                                  {subCategory.name}
-                                </Link>
-                              </h3>
-                              <p className="category_name">
-                                {subCategory.categories}
-                              </p>
+                            <div className="images_products">
+                              {subCategory.coverImages && (
+                                <Image
+                                  src={subCategory.coverImages}
+                                  alt="les fleurs"
+                                  className="product__img"
+                                  width={200}
+                                  height={200}
+                                  style={{
+                                    objectFit: "cover",
+                                  }}
+                                />
+                              )}
                             </div>
+
+                            {/* Contenu détaillé de la sous-catégorie */}
+                            <div
+                              className="content_products_categories"
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                              }}
+                            >
+                              <div className="product">
+                                <h3>
+                                  <Link
+                                    href={`/categories/${subCategory.slug}`}
+                                  >
+                                    {subCategory.name}
+                                  </Link>
+                                </h3>
+                                <p className="category_name">
+                                  {subCategory.categories}
+                                </p>
+                              </div>
+                              <div
+                                className="content"
+                                style={{
+                                  display: "flex",
+
+                                  flexDirection: "column",
+                                }}
+                              >
+                                <p className="price_content">
+                                  €{subCategory.price}
+                                </p>
+                              </div>
+                            </div>
+                            {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
                           </div>
-                          {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
-                        </div>
-                      ))}
-                      {/* fin boucle interne */}
-                    </div>
-                  ) : (
-                    <p>No category available for this product.</p>
-                  )}
-                </div>
-              ))}
-              {/* // FIN BOUCLE EXTERIEURE EN DESSOUS DE LA DIV EN DESSOUS DE LA DIV */}
+                        ))}
+                        {/* fin boucle interne */}
+                      </div>
+                    ) : (
+                      <p>No category available for this product.</p>
+                    )}
+                  </div>
+                ))}
+                {/* // FIN BOUCLE EXTERIEURE EN DESSOUS DE LA DIV EN DESSOUS DE LA DIV */}
+              </div>
             </div>
           </div>
         </div>

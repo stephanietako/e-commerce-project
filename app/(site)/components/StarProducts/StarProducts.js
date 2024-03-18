@@ -23,7 +23,7 @@ const StarProducts = ({ starproducts }) => {
           flexWrap: "wrap",
         }}
       >
-        <h2 className="_bycategory_title">STARPRODUCTS SELECTION</h2>
+        <h2 className="_bycategory_title">NOS PRODUITS STAR</h2>
       </header>
       {/* Section principale des produits */}
       <section
