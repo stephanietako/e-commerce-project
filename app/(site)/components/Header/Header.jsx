@@ -4,7 +4,7 @@
 import styles from "./styles.module.scss";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import userCircleImage from "@/public/user-circle.png";
+import userCircleImage from "@/public/assets/user-circle.png";
 import Image from "next/image";
 
 const Header = () => {

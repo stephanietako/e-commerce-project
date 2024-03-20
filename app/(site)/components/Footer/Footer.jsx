@@ -3,7 +3,7 @@ import Link from "next/link";
 // Styles
 import styles from "./styles.module.scss";
 // Assets
-import logo from "@/public/logo192.png";
+import logo from "@/public/assets/logo192.png";
 import Image from "next/image";
 
 const Footer = () => {

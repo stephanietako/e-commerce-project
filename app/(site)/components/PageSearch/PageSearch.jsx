@@ -6,14 +6,14 @@ import Search from "../Search/Search";
 import styles from "./styles.module.scss";
 
 const PageSearch = () => {
-  const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [flowerTypeFilter, setFlowerTypeFilter] = useState([]);
+  const [searchQuery, setSearchQuery] = useState([]);
   return (
     <div className={styles.pagesearch_container}>
       <Search
-        categoryTypeFilter={categoryTypeFilter}
+        flowerTypeFilter={flowerTypeFilter}
         searchQuery={searchQuery}
-        setCategoryTypeFilter={setCategoryTypeFilter}
+        setFlowerTypeFilter={setFlowerTypeFilter}
         setSearchQuery={setSearchQuery}
       />
     </div>

@@ -2,9 +2,13 @@
 const categoryTypes = [
   { title: "Unique", value: "unique" },
   { title: "All", value: "all" },
-  { title: "Basic ", value: "basic" },
-  { title: "Medium ", value: "medium" },
-  { title: "Large ", value: "large" },
+  { title: "Basic", value: "basic" },
+  { title: "Medium", value: "medium" },
+  { title: "Large", value: "large" },
+  { title: "Sativa", value: "Sativa" },
+  { title: "indica", value: "laindicage" },
+  { title: "Indoor", value: "Indoor" },
+  { title: "Outdoor", value: "Outdoor" },
 ];
 
 const category = {

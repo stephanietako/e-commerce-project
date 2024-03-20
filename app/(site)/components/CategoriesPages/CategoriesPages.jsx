@@ -61,7 +61,6 @@ const CategoriesPages = ({ category }) => {
           <div
             className="infos_content"
             style={{
-              border: "4px solid blue",
               display: "flex",
               width: "auto",
               height: "auto",
@@ -71,6 +70,7 @@ const CategoriesPages = ({ category }) => {
           >
             <div className="infos">
               <p>{category.name}</p>
+              <p>{category.type}</p>
               {/* <p>€{category.price.toFixed(2)}</p> */}
             </div>
 
@@ -81,7 +81,7 @@ const CategoriesPages = ({ category }) => {
                 display: "flex",
                 width: "auto",
                 height: "auto",
-                justifyContent: "center",
+                // justifyContent: "center",
               }}
             >
               <Link

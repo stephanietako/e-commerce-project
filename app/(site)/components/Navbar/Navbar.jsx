@@ -5,8 +5,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 // Styles
 import styles from "./styles.module.scss";
-import logo from "@/public/logo192.png";
-import cart from "@/public/cart.png";
+import logo from "@/public/assets/logo192.png";
+import cart from "@/public/assets/cart.png";
 import CartBtn from "../CartBtn/Cartbtn";
 
 const navLinks = [{ name: "Home", href: "/" }];

@@ -10,8 +10,8 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import toast from "react-hot-toast";
 // Assets
-import GithubIcon from "@/public/github.png";
-import GoogleIcon from "@/public/google.png";
+import GithubIcon from "@/public/assets/github.png";
+import GoogleIcon from "@/public/assets/google.png";
 
 const defaultFormData = {
   email: "",
