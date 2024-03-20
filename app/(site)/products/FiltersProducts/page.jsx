@@ -50,18 +50,25 @@ const FiltersProducts = () => {
   return (
     <div className={styles.container_filter_products}>
       <ul className={styles.products_list}>
-        <div className={styles.products_title}>
-          {" "}
-          <h2>Select Products</h2>
-          <br />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-            voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-            fugiat iusto fuga praesentium optio, eaque rerum!
-          </p>
-        </div>
         <div className={styles.__box}>
+          <div className={styles.products_text}>
+            {" "}
+            <h2
+              className={styles.title_select_products}
+              style={{
+                display: "block",
+                paddingBottom: "1rem",
+              }}
+            >
+              Select Products
+            </h2>
+            <br />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+              voluptatum laborum numquam blanditiis !
+            </p>
+          </div>
           {filteredProducts.map(({ name }, index) => {
             const isChecked = selectedProducts.includes(name);
             console.log("isChecked for products !!!!!!!!!!!!!!!!!!", isChecked);
@@ -86,7 +93,18 @@ const FiltersProducts = () => {
           <li>
             <div className={styles.__filtered_products}>
               {isLoading ? (
-                <div>Loading...</div>
+                <div
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    // height: "35rem",
+                    position: "relative",
+                    padding: "2rem",
+                    marginTop: "11rem",
+                  }}
+                >
+                  Loading...
+                </div>
               ) : (
                 data
                   .filter(

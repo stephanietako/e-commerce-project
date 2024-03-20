@@ -153,14 +153,14 @@ export async function getDataProduct(slug) {
     groq`*[_type == "product" && slug.current == $slug][0]{
  _id,
    _createdAt,
+      name,
     "coverImages": images[0].asset->url,
     images,
-  "categoryName": category->name,
       price,
-    name,
     "slug": slug.current,
-     "categories": categories[0]->name,
-    content,
+       "coverImages": images[0].asset->url,
+    images,    
+   content,
        body,
     }`,
     { slug },
@@ -180,7 +180,9 @@ export async function getProductsByCategories() {
     price,
     currency,
     "slug": slug.current,
-     "coverImages": images[0].asset->url,
+      "coverImages": images[0].asset->url,
+    "images": images[0].asset->url,
+  "productName": products[0]->name,
     products,
   }`,
     {
@@ -208,7 +210,8 @@ export async function getCategories() {
     "images": images[0].asset->url,
     content,
     categories,
-   
+        "categoryReference": categories[0...15]._ref,
+  "categoriesName": categories[0...15]->name,
   }
 }`,
     {
@@ -219,21 +222,18 @@ export async function getCategories() {
 
 export async function getBycategories() {
   return createClient(clientConfig).fetch(
-    groq`  *[_type == "category"] | order(name asc){
-   _id,
-       _createdAt,
-   name,
-      price,
-     currency,
+    groq`  *[_type == "category"] [0...2] | order(name asc){
+_id,
+  name,
+  content,
       "coverImages": images[0].asset->url,
-   "products": *[_type == 'product' && references(^._id)][0...15] | order(name asc){
-     _id,
-     name,
-     "slug": slug.current,
-     "images": images[0].asset->url,
-     content,
-   }
- }`,
+    "images": images[0].asset->url,
+  "productName": products[0]->name,
+    products,
+  "products": products[]{
+_ref,
+  }
+}`,
     {
       cache: "no-store",
     }
@@ -242,18 +242,16 @@ export async function getBycategories() {
 
 export async function getCategory() {
   return createClient(clientConfig).fetch(
-    groq` *[_type == "category"] | order(name asc){
-    _id,
-   _createdAt,
-    "coverImages": images[0].asset->url,
-    images,
-      price,
-    name,
-    "slug": slug.current,
-     "products": products[0]->name,
-    content,
-       type,
-    }`,
+    groq` *[_type == "category"] {
+  _createdAt,
+  _id,
+  name,
+ "coverImages": images[0].asset->url,
+    "images": images[0].asset->url,
+    "categoryReference": products[0]._ref,
+  "productName": products[0]->name,
+
+}`,
     {
       cache: "no-store",
     }

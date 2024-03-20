@@ -52,18 +52,25 @@ const FiltersCategories = () => {
   return (
     <div className={styles.container_filter_categories}>
       <ul className={styles.categories_list}>
-        <div className={styles.categories_title}>
-          {" "}
-          <h2>Select Categories</h2>
-          <br />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-            voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-            fugiat iusto fuga praesentium optio, eaque rerum!
-          </p>
-        </div>
         <div className={styles.__box}>
+          <div className={styles.categories_text}>
+            {" "}
+            <h2
+              className={styles.title_select_categories}
+              style={{
+                display: "block",
+                paddingBottom: "1rem",
+              }}
+            >
+              Select Categories
+            </h2>
+            <br />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+              voluptatum laborum numquam blanditiis !
+            </p>
+          </div>
           {filteredCategories.map(({ name }, index) => {
             const isChecked = selectedCategories.includes(name);
             console.log(
@@ -91,7 +98,18 @@ const FiltersCategories = () => {
           <li>
             <div className={styles.__filtered_categories}>
               {isLoading ? (
-                <div>Loading...</div>
+                <div
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    // height: "35rem",
+                    position: "relative",
+                    padding: "2rem",
+                    marginTop: "11rem",
+                  }}
+                >
+                  Loading...
+                </div>
               ) : (
                 data
                   .filter(

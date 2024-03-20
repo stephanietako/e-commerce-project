@@ -12,7 +12,7 @@ const ProductsPages = ({ product }) => {
           display: "flex",
           width: "auto",
           height: "auto",
-          border: "2px solid violet",
+          // border: "2px solid violet",
           alignItems: "center",
           // justifyContent: "space-evenly",
           flexWrap: "wrap",
@@ -40,10 +40,11 @@ const ProductsPages = ({ product }) => {
                   src={product.coverImages}
                   alt="les fleurs"
                   className="product__img"
-                  width={200}
-                  height={200}
+                  width={300}
+                  height={300}
                   style={{
                     objectFit: "cover",
+                    borderRadius: "30px",
                   }}
                 />
               </>
@@ -55,7 +56,7 @@ const ProductsPages = ({ product }) => {
           <div
             className="infos_content"
             style={{
-              border: "4px solid blue",
+              // border: "4px solid blue",
               display: "flex",
               width: "auto",
               height: "auto",
@@ -70,7 +71,7 @@ const ProductsPages = ({ product }) => {
             <div
               className="productspages_display"
               style={{
-                border: "4px solid yellow",
+                // border: "4px solid yellow",
                 display: "flex",
                 width: "auto",
                 height: "auto",

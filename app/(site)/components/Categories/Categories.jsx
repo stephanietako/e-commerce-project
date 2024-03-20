@@ -59,6 +59,7 @@ const Categories = ({ category }) => {
                   style={{
                     display: "flex",
                     border: "3px solid black",
+                    borderRadius: "30px",
                   }}
                 >
                   {categories.products.map((category) => (
@@ -80,6 +81,7 @@ const Categories = ({ category }) => {
                               height={200}
                               style={{
                                 objectFit: "cover",
+                                borderRadius: "30px",
                               }}
                             />
                           </>

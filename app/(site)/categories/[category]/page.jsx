@@ -18,7 +18,7 @@ const CategoryDetails = async ({ params }) => {
           display: "flex",
           width: "100%",
           height: "100%",
-          border: "5px solid green",
+          // border: "5px solid green",
           alignItems: "center",
           flexDirection: "column",
         }}
@@ -29,7 +29,7 @@ const CategoryDetails = async ({ params }) => {
             display: "flex",
             width: "100%",
             height: "100%",
-            border: "5px solid red",
+            // border: "5px solid red",
             alignItems: "center",
             flexDirection: "column",
           }}
@@ -43,7 +43,7 @@ const CategoryDetails = async ({ params }) => {
             display: "flex",
             width: "100%",
             height: "100%",
-            border: "5px solid pink",
+            // border: "5px solid pink",
             alignItems: "center",
           }}
         >
@@ -74,7 +74,7 @@ const CategoryDetails = async ({ params }) => {
                   display: "flex",
                   width: "32rem",
                   height: "100%",
-                  border: "3px solid white",
+                  // border: "3px solid white",
                   flexDirection: "column",
                 }}
               >
@@ -89,6 +89,8 @@ const CategoryDetails = async ({ params }) => {
                     border: "3px solid black",
                     marginTop: "25px",
                     fontSize: "3rem",
+                    borderRadius: "30px",
+                    padding: "2rem",
                   }}
                 >
                   <span>

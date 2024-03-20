@@ -1,10 +1,11 @@
 // import { getDataProductsPages } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
+import { PortableText } from "@portabletext/react";
 import CheckboxProducts from "../CheckboxProducts/CheckboxProducts";
 import { Suspense } from "react";
 export const dynamic = "force-dynamic";
-
+// DISPLAY
 const Products = ({ allproducts }) => {
   return (
     <>
@@ -54,7 +55,6 @@ const Products = ({ allproducts }) => {
               height: "auto",
               alignItems: "center",
               justifyContent: "center",
-
               flexWrap: "wrap",
             }}
           >
@@ -66,7 +66,6 @@ const Products = ({ allproducts }) => {
                 width: "100%",
                 height: "auto",
                 justifyContent: "center",
-
                 flexDirection: "column",
               }}
             >
@@ -76,8 +75,6 @@ const Products = ({ allproducts }) => {
                   display: "flex",
                   width: "100%",
                   height: "100%",
-                  // justifyContent: "center",
-                  // border: "4px solid red",
                   flexWrap: "wrap",
                 }}
               >
@@ -104,9 +101,21 @@ const Products = ({ allproducts }) => {
                   width: "100%",
                   height: "auto",
                   justifyContent: "center",
+                  marginTop: "4rem",
                 }}
               >
-                <h3>Tous nos produits</h3>
+                <h3
+                  className="_bycategory_subtitle"
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    width: "100%",
+                    height: "auto",
+                    justifyContent: "center",
+                  }}
+                >
+                  Tous nos produits
+                </h3>
                 {/* Boucle EXTERNE à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
                 {allproducts.map((product) => (
                   <div key={product._id}>
@@ -120,6 +129,7 @@ const Products = ({ allproducts }) => {
                           flexWrap: "wrap",
                           justifyContent: "center",
                           margin: "2rem",
+                          borderRadius: "30px",
                         }}
                       >
                         <div
@@ -128,13 +138,11 @@ const Products = ({ allproducts }) => {
                             display: "flex",
                             width: "100%",
                             height: "auto",
-
                             alignItems: "center",
                             padding: "14px",
                             flexWrap: "wrap",
                           }}
                         >
-                          {" "}
                           <h2>
                             <Link href={`/products/${product.slug}`}>
                               {product.name}
@@ -142,65 +150,86 @@ const Products = ({ allproducts }) => {
                           </h2>
                         </div>
 
-                        {/* DATA GROUP key - Boucle INTERNE SUBCATEGORIES à travers toutes les sous-catégories du produit */}
-                        {product.categories.map((subCategory) => (
-                          <div
-                            key={subCategory._id}
-                            className="data_group_products"
-                            style={{
-                              padding: "20px",
-                            }}
-                          >
-                            <div className="images_products">
-                              {subCategory.coverImages && (
-                                <Image
-                                  src={subCategory.coverImages}
-                                  alt="les fleurs"
-                                  className="product__img"
-                                  width={200}
-                                  height={200}
-                                  style={{
-                                    objectFit: "cover",
-                                  }}
-                                />
-                              )}
-                            </div>
-
-                            {/* Contenu détaillé de la sous-catégorie */}
+                        {/*  Boucle INTERNE SUBCATEGORIES à travers toutes les sous-catégories du produit */}
+                        {product.categories.map((category) => (
+                          <>
                             <div
-                              className="content_products_categories"
+                              key={category._id}
+                              className="data_group_products"
                               style={{
-                                display: "flex",
-                                flexDirection: "column",
+                                padding: "20px",
                               }}
                             >
-                              <div className="product">
-                                <h3>
-                                  <Link
-                                    href={`/categories/${subCategory.slug}`}
-                                  >
-                                    {subCategory.name}
-                                  </Link>
-                                </h3>
-                                <p className="category_name">
-                                  {subCategory.categories}
-                                </p>
-                              </div>
                               <div
-                                className="content"
+                                className="content_products_categories"
                                 style={{
                                   display: "flex",
-
                                   flexDirection: "column",
                                 }}
                               >
-                                <p className="price_content">
-                                  €{subCategory.price}
-                                </p>
+                                <div className="categories">
+                                  <h3
+                                    className="title_categories"
+                                    style={{
+                                      color: "white",
+                                    }}
+                                  >
+                                    <Link href={`/categories/${category.slug}`}>
+                                      {category.name}
+                                    </Link>
+                                  </h3>
+                                  <div className="_categories">
+                                    {category.coverImages && (
+                                      <Image
+                                        src={category.coverImages}
+                                        alt="les fleurs"
+                                        className="product__img"
+                                        width={300}
+                                        height={300}
+                                        style={{
+                                          objectFit: "cover",
+                                          borderRadius: "30px",
+                                        }}
+                                      />
+                                    )}
+                                  </div>
+                                </div>
+                                <div
+                                  className="content"
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                  }}
+                                >
+                                  <p className="price_content">
+                                    €{category.price}
+                                  </p>
+
+                                  <span>
+                                    <PortableText value={product.content} />
+                                  </span>
+                                  <Link
+                                    href={`/categories/${category.slug}`}
+                                    className="link_items"
+                                  >
+                                    View Details
+                                  </Link>
+                                  <span className="ref_products_categories">
+                                    {" "}
+                                    <p
+                                      style={{
+                                        color: "gray",
+                                        fontSize: "10px",
+                                      }}
+                                    >
+                                      REF: {product._id}
+                                    </p>
+                                  </span>
+                                </div>
                               </div>
+                              {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
                             </div>
-                            {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
-                          </div>
+                          </>
                         ))}
                         {/* fin boucle interne */}
                       </div>

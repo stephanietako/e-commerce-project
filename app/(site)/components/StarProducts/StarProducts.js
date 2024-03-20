@@ -17,13 +17,12 @@ const StarProducts = ({ starproducts }) => {
           width: "auto",
           height: "auto",
           justifyContent: "space-between",
-          border: "2px solid blue",
           alignItems: "center",
           padding: "33px",
           flexWrap: "wrap",
         }}
       >
-        <h2 className="_bycategory_title">NOS PRODUITS STAR</h2>
+        <h2 className="_bycategory_main_title">NOS PRODUITS STAR</h2>
       </header>
       {/* Section principale des produits */}
       <section
@@ -32,23 +31,35 @@ const StarProducts = ({ starproducts }) => {
           display: "flex",
           width: "100%",
           height: "auto",
-          border: "2px solid violet",
-          alignItems: "center",
-          justifyContent: "space-evenly",
-          flexWrap: "wrap",
+          justifyContent: "center",
         }}
       >
         <div
           className="__starproducts_bloc"
           style={{
             display: "flex",
-            border: "3px solid yellow",
+            width: "auto",
+            height: "auto",
+            // border: "2px solid violet",
+            alignItems: "center",
+            flexWrap: "wrap",
+            border: "3px solid black",
+            borderRadius: "30px",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            margin: "2rem",
+            padding: "2rem",
           }}
         >
           {/* Boucle EXTERNE à travers toutes les categories */}
           {starproducts.map((product) => (
             <div key={product._id}>
-              <h2>
+              <h2
+                className="title_starproducts_products"
+                style={{
+                  paddingLeft: "2rem",
+                }}
+              >
                 <Link href={`/products/${product.slug}`}>{product.name}</Link>
               </h2>
 
@@ -58,8 +69,9 @@ const StarProducts = ({ starproducts }) => {
                   className="display_infos_products"
                   style={{
                     display: "flex",
-                    border: "3px solid black",
+                    // border: "3px solid black",
                     flexWrap: "wrap",
+                    borderRadius: "30px",
                   }}
                 >
                   {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}
@@ -69,7 +81,7 @@ const StarProducts = ({ starproducts }) => {
                         key={subCategory._id}
                         className="data_group"
                         style={{
-                          padding: "20px",
+                          padding: "12px",
                         }}
                       >
                         {/* Contenu détaillé de la sous-catégorie */}
@@ -77,35 +89,31 @@ const StarProducts = ({ starproducts }) => {
                           className="content_starproducts"
                           style={{
                             display: "flex",
-                            border: "3px solid pink",
+                            // border: "3px solid pink",
                             flexDirection: "column",
                           }}
                         >
                           <div className="starproducts">
-                            <h3
-                              className="title_starproducts_categories"
-                              style={{
-                                color: "white",
-                              }}
-                            >
-                              <Link href={`/categories/${subCategory.slug}`}>
-                                {subCategory.name}
-                              </Link>
-                            </h3>
                             <div className="images_starproducts">
                               {subCategory.coverImages && (
                                 <Image
                                   src={subCategory.coverImages}
                                   alt="les fleurs"
                                   className="product__img"
-                                  width={200}
-                                  height={200}
+                                  width={300}
+                                  height={300}
                                   style={{
                                     objectFit: "cover",
+                                    borderRadius: "30px",
                                   }}
                                 />
                               )}
                             </div>
+                            <h3 className="title_starproducts_categories">
+                              <Link href={`/categories/${subCategory.slug}`}>
+                                {subCategory.name}
+                              </Link>
+                            </h3>
                             <p className="price_content">
                               €{subCategory.price.toFixed(2)}
                             </p>

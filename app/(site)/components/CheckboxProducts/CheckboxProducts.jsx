@@ -16,17 +16,18 @@ const CheckboxProducts = () => {
         display: "flex",
         height: "auto",
         justifyContent: "center",
-        width: "100%",
+        width: "84rem",
+        border: "3px solid gray",
+        borderRadius: "30px",
       }}
     >
       <div
         className="filtersproducts_container"
         style={{
           display: "flex",
-          width: "63rem",
+          width: "100%",
           height: "auto",
-          justifyContent: "flex-end",
-          padding: "2rem",
+          padding: "0 4rem",
         }}
       >
         <FiltersProducts

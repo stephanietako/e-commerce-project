@@ -46,16 +46,31 @@ const Search = ({
               <option value="Large ">Large </option>
             </select>
           </div>
+          <br />
           <div className={styles.__searchbar}>
-            <label className={styles.__search}> Search</label>
-            <input
+            {/* <label className={styles.__search}> Search</label> */}
+            {/* <input
               type="search"
               id="search"
               placeholder="search..."
               className={styles.__search_input}
               value={searchQuery}
               onChange={handleSearchQuerychange}
-            />
+            /> */}
+            <div className={styles.__label_search_select}>
+              <label className={styles.__label_search}>Product Type</label>
+              <select
+                value={categoryTypeFilter}
+                onChange={handleCategoryTypeChange}
+                className={styles.__label_search_select_content}
+              >
+                <option value="All">All</option>
+                <option value="Unique">Unique</option>
+                <option value="Basic ">Basic </option>
+                <option value="Medium">Medium </option>
+                <option value="Large ">Large </option>
+              </select>
+            </div>
           </div>
           <button
             className={styles.__btn_search}

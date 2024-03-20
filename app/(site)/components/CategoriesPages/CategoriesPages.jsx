@@ -11,40 +11,24 @@ const CategoriesPages = ({ category }) => {
 
   return (
     <>
-      <header
-        className="header_categoriespages"
-        style={{
-          display: "flex",
-          width: "auto",
-          height: "auto",
-          justifyContent: "space-between",
-          border: "2px solid blue",
-          alignItems: "center",
-          padding: "33px",
-          flexWrap: "wrap",
-        }}
-      >
-        <h2 className="_bycategory_title">
-          CATEGORIES PAGES CHECKBOX SELECTION
-        </h2>
-      </header>
       <section
         className="categoriespages_section"
         style={{
           display: "flex",
-          width: "100%",
+          width: "auto",
           height: "auto",
-          border: "2px solid violet",
+          // border: "2px solid violet",
           alignItems: "center",
-          justifyContent: "space-evenly",
+          // justifyContent: "space-evenly",
           flexWrap: "wrap",
+          margin: "2rem",
         }}
       >
         <div
           className="__categoriespages_bloc"
           style={{
             display: "flex",
-            border: "3px solid yellow",
+            // border: "3px solid yellow",
             flexDirection: "column",
           }}
         >
@@ -61,10 +45,11 @@ const CategoriesPages = ({ category }) => {
                   src={category.coverImages}
                   alt="les fleurs"
                   className="category__img"
-                  width={200}
-                  height={200}
+                  width={300}
+                  height={300}
                   style={{
                     objectFit: "cover",
+                    borderRadius: "30px",
                   }}
                 />
               </>
@@ -73,7 +58,17 @@ const CategoriesPages = ({ category }) => {
             )}
           </div>
 
-          <div className="infos_content">
+          <div
+            className="infos_content"
+            style={{
+              border: "4px solid blue",
+              display: "flex",
+              width: "auto",
+              height: "auto",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          >
             <div className="infos">
               <p>{category.name}</p>
               {/* <p>€{category.price.toFixed(2)}</p> */}
@@ -82,7 +77,7 @@ const CategoriesPages = ({ category }) => {
             <div
               className="categoriespages_display"
               style={{
-                border: "4px solid black",
+                // border: "4px solid black",
                 display: "flex",
                 width: "auto",
                 height: "auto",

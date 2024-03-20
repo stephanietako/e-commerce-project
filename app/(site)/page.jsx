@@ -97,7 +97,7 @@ const Home = async () => {
       </section>
       {/* ///////////////////// */}
       <section>
-        <h3>CHECKBOXS</h3>
+        {/* <h3>CHECKBOXS</h3> */}
         {/* <div
           className="section_checkboxs"
           style={{
@@ -113,7 +113,7 @@ const Home = async () => {
           </Suspense>
         </div> */}
         {/* ///////////////////// */}
-        <Select />
+        {/* <Select /> */}
       </section>
       {/* ///////////////////// */}
       <section>

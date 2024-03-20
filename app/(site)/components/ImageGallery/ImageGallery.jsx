@@ -17,7 +17,7 @@ const ImageGallery = ({ images }) => {
         display: "flex",
         width: "100%",
         height: "100%",
-        border: "3px solid red",
+        // border: "3px solid red",
         alignItems: "center",
         padding: "3rem",
       }}
@@ -28,7 +28,7 @@ const ImageGallery = ({ images }) => {
           display: "flex",
           width: "100%",
           height: "auto",
-          border: "3px solid blue",
+          // border: "3px solid blue",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
@@ -48,6 +48,7 @@ const ImageGallery = ({ images }) => {
                 objectFit: "cover",
                 cursor: "pointer",
                 padding: "1rem",
+                borderRadius: "30px",
               }}
             />
           </div>
@@ -56,7 +57,8 @@ const ImageGallery = ({ images }) => {
       <div
         className="selectBig_img_productpage"
         style={{
-          border: "3px solid pink",
+          border: "3px solid gray",
+          borderRadius: "30px",
         }}
       >
         <Image
@@ -68,8 +70,9 @@ const ImageGallery = ({ images }) => {
           style={{
             display: "flex",
             objectFit: "cover",
-            border: "3px solid yellow",
+            // border: "3px solid yellow",
             padding: "1rem",
+            borderRadius: "30px",
           }}
         />
       </div>

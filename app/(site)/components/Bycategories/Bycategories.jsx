@@ -1,10 +1,11 @@
 // import { getCategories } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
+import { PortableText } from "@portabletext/react";
 import CheckboxCategories from "../CheckboxCategories/CheckboxCategories";
 import { Suspense } from "react";
 export const dynamic = "force-dynamic";
-
+// DISPLAY
 const ByCategory = ({ bycategory }) => {
   return (
     <>
@@ -14,16 +15,15 @@ const ByCategory = ({ bycategory }) => {
           display: "flex",
           width: "auto",
           height: "auto",
-          justifyContent: "space-evenly",
+          justifyContent: "space-between",
           border: "2px solid blue",
           alignItems: "center",
           padding: "33px",
-          flexWrap: "wrap",
         }}
       >
         <h2 className="_bycategory_title">TOUTES LES CATEGORIES</h2>
       </header>
-      {/* Section principale des produits */}
+      {/* Section principale des categories */}
       <section
         className="categories_section"
         style={{
@@ -40,9 +40,9 @@ const ByCategory = ({ bycategory }) => {
           className="bycategories_container"
           style={{
             display: "flex",
-            border: "3px solid yellow",
-            flexWrap: "wrap",
-            justifyContent: "center",
+            width: "100%",
+            height: "auto",
+            flexDirection: "column",
           }}
         >
           <div
@@ -53,7 +53,6 @@ const ByCategory = ({ bycategory }) => {
               height: "auto",
               alignItems: "center",
               justifyContent: "center",
-
               flexWrap: "wrap",
             }}
           >
@@ -65,7 +64,6 @@ const ByCategory = ({ bycategory }) => {
                 width: "100%",
                 height: "auto",
                 justifyContent: "center",
-
                 flexDirection: "column",
               }}
             >
@@ -75,8 +73,6 @@ const ByCategory = ({ bycategory }) => {
                   display: "flex",
                   width: "100%",
                   height: "100%",
-                  // justifyContent: "center",
-                  // border: "4px solid red",
                   flexWrap: "wrap",
                 }}
               >
@@ -95,6 +91,7 @@ const ByCategory = ({ bycategory }) => {
                   </Suspense>
                 </div>
               </div>
+              {/* ////////////////////////////////////////////// */}
               <div
                 className="categories_cards"
                 style={{
@@ -103,18 +100,25 @@ const ByCategory = ({ bycategory }) => {
                   width: "100%",
                   height: "auto",
                   justifyContent: "center",
+                  marginTop: "4rem",
                 }}
               >
-                <h3>Tous nos categories de produits</h3>
+                <h3
+                  className="_bycategory_subtitle"
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    width: "100%",
+                    height: "auto",
+                    justifyContent: "center",
+                  }}
+                >
+                  Toutes nos categories de produits
+                </h3>
+
                 {/* Boucle EXTERNE à travers toutes les categories */}
                 {bycategory.map((categories) => (
                   <div key={categories._id}>
-                    <h2>
-                      <Link href={`/categories/${categories.slug}`}>
-                        {categories.name}
-                      </Link>
-                    </h2>
-
                     {/* Vérification de la disponibilité de produits pour cette categorie */}
                     {categories.products && categories.products.length > 0 ? (
                       <div
@@ -123,13 +127,33 @@ const ByCategory = ({ bycategory }) => {
                           display: "flex",
                           border: "3px solid black",
                           flexWrap: "wrap",
+                          justifyContent: "center",
+                          margin: "2rem",
+                          borderRadius: "30px",
                         }}
                       >
+                        <div
+                          className="main_title_categories"
+                          style={{
+                            display: "flex",
+                            width: "100%",
+                            height: "auto",
+                            alignItems: "center",
+                            padding: "14px",
+                            flexWrap: "wrap",
+                          }}
+                        >
+                          <h2>
+                            <Link href={`/categories/${categories.slug}`}>
+                              {categories.name}
+                            </Link>
+                          </h2>
+                        </div>
                         {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}
-                        {categories.products.map((subCategory) => (
+                        {categories.products.map((product) => (
                           <>
                             <div
-                              key={subCategory._id}
+                              key={product._id}
                               className="data_group"
                               style={{
                                 padding: "20px",
@@ -140,47 +164,74 @@ const ByCategory = ({ bycategory }) => {
                                 className="content_categories"
                                 style={{
                                   display: "flex",
-                                  border: "3px solid pink",
+                                  // border: "3px solid pink",
                                   flexDirection: "column",
                                 }}
                               >
                                 <div className="product">
                                   <h3
-                                    className="title_categories"
+                                    className="title_products"
                                     style={{
                                       color: "white",
                                     }}
                                   >
-                                    <Link
-                                      href={`/products/${subCategory.slug}`}
-                                    >
-                                      {subCategory.name}
+                                    <Link href={`/products/${product.slug}`}>
+                                      {product.name}
                                     </Link>
                                   </h3>
-                                  <div className="images_products">
+                                  <div className="images_products_categories">
                                     {categories.coverImages && (
                                       <Image
                                         src={categories.coverImages}
                                         alt="les fleurs"
                                         className="product__img"
-                                        width={200}
-                                        height={200}
+                                        width={300}
+                                        height={300}
                                         style={{
                                           objectFit: "cover",
+                                          borderRadius: "30px",
                                         }}
                                       />
                                     )}
                                   </div>
-                                  <p className="price_content">
-                                    €{categories.price.toFixed(2)}
-                                  </p>
+                                  <div
+                                    className="content"
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                    }}
+                                  >
+                                    <p className="price_content">
+                                      €{categories.price.toFixed(2)}
+                                    </p>
+
+                                    <span>
+                                      <PortableText value={product.content} />
+                                    </span>
+
+                                    <Link
+                                      href={`/categories/${categories.slug}`}
+                                      className="link_items"
+                                    >
+                                      View Details
+                                    </Link>
+                                    <span className="ref_products_categories">
+                                      {" "}
+                                      <p
+                                        style={{
+                                          color: "gray",
+                                          fontSize: "10px",
+                                        }}
+                                      >
+                                        REF: {product._id}
+                                      </p>
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
-                              {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
                             </div>
                           </>
                         ))}
-                        {/* fin boucle interne de map de data */}
                       </div>
                     ) : (
                       <p>No products available for this category.</p>

@@ -22,7 +22,7 @@ const ProductsDetails = async ({ params }) => {
           display: "flex",
           width: "100%",
           height: "100%",
-          border: "5px solid green",
+          // border: "5px solid green",
           alignItems: "center",
         }}
       >
@@ -48,8 +48,10 @@ const ProductsDetails = async ({ params }) => {
                 display: "flex",
                 width: "auto",
                 height: "100%",
-                border: "3px solid white",
+                border: "3px solid gray",
                 flexDirection: "column",
+                padding: "2rem",
+                borderRadius: "30px",
               }}
             >
               <span>
