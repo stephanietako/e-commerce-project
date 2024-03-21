@@ -242,6 +242,36 @@ export async function getCategory() {
     }
   );
 }
+//////////////////////////
+export async function getDataFlowers() {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "product" && name == "Fleurs"] [0...3] | order(name asc){
+  _id,
+      _createdAt,
+  name,
+    "slug": slug.current,
+         "coverImages": images[0].asset->url,
+           content,     
+  "categories": *[_type == 'category' && references(^._id)][0...20] | order(name asc) {
+    _id,
+    price,
+    currency,
+    name,
+    "slug": slug.current,
+     "coverImages": images[0].asset->url,
+    "images": images[0].asset->url,
+    content,
+      products,
+       "ref": products[]{
+_ref,
+    }
+  }
+}`,
+    {
+      cache: "no-cache",
+    }
+  );
+}
 ///////////////////////////////
 //// slug CATEGORY single page
 export async function getData(slug) {
@@ -291,7 +321,7 @@ export async function getDataProduct(slug) {
 }
 /////////////////////////
 
-export async function getDataFlowers(slug) {
+export async function getDataFlowersSlug(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "category" && name == "Orange"]{
     _createdAt,

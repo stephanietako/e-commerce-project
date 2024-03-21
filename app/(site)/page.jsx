@@ -12,11 +12,10 @@ import { getDataProductsPages } from "@/sanity/lib/client";
 import StarProducts from "./components/StarProducts/StarProducts";
 import { getDataStarProducts } from "@/sanity/lib/client";
 import { getDataProducts } from "@/sanity/lib/client";
-import SearchTypeFlowers from "./components/SearchTypeFlowers/SearchTypeFlowers";
-//////////////////////
-// import CheckboxPage from "./components/CheckboxPage/CheckboxPage";
-import Select from "./components/Select/Select";
-import SearchFlowers from "./components/SearchFlowers/SearchFlowers";
+import { getDataFlowers } from "@/sanity/lib/client";
+// import SearchFlowers from "./components/SearchFlowers/SearchFlowers";
+// import SearchTypeFlowers from "./components/SearchTypeFlowers/SearchTypeFlowers";
+import Flowers from "./components/Flowers/Flowers";
 
 const Home = async () => {
   // const projects = await getProjects();
@@ -27,7 +26,7 @@ const Home = async () => {
   const allproducts = await getDataProductsPages();
   const products = await getDataProducts();
   const categories = await getCategories();
-  // const categoryitem = await getCategory();
+  const allflowers = await getDataFlowers();
   ///////////////
   // const categorypages = getProductsByCategories();
   /////////////////
@@ -111,22 +110,21 @@ const Home = async () => {
         </div>
       </section>
       {/* //////////////////////////////////////////// */}
-      <section>
-        {/* <PageSearch /> */}
+      <section className="categories_section">
+        <Flowers allflowers={allflowers} />
+      </section>
+      {/* <section>
         <SearchTypeFlowers />
       </section>
       <section>
         <SearchFlowers />
-      </section>
+      </section> */}
       <section className="starproducts_section">
         <StarProducts starproducts={starproducts} />
       </section>
       <section>
         <Products allproducts={allproducts} />
       </section>
-      {/* <section className="categories_section">
-        <Categories category={category} />
-      </section> */}
       <section className="by_categories_section">
         <Bycategories bycategory={bycategory} />
       </section>
