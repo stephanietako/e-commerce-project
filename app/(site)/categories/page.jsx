@@ -14,8 +14,8 @@ const FiltersSearchCategories = () => {
 
   useEffect(() => {
     const searchQuery = searchParams.get("searchQuery");
-    const categoryType = searchParams.get("categoryType");
-    if (categoryType) setCategoryTypeFilter(categoryType);
+    // const categoryType = searchParams.get("categoryType");
+    // if (categoryType) setCategoryTypeFilter(categoryType);
     if (searchQuery) setSearchQuery(searchQuery);
   }, [searchParams]);
 
@@ -25,10 +25,8 @@ const FiltersSearchCategories = () => {
   if (typeof data === "undefined" && !isLoading)
     throw new Error("Cannot fetch data");
   ///////////////
-  // Filtrage des categories
+  //Filtrage des categories
   const filterCategories = (categories) => {
-    // console.log(categoryType);
-    // console.log(categories);
     return categories.filter((el) =>
       categoryType
         ? el.type.toLowerCase().includes(categoryType.toLowerCase())
@@ -36,7 +34,6 @@ const FiltersSearchCategories = () => {
     );
   };
 
-  //////////////////////
   const filteredCategories = filterCategories(data || []);
   console.log(filteredCategories);
   return (
@@ -47,8 +44,6 @@ const FiltersSearchCategories = () => {
           <div>Loading...</div>
         ) : (
           filteredCategories.map((category) => {
-            //console.log("Category !!!!!:", category);
-            // console.log("Category ID !!!!!:", category._id);
             return <CategoriesPages key={category._id} category={category} />;
           })
         )}

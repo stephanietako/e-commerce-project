@@ -6,7 +6,7 @@ import FiltersCategories from "../../categories/FiltersCategories/page";
 // import styles from "./styles.module.scss";
 
 const CheckboxCategories = () => {
-  const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
+  // const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
@@ -31,9 +31,9 @@ const CheckboxCategories = () => {
         }}
       >
         <FiltersCategories
-          categoryTypeFilter={categoryTypeFilter}
+          // categoryTypeFilter={categoryTypeFilter}
           searchQuery={searchQuery}
-          setCategoryTypeFilter={setCategoryTypeFilter}
+          // setCategoryTypeFilter={setCategoryTypeFilter}
           setSearchQuery={setSearchQuery}
         />
       </div>

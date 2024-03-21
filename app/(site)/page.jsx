@@ -12,10 +12,11 @@ import { getDataProductsPages } from "@/sanity/lib/client";
 import StarProducts from "./components/StarProducts/StarProducts";
 import { getDataStarProducts } from "@/sanity/lib/client";
 import { getDataProducts } from "@/sanity/lib/client";
-import PageSearch from "./components/PageSearch/PageSearch";
+import SearchTypeFlowers from "./components/SearchTypeFlowers/SearchTypeFlowers";
 //////////////////////
 // import CheckboxPage from "./components/CheckboxPage/CheckboxPage";
 import Select from "./components/Select/Select";
+import SearchFlowers from "./components/SearchFlowers/SearchFlowers";
 
 const Home = async () => {
   // const projects = await getProjects();
@@ -97,32 +98,6 @@ const Home = async () => {
       </section>
       {/* ///////////////////// */}
       <section>
-        {/* <h3>CHECKBOXS</h3> */}
-        {/* <div
-          className="section_checkboxs"
-          style={{
-            border: "4px solid pink",
-            display: "flex",
-            width: "auto",
-            height: "auto",
-            justifyContent: "center",
-          }}
-        >
-          <Suspense fallback={<h2>In Progress...</h2>}>
-            <CheckboxPage />
-          </Suspense>
-        </div> */}
-        {/* ///////////////////// */}
-        {/* <Select /> */}
-      </section>
-      {/* ///////////////////// */}
-      <section>
-        <nav>
-          <PageSearch />
-        </nav>
-      </section>
-      {/* ///////////////////// */}
-      <section>
         <div className="links">
           {categories.map((category) => (
             <Link
@@ -136,7 +111,13 @@ const Home = async () => {
         </div>
       </section>
       {/* //////////////////////////////////////////// */}
-
+      <section>
+        {/* <PageSearch /> */}
+        <SearchTypeFlowers />
+      </section>
+      <section>
+        <SearchFlowers />
+      </section>
       <section className="starproducts_section">
         <StarProducts starproducts={starproducts} />
       </section>

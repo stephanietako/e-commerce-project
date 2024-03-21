@@ -80,8 +80,20 @@ const CategoryDetails = async ({ params }) => {
               >
                 <span>
                   {data.products}
+
                   <h2>{data.name}</h2>
                   <p>{data.type}</p>
+                  {/* <p>{data._id}</p> */}
+                </span>
+                <span className="ref_products_categories">
+                  <p
+                    style={{
+                      color: "gray",
+                      fontSize: "10px",
+                    }}
+                  >
+                    REF: {data._id}
+                  </p>
                 </span>
                 <div
                   className="products_price"

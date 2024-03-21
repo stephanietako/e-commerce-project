@@ -10,14 +10,14 @@ import styles from "./styles.module.scss";
 
 const FiltersProducts = () => {
   const [selectedProducts, setSelectedProducts] = useState([]);
-  const [productTypeFilter, setProductTypeFilter] = useState([]);
+  // const [productTypeFilter, setProductTypeFilter] = useState([]);
   const [searchQuery, setSearchQuery] = useState([]);
   const searchParams = useSearchParams();
   /////////////////////////
   useEffect(() => {
     const searchQuery = searchParams.get("searchQuery");
-    const productType = searchParams.get("productType");
-    if (productType) setProductTypeFilter(productType);
+    // const productType = searchParams.get("productType");
+    // if (productType) setProductTypeFilter(productType);
     if (searchQuery) setSearchQuery(searchQuery);
   }, [searchParams]);
 

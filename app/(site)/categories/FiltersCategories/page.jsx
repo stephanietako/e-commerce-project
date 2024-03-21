@@ -10,14 +10,14 @@ import styles from "./styles.module.scss";
 
 const FiltersCategories = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [categoryTypeFilter, setCategoryTypeFilter] = useState([]);
+  // const [categoryTypeFilter, setCategoryTypeFilter] = useState([]);
   const [searchQuery, setSearchQuery] = useState([]);
   const searchParams = useSearchParams();
   /////////////////////////
   useEffect(() => {
     const searchQuery = searchParams.get("searchQuery");
-    const categoryType = searchParams.get("categoryType");
-    if (categoryType) setCategoryTypeFilter(categoryType);
+    // const categoryType = searchParams.get("categoryType");
+    // if (categoryType) setCategoryTypeFilter(categoryType);
     if (searchQuery) setSearchQuery(searchQuery);
   }, [searchParams]);
 

@@ -6,8 +6,8 @@ import FiltersProducts from "../../products/FiltersProducts/page";
 // import styles from "./styles.module.scss";
 
 const CheckboxProducts = () => {
-  const [productTypeFilter, setProductTypeFilter] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+  // const [productTypeFilter, setProductTypeFilter] = useState("");
+  const [searchQuery, setSearchQuery] = useState([]);
 
   return (
     <div
@@ -31,9 +31,9 @@ const CheckboxProducts = () => {
         }}
       >
         <FiltersProducts
-          productTypeFilter={productTypeFilter}
+          // productTypeFilter={productTypeFilter}
           searchQuery={searchQuery}
-          setProductTypeFilter={setProductTypeFilter}
+          // setProductTypeFilter={setProductTypeFilter}
           setSearchQuery={setSearchQuery}
         />
       </div>

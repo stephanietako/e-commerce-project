@@ -117,6 +117,17 @@ const StarProducts = ({ starproducts }) => {
                             <p className="price_content">
                               €{subCategory.price.toFixed(2)}
                             </p>
+                            <span className="ref_products_categories">
+                              {" "}
+                              <p
+                                style={{
+                                  color: "gray",
+                                  fontSize: "10px",
+                                }}
+                              >
+                                REF: {product._id}
+                              </p>
+                            </span>
                           </div>
                         </div>
                         {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
