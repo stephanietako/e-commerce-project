@@ -45,7 +45,7 @@ const FiltersProducts = () => {
     }
   };
 
-  console.log("filteredProducts !!!!!!!!!!!!!!!!!!", filteredProducts);
+  //console.log("filteredProducts !!!!!!!!!!!!!!!!!!", filteredProducts);
 
   return (
     <div className={styles.container_filter_products}>
@@ -71,7 +71,7 @@ const FiltersProducts = () => {
           </div>
           {filteredProducts.map(({ name }, index) => {
             const isChecked = selectedProducts.includes(name);
-            console.log("isChecked for products !!!!!!!!!!!!!!!!!!", isChecked);
+            // console.log("isChecked for products !!!!!!!!!!!!!!!!!!", isChecked);
             return (
               <li key={index}>
                 <div className={styles.products_list_item}>

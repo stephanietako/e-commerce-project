@@ -7,16 +7,15 @@ import { fetchData } from "@/sanity/lib/api";
 import CategoriesPages from "../components/CategoriesPages/CategoriesPages";
 
 const FiltersSearchCategories = () => {
-  // const [value, setValues] = useState([]);
-  // const [selectedCategories, setSelectedCategories] = useState([]);
-  const [flowerTypeFilter, setFlowerTypeFilter] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [categoryTypeFilter, setCategoryTypeFilter] = useState([]);
+  const [searchQuery, setSearchQuery] = useState([]);
   const searchParams = useSearchParams();
+  const categoryType = searchParams.get("categoryType");
 
   useEffect(() => {
     const searchQuery = searchParams.get("searchQuery");
     const categoryType = searchParams.get("categoryType");
-    if (categoryType) setFlowerTypeFilter(categoryType);
+    if (categoryType) setCategoryTypeFilter(categoryType);
     if (searchQuery) setSearchQuery(searchQuery);
   }, [searchParams]);
 
@@ -28,22 +27,28 @@ const FiltersSearchCategories = () => {
   ///////////////
   // Filtrage des categories
   const filterCategories = (categories) => {
-    return categories.filter((el) => el.name.includes(searchQuery));
+    // console.log(categoryType);
+    // console.log(categories);
+    return categories.filter((el) =>
+      categoryType
+        ? el.type.toLowerCase().includes(categoryType.toLowerCase())
+        : el.name.includes(searchQuery)
+    );
   };
 
   //////////////////////
   const filteredCategories = filterCategories(data || []);
-
+  console.log(filteredCategories);
   return (
     <div className="search_components">
-      <h2> PAGE DE L AFFICHAGE DES CATEGORIES </h2>
+      <h2> PAGE DE L AFFICHAGE DES CATEGORIESDE FLEURS</h2>
       <div className="filteredCategories">
         {isLoading ? (
           <div>Loading...</div>
         ) : (
           filteredCategories.map((category) => {
-            console.log("Category !!!!!:", category);
-            console.log("Category ID !!!!!:", category._id);
+            //console.log("Category !!!!!:", category);
+            // console.log("Category ID !!!!!:", category._id);
             return <CategoriesPages key={category._id} category={category} />;
           })
         )}

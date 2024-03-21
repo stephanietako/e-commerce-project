@@ -5,10 +5,10 @@ const categoryTypes = [
   { title: "Basic", value: "basic" },
   { title: "Medium", value: "medium" },
   { title: "Large", value: "large" },
-  { title: "Sativa", value: "Sativa" },
-  { title: "indica", value: "laindicage" },
-  { title: "Indoor", value: "Indoor" },
-  { title: "Outdoor", value: "Outdoor" },
+  { title: "Sativa", value: "sativa" },
+  { title: "Indica", value: "indica" },
+  { title: "Indoor", value: "indoor" },
+  { title: "Outdoor", value: "outdoor" },
 ];
 
 const category = {

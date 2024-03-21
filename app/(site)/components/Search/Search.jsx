@@ -4,27 +4,16 @@ import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
 
 const Search = ({
-  flowerTypeFilter,
+  categoryTypeFilter,
   searchQuery,
-  setFlowerTypeFilter,
+  setCategoryTypeFilter,
   setSearchQuery,
 }) => {
   const router = useRouter();
-  // const handleChange = (event) => {
-  //   const checkedId = event.target.value;
-  //   const isChecked = event.target.checked;
 
-  //   if (isChecked) {
-  //     setSelectedCategories([...selectedCategories, checkedId]);
-  //   } else {
-  //     setSelectedCategories(
-  //       selectedCategories.filter((id) => id !== checkedId)
-  //     );
-  //   }
-  // };
   const handleCategoryTypeChange = (event) => {
     const selectedCategory = event.target.value;
-    setFlowerTypeFilter(selectedCategory);
+    setCategoryTypeFilter(selectedCategory);
   };
 
   const handleSearchQuerychange = (event) => {
@@ -34,9 +23,8 @@ const Search = ({
 
   const handleFilterClick = () => {
     router.push(
-      `/categories?categoryType=${flowerTypeFilter}&searchQuery=${searchQuery}`
+      `/categories?categoryType=${categoryTypeFilter}&searchQuery=${searchQuery}`
     );
-    // console.log("CLICK !!!!!", handleFilterClick);
   };
   return (
     <section className={styles.section_search_categories}>
@@ -53,10 +41,12 @@ const Search = ({
             }}
           >
             <select
-              value={flowerTypeFilter[0]}
+              value={categoryTypeFilter}
               onChange={handleCategoryTypeChange}
               className={styles.__label_search_select_content}
               style={{
+                textAlign: "center",
+                margin: "auto",
                 background: "gray",
                 borderRadius: "30px",
               }}
@@ -66,25 +56,37 @@ const Search = ({
               <option value="Indica">Indica </option>
               <option value="Indoor">Indoor </option>
               <option value="Outdoor">Outdoor </option>
+              <option value="Large">Large</option>
             </select>
           </div>
         </div>
 
+        <label className={styles.__label_search}>Selection...</label>
         <div
           className={styles.__label_search_select_flowers}
-          style={{ textAlign: "center", margin: "auto" }}
+          style={{
+            textAlign: "center",
+            margin: "auto",
+            position: "relative",
+          }}
         >
-          <label className={styles.__label_search}>Selection...</label>
           <select
             value={searchQuery}
             onChange={handleSearchQuerychange}
+            // onClick={handleFilterClick}
             className={styles.__label_search_select_content}
+            style={{
+              textAlign: "center",
+              margin: "auto",
+              background: "gray",
+              borderRadius: "30px",
+            }}
           >
             <option value="All">All</option>
             <option value="Haze">Haze</option>
             <option value="Orange">Orange </option>
             <option value="Purple">Purple </option>
-            <option value="tropicale">tropicale </option>
+            <option value="Tropicale">tropicale </option>
           </select>
         </div>
         <br />

@@ -4,11 +4,6 @@ import Link from "next/link";
 export const dynamic = "force-dynamic";
 // DISPLAY
 const CategoriesPages = ({ category }) => {
-  // const price = null;
-
-  // const result = typeof price === "number" ? price.toFixed(2) : 0;
-  // console.log(result);
-
   return (
     <>
       <section
@@ -71,7 +66,6 @@ const CategoriesPages = ({ category }) => {
             <div className="infos">
               <p>{category.name}</p>
               <p>{category.type}</p>
-              {/* <p>€{category.price.toFixed(2)}</p> */}
             </div>
 
             <div

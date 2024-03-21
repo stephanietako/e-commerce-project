@@ -10,11 +10,14 @@ export async function fetchData() {
   _id,
       _createdAt,
   name,
+    type,
     "slug": slug.current,
          "coverImages": images[0].asset->url,
            content,
-             "categoryReference": products[0...15]._ref,
- "productName":  products[0...15]->name,
+      products,
+  "products": products[]{
+_ref,
+
   "products": *[_type == 'product' && references(^._id)][0...25] | order(name asc) {
     _id,
     price,
@@ -24,7 +27,7 @@ export async function fetchData() {
      "coverImages": images[0].asset->url,
     "images": images[0].asset->url,
     content,
-
+  }
   }
 }`,
     {
@@ -61,33 +64,33 @@ export async function fetchDataProduct() {
   );
 }
 //////////////////////////
-export async function fetchDataFlowers() {
-  return await sanityClient.fetch(
-    groq`*[_type == "product" && name == "Fleurs"]{
-    _createdAt,
-  _id, 
-  name,
-         "coverImages": images[0].asset->url,
-    content,
-      body,
-    "categories": *[_type == 'category' && references(^._id)][0...15] | order(name asc){
-        _createdAt,
-      _id, 
-  name,
-  type,
-  "coverImages": images[0].asset->url,
-    "images": images[0].asset->url,
-           price,
-    currency,
-    content,
-}
+// export async function fetchDataFlowers() {
+//   return await sanityClient.fetch(
+//     groq`*[_type == "product" && name == "Fleurs"]{
+//     _createdAt,
+//   _id,
+//   name,
+//          "coverImages": images[0].asset->url,
+//     content,
+//       body,
+//     "categories": *[_type == 'category' && references(^._id)][0...15] | order(name asc){
+//         _createdAt,
+//       _id,
+//   name,
+//   type,
+//   "coverImages": images[0].asset->url,
+//     "images": images[0].asset->url,
+//            price,
+//     currency,
+//     content,
+// }
 
-}`,
-    {
-      cache: "no-cache",
-    }
-  );
-}
+// }`,
+//     {
+//       cache: "no-cache",
+//     }
+//   );
+// }
 // *[_type == "product"] {
 //   _createdAt,
 //   _id,

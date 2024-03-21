@@ -47,7 +47,7 @@ const FiltersCategories = () => {
     }
   };
 
-  console.log("filteredCategories !!!!!!!!!!!!!!!!!!", filteredCategories);
+  //console.log("filteredCategories !!!!!!!!!!!!!!!!!!", filteredCategories);
 
   return (
     <div className={styles.container_filter_categories}>
