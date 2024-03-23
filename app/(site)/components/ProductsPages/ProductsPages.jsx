@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import { PortableText } from "@portabletext/react";
 export const dynamic = "force-dynamic";
 // DISPLAY
 const ProductsPages = ({ product }) => {
@@ -12,9 +12,7 @@ const ProductsPages = ({ product }) => {
           display: "flex",
           width: "auto",
           height: "auto",
-          // border: "2px solid violet",
           alignItems: "center",
-          // justifyContent: "space-evenly",
           flexWrap: "wrap",
           margin: "2rem",
         }}
@@ -23,7 +21,6 @@ const ProductsPages = ({ product }) => {
           className="__productspages_bloc"
           style={{
             display: "flex",
-            // border: "3px solid yellow",
             flexDirection: "column",
           }}
         >
@@ -34,6 +31,7 @@ const ProductsPages = ({ product }) => {
               height: "100%",
             }}
           >
+            coucou
             {product.coverImages ? (
               <>
                 <Image
@@ -56,7 +54,6 @@ const ProductsPages = ({ product }) => {
           <div
             className="infos_content"
             style={{
-              // border: "4px solid blue",
               display: "flex",
               width: "auto",
               height: "auto",
@@ -67,11 +64,12 @@ const ProductsPages = ({ product }) => {
             <div className="infos">
               <p>{product.name}</p>
             </div>
-
+            <span>
+              <PortableText value={product.content} />
+            </span>
             <div
               className="productspages_display"
               style={{
-                // border: "4px solid yellow",
                 display: "flex",
                 width: "auto",
                 height: "auto",

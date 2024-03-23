@@ -3,7 +3,7 @@
 import { useState } from "react";
 import FiltersProducts from "../../products/FiltersProducts/page";
 // Styles
-// import styles from "./styles.module.scss";
+//import styles from "./styles.module.scss";
 
 const CheckboxProducts = () => {
   // const [productTypeFilter, setProductTypeFilter] = useState("");

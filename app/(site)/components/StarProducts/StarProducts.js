@@ -1,13 +1,9 @@
-// import { getDataStarProducts } from "@/sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
-
+import { PortableText } from "@portabletext/react";
 export const dynamic = "force-dynamic";
 
 const StarProducts = ({ starproducts }) => {
-  // const data = await getDataStarProducts();
-  // console.log("STAR PRODUCTS ", data);
-
   return (
     <>
       <header
@@ -117,6 +113,9 @@ const StarProducts = ({ starproducts }) => {
                             <p className="price_content">
                               €{subCategory.price.toFixed(2)}
                             </p>
+                            <span>
+                              <PortableText value={subCategory.content} />
+                            </span>
                             <span className="ref_products_categories">
                               {" "}
                               <p

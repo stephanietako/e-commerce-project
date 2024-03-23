@@ -85,7 +85,6 @@ const Products = ({ allproducts }) => {
                     width: "100%",
                     height: "auto",
                     justifyContent: "center",
-                    // border: "4px solid pink",
                   }}
                 >
                   <Suspense fallback={<h2>In Progress...</h2>}>
@@ -204,13 +203,15 @@ const Products = ({ allproducts }) => {
                                   <p className="price_content">
                                     €{category.price}
                                   </p>
-
                                   <span>
-                                    <PortableText value={product.content} />
+                                    <PortableText value={category.content} />
                                   </span>
                                   <Link
                                     href={`/categories/${category.slug}`}
                                     className="link_items"
+                                    style={{
+                                      color: "turquoise",
+                                    }}
                                   >
                                     View Details
                                   </Link>
@@ -248,5 +249,4 @@ const Products = ({ allproducts }) => {
   );
 };
 
-// En résumé, la boucle externe traverse tous les produits, et la boucle interne traverse toutes les sous-catégories pour chaque produit. Cela permet de traiter les informations liées aux sous-catégories de chaque produit de manière structurée et d'afficher les détails de chaque sous-catégorie associée à un produit particulier.
 export default Products;

@@ -16,8 +16,6 @@ const FiltersCategories = () => {
   /////////////////////////
   useEffect(() => {
     const searchQuery = searchParams.get("searchQuery");
-    // const categoryType = searchParams.get("categoryType");
-    // if (categoryType) setCategoryTypeFilter(categoryType);
     if (searchQuery) setSearchQuery(searchQuery);
   }, [searchParams]);
 

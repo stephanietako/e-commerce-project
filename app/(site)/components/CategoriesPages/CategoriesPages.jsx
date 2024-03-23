@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import { PortableText } from "@portabletext/react";
 export const dynamic = "force-dynamic";
 // DISPLAY
 const CategoriesPages = ({ category }) => {
@@ -12,9 +12,7 @@ const CategoriesPages = ({ category }) => {
           display: "flex",
           width: "auto",
           height: "auto",
-          // border: "2px solid violet",
           alignItems: "center",
-          // justifyContent: "space-evenly",
           flexWrap: "wrap",
           margin: "2rem",
         }}
@@ -23,7 +21,6 @@ const CategoriesPages = ({ category }) => {
           className="__categoriespages_bloc"
           style={{
             display: "flex",
-            // border: "3px solid yellow",
             flexDirection: "column",
           }}
         >
@@ -64,18 +61,35 @@ const CategoriesPages = ({ category }) => {
             }}
           >
             <div className="infos">
-              <p>{category.name}</p>
-              <p>{category.type}</p>
+              <p className="infos_name">{category.name}</p>
+              <p
+                className="infos_type"
+                style={{
+                  color: "gray",
+                }}
+              >
+                {category.type}{" "}
+              </p>
+              <div
+                className="content"
+                style={{
+                  display: "flex",
+                  border: "3px solid pink",
+                  flexDirection: "column",
+                }}
+              >
+                <p className="price_content">€{category.price}</p>
+              </div>
             </div>
-
+            <span>
+              <PortableText value={category.content} />
+            </span>
             <div
-              className="categoriespages_display"
+              className="categoriespages_link"
               style={{
-                // border: "4px solid black",
                 display: "flex",
                 width: "auto",
                 height: "auto",
-                // justifyContent: "center",
               }}
             >
               <Link

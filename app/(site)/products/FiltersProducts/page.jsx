@@ -10,14 +10,11 @@ import styles from "./styles.module.scss";
 
 const FiltersProducts = () => {
   const [selectedProducts, setSelectedProducts] = useState([]);
-  // const [productTypeFilter, setProductTypeFilter] = useState([]);
   const [searchQuery, setSearchQuery] = useState([]);
   const searchParams = useSearchParams();
   /////////////////////////
   useEffect(() => {
     const searchQuery = searchParams.get("searchQuery");
-    // const productType = searchParams.get("productType");
-    // if (productType) setProductTypeFilter(productType);
     if (searchQuery) setSearchQuery(searchQuery);
   }, [searchParams]);
 
@@ -45,8 +42,6 @@ const FiltersProducts = () => {
     }
   };
 
-  //console.log("filteredProducts !!!!!!!!!!!!!!!!!!", filteredProducts);
-
   return (
     <div className={styles.container_filter_products}>
       <ul className={styles.products_list}>
@@ -71,7 +66,7 @@ const FiltersProducts = () => {
           </div>
           {filteredProducts.map(({ name }, index) => {
             const isChecked = selectedProducts.includes(name);
-            // console.log("isChecked for products !!!!!!!!!!!!!!!!!!", isChecked);
+
             return (
               <li key={index}>
                 <div className={styles.products_list_item}>

@@ -14,9 +14,10 @@ export async function fetchData() {
     "slug": slug.current,
          "coverImages": images[0].asset->url,
            content,
+             price,
+    currency,
   "products": products[]{
 _ref,
-
   "products": *[_type == 'product' && references(^._id)][0...25] | order(name asc) {
     _id,
     price,
@@ -44,7 +45,7 @@ export async function fetchDataProduct() {
     "slug": slug.current,
          "coverImages": images[0].asset->url,
            content,
-  "categories": *[_type == 'category' && references(^._id)][0...15] | order(name asc) {
+  "categories": *[_type == 'category' && references(^._id)][0...20] | order(name asc) {
     _id,
     price,
     currency,
@@ -61,3 +62,58 @@ export async function fetchDataProduct() {
   );
 }
 //////////////////////////
+export async function fetchDataSearchBarSlug() {
+  return await sanityClient.fetch(
+    groq` *[_type in ["product", "category"] && defined(slug.current)] | order(name asc) {
+  _id,
+    price,
+       currency,
+    name,
+    "slug":slug.current,
+ type,
+    "coverImages": images[0].asset->url,
+ "images": images[0].asset->url,
+body,
+    content,
+        price,
+    currency,
+      "refProducts": products[]{
+_ref,
+         "refCategories": categories[]{
+_ref,
+  }
+    }
+    }`,
+    {
+      cache: "no-cache",
+    }
+  );
+}
+////////
+export async function fetchDataSearchBar() {
+  return await sanityClient.fetch(
+    groq` *[_type in ['product', 'category' ]  ] | order(name asc){
+  _id,
+    price,
+       currency,
+    name,
+    "slug":slug.current,
+ type,
+    "coverImages": images[0].asset->url,
+ "images": images[0].asset->url,
+body,
+    content,
+        price,
+    currency,
+      "refProducts": products[]{
+_ref,
+         "refCategories": categories[]{
+_ref,
+  }
+    }
+    }`,
+    {
+      cache: "no-cache",
+    }
+  );
+}

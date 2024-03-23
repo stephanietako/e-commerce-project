@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
-
 import SearchFlowers from "../SearchFlowers/SearchFlowers";
 import SearchTypeFlowers from "../SearchTypeFlowers/SearchTypeFlowers";
 export const dynamic = "force-dynamic";
@@ -10,23 +9,20 @@ const Flowers = ({ allflowers }) => {
   return (
     <>
       <header
-        className="header_products"
+        className="header_flowers"
         style={{
           display: "flex",
           width: "auto",
           height: "auto",
-          justifyContent: "space-evenly",
-          border: "2px solid blue",
-          alignItems: "center",
           padding: "33px",
         }}
       >
-        <h2 className="_products">NOS FLEURS</h2>
+        <h2 className="_flowers"> TOUTES NOS FLEURS</h2>
       </header>
 
       {/* Section principale des produits */}
       <section
-        className="products_section"
+        className="flowers_section"
         style={{
           display: "flex",
           width: "100%",
@@ -39,7 +35,7 @@ const Flowers = ({ allflowers }) => {
       >
         {/* Conteneur des produits */}
         <div
-          className="products_container"
+          className="flowers_container"
           style={{
             display: "flex",
             width: "100%",
@@ -48,7 +44,7 @@ const Flowers = ({ allflowers }) => {
           }}
         >
           <div
-            className="display_all_products"
+            className="display_all_flowers"
             style={{
               display: "flex",
               width: "100%",
@@ -59,7 +55,7 @@ const Flowers = ({ allflowers }) => {
             }}
           >
             <div
-              className="products_content"
+              className="flowers_content"
               style={{
                 display: "flex",
                 flexWrap: "wrap",
@@ -103,7 +99,7 @@ const Flowers = ({ allflowers }) => {
                 </div>
               </div>
               <div
-                className="products_cards"
+                className="flowers_cards"
                 style={{
                   display: "flex",
                   flexWrap: "wrap",
@@ -112,18 +108,6 @@ const Flowers = ({ allflowers }) => {
                   justifyContent: "center",
                 }}
               >
-                <h3
-                  className="_bycategory_subtitle"
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    width: "100%",
-                    height: "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  Toutes nos Fleurs
-                </h3>
                 {/* Boucle EXTERNE à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
                 {allflowers.map((product) => (
                   <div key={product._id}>
@@ -141,7 +125,7 @@ const Flowers = ({ allflowers }) => {
                         }}
                       >
                         <div
-                          className="main_title_products"
+                          className="main_title_flowers"
                           style={{
                             display: "flex",
                             width: "100%",
@@ -169,15 +153,15 @@ const Flowers = ({ allflowers }) => {
                               }}
                             >
                               <div
-                                className="content_products_categories"
+                                className="content_flowers"
                                 style={{
                                   display: "flex",
                                   flexDirection: "column",
                                 }}
                               >
-                                <div className="categories">
+                                <div className="flowers">
                                   <h3
-                                    className="title_categories"
+                                    className="title_flowers_categories"
                                     style={{
                                       color: "white",
                                     }}
@@ -186,7 +170,7 @@ const Flowers = ({ allflowers }) => {
                                       {category.name}
                                     </Link>
                                   </h3>
-                                  <div className="_categories">
+                                  <div className="_flowers_images">
                                     {category.coverImages && (
                                       <Image
                                         src={category.coverImages}
@@ -214,15 +198,18 @@ const Flowers = ({ allflowers }) => {
                                   </p>
 
                                   <span>
-                                    <PortableText value={product.content} />
+                                    <PortableText value={category.content} />
                                   </span>
                                   <Link
                                     href={`/categories/${category.slug}`}
                                     className="link_items"
+                                    style={{
+                                      color: "turquoise",
+                                    }}
                                   >
                                     View Details
                                   </Link>
-                                  <span className="ref_products_categories">
+                                  <span className="ref_products_flowers">
                                     {" "}
                                     <p
                                       style={{

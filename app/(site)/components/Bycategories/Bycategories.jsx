@@ -172,7 +172,7 @@ const ByCategory = ({ bycategory }) => {
                                   <h3
                                     className="title_products"
                                     style={{
-                                      color: "white",
+                                      color: "#fff",
                                     }}
                                   >
                                     <Link href={`/products/${product.slug}`}>
@@ -212,6 +212,9 @@ const ByCategory = ({ bycategory }) => {
                                     <Link
                                       href={`/categories/${categories.slug}`}
                                       className="link_items"
+                                      style={{
+                                        color: "turquoise",
+                                      }}
                                     >
                                       View Details
                                     </Link>

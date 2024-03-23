@@ -13,9 +13,13 @@ import StarProducts from "./components/StarProducts/StarProducts";
 import { getDataStarProducts } from "@/sanity/lib/client";
 import { getDataProducts } from "@/sanity/lib/client";
 import { getDataFlowers } from "@/sanity/lib/client";
+
 // import SearchFlowers from "./components/SearchFlowers/SearchFlowers";
 // import SearchTypeFlowers from "./components/SearchTypeFlowers/SearchTypeFlowers";
 import Flowers from "./components/Flowers/Flowers";
+// import SearchBar from "./components/SearchBar/SearchBar";
+import All from "./components/All/All";
+import { fetchDataSearchBar } from "@/sanity/lib/api";
 
 const Home = async () => {
   // const projects = await getProjects();
@@ -27,6 +31,7 @@ const Home = async () => {
   const products = await getDataProducts();
   const categories = await getCategories();
   const allflowers = await getDataFlowers();
+  const all = await fetchDataSearchBar();
   ///////////////
   // const categorypages = getProductsByCategories();
   /////////////////
@@ -34,6 +39,7 @@ const Home = async () => {
     <>
       {/* MENU de page about contact*/}
       <div className="links">
+        {/* <SearchBar /> */}
         {pages.map((page) => (
           <Link key={page._id} href={`/pages/${page.slug}`} className="link">
             {page.title}
@@ -53,7 +59,7 @@ const Home = async () => {
           ))}
         </div>
       </section>
-
+      {/* //////////////////////////////////// */}
       <section
         className="first_section"
         style={{
@@ -113,15 +119,15 @@ const Home = async () => {
       <section className="categories_section">
         <Flowers allflowers={allflowers} />
       </section>
-      {/* <section>
-        <SearchTypeFlowers />
-      </section>
-      <section>
-        <SearchFlowers />
-      </section> */}
+
       <section className="starproducts_section">
         <StarProducts starproducts={starproducts} />
       </section>
+
+      <section>
+        <All all={all} />
+      </section>
+
       <section>
         <Products allproducts={allproducts} />
       </section>

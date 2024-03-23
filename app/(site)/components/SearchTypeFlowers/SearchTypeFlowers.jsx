@@ -3,9 +3,9 @@ import { useState } from "react";
 // Styles
 import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
-
+export const dynamic = "force-dynamic";
 const SearchTypeFlowers = ({}) => {
-  const [categoryTypeFilter, setCategoryTypeFilter] = useState([]);
+  const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
   const router = useRouter();
 
   const handleCategoryTypeChange = (event) => {
