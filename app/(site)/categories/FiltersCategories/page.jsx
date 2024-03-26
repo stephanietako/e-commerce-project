@@ -70,10 +70,10 @@ const FiltersCategories = () => {
           </div>
           {filteredCategories.map(({ name }, index) => {
             const isChecked = selectedCategories.includes(name);
-            console.log(
-              "isChecked for categories !!!!!!!!!!!!!!!!!!",
-              isChecked
-            );
+            // console.log(
+            //   "isChecked for categories !!!!!!!!!!!!!!!!!!",
+            //   isChecked
+            // );
             return (
               <li key={index}>
                 <div className={styles.categories_list_item}>

@@ -19,7 +19,7 @@ const All = ({ all }) => {
           padding: "33px",
         }}
       >
-        <h2 className="_data"> TOUTES NOS DATAS</h2>
+        <h2 className="_data"> TOUTES NOS DATAS SEARCH ALL BAR</h2>
       </header>
 
       <section

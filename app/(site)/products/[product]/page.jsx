@@ -12,7 +12,7 @@ const ProductsDetails = async ({ params }) => {
   return (
     <>
       <header className="header_products">
-        <h2 className="_products"> TOUTES NOS DATAS ESSAI</h2>
+        <h2 className="_products"> TOUTES NOS DATAS products</h2>
       </header>
 
       <section className="products_section">
@@ -20,6 +20,7 @@ const ProductsDetails = async ({ params }) => {
           <div className="display_all_products">
             <div className="products_content">
               <div className="products_cards">
+                ICI !!!!!!!!!!!!!!!!
                 {product.categories &&
                   product.categories.map((category) => (
                     <div key={category._id}>
@@ -28,6 +29,7 @@ const ProductsDetails = async ({ params }) => {
                           {category.name}
                         </Link>
                       </h3>
+                      ICI !!!!!!!!!!!!!!!!
                       <div>
                         {category.coverImages && (
                           <Image

@@ -4,7 +4,7 @@ import { useState } from "react";
 import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
 export const dynamic = "force-dynamic";
-const SearchTypeFlowers = ({}) => {
+const SearchTypeFlowers = () => {
   const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
   const router = useRouter();
 

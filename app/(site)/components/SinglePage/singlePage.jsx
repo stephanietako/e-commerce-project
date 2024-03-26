@@ -1,9 +1,7 @@
 "use client";
 
-import React from "react";
-
 const SinglePage = ({ data }) => {
-  console.log(data);
+  console.log("DATA DANS SINGLE PAGE", data);
   return <>Page</>;
 };
 
