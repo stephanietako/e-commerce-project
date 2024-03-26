@@ -5,14 +5,14 @@ const getQueryFromSlug = (slugArray = []) => {
     product: groq`*[_type == "product" && slug.current == $slug][0] {
          _id,
    _createdAt,
-      title,
+     name,
       _type,
       "slug": slug.current,
     }`,
     category: groq`*[_type == "category" && slug.current == $slug][0] {
          _id,
    _createdAt,
-      title,
+     name,
       _type,
       "slug": slug.current,
     }`,

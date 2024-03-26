@@ -33,7 +33,7 @@ const FiltersSearchCategories = () => {
   };
 
   const filteredCategories = filterCategories(data || []);
-  console.log(filteredCategories);
+  //console.log(filteredCategories);
   return (
     <div className="search_components">
       <h2> PAGE DE L AFFICHAGE DES CATEGORIESDE FLEURS</h2>

@@ -1,15 +1,14 @@
-// le slug
-import { fetchDataSearchBarSlug } from "@/sanity/lib/api";
 import { PortableText } from "@portabletext/react";
-import ImageGallery from "../../components/ImageGallery/ImageGallery";
+// import ImageGallery from "../../components/ImageGallery/ImageGallery";
+import { fetchDataSearchBarSlug } from "@/sanity/lib/api";
 export const dynamic = "force-dynamic";
 // single page
-const AllDetails = async ({ params }) => {
+const Details = async ({ params }) => {
   const slug = params;
   const data = await fetchDataSearchBarSlug(slug);
 
-  console.log("PARAMS ALL !!!!!!!!", data);
-  console.log("TITLE SLUG TO ALL", slug);
+  console.log("PARAMS !!!!!!!!", params);
+  console.log("DATA !!!!!", data);
   return (
     <>
       <div
@@ -34,8 +33,7 @@ const AllDetails = async ({ params }) => {
             flexDirection: "column",
           }}
         >
-          {/* <h1>ICI C EST CATEGORY</h1> */}
-          <h1>{data.name} All SINGLE PAGE</h1>
+          <h1>{data.name} SINGLE PAGE</h1>
         </div>
         <div
           className="gallery_container"
@@ -79,9 +77,8 @@ const AllDetails = async ({ params }) => {
                 }}
               >
                 <span>
-                  <h2>NAME:{data.name}</h2>
-                  <p>TYPE:{data.type}</p>
-                  {/* <p>{data._id}</p> */}
+                  <h2>{data.name}</h2>
+                  <p>{data.type}</p>
                 </span>
                 <span className="ref_products_categories">
                   <p
@@ -103,17 +100,6 @@ const AllDetails = async ({ params }) => {
                     padding: "2rem",
                   }}
                 >
-                  {/* <span>
-                    {" "}
-                    <p
-                      className="price_content"
-                      style={{
-                        fontSize: "3rem",
-                      }}
-                    >
-                      €{data.price.toFixed(2)}
-                    </p>
-                  </span> */}
                   <span>
                     <p>2-4 Day Shipping</p>
                   </span>
@@ -160,51 +146,4 @@ const AllDetails = async ({ params }) => {
     </>
   );
 };
-export default AllDetails;
-
-// import { groq } from "next-sanity";
-// import getQueryFromSlug from "@helpers/getQueryFromSlug";
-// import { sanityClient } from "@lib/sanity.server";
-// import SinglePage from "../../(site)/components/SinglePage/SinglePage";
-
-// export async function generateStaticParams() {
-//   const paths = await sanityClient.fetch(
-//     groq`*[_type in ["product", "category"] && defined(slug.current)][].slug.current`
-//   );
-
-//   return paths.map((slug) => ({
-//     slug: slug.split("/").filter((p) => p),
-//   }));
-// }
-
-// /**
-//  * Helper function to return the correct version of the document
-//  * If we're in "preview mode" and have multiple documents, return the draft
-//  */
-// function filterDataToSingleItem(data, preview = false) {
-//   if (!Array.isArray(data)) {
-//     return data;
-//   }
-
-//   if (data.length === 1) {
-//     return data[0];
-//   }
-
-//   if (preview) {
-//     return data.find((item) => item._id.startsWith(`drafts.`)) || data[0];
-//   }
-
-//   return data[0];
-// }
-
-// export default async function Page({ params }) {
-//   const { slug } = params;
-
-//   const { query, queryParams, docType } = getQueryFromSlug(slug);
-
-//   const pageData = await sanityClient.fetch(query, queryParams);
-
-//   const data = filterDataToSingleItem(pageData, false);
-
-//   return <>{docType === "page" && <SinglePage data={pageData} />}</>;
-// }
+export default Details;

@@ -8,7 +8,7 @@ const Project = async ({ params }) => {
   const slug = params.project;
   const project = await getProject(slug);
 
-  console.log("PROJECT!!!!", project);
+  //console.log("PROJECT!!!!", project);
 
   return (
     <div className="project_slug_getproject">

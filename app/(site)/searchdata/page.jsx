@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { fetchDataSearchBar } from "@/sanity/lib/api";
-import All from "../components/All/All";
+import SearchAllPages from "../components/SearchAllPages/SearchAllPages";
 
 const FiltersSearchAll = () => {
   const [searchQuery, setSearchQuery] = useState([]);
@@ -15,28 +15,30 @@ const FiltersSearchAll = () => {
     if (searchQuery) setSearchQuery(searchQuery);
   }, [searchParams]);
 
-  const { data, error, isLoading } = useSWR("/categories", fetchDataSearchBar);
+  const { data, error, isLoading } = useSWR("/searchdata", fetchDataSearchBar);
 
   if (error) throw new Error("Cannot fetch data");
   if (typeof data === "undefined" && !isLoading)
     throw new Error("Cannot fetch data");
   ///////////////
   //Filtrage des categories
-  const filterCategories = (datas) => {
-    return datas.filter((el) => el.name.includes(searchQuery));
+  const filterAll = (alldata) => {
+    return alldata.filter((el) =>
+      el.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
   };
-
-  const filteredCategories = filterCategories(data || []);
-  console.log(filteredCategories);
+  console.log("FILTERALL !!!!!", filterAll);
+  const filteredAll = filterAll(data || []);
+  console.log("FILTEREDALL !!!!!!", filteredAll);
   return (
     <div className="search_components">
       <h2> PAGE DE L AFFICHAGE DES TOUTES LES DATAS</h2>
-      <div className="filteredCategories">
+      <div className="filteredAll">
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          filteredCategories.map((all) => {
-            return <All key={all._id} all={all} />;
+          filteredAll.map((all) => {
+            return <SearchAllPages key={all._id} all={all} />;
           })
         )}
       </div>

@@ -62,28 +62,23 @@ export async function fetchDataProduct() {
   );
 }
 //////////////////////////
-export async function fetchDataSearchBarSlug() {
+export async function fetchDataSearchBarSlug(slug) {
   return await sanityClient.fetch(
-    groq` *[_type in ["product", "category"] && defined(slug.current)] | order(name asc) {
+    groq`*[_type in ["product", "category"] && defined(slug.current)] | order(name asc) {
   _id,
-    price,
-       currency,
-    name,
-    "slug":slug.current,
- type,
-    "coverImages": images[0].asset->url,
- "images": images[0].asset->url,
-body,
-    content,
-        price,
-    currency,
-      "refProducts": products[]{
-_ref,
-         "refCategories": categories[]{
-_ref,
-  }
-    }
+  _createdAt,
+  name,
+    _type,
+  "slug": slug.current,
+  "coverImages": images[0].asset->url,
+       "images": images[0].asset->url,
+  content,
+  "body": pt::text(body),
+    "reffffffffff": categories[]{
+    _ref
+  }     
     }`,
+    { slug },
     {
       cache: "no-cache",
     }
@@ -92,26 +87,29 @@ _ref,
 ////////
 export async function fetchDataSearchBar() {
   return await sanityClient.fetch(
-    groq` *[_type in ['product', 'category' ]  ] | order(name asc){
-  _id,
-    price,
-       currency,
-    name,
-    "slug":slug.current,
- type,
-    "coverImages": images[0].asset->url,
- "images": images[0].asset->url,
-body,
-    content,
-        price,
-    currency,
-      "refProducts": products[]{
-_ref,
-         "refCategories": categories[]{
-_ref,
-  }
+    groq`*[_type in ['product', 'category'] && (
+  _type match "product" + "*" || _type match "category" + "*"
+) && !(_id in path('drafts.**'))] | order(name asc){
+_id,
+   _createdAt,
+  _type,
+  name,
+  currency,
+  price,
+  content,
+   "body": pt::text(body),
+  "slug": slug.current,
+  "coverImages": images[0].asset->url,
+  "images": images[0].asset->url,
+  content,
+   "refprod": products[] {
+    _ref,
+    "refcat": categories[] {
+      _ref
     }
-    }`,
+}
+
+}`,
     {
       cache: "no-cache",
     }

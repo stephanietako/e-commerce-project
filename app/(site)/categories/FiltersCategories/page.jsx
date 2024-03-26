@@ -10,7 +10,6 @@ import styles from "./styles.module.scss";
 
 const FiltersCategories = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
-  // const [categoryTypeFilter, setCategoryTypeFilter] = useState([]);
   const [searchQuery, setSearchQuery] = useState([]);
   const searchParams = useSearchParams();
   /////////////////////////

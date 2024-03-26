@@ -194,42 +194,6 @@ const ByCategory = ({ bycategory }) => {
                                       />
                                     )}
                                   </div>
-                                  <div
-                                    className="content"
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "column",
-                                    }}
-                                  >
-                                    <p className="price_content">
-                                      €{categories.price.toFixed(2)}
-                                    </p>
-
-                                    <span>
-                                      <PortableText value={product.content} />
-                                    </span>
-
-                                    <Link
-                                      href={`/categories/${categories.slug}`}
-                                      className="link_items"
-                                      style={{
-                                        color: "turquoise",
-                                      }}
-                                    >
-                                      View Details
-                                    </Link>
-                                    <span className="ref_products_categories">
-                                      {" "}
-                                      <p
-                                        style={{
-                                          color: "gray",
-                                          fontSize: "10px",
-                                        }}
-                                      >
-                                        REF: {product._id}
-                                      </p>
-                                    </span>
-                                  </div>
                                 </div>
                               </div>
                             </div>

@@ -85,7 +85,7 @@ export async function getDataStarProducts() {
          "coverImages": images[0].asset->url,
    body,
            content,
-            
+    
   "categories": *[_type == 'category' && references(^._id)][0...1] | order(name asc) {
     _id,
     price,
@@ -96,10 +96,11 @@ export async function getDataStarProducts() {
     "images": images[0].asset->url,
     content,
       products,
-       "ref": products[]{
+       "ref": categories[]{
 _ref,
     }
   }
+
 }`,
     {
       cache: "no-store",
@@ -150,6 +151,9 @@ export async function getDataProducts() {
  "images": images[0].asset->url,
 body,
     content,
+      "products": categories[]{
+_ref,
+  }
       
     }`,
     {
@@ -173,6 +177,9 @@ export async function getProductsByCategories() {
     "images": images[0].asset->url,
   "productName": products[0]->name,
     products,
+      "products": categories[]{
+_ref,
+  }
   }`,
     {
       cache: "no-store",
@@ -200,6 +207,9 @@ export async function getCategories() {
     content,
     categories,
     body,
+      "products": categories[]{
+_ref,
+  }
   }
 }`,
     {
@@ -247,7 +257,7 @@ export async function getCategory() {
 //////////////////////////
 export async function getDataFlowers() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "product" && name == "Fleurs"] [0...3] | order(name asc){
+    groq`*[_type == "product" && name == "Fleurs"] [0...20] | order(name asc){
   _id,
       _createdAt,
   name,
@@ -304,17 +314,28 @@ _ref,
 export async function getDataProduct(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "product" && slug.current == $slug][0]{
- _id,
-   _createdAt,
-      name,
-    "coverImages": images[0].asset->url,
-    images,
-      price,
+_id,
+      _createdAt,
+  name,
     "slug": slug.current,
-    images,    
-   content,
-body,
-    }`,
+         "coverImages": images[0].asset->url,
+           content, 
+            "body": pt::text(body),    
+  "categories": *[_type == 'category' && references(^._id)][0...30] | order(name asc) {
+    _id,
+    price,
+    currency,
+    name,
+    "slug": slug.current,
+     "coverImages": images[0].asset->url,
+    "images": images[0].asset->url,
+    content,
+      products,
+       "ref": products[]{
+_ref,
+    }
+  }
+}`,
     { slug },
     {
       cache: "no-store",
@@ -322,6 +343,28 @@ body,
   );
 }
 /////////////////////////
+// *[_type in ['product', 'category'] && (
+//   _type match "product" + "*" || _type match "category" + "*"
+// ) && !(_id in path('drafts.**'))] | order(name asc){
+// _id,
+//    _createdAt,
+//   _type,
+//   name,
+//   currency,
+//   price,
+//   "slug": slug.current,
+//   "coverImages": images[0].asset->url,
+//   "images": images[0].asset->url,
+//   content,
+//    "refprod": products[] {
+//     _ref,
+//     "refcat": categories[] {
+//       _ref
+//     }
+// }
+
+// }
+//////////////////////////
 // *[_type in ['product', 'category' ]  ] | order(name asc){
 //   _id,
 //     price,
@@ -363,7 +406,7 @@ body,
 //   );
 // }
 ///////////////
-// *[_type == "product" && name == "Fleurs"]{
+// *[_type == "product" && name == "fleurs"]{
 //     _createdAt,
 //   _id,
 //   name,
@@ -435,4 +478,18 @@ body,
 //       cache: "no-store",
 //     }
 //   );
+// }
+////////////
+// *[_type == 'product' && "orange" in categories[]->slug.current ]{
+//   _id,
+//     name,
+//      "categoriesName": categories[0]->name,
+//     "categoriesPrice": categories[0]->price,
+//   "categoriesImages": categories[0]->images,
+//         currency,
+//         content,
+//         "coverImages": images[0].asset->url,
+//     "images": images[0].asset->url,
+//          body,
+
 // }
