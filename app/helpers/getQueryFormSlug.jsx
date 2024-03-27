@@ -7,17 +7,19 @@ const getQueryFromSlug = (slugArray = []) => {
   const docQuery = {
     // Requête pour récupérer les données d'un produit en fonction de son slug
     product: groq`*[_type == "product" && slug.current == $slug][0] {
+      _id,
       name,
-      _type,
+    _type,
       "slug": slug.current,
-       "images": image.asset->url,
+      
     }`,
     // Requête pour récupérer les données d'une catégorie en fonction de son slug
     category: groq`*[_type == "category" && slug.current == $slug][0] {
+      _id,
       name,
-      _type,
+   _type,
       "slug": slug.current,
-       "images": image.asset->url,
+     
     }`,
   };
 
@@ -37,10 +39,10 @@ const getQueryFromSlug = (slugArray = []) => {
     // Si slugArray n'est pas un tableau, affectez simplement le slug à queryParams.slug
     queryParams.slug = `/${slugArray}`;
   }
-  if (slugStart === "products" && slugArray.length === 2) {
-    docType = `product`;
-  } else if (slugStart === "categories" && slugArray.length === 2) {
-    docType = `category`;
+  if (slugStart === "products" && slugArray.length === 1) {
+    docType = "product";
+  } else if (slugStart === "categories" && slugArray.length === 1) {
+    docType = "category";
   }
 
   // Retourne un objet contenant le type de document, les paramètres de requête et la requête correspondante
@@ -53,3 +55,11 @@ const getQueryFromSlug = (slugArray = []) => {
 
 // Export de la fonction getQueryFromSlug
 export default getQueryFromSlug;
+// if (slugStart === "products" && slugArray.length === 1) {
+//   docType = "product";
+// } else if (slugStart === "categories") {
+//   docType = "category";
+// } else if (slugArray.length === 1) {
+//   // Check for single segment (category)
+//   docType = "category"; // Assume category search for single segment
+// }

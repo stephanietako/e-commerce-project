@@ -36,7 +36,7 @@ const FiltersSearchCategories = () => {
   //console.log(filteredCategories);
   return (
     <div className="search_components">
-      <h2> PAGE DE L AFFICHAGE DES CATEGORIESDE FLEURS</h2>
+      <h2> PAGE DE L AFFICHAGE DES CATEGORIES DE FLEURS</h2>
       <div className="filteredCategories">
         {isLoading ? (
           <div>Loading...</div>

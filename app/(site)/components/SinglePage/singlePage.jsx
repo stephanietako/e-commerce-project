@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import { fetchDataSearchBarSlug } from "@/sanity/lib/api";
 import getQueryFromSlug from "@/app/helpers/getQueryFormSlug";
 import Image from "next/image";
+export const dynamic = "force-dynamic";
 const SinglePage = ({ slug, data }) => {
   useEffect(() => {
     const getPageData = async () => {
@@ -38,6 +39,7 @@ const SinglePage = ({ slug, data }) => {
 
   return (
     <>
+      <h2>Nos Types dans single page</h2>
       <h3>NOM:{data.name}</h3>
       <p>TYPE:{data._type}</p>
       <p>REF:{data._id}</p>

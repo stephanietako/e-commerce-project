@@ -80,14 +80,16 @@ export async function getDataStarProducts() {
     groq`*[_type == "product"] [0...3] | order(name asc){
   _id,
       _createdAt,
+      _type,
   name,
     "slug": slug.current,
          "coverImages": images[0].asset->url,
    body,
-           content,
-    
+           content, 
   "categories": *[_type == 'category' && references(^._id)][0...1] | order(name asc) {
     _id,
+     _createdAt,
+      _type,
     price,
     currency,
     name,
@@ -113,7 +115,8 @@ export async function getDataProductsPages() {
   return createClient(clientConfig).fetch(
     groq`*[_type == "product"] | order(name asc){
   _id,
-      _createdAt,
+    _createdAt,
+      _type,
   name,
     "slug": slug.current,
          "coverImages": images[0].asset->url,
@@ -121,6 +124,8 @@ export async function getDataProductsPages() {
            content,
   "categories": *[_type == 'category' && references(^._id)][0...30] | order(name asc) {
     _id,
+     _createdAt,
+      _type,
     price,
     currency,
     name,
@@ -141,7 +146,8 @@ export async function getDataProducts() {
   return createClient(clientConfig).fetch(
     groq`*[_type == 'product'][0...20] | order(name asc){
   _id,
-     _createdAt,
+   _createdAt,
+      _type,
     price,
        currency,
     name,
@@ -168,7 +174,8 @@ export async function getProductsByCategories() {
   return createClient(clientConfig).fetch(
     groq`*[_type == 'category'][0...30] | order(name asc){
   _id,
-      _createdAt,
+    _createdAt,
+      _type,
   name,
     price,
     currency,
@@ -191,13 +198,16 @@ export async function getCategories() {
   return createClient(clientConfig).fetch(
     groq`*[_type == "category"] | order(name asc){
   _id,
-      _createdAt,
+       _createdAt,
+      _type,
   name,
     "coverImages": images[0].asset->url,
   price,
    "slug": slug.current,
   "products": *[_type == 'product' && references(^._id)][0...30] | order(name asc){
     _id,
+     _createdAt,
+      _type,
     price,
     currency,
     name,
@@ -222,7 +232,8 @@ export async function getBycategories() {
   return createClient(clientConfig).fetch(
     groq`  *[_type == "category"] [0...2] | order(name asc){
 _id,
-   _createdAt,
+ _createdAt,
+      _type,
   name,
   content,
       "coverImages": images[0].asset->url,
@@ -242,7 +253,8 @@ _ref,
 export async function getCategory() {
   return createClient(clientConfig).fetch(
     groq` *[_type == "category"] {
-  _createdAt,
+ _createdAt,
+      _type,
   _id,
   name,
  "coverImages": images[0].asset->url,
@@ -259,7 +271,8 @@ export async function getDataFlowers() {
   return createClient(clientConfig).fetch(
     groq`*[_type == "product" && name == "Fleurs"] [0...20] | order(name asc){
   _id,
-      _createdAt,
+       _createdAt,
+      _type,
   name,
     "slug": slug.current,
          "coverImages": images[0].asset->url,
@@ -267,6 +280,8 @@ export async function getDataFlowers() {
             "body": pt::text(body),    
   "categories": *[_type == 'category' && references(^._id)][0...30] | order(name asc) {
     _id,
+     _createdAt,
+      _type,
     price,
     currency,
     name,
@@ -290,19 +305,16 @@ _ref,
 export async function getData(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "category" && slug.current == $slug][0]{
-    _id,
-   _createdAt,
-    "coverImages": images[0].asset->url,
-    images,
+      _id,
+      _createdAt,
+      _type,
+      "coverImages": images[0].asset->url,
+      images,
       price,
-    name,
-    "slug": slug.current,
-     "products": products[0]->name,
-    content,
-       type,
-  "ref": products[]{
-_ref,
-  }
+      name,
+      "slug": slug.current,
+      content,
+      type,
     }`,
     { slug },
     {
@@ -310,12 +322,14 @@ _ref,
     }
   );
 }
+
 //// slug PRODUCT single page
 export async function getDataProduct(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "product" && slug.current == $slug][0]{
 _id,
-      _createdAt,
+   _createdAt,
+      _type,
   name,
     "slug": slug.current,
          "coverImages": images[0].asset->url,
@@ -323,6 +337,8 @@ _id,
             "body": pt::text(body),    
   "categories": *[_type == 'category' && references(^._id)][0...30] | order(name asc) {
     _id,
+    _createdAt,
+      _type,
     price,
     currency,
     name,

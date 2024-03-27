@@ -1,10 +1,12 @@
 // "use client";
 "use client";
 import { useState } from "react";
+import { slugWithType } from "@/app/helpers/slugWithType";
 // Styles
 import styles from "./style.modules.scss";
 import { useRouter } from "next/navigation";
 export const dynamic = "force-dynamic";
+
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
@@ -15,9 +17,55 @@ const SearchBar = () => {
   };
 
   const handleFilterClick = () => {
-    router.push(`/searchdata?searchQuery=${searchQuery}`);
-    // console.log("CLICK !!!!!", handleFilterClick);
+    // Utilisez la fonction getQueryFromSlug pour obtenir le type de document
+    const slugArray = searchQuery.split("/");
+    const [slugStart] = slugArray;
+
+    let docType = "";
+    if (slugStart === "products" && slugArray.length === 1) {
+      docType = "product";
+    } else if (slugStart === "categories") {
+      docType = "category";
+    } else if (slugArray.length === 1) {
+      // Check for single segment (category)
+      docType = "category"; // Assume category search for single segment
+    }
+
+    console.log("slugStart !!!!!", slugStart); // repond bien
+    console.log("SLUGARRAY", slugArray); // repond bien
+    console.log("SEARCHQUERY", searchQuery); // repond bien
+
+    // if (slugStart === "products") {
+    //   docType = "product";
+    // } else if (slugStart === "categories") {
+    //   docType = "category";
+    // } else if (slugArray.length === 1) {
+    //   // Assume category search for single segment
+    //   docType = "category";
+    // }
+
+    // Utilisez slugWithType pour générer le nouveau slug avec le bon préfixe
+    let prefix = "";
+
+    if (docType === "products") {
+      prefix = "products";
+    } else if (docType === "categories") {
+      prefix = "categories";
+    }
+
+    // ...
+
+    const newSlug = slugWithType(prefix).options.slugify(searchQuery, {
+      _type: docType,
+    });
+    console.log("DocType:", docType);
+    console.log("Prefix:", prefix);
+    console.log("PREFIX", prefix); // PROBLEME PREFIX
+
+    // Naviguez vers la nouvelle URL avec le slug modifié
+    router.push(`/${newSlug}`);
   };
+
   return (
     <section className={styles.section_search_all}>
       <div className={styles.search_container}>
