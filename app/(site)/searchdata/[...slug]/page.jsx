@@ -1,53 +1,50 @@
-import { groq } from "next-sanity";
+"use client";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import useSWR from "swr";
+import { fetchDataSearchBarSlug } from "@/sanity/lib/api";
 import getQueryFromSlug from "@/app/helpers/getQueryFormSlug";
-import sanityClient from "@/sanity/lib/sanity";
 import SinglePage from "../../components/SinglePage/SinglePage";
 
-export async function generateStaticParams() {
-  const paths = await sanityClient.fetch(
-    groq`*[_type in ["product", "category"] && defined(slug.current)][].slug.current`
+const Search = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const searchQueryParam = searchParams.get("searchQuery");
+    if (searchQueryParam) setSearchQuery(searchQueryParam);
+  }, [searchParams]);
+
+  // Fonction pour filtrer les produits en fonction de la recherche
+  const filterProducts = (products) => {
+    return products.filter((product) => product.name.includes(searchQuery));
+  };
+
+  // Fonction pour récupérer les données en fonction du slug
+  const getPageData = async (slug) => {
+    const { query, queryParams, docType } = getQueryFromSlug(slug);
+    const pageData = await fetchDataSearchBarSlug(queryParams);
+    return pageData;
+  };
+
+  const { data, error, isLoading } = useSWR(
+    "/searchdata",
+    fetchDataSearchBarSlug
   );
-  console.log("paths!!!!!", paths);
-  return paths.map((slug) => ({
-    slug: slug.split("/").filter((p) => p),
-  }));
-}
-/**
- * Helper function to return the correct version of the document
- * If we're in "preview mode" and have multiple documents, return the draft
- */
-function filterDataToSingleItem(data, preview = true) {
-  if (!Array.isArray(data)) {
-    return data;
-  }
 
-  if (data.length === 1) {
-    return data[0];
-  }
+  if (error) throw new Error("Cannot fetch data");
+  if (!isLoading && typeof data === "undefined")
+    throw new Error("Cannot fetch data");
 
-  if (preview) {
-    return data.find((item) => item._id.startsWith(`drafts.`)) || data[0];
-  }
-
-  return data[0];
-}
-export default async function Page({ params }) {
-  const { slug } = params;
-  console.log("Slug !!!!!! :", slug);
-  const { query, queryParams, docType } = getQueryFromSlug(slug);
-
-  const pageData = await sanityClient.fetch(query, queryParams);
-  console.log("pageData!!!!!", pageData);
-  console.log("queryparams!!!!!", queryParams);
-  console.log("query!!!!!", query);
-
-  const data = filterDataToSingleItem(pageData, false);
+  const filteredProducts = filterProducts(data || []);
 
   return (
     <>
-      {(docType === "product" || docType === "category") && (
-        <SinglePage key={data} data={data} />
-      )}
+      {filteredProducts.map((product) => (
+        <SinglePage key={product._id} data={product} />
+      ))}
     </>
   );
-}
+};
+
+export default Search;
