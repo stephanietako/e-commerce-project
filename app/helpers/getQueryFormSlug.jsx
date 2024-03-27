@@ -1,33 +1,49 @@
+// Import de la fonction groq depuis next-sanity
 import { groq } from "next-sanity";
 
+// Définition de la fonction getQueryFromSlug prenant un tableau de slug en argument
 const getQueryFromSlug = (slugArray = []) => {
+  // Définition des requêtes pour récupérer les données en fonction du type de document
   const docQuery = {
+    // Requête pour récupérer les données d'un produit en fonction de son slug
     product: groq`*[_type == "product" && slug.current == $slug][0] {
-     name,
+      name,
       _type,
       "slug": slug.current,
+       "images": image.asset->url,
     }`,
+    // Requête pour récupérer les données d'une catégorie en fonction de son slug
     category: groq`*[_type == "category" && slug.current == $slug][0] {
-     name,
+      name,
       _type,
       "slug": slug.current,
+       "images": image.asset->url,
     }`,
   };
 
+  // Initialisation de la variable docType qui va contenir le type de document
   let docType = "";
 
+  // Récupération du premier élément du tableau de slug
   const [slugStart] = slugArray;
 
-  // We now have to re-combine the slug array to match our slug in Sanity.
-  let queryParams = { slug: `/${slugArray.join("/")}` };
+  // Construction des paramètres de requête pour le slug
+  let queryParams = { slug: "" };
 
+  if (Array.isArray(slugArray)) {
+    // Si slugArray est un tableau, utilisez la méthode join()
+    queryParams.slug = `/${slugArray.join("/")}`;
+  } else {
+    // Si slugArray n'est pas un tableau, affectez simplement le slug à queryParams.slug
+    queryParams.slug = `/${slugArray}`;
+  }
   if (slugStart === "products" && slugArray.length === 2) {
     docType = `product`;
-  } else {
-    slugStart === "categories" && slugArray.length === 2;
+  } else if (slugStart === "categories" && slugArray.length === 2) {
     docType = `category`;
   }
 
+  // Retourne un objet contenant le type de document, les paramètres de requête et la requête correspondante
   return {
     docType,
     queryParams,
@@ -35,4 +51,5 @@ const getQueryFromSlug = (slugArray = []) => {
   };
 };
 
+// Export de la fonction getQueryFromSlug
 export default getQueryFromSlug;

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { fetchDataSearchBarSlug } from "@/sanity/lib/api";
-import getQueryFromSlug from "@/app/helpers/getQueryFormSlug";
+//import getQueryFromSlug from "@/app/helpers/getQueryFormSlug";
 import SinglePage from "../../components/SinglePage/SinglePage";
 
 const Search = () => {
@@ -21,11 +21,11 @@ const Search = () => {
   };
 
   // Fonction pour récupérer les données en fonction du slug
-  const getPageData = async (slug) => {
-    const { query, queryParams, docType } = getQueryFromSlug(slug);
-    const pageData = await fetchDataSearchBarSlug(queryParams);
-    return pageData;
-  };
+  // const getPageData = async (slug) => {
+  //   const { query, queryParams, docType } = getQueryFromSlug(slug);
+  //   const pageData = await fetchDataSearchBarSlug(queryParams);
+  //   return pageData;
+  // };
 
   const { data, error, isLoading } = useSWR(
     "/searchdata",
@@ -48,3 +48,23 @@ const Search = () => {
 };
 
 export default Search;
+// export default async function Page({ params }) {
+//   const { slug } = params;
+//   console.log("Slug !!!!!! :", slug);
+//   const { query, queryParams, docType } = getQueryFromSlug(slug);
+
+//   const pageData = await sanityClient.fetch(query, queryParams);
+//   console.log("pageData!!!!!", pageData);
+//   console.log("queryparams!!!!!", queryParams);
+//   console.log("query!!!!!", query);
+
+//   const data = filterDataToSingleItem(pageData, false);
+
+//   return (
+//     <>
+//       {(docType === "product" || docType === "category") && (
+//         <SinglePage key={data} data={data} />
+//       )}
+//     </>
+//   );
+// }
