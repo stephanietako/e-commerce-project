@@ -70,6 +70,7 @@ const Categories = ({ category }) => {
                         padding: "20px",
                       }}
                     >
+                      llllllllllll
                       <div className="images">
                         {categories.coverImages ? (
                           <>
@@ -89,7 +90,6 @@ const Categories = ({ category }) => {
                           <p>No image available</p>
                         )}
                       </div>
-
                       <div
                         className="content"
                         style={{

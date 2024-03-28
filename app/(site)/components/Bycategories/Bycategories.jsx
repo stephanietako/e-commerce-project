@@ -194,6 +194,30 @@ const ByCategory = ({ bycategory }) => {
                                       />
                                     )}
                                   </div>
+                                  <div
+                                    className="content"
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                    }}
+                                  >
+                                    <p className="price_content">
+                                      €{categories.price.toFixed(2)}
+                                    </p>
+                                  </div>
+                                  <div>
+                                    <PortableText value={categories.content} />
+                                  </div>
+                                  <span className="ref_products_categories">
+                                    <p
+                                      style={{
+                                        color: "gray",
+                                        fontSize: "10px",
+                                      }}
+                                    >
+                                      REF: {categories._id}
+                                    </p>
+                                  </span>
                                 </div>
                               </div>
                             </div>

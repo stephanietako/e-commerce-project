@@ -48,6 +48,7 @@ export async function fetchDataProduct() {
     "slug": slug.current,
          "coverImages": images[0].asset->url,
            content,
+            body,
   "categories": *[_type == 'category' && references(^._id)][0...20] | order(name asc) {
     _id,
     _createdAt,
@@ -59,6 +60,7 @@ export async function fetchDataProduct() {
      "coverImages": images[0].asset->url,
     "images": images[0].asset->url,
     content,
+   
 }
 }`,
     {
@@ -79,7 +81,7 @@ export async function fetchDataSearchBarSlug(slug) {
        "images": images[0].asset->url,
   content,
   "body": pt::text(body),
-    "reffffffffff": categories[]{
+    "ref": categories[]{
     _ref
   }     
     }`,

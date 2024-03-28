@@ -1,11 +1,8 @@
-// import Image from "next/image";
-// import { Suspense } from "react";
-// import { getProjects } from "@/sanity/lib/client";
 import Link from "next/link";
-import { getProductsByCategories } from "@/sanity/lib/client";
+//import { getProductsByCategories } from "@/sanity/lib/client";
 import { getPages } from "@/sanity/lib/client";
 import { getCategories } from "@/sanity/lib/client";
-import Categories from "./components/Categories/Categories";
+//import Categories from "./components/Categories/Categories";
 import Bycategories from "./components/Bycategories/Bycategories";
 import Products from "./components/Products/Products";
 import { getDataProductsPages } from "@/sanity/lib/client";
@@ -13,25 +10,22 @@ import StarProducts from "./components/StarProducts/StarProducts";
 import { getDataStarProducts } from "@/sanity/lib/client";
 import { getDataProducts } from "@/sanity/lib/client";
 import { getDataFlowers } from "@/sanity/lib/client";
-
-// import SearchFlowers from "./components/SearchFlowers/SearchFlowers";
-// import SearchTypeFlowers from "./components/SearchTypeFlowers/SearchTypeFlowers";
 import Flowers from "./components/Flowers/Flowers";
-// import SearchBar from "./components/SearchBar/SearchBar";
-import All from "./components/All/All";
-import { fetchDataSearchBar } from "@/sanity/lib/api";
+// import All from "./components/All/All";
+//import { fetchDataSearchBar } from "@/sanity/lib/api";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 const Home = async () => {
   // const projects = await getProjects();
   const pages = await getPages();
-  const category = await getProductsByCategories();
+  //const category = await getProductsByCategories();
   const bycategory = await getCategories();
   const starproducts = await getDataStarProducts();
   const allproducts = await getDataProductsPages();
   const products = await getDataProducts();
   const categories = await getCategories();
   const allflowers = await getDataFlowers();
-  const all = await fetchDataSearchBar();
+  // const all = await fetchDataSearchBar();
   ///////////////
   // const categorypages = getProductsByCategories();
   /////////////////
@@ -78,6 +72,10 @@ const Home = async () => {
             This is the starting project of ecommerce with next js 14 and Sanity
           </p>
         </div>
+        <section>
+          <h2>Search bar de tout le shop</h2>
+          <SearchBar />
+        </section>
         {/* // MENU des projects get projects */}
         {/* <div className="container__projects">
           {projects.map((project) => (
@@ -124,9 +122,9 @@ const Home = async () => {
         <StarProducts starproducts={starproducts} />
       </section>
 
-      <section>
+      {/* <section>
         <All all={all} />
-      </section>
+      </section> */}
 
       <section>
         <Products allproducts={allproducts} />
@@ -134,9 +132,9 @@ const Home = async () => {
       <section className="by_categories_section">
         <Bycategories bycategory={bycategory} />
       </section>
-      <section className="all_categories_section">
+      {/* <section className="all_categories_section">
         <Categories category={category} />
-      </section>
+      </section> */}
     </>
   );
 };

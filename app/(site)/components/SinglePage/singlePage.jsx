@@ -1,16 +1,3 @@
-// "use client";
-
-// const SinglePage = ({ data }) => {
-//   console.log("DATA DANS SINGLE PAGE", data);
-//   return (
-//     <>
-//       <h3>{data.name}</h3>
-//     </>
-//   );
-// };
-
-// export default SinglePage;
-// Importez fetchDataSearchBarSlug et getQueryFromSlug si nécessaire
 "use client";
 import { useEffect, useState } from "react";
 import { fetchDataSearchBarSlug } from "@/sanity/lib/api";

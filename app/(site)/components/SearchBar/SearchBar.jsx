@@ -16,7 +16,7 @@ const SearchBar = () => {
     setSearchQuery(selectedQuery);
   };
 
-  const handleFilterClick = () => {
+  const handleFilterClick = async () => {
     // Utilisez la fonction getQueryFromSlug pour obtenir le type de document
     const slugArray = searchQuery.split("/");
     const [slugStart] = slugArray;
@@ -28,41 +28,20 @@ const SearchBar = () => {
       docType = "category";
     } else if (slugArray.length === 1) {
       // Check for single segment (category)
-      docType = "category"; // Assume category search for single segment
+      docType = "product"; // Assume category search for single segment
     }
 
     console.log("slugStart !!!!!", slugStart); // repond bien
     console.log("SLUGARRAY", slugArray); // repond bien
     console.log("SEARCHQUERY", searchQuery); // repond bien
 
-    // if (slugStart === "products") {
-    //   docType = "product";
-    // } else if (slugStart === "categories") {
-    //   docType = "category";
-    // } else if (slugArray.length === 1) {
-    //   // Assume category search for single segment
-    //   docType = "category";
-    // }
-
     // Utilisez slugWithType pour générer le nouveau slug avec le bon préfixe
-    let prefix = "";
-
-    if (docType === "products") {
-      prefix = "products";
-    } else if (docType === "categories") {
-      prefix = "categories";
-    }
-
-    // ...
-
-    const newSlug = slugWithType(prefix).options.slugify(searchQuery, {
-      _type: docType,
-    });
+    const prefix = "";
+    const newSlug = slugWithType(prefix, docType).options.slugify(searchQuery);
     console.log("DocType:", docType);
     console.log("Prefix:", prefix);
     console.log("PREFIX", prefix); // PROBLEME PREFIX
 
-    // Naviguez vers la nouvelle URL avec le slug modifié
     router.push(`/${newSlug}`);
   };
 

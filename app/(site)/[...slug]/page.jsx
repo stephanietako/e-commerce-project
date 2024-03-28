@@ -4,8 +4,8 @@ import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { fetchDataSearchBarSlug } from "@/sanity/lib/api";
 //import getQueryFromSlug from "@/app/helpers/getQueryFormSlug";
-import SinglePage from "../components/SinglePage/SinglePage";
-
+//import SinglePage from "../components/SinglePage/SinglePage";
+import All from "../components/All/All";
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const searchParams = useSearchParams();
@@ -34,7 +34,7 @@ const Search = () => {
   return (
     <>
       {filteredProducts.map((product) => (
-        <SinglePage key={product._id} data={product} />
+        <All key={product._id} data={product} />
       ))}
     </>
   );

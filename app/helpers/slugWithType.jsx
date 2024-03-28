@@ -14,8 +14,8 @@ export function slugWithType(prefix = ``, source = `_type`) {
       source,
       slugify: (value, doc) => {
         console.log("Slug généré !!!!!!! :", formatSlug(value, slugStart));
-        const prefix = (doc._type = "category" ? "categories" : "products");
-        console.log("doc _type", doc._type);
+        const prefix = (source = "category" ? "categories" : "products");
+        console.log("doc _type", source);
         return formatSlug(value, prefix, slugStart);
       },
     },

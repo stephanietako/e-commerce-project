@@ -83,6 +83,7 @@ const All = ({ all }) => {
                     justifyContent: "center",
                   }}
                 >
+                  <p>COUCOU DANS ALL !!!!</p>
                   <SearchBar />
                 </div>
               </div>

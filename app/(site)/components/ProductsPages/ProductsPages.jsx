@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
-export const dynamic = "force-dynamic";
-// DISPLAY
+
 const ProductsPages = ({ product }) => {
   return (
     <>
@@ -10,30 +9,44 @@ const ProductsPages = ({ product }) => {
         className="productspages_section"
         style={{
           display: "flex",
-          width: "auto",
-          height: "auto",
-          alignItems: "center",
-          flexWrap: "wrap",
-          margin: "2rem",
+          width: "100%",
+          height: " auto",
         }}
       >
         <div
           className="__productspages_bloc"
           style={{
             display: "flex",
-            flexDirection: "column",
+            width: "100%",
+            height: " auto",
+            border: "2px solid red",
+            justifyContent: "space-evenly",
           }}
         >
           <div
-            className="images"
+            className="infos_product"
             style={{
-              width: "100%",
-              height: "100%",
+              display: "flex",
+              width: "auto",
+              height: "auto",
+              padding: "4rem",
+              border: "4px solid Green",
+              flexDirection: "column",
             }}
           >
-            coucou
-            {product.coverImages ? (
-              <>
+            <h3>{product.name}</h3>
+            <span>
+              <PortableText value={product.content} />
+            </span>
+            <div
+              className="images"
+              style={{
+                display: "flex",
+                width: "100%",
+                padding: "4rem",
+              }}
+            >
+              {product.coverImages ? (
                 <Image
                   src={product.coverImages}
                   alt="les fleurs"
@@ -45,40 +58,64 @@ const ProductsPages = ({ product }) => {
                     borderRadius: "30px",
                   }}
                 />
-              </>
-            ) : (
-              <p>No image available</p>
-            )}
+              ) : (
+                <p>No image available</p>
+              )}
+            </div>
+            <span>
+              <PortableText value={product.body} />
+            </span>
           </div>
 
           <div
             className="infos_content"
             style={{
               display: "flex",
-              width: "auto",
+              width: "100%",
               height: "auto",
-              justifyContent: "center",
-              flexDirection: "column",
+              justifyContent: "space-around",
+              padding: "2rem",
             }}
           >
-            <div className="infos">
+            {/* <div className="infos">
               <p>{product.name}</p>
-            </div>
-            <span>
+            </div> */}
+            {/* <span>
               <PortableText value={product.content} />
-            </span>
-            <div
-              className="productspages_display"
-              style={{
-                display: "flex",
-                width: "auto",
-                height: "auto",
-                justifyContent: "center",
-              }}
-            >
-              <Link href={`/products/${product.slug}`} className="link_items">
-                View Details
-              </Link>
+            </span> */}
+            <div className="productspages_display_categories">
+              <p>Categories:</p>
+              <ul>
+                {product.categories.map((category) => (
+                  <li key={category._id}>
+                    <h3>
+                      <Link href={`/categories/${category.slug}`}>
+                        {category.name}
+                      </Link>
+                    </h3>
+                    <span>
+                      {" "}
+                      <div className="images">
+                        {category.coverImages ? (
+                          <Image
+                            src={category.coverImages}
+                            alt="les fleurs"
+                            className="product__img"
+                            width={300}
+                            height={300}
+                            style={{
+                              objectFit: "cover",
+                              borderRadius: "30px",
+                            }}
+                          />
+                        ) : (
+                          <p>No image available</p>
+                        )}
+                      </div>
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

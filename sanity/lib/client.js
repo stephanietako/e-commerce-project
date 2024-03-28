@@ -179,6 +179,7 @@ export async function getProductsByCategories() {
   name,
     price,
     currency,
+    content,
     "slug": slug.current,
       "coverImages": images[0].asset->url,
     "images": images[0].asset->url,
@@ -204,6 +205,7 @@ export async function getCategories() {
     "coverImages": images[0].asset->url,
   price,
    "slug": slug.current,
+   content,
   "products": *[_type == 'product' && references(^._id)][0...30] | order(name asc){
     _id,
      _createdAt,
@@ -230,7 +232,7 @@ _ref,
 
 export async function getBycategories() {
   return createClient(clientConfig).fetch(
-    groq`  *[_type == "category"] [0...2] | order(name asc){
+    groq`  *[_type == "category"] [0...30] | order(name asc){
 _id,
  _createdAt,
       _type,
