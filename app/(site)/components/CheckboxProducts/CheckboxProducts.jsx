@@ -31,9 +31,7 @@ const CheckboxProducts = () => {
         }}
       >
         <FiltersProducts
-          // productTypeFilter={productTypeFilter}
           searchQuery={searchQuery}
-          // setProductTypeFilter={setProductTypeFilter}
           setSearchQuery={setSearchQuery}
         />
       </div>

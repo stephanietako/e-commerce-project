@@ -1,29 +1,8 @@
-"use client";
-import { useEffect, useState } from "react";
-import { fetchDataSearchBarSlug } from "@/sanity/lib/api";
-import getQueryFromSlug from "@/app/helpers/getQueryFormSlug";
+// "use client";
+
 import Image from "next/image";
 export const dynamic = "force-dynamic";
-const SinglePage = ({ slug, data }) => {
-  useEffect(() => {
-    const getPageData = async () => {
-      try {
-        const { query, queryParams, docType } = getQueryFromSlug(slug);
-        const pageData = await fetchDataSearchBarSlug(
-          queryParams,
-          query,
-          docType
-        );
-        console.log("DATA DANS SINGLE PAGE", pageData);
-        // Faites quelque chose avec les données récupérées ici
-      } catch (error) {
-        console.error("Erreur lors de la récupération des données :", error);
-      }
-    };
-
-    getPageData();
-  }, [slug]);
-
+const SinglePage = ({ data }) => {
   return (
     <>
       <h2>Nos Types dans single page</h2>

@@ -13,7 +13,8 @@ import { getDataFlowers } from "@/sanity/lib/client";
 import Flowers from "./components/Flowers/Flowers";
 // import All from "./components/All/All";
 //import { fetchDataSearchBar } from "@/sanity/lib/api";
-import SearchBar from "./components/SearchBar/SearchBar";
+
+import SearchBarAll from "./components/SearchBarAll/SearchBarAll";
 
 const Home = async () => {
   // const projects = await getProjects();
@@ -23,7 +24,7 @@ const Home = async () => {
   const starproducts = await getDataStarProducts();
   const allproducts = await getDataProductsPages();
   const products = await getDataProducts();
-  const categories = await getCategories();
+  // const categories = await getCategories();
   const allflowers = await getDataFlowers();
   // const all = await fetchDataSearchBar();
   ///////////////
@@ -74,8 +75,9 @@ const Home = async () => {
         </div>
         <section>
           <h2>Search bar de tout le shop</h2>
-          <SearchBar />
+          <SearchBarAll />
         </section>
+
         {/* // MENU des projects get projects */}
         {/* <div className="container__projects">
           {projects.map((project) => (
@@ -99,8 +101,11 @@ const Home = async () => {
         </div> */}
         {/* </Suspense> */}
       </section>
+      <section className="starproducts_section">
+        <StarProducts starproducts={starproducts} />
+      </section>
       {/* ///////////////////// */}
-      <section>
+      {/* <section>
         <div className="links">
           {categories.map((category) => (
             <Link
@@ -112,14 +117,10 @@ const Home = async () => {
             </Link>
           ))}
         </div>
-      </section>
+      </section> */}
       {/* //////////////////////////////////////////// */}
       <section className="categories_section">
         <Flowers allflowers={allflowers} />
-      </section>
-
-      <section className="starproducts_section">
-        <StarProducts starproducts={starproducts} />
       </section>
 
       {/* <section>

@@ -16,7 +16,7 @@ const Products = ({ allproducts }) => {
           width: "auto",
           height: "auto",
           justifyContent: "space-between",
-          border: "2px solid blue",
+          // border: "2px solid blue",
           alignItems: "center",
           padding: "33px",
         }}
@@ -178,19 +178,30 @@ const Products = ({ allproducts }) => {
                                     </Link>
                                   </h3>
                                   <div className="_categories">
-                                    {category.coverImages && (
-                                      <Image
-                                        src={category.coverImages}
-                                        alt="les fleurs"
-                                        className="product__img"
-                                        width={300}
-                                        height={300}
-                                        style={{
-                                          objectFit: "cover",
-                                          borderRadius: "30px",
-                                        }}
-                                      />
-                                    )}
+                                    <div
+                                      className="bloc_img_products"
+                                      style={{
+                                        display: "flex",
+                                        border: "3px solid pink",
+                                        width: "auto",
+                                        height: "auto",
+                                        justifyContent: "center",
+                                      }}
+                                    >
+                                      {category.coverImages && (
+                                        <Image
+                                          src={category.coverImages}
+                                          alt="les fleurs"
+                                          className="product__img"
+                                          width={200}
+                                          height={200}
+                                          style={{
+                                            objectFit: "cover",
+                                            borderRadius: "30px",
+                                          }}
+                                        />
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
                                 <div

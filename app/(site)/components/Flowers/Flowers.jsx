@@ -176,8 +176,8 @@ const Flowers = ({ allflowers }) => {
                                         src={category.coverImages}
                                         alt="les fleurs"
                                         className="product__img"
-                                        width={300}
-                                        height={300}
+                                        width={200}
+                                        height={200}
                                         style={{
                                           objectFit: "cover",
                                           borderRadius: "30px",
@@ -191,6 +191,7 @@ const Flowers = ({ allflowers }) => {
                                   style={{
                                     display: "flex",
                                     flexDirection: "column",
+                                    width: "12rem",
                                   }}
                                 >
                                   <p className="price_content">

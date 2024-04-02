@@ -3,7 +3,7 @@ import { PortableText } from "@portabletext/react";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 
 export const dynamic = "force-dynamic";
-// single page
+// single page route categories
 const CategoryDetails = async ({ params }) => {
   const slug = params.category;
   const data = await getData(slug);

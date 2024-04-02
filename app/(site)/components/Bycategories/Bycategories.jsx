@@ -156,7 +156,7 @@ const ByCategory = ({ bycategory }) => {
                               key={product._id}
                               className="data_group"
                               style={{
-                                padding: "20px",
+                                padding: "9px",
                               }}
                             >
                               {/* Contenu détaillé de la sous-catégorie */}
@@ -180,19 +180,31 @@ const ByCategory = ({ bycategory }) => {
                                     </Link>
                                   </h3>
                                   <div className="images_products_categories">
-                                    {categories.coverImages && (
-                                      <Image
-                                        src={categories.coverImages}
-                                        alt="les fleurs"
-                                        className="product__img"
-                                        width={300}
-                                        height={300}
-                                        style={{
-                                          objectFit: "cover",
-                                          borderRadius: "30px",
-                                        }}
-                                      />
-                                    )}
+                                    <div
+                                      className="bloc_img_products__categories"
+                                      style={{
+                                        display: "flex",
+                                        border: "3px solid pink",
+                                        width: "auto",
+                                        height: "auto",
+                                        justifyContent: "center",
+                                      }}
+                                    >
+                                      {categories.coverImages && (
+                                        <Image
+                                          src={categories.coverImages}
+                                          alt="les fleurs"
+                                          className="product__img"
+                                          width={200}
+                                          height={200}
+                                          style={{
+                                            display: "block",
+                                            objectFit: "cover",
+                                            borderRadius: "30px",
+                                          }}
+                                        />
+                                      )}
+                                    </div>
                                   </div>
                                   <div
                                     className="content"

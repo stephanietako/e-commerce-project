@@ -12,13 +12,21 @@ export function slugWithType(prefix = ``, source = `_type`) {
     type: `slug`,
     options: {
       source,
+
       slugify: (value, doc) => {
-        console.log("Slug généré !!!!!!! :", formatSlug(value, slugStart));
-        const prefix = (source = "category" ? "categories" : "products");
-        console.log("doc _type", source);
-        return formatSlug(value, prefix, slugStart);
+        // ... Your logic to format the slug
+        const formattedSlug = formatSlug(value, slugStart);
+        return formattedSlug; // Return only the formatted slug
       },
     },
+    // slugify: (value, doc) => {
+    //   console.log("SLUG GÉNÉRÉ !!!!!!! :", formatSlug(value, slugStart));
+    //   const prefix = source !== "category" ? "categories" : "products";
+    //   console.log("doc _type", source);
+    //   console.log("value, prefix, slugStart", value, prefix, slugStart);
+    //   return formatSlug(value, prefix, slugStart);
+    // },
+
     validation: (Rule) =>
       Rule.required().custom(({ current }) => {
         if (typeof current === "undefined") {
