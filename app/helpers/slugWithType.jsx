@@ -1,41 +1,42 @@
 import slugify from "slugify";
 
-function formatSlug(input, prefix) {
+function formatSlug(input, slugStart) {
   const slug = slugify(input, { lower: true });
-  return `${prefix}/${slug}`;
+  return slugStart + slug;
 }
 
-export function slugWithType(prefix = ``, source = `_type`) {
-  const slugStart = prefix ? `/${prefix}/` : `/`;
+export function slugWithType(prefix = "", source = "_type") {
+  const slugStart = prefix ? `/${prefix}/` : "/";
+
   return {
-    name: `slug`,
-    type: `slug`,
+    name: "slug",
+    _type: "slug",
     options: {
       source,
-
-      slugify: (value, doc) => {
-        // ... Your logic to format the slug
-        const formattedSlug = formatSlug(value, slugStart);
-        return formattedSlug; // Return only the formatted slug
-      },
+      slugify: (value) => formatSlug(value, slugStart),
     },
-    // slugify: (value, doc) => {
-    //   console.log("SLUG GÉNÉRÉ !!!!!!! :", formatSlug(value, slugStart));
-    //   const prefix = source !== "category" ? "categories" : "products";
-    //   console.log("doc _type", source);
-    //   console.log("value, prefix, slugStart", value, prefix, slugStart);
-    //   return formatSlug(value, prefix, slugStart);
-    // },
-
     validation: (Rule) =>
       Rule.required().custom(({ current }) => {
         if (typeof current === "undefined") {
           return true;
         }
 
-        const prefix = current.split("/")[1];
-        if (!["categories", "products"].includes(prefix)) {
-          return `Slug must have prefix "categories" or "products" based on document type.`;
+        if (current) {
+          if (!current.startsWith(slugStart)) {
+            return `Slug must begin with "${slugStart}". Click "Generate" to reset.`;
+          }
+
+          if (current.slice(slugStart.length).split("").includes("/")) {
+            return `Slug cannot have another "/" after "${slugStart}"`;
+          }
+
+          if (current === slugStart) {
+            return `Slug cannot be empty`;
+          }
+
+          if (current.endsWith("/")) {
+            return `Slug cannot end with "/"`;
+          }
         }
 
         return true;
