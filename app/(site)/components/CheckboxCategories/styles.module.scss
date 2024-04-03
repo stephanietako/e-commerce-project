@@ -1,0 +1,15 @@
+.checkboxPage_container {
+  display: flex;
+  height: auto;
+  justify-content: center;
+  width: 84rem;
+  border: 3px solid gray;
+  border-radius: 30px;
+
+  .categoriespages_container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 0 4rem;
+  }
+}

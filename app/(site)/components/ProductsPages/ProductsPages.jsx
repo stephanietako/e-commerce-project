@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
-
+// DISPLAY
 const ProductsPages = ({ product }) => {
   return (
     <>
@@ -87,7 +87,18 @@ const ProductsPages = ({ product }) => {
               <p>Categories:</p>
               <ul>
                 {product.categories.map((category) => (
-                  <li key={category._id}>
+                  <li
+                    className="list_display_categories"
+                    style={{
+                      display: "flex",
+                      border: "3px solid black",
+                      flexDirection: "column",
+                      padding: "1rem",
+                      margin: "1rem",
+                      borderRadius: "30px",
+                    }}
+                    key={category._id}
+                  >
                     <h3>
                       <Link href={`/categories/${category.slug}`}>
                         {category.name}
@@ -95,7 +106,12 @@ const ProductsPages = ({ product }) => {
                     </h3>
                     <span>
                       {" "}
-                      <div className="images">
+                      <div
+                        className="images"
+                        style={{
+                          padding: "0.5rem",
+                        }}
+                      >
                         {category.coverImages ? (
                           <Image
                             src={category.coverImages}
@@ -112,6 +128,17 @@ const ProductsPages = ({ product }) => {
                           <p>No image available</p>
                         )}
                       </div>
+                    </span>
+                    <span>
+                      <p className="price_content">€{category.price}</p>
+                    </span>
+                    <span>
+                      <Link
+                        href={`/categories/${category.slug}`}
+                        className="link_items"
+                      >
+                        View Details
+                      </Link>
                     </span>
                   </li>
                 ))}

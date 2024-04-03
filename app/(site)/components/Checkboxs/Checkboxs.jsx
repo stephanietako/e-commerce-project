@@ -66,7 +66,15 @@ const Checkboxs = () => {
                     checked={checkedState[index]}
                     onChange={() => handleOnChange(index)}
                   />
-                  <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                  <label
+                    htmlFor={`custom-checkbox-${index}`}
+                    style={{
+                      color: "gray",
+                      paddingLeft: "0.3rem",
+                    }}
+                  >
+                    {name}
+                  </label>
                 </div>
                 {/* Prix de la garniture */}
                 <div className={styles.right_section}>

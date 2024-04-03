@@ -83,7 +83,15 @@ const FiltersCategories = () => {
                       checked={isChecked}
                       onChange={(event) => handleChange(event, index)}
                     />
-                    <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                    <label
+                      htmlFor={`custom-checkbox-${index}`}
+                      style={{
+                        color: "gray",
+                        paddingLeft: "0.3rem",
+                      }}
+                    >
+                      {name}
+                    </label>
                   </div>
                 </div>
               </li>

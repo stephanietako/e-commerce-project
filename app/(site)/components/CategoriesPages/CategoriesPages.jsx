@@ -1,36 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
+// Styles
+import styles from "./styles.module.scss";
 export const dynamic = "force-dynamic";
 // DISPLAY
 const CategoriesPages = ({ category }) => {
   return (
     <>
-      <section
-        className="categoriespages_section"
-        style={{
-          display: "flex",
-          width: "auto",
-          height: "auto",
-          alignItems: "center",
-          flexWrap: "wrap",
-          margin: "2rem",
-        }}
-      >
-        <div
-          className="__categoriespages_bloc"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <div
-            className="images"
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
-          >
+      <section className={styles.categoriespages_section}>
+        <div className={styles.__categoriespages_bloc}>
+          <div className={styles.images}>
             {category.coverImages ? (
               <>
                 <Image
@@ -50,48 +30,18 @@ const CategoriesPages = ({ category }) => {
             )}
           </div>
 
-          <div
-            className="infos_content"
-            style={{
-              display: "flex",
-              width: "auto",
-              height: "auto",
-              justifyContent: "center",
-              flexDirection: "column",
-            }}
-          >
-            <div className="infos">
-              <p className="infos_name">{category.name}</p>
-              <p
-                className="infos_type"
-                style={{
-                  color: "gray",
-                }}
-              >
-                {category.type}{" "}
-              </p>
-              <div
-                className="content"
-                style={{
-                  display: "flex",
-                  border: "3px solid pink",
-                  flexDirection: "column",
-                }}
-              >
-                <p className="price_content">€{category.price}</p>
+          <div className={styles.infos_content}>
+            <div className={styles.infos}>
+              <p className={styles.infos_name}>{category.name}</p>
+              <p className={styles.infos_type}>{category.type} </p>
+              <div className={styles.content}>
+                <p className={styles.price_content}>€{category.price}</p>
               </div>
             </div>
             <span>
               <PortableText value={category.content} />
             </span>
-            <div
-              className="categoriespages_link"
-              style={{
-                display: "flex",
-                width: "auto",
-                height: "auto",
-              }}
-            >
+            <div className={styles.categoriespages_link}>
               <Link
                 href={`/categories/${category.slug}`}
                 className="link_items"

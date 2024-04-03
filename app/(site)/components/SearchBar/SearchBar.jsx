@@ -9,7 +9,6 @@ import { fetchDataSearchBarSlug } from "@/sanity/lib/api";
 import styles from "./styles.module.scss";
 
 const SearchBar = () => {
-  const [errorMessage, setErrorMessage] = useState("");
   // Déclaration du state searchQuery et de sa fonction de mise à jour setSearchQuery à l'aide de useState
   const [searchQuery, setSearchQuery] = useState("");
   // Utilisation du hook useRouter pour accéder à l'objet router de Next.js
@@ -26,9 +25,10 @@ const SearchBar = () => {
 
   // Utilisation du hook useSWR pour récupérer les données via l'API avec la fonction fetchDataSearchBarSlug
   const { data, error, isLoading } = useSWR("/all", fetchDataSearchBarSlug);
-
+  console.log("DATA, ERROR, ISLOADING", data, error, isLoading);
   // Gestion des erreurs de chargement des données
   if (error) {
+    console.log("ERREUR !!!!!!!", error);
     return (
       <div>Une erreur est survenue lors de la récupération des données</div>
     );
@@ -46,12 +46,17 @@ const SearchBar = () => {
 
   // Fonction pour récupérer les types d'éléments à partir des données
   const getTypesFromData = () => {
+    // Création d'un ensemble pour stocker les types uniques d'éléments
     const types = new Set();
+    // Parcours de chaque élément dans les données ou un tableau vide s'il n'y a pas de données
     for (const item of data || []) {
+      // Vérification si l'élément a un type défini
       if (item?._type) {
+        // Ajout du type de l'élément à l'ensemble des types
         types.add(item._type);
       }
     }
+    // Conversion de l'ensemble en un tableau et retour du tableau de types
     return Array.from(types);
   };
 

@@ -220,6 +220,14 @@ const ByCategory = ({ bycategory }) => {
                                   <div>
                                     <PortableText value={categories.content} />
                                   </div>
+                                  <div className="bycategories_link">
+                                    <Link
+                                      href={`/categories/${categories.slug}`}
+                                      className="link_items"
+                                    >
+                                      View Details
+                                    </Link>
+                                  </div>
                                   <span className="ref_products_categories">
                                     <p
                                       style={{
