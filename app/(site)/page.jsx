@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 //import { getProductsByCategories } from "@/sanity/lib/client";
-import { getPages } from "@/sanity/lib/client";
+//import { getPages } from "@/sanity/lib/client";
 import { getCategories } from "@/sanity/lib/client";
 //import Categories from "./components/Categories/Categories";
 import Bycategories from "./components/Bycategories/Bycategories";
@@ -11,14 +12,16 @@ import { getDataStarProducts } from "@/sanity/lib/client";
 import { getDataProducts } from "@/sanity/lib/client";
 import { getDataFlowers } from "@/sanity/lib/client";
 import Flowers from "./components/Flowers/Flowers";
+import Hero from "./components/Hero/Hero";
 // import All from "./components/All/All";
 //import { fetchDataSearchBar } from "@/sanity/lib/api";
 
-import SearchBarAll from "./components/SearchBarAll/SearchBarAll";
+// import SearchBarAll from "./components/SearchBarAll/SearchBarAll";
 
 const Home = async () => {
   // const projects = await getProjects();
-  const pages = await getPages();
+  //about/contact
+  // const pages = await getPages();
   //const category = await getProductsByCategories();
   const bycategory = await getCategories();
   const starproducts = await getDataStarProducts();
@@ -30,17 +33,19 @@ const Home = async () => {
   ///////////////
   // const categorypages = getProductsByCategories();
   /////////////////
+  // Vos données de cartes
+  const cards = [
+    {
+      imageUrl: "/public/assets/vibes.png", // Chemin de l'image corrigé
+      title: "essai",
+      subtitle: "Not Made of Jelly",
+      description:
+        "Jellyfish are fascinating marine creatures known for their graceful and mesmerizing movements in the water. Belonging to the phylum Cnidaria, these gelatinous animals come in various shapes, sizes, and colors. One distinctive feature of jellyfish is their umbrella-shaped bell, which pulsates to propel them through the ocean.",
+    },
+    // Ajoutez d'autres objets pour chaque carte ici...
+  ];
   return (
     <>
-      {/* MENU de page about contact*/}
-      <div className="links">
-        {/* <SearchBar /> */}
-        {pages.map((page) => (
-          <Link key={page._id} href={`/pages/${page.slug}`} className="link">
-            {page.title}
-          </Link>
-        ))}
-      </div>
       <section>
         <div className="links">
           {products.map((product) => (
@@ -65,7 +70,10 @@ const Home = async () => {
           alignItems: "center",
         }}
       >
-        {/* <Suspense fallback={<LoadingSpinner />}> */}
+        {/* ////////////////HERO//////////////////// */}
+        <section>
+          <Hero cards={cards} />
+        </section>
 
         <div className="bloc_text">
           <h1>This is the Home page </h1>{" "}
@@ -73,10 +81,10 @@ const Home = async () => {
             This is the starting project of ecommerce with next js 14 and Sanity
           </p>
         </div>
-        <section>
+        {/* <section>
           <h2>Search bar de tout le shop</h2>
           <SearchBarAll />
-        </section>
+        </section> */}
 
         {/* // MENU des projects get projects */}
         {/* <div className="container__projects">

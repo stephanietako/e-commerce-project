@@ -361,6 +361,32 @@ _ref,
   );
 }
 /////////////////////////
+export async function getAll() {
+  return createClient(clientConfig).fetch(
+    groq` *[_type in ['product', 'category' ]  ] | order(name asc){
+  _id,
+    _type,
+  name,
+    price,
+        currency,
+     "slug":slug.current,
+  "images": images[0].asset->url,
+ body,
+     content,
+         price,
+     currency,
+       "refProducts": products[]{
+ _ref,
+          "refCategories": categories[]{
+_ref,
+  }
+     }
+     }`,
+    {
+      cache: "no-store",
+    }
+  );
+}
 // *[_type in ['product', 'category'] && (
 //   _type match "product" + "*" || _type match "category" + "*"
 // ) && !(_id in path('drafts.**'))] | order(name asc){

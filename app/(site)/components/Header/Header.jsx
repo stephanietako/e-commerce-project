@@ -20,8 +20,8 @@ const Header = () => {
                   <Image
                     src={session.user.image}
                     alt={session.user.name}
-                    width={40}
-                    height={40}
+                    width={50}
+                    height={50}
                     className="image_profil_user"
                   />
                 </div>
@@ -30,6 +30,8 @@ const Header = () => {
                   src={userCircleImage}
                   alt="User Circle"
                   className="icon_image_user-identification_page"
+                  width={50}
+                  height={50}
                 />
               )}
             </Link>
@@ -39,6 +41,8 @@ const Header = () => {
                 src={userCircleImage}
                 alt="User Circle"
                 className="icon_image_user"
+                width={50}
+                height={50}
               />
             </Link>
           )}

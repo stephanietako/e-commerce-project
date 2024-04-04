@@ -1,25 +1,25 @@
 // cette fonction est responsable de la logique de récupération des données et de l'affichage de la page unique en fonction du slug fourni. Elle encapsule la logique de récupération des données et fournit un moyen de rendre dynamiquement une page en fonction d'un slug donné
-import SinglePage from "../components/SinglePage/SinglePage";
-import getQueryFromSlug from "@/app/helpers/getQueryFormSlug";
-import sanityClient from "@/sanity/lib/sanity";
-// single page
-export default async function Page({ params }) {
-  const { slug } = params;
-  console.log("Slug !!!!!! :", slug);
-  const { query, queryParams, docType } = getQueryFromSlug(slug);
+// import SinglePage from "../components/SinglePage/SinglePage";
+// import getQueryFromSlug from "@/app/helpers/getQueryFormSlug";
+// import sanityClient from "@/sanity/lib/sanity";
+// // single page
+// export default async function Page({ params }) {
+//   const { slug } = params;
+//   console.log("Slug !!!!!! :", slug);
+//   const { query, queryParams, docType } = getQueryFromSlug(slug);
 
-  const pageData = await sanityClient.fetch(query, queryParams);
+//   const pageData = await sanityClient.fetch(query, queryParams);
 
-  const data = filterDataToSingleItem(pageData, false);
+//   const data = filterDataToSingleItem(pageData, false);
 
-  return (
-    <>
-      {(docType === "product" || docType === "category") && (
-        <SinglePage key={data} data={data} />
-      )}
-    </>
-  );
-}
+//   return (
+//     <>
+//       {(docType === "product" || docType === "category") && (
+//         <SinglePage key={data} data={data} />
+//       )}
+//     </>
+//   );
+// }
 
 ////////////////////////////
 // "use client";
