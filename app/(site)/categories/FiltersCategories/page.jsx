@@ -49,25 +49,24 @@ const FiltersCategories = () => {
   return (
     <div className={styles.container_filter_categories}>
       <ul className={styles.categories_list}>
+        <div className={styles.categories_text}>
+          {" "}
+          <h2
+            className={styles.title_select_categories}
+            style={{
+              display: "block",
+              paddingBottom: "1rem",
+            }}
+          >
+            Select Categories
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+            mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+            voluptatum laborum numquam blanditiis !
+          </p>
+        </div>
         <div className={styles.__box}>
-          <div className={styles.categories_text}>
-            {" "}
-            <h2
-              className={styles.title_select_categories}
-              style={{
-                display: "block",
-                paddingBottom: "1rem",
-              }}
-            >
-              Select Categories
-            </h2>
-            <br />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-              voluptatum laborum numquam blanditiis !
-            </p>
-          </div>
           {filteredCategories.map(({ name }, index) => {
             const isChecked = selectedCategories.includes(name);
 
@@ -86,6 +85,8 @@ const FiltersCategories = () => {
                     <label
                       htmlFor={`custom-checkbox-${index}`}
                       style={{
+                        display: "flex",
+                        alignItems: "center",
                         color: "gray",
                         paddingLeft: "0.3rem",
                         alignContent: "center",

@@ -17,8 +17,8 @@ const CategoriesPages = ({ category }) => {
                   src={category.coverImages}
                   alt="les fleurs"
                   className="category__img"
-                  width={300}
-                  height={300}
+                  width={180}
+                  height={180}
                   style={{
                     objectFit: "cover",
                     borderRadius: "30px",
@@ -37,17 +37,17 @@ const CategoriesPages = ({ category }) => {
               <div className={styles.content}>
                 <p className={styles.price_content}>€{category.price}</p>
               </div>
-            </div>
-            <span>
-              <PortableText value={category.content} />
-            </span>
-            <div className={styles.categoriespages_link}>
-              <Link
-                href={`/categories/${category.slug}`}
-                className="link_items"
-              >
-                View Details
-              </Link>
+              <span>
+                <PortableText value={category.content} />
+              </span>
+              <div className={styles.categoriespages_link}>
+                <Link
+                  href={`/categories/${category.slug}`}
+                  className="link_items"
+                >
+                  View Details
+                </Link>
+              </div>
             </div>
           </div>
         </div>

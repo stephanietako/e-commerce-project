@@ -3,6 +3,7 @@
   width: 100%;
   height: auto;
   flex-wrap: wrap;
+  justify-content: center;
 
   .categories_list {
     display: flex;
@@ -21,18 +22,17 @@
       align-items: center;
       flex-wrap: wrap;
       padding: 2rem;
-      // border: 2px solid red;
-      position: absolute;
       margin-top: 3rem;
     }
     .__box {
       display: flex;
       width: auto;
       height: auto;
+      position: relative;
       // border: 3px solid black;
       flex-wrap: wrap;
       margin: 2rem;
-      flex-direction: column;
+      // flex-direction: column;
 
       .categories_list_item {
         width: 100%;
@@ -47,77 +47,77 @@
           display: flex;
         }
       }
+
+      .__filtered_categories {
+        display: flex;
+        width: 100%;
+        height: auto;
+        position: relative;
+        align-items: center;
+        flex-wrap: wrap;
+      }
     }
-    .__filtered_categories {
+
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
       display: flex;
-      width: 100%;
-      height: auto;
-      position: relative;
+      align-content: center;
       justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
+      font-size: 2rem;
+      padding: 0.1rem;
+      border: 3px solid gray;
+      border-radius: 0.5rem;
+      width: 1em;
+
+      &::before {
+        content: "";
+        width: 1.4rem;
+        height: 1.4rem;
+        clip-path: polygon(
+          20% 0%,
+          0% 20%,
+          30% 50%,
+          0% 80%,
+          20% 100%,
+          50% 70%,
+          80% 100%,
+          100% 80%,
+          70% 50%,
+          100% 20%,
+          80% 0%,
+          50% 30%
+        );
+        transform: scale(0);
+        background: linear-gradient(
+          135deg,
+          #ff1e9c99,
+          #ff1ea499,
+          #ff1fbc99,
+          #ff1fde99,
+          #f620ff99,
+          #c721ff99,
+          #9723ff99,
+          #6a24ff99,
+          #4125ff99,
+          #252aff99,
+          #2641ff99,
+          #2649ff99
+        );
+      }
+
+      &:checked::before {
+        transform: scale(1);
+      }
     }
+
+    // .custom-checkbox {
+    //   min-width: 0.75em;
+    //   min-height: 0.75em;
+    //   margin-right: 0.75em;
+    //   border: 2px solid currentColor;
+    //   border-radius: 50%;
+    //   display: inline-block;
+    // }
   }
-
-  input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    font-size: 2rem;
-    padding: 0.1rem;
-    border: 0.25rem solid gray;
-    border-radius: 0.5rem;
-    width: 1em;
-
-    &::before {
-      content: "";
-      width: 1.4rem;
-      height: 1.4rem;
-      clip-path: polygon(
-        20% 0%,
-        0% 20%,
-        30% 50%,
-        0% 80%,
-        20% 100%,
-        50% 70%,
-        80% 100%,
-        100% 80%,
-        70% 50%,
-        100% 20%,
-        80% 0%,
-        50% 30%
-      );
-      transform: scale(0);
-      background: linear-gradient(
-        135deg,
-        #ff1e9c99,
-        #ff1ea499,
-        #ff1fbc99,
-        #ff1fde99,
-        #f620ff99,
-        #c721ff99,
-        #9723ff99,
-        #6a24ff99,
-        #4125ff99,
-        #252aff99,
-        #2641ff99,
-        #2649ff99
-      );
-    }
-
-    &:checked::before {
-      transform: scale(1);
-    }
-  }
-
-  // .custom-checkbox {
-  //   min-width: 0.75em;
-  //   min-height: 0.75em;
-  //   margin-right: 0.75em;
-  //   border: 2px solid currentColor;
-  //   border-radius: 50%;
-  //   display: inline-block;
-  // }
 }

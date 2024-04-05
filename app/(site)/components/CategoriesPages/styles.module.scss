@@ -16,22 +16,30 @@
     .images {
       width: 100%;
       height: 100%;
-    }
-
-    .infos_type {
-      color: gray;
-    }
-
-    .content {
+      justify-content: center;
       display: flex;
-      // border: 3px solid pink;
-      flex-direction: column;
+      padding: 0.5rem;
     }
 
-    .categoriespages_link {
-      display: flex;
-      width: auto;
+    .infos {
+      width: 100%;
       height: auto;
+
+      .infos_type {
+        color: gray;
+      }
+
+      .content {
+        display: flex;
+        // border: 3px solid pink;
+        flex-direction: column;
+      }
+
+      .categoriespages_link {
+        display: flex;
+        width: auto;
+        height: auto;
+      }
     }
   }
 }

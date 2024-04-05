@@ -117,8 +117,8 @@ const ProductsPages = ({ product }) => {
                               src={category.coverImages}
                               alt="les fleurs"
                               className="product__img"
-                              width={300}
-                              height={300}
+                              width={180}
+                              height={180}
                               style={{
                                 objectFit: "cover",
                                 borderRadius: "30px",

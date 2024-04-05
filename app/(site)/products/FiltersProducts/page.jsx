@@ -54,25 +54,25 @@ const FiltersProducts = () => {
   return (
     <div className={styles.container_filter_products}>
       <ul className={styles.products_list}>
+        <div className={styles.products_text}>
+          {" "}
+          <h2
+            className={styles.title_select_products}
+            style={{
+              display: "block",
+              paddingBottom: "1rem",
+            }}
+          >
+            Select Products
+          </h2>
+          <br />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+            mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+            voluptatum laborum numquam blanditiis !
+          </p>
+        </div>
         <div className={styles.__box}>
-          <div className={styles.products_text}>
-            {" "}
-            <h2
-              className={styles.title_select_products}
-              style={{
-                display: "block",
-                paddingBottom: "1rem",
-              }}
-            >
-              Select Products
-            </h2>
-            <br />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-              voluptatum laborum numquam blanditiis !
-            </p>
-          </div>
           {filteredProducts.map(({ name }, index) => {
             const isChecked = selectedProducts.includes(name);
 

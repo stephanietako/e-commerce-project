@@ -18,7 +18,9 @@ const SearchFlowers = () => {
     <section className={styles.section_search_categories}>
       <div className={styles.search_container}>
         <h2>Nos Fleurs</h2>
-        <label className={styles.__label_search}>Selection...</label>
+        <label className={styles.__label_search}>
+          <p>Selection...</p>
+        </label>
         <br />
         <div
           className={styles.__label_search_select_flowers}
@@ -41,6 +43,7 @@ const SearchFlowers = () => {
               cursor: "pointer",
               width: "5rem",
               height: "1.5rem",
+              color: "#ffff",
             }}
           >
             <option value="">Select...</option>
