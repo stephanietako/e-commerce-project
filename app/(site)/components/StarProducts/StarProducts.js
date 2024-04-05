@@ -68,6 +68,7 @@ const StarProducts = ({ starproducts }) => {
                     // border: "3px solid black",
                     flexWrap: "wrap",
                     borderRadius: "30px",
+                    padding: "2rem",
                   }}
                 >
                   {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}

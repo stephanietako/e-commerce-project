@@ -130,6 +130,7 @@ const ByCategory = ({ bycategory }) => {
                           justifyContent: "center",
                           margin: "2rem",
                           borderRadius: "30px",
+                          padding: "2rem",
                         }}
                       >
                         <div
@@ -169,7 +170,7 @@ const ByCategory = ({ bycategory }) => {
                                 }}
                               >
                                 <div className="product">
-                                  <h3
+                                  {/* <h3
                                     className="title_products"
                                     style={{
                                       color: "#fff",
@@ -178,13 +179,12 @@ const ByCategory = ({ bycategory }) => {
                                     <Link href={`/products/${product.slug}`}>
                                       {product.name}
                                     </Link>
-                                  </h3>
+                                  </h3> */}
                                   <div className="images_products_categories">
                                     <div
                                       className="bloc_img_products__categories"
                                       style={{
                                         display: "flex",
-                                        border: "3px solid pink",
                                         width: "auto",
                                         height: "auto",
                                         justifyContent: "center",
@@ -206,6 +206,16 @@ const ByCategory = ({ bycategory }) => {
                                       )}
                                     </div>
                                   </div>
+                                  <h3
+                                    className="title_products"
+                                    style={{
+                                      color: "#fff",
+                                    }}
+                                  >
+                                    <Link href={`/products/${product.slug}`}>
+                                      {product.name}
+                                    </Link>
+                                  </h3>
                                   <div
                                     className="content"
                                     style={{

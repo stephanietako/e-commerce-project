@@ -12,7 +12,8 @@ import { getDataStarProducts } from "@/sanity/lib/client";
 import { getDataProducts } from "@/sanity/lib/client";
 import { getDataFlowers } from "@/sanity/lib/client";
 import Flowers from "./components/Flowers/Flowers";
-import Hero from "./components/Hero/Hero";
+
+import HeroContainer from "./components/HeroContainer/HeroContainer";
 // import All from "./components/All/All";
 //import { fetchDataSearchBar } from "@/sanity/lib/api";
 
@@ -36,13 +37,12 @@ const Home = async () => {
   // Vos données de cartes
   const cards = [
     {
-      imageUrl: "/public/assets/vibes.png", // Chemin de l'image corrigé
+      imageUrl: "/assets/vibes.png", // Chemin de l'image corrigé
       title: "essai",
       subtitle: "Not Made of Jelly",
       description:
         "Jellyfish are fascinating marine creatures known for their graceful and mesmerizing movements in the water. Belonging to the phylum Cnidaria, these gelatinous animals come in various shapes, sizes, and colors. One distinctive feature of jellyfish is their umbrella-shaped bell, which pulsates to propel them through the ocean.",
     },
-    // Ajoutez d'autres objets pour chaque carte ici...
   ];
   return (
     <>
@@ -72,15 +72,10 @@ const Home = async () => {
       >
         {/* ////////////////HERO//////////////////// */}
         <section>
-          <Hero cards={cards} />
+          <HeroContainer cards={cards} />
+          {/* <Hero cards={cards} /> */}
         </section>
 
-        <div className="bloc_text">
-          <h1>This is the Home page </h1>{" "}
-          <p>
-            This is the starting project of ecommerce with next js 14 and Sanity
-          </p>
-        </div>
         {/* <section>
           <h2>Search bar de tout le shop</h2>
           <SearchBarAll />

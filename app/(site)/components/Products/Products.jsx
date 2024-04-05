@@ -129,6 +129,7 @@ const Products = ({ allproducts }) => {
                           justifyContent: "center",
                           margin: "2rem",
                           borderRadius: "30px",
+                          padding: "2rem",
                         }}
                       >
                         <div
@@ -182,7 +183,7 @@ const Products = ({ allproducts }) => {
                                       className="bloc_img_products"
                                       style={{
                                         display: "flex",
-                                        border: "3px solid pink",
+                                        // border: "3px solid pink",
                                         width: "auto",
                                         height: "auto",
                                         justifyContent: "center",

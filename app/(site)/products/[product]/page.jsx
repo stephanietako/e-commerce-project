@@ -70,6 +70,7 @@ const ProductsDetails = async ({ params }) => {
                     justifyContent: "center",
                     margin: "2rem",
                     borderRadius: "30px",
+                    padding: "2rem",
                   }}
                 >
                   <div

@@ -1,24 +1,24 @@
 .navbar {
   display: flex;
-  height: 79px;
+  height: auto;
   width: 100%;
   top: 0;
   position: sticky;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-content: center;
   background-color: none;
+  padding: 2rem;
   border: 3px solid blue;
 
   .__logo {
     display: flex;
     width: auto;
     height: auto;
-    border: 3px solid black;
     align-items: center;
 
     .__img {
-      max-height: 3rem;
+      max-height: 8rem;
       object-fit: contain;
       position: relative;
       width: auto;

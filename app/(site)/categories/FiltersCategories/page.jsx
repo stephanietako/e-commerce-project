@@ -88,6 +88,7 @@ const FiltersCategories = () => {
                       style={{
                         color: "gray",
                         paddingLeft: "0.3rem",
+                        alignContent: "center",
                       }}
                     >
                       {name}

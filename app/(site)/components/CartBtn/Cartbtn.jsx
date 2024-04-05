@@ -14,7 +14,7 @@ const CartBtn = ({ img, onClick }) => {
   };
   return (
     <button type="button" onClick={onClick} style={buttonStyle}>
-      <Image src={img} alt="Cart" />
+      <Image src={img} alt="Cart" width={20} height={20} />
       <span style={spanStyle}>Cart</span>
     </button>
   );

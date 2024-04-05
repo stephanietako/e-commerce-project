@@ -35,8 +35,12 @@ const SearchFlowers = () => {
             style={{
               textAlign: "center",
               margin: "auto",
-              background: "pink",
+              background:
+                "linear-gradient(135deg, #ff1e9c99, #ff1ea499, #ff1fbc99, #ff1fde99, #f620ff99, #c721ff99, #9723ff99, #6a24ff99, #4125ff99, #252aff99, #2641ff99, #2649ff99)",
               borderRadius: "30px",
+              cursor: "pointer",
+              width: "5rem",
+              height: "1.5rem",
             }}
           >
             <option value="">Select...</option>
