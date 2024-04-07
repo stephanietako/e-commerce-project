@@ -4,29 +4,15 @@
   display: flex;
   justify-content: center;
   margin-top: 4rem;
+  border: 3px solid red;
 
-  .__container_herocard {
+  .__sectionWrapper {
     width: 70%;
     height: 100%;
     display: flex;
-    border: 3px solid #000;
+    justify-content: center;
+    border: 5px solid pink;
     border-radius: 30px;
     padding: 3rem;
-
-    .sectionWrapper {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-
-      .__wrapper {
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-      }
-    }
   }
 }

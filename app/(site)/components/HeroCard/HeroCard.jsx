@@ -7,17 +7,19 @@ import styles from "./styles.module.scss";
 function HeroCard({ imageUrl, title, subtitle, description }) {
   return (
     <div className={styles.herocard_container}>
-      <div className={styles.herocard_bloc_text}>
-        <h1>salut</h1>
-        <p>
-          Jellyfish are fascinating marine creatures known for their graceful
-          and mesmerizing movements in the water. Belonging to the phylum
-          Cnidaria, these gelatinous animals come in various shapes, sizes, and
-          colors. One distinctive feature of jellyfish is their umbrella-shaped
-          bell, which pulsates to propel them through the ocean.
-        </p>
+      <div className={styles.herocard_bloc}>
+        <div className={styles.herocard_bloc_text}>
+          <h1>salut</h1>
+          <p>
+            Jellyfish are fascinating marine creatures known for their graceful
+            and mesmerizing movements in the water. Belonging to the phylum
+            Cnidaria, these gelatinous animals come in various shapes, sizes,
+            and colors. One distinctive feature of jellyfish is their
+            umbrella-shaped bell, which pulsates to propel them through the
+            ocean.
+          </p>
+        </div>
       </div>
-
       <figure className={styles.figure}>
         <div className={styles.card}>
           <Image

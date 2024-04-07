@@ -18,17 +18,13 @@ function HeroContainer() {
 
   return (
     <article className={styles.article}>
-      <div className={styles.__container_herocard}>
-        <section className={styles.sectionWrapper}>
-          <div className={styles.__wrapper}>
-            {cards.map((card, index) => (
-              <div key={index}>
-                <HeroCard {...card} />
-              </div>
-            ))}
+      <section className={styles.__sectionWrapper}>
+        {cards.map((card, index) => (
+          <div key={index}>
+            <HeroCard {...card} />
           </div>
-        </section>
-      </div>
+        ))}
+      </section>
     </article>
   );
 }

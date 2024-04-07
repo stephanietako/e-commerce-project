@@ -82,7 +82,7 @@ const FiltersProducts = () => {
                   <div className={styles.check_section}>
                     <input
                       type="checkbox"
-                      id={`custom-checkbox-${index}`}
+                      id={`custom_checkbox-${index}`}
                       name={name}
                       value={name}
                       checked={isChecked}
@@ -90,10 +90,12 @@ const FiltersProducts = () => {
                       styles={customStyles}
                     />
                     <label
-                      htmlFor={`custom-checkbox-${index}`}
+                      htmlFor={`custom_checkbox-${index}`}
                       style={{
                         color: "gray",
                         paddingLeft: "0.3rem",
+                        alignItems: "center",
+                        display: "flex",
                       }}
                     >
                       {name}
@@ -107,14 +109,14 @@ const FiltersProducts = () => {
             <div className={styles.__filtered_products}>
               {isLoading ? (
                 <div
-                  style={{
-                    display: "flex",
-                    width: "100%",
-                    // height: "35rem",
-                    position: "relative",
-                    padding: "2rem",
-                    marginTop: "11rem",
-                  }}
+                // style={{
+                //   display: "flex",
+                //   width: "100%",
+                //   // height: "35rem",
+                //   position: "relative",
+                //   padding: "2rem",
+                //   marginTop: "11rem",
+                // }}
                 >
                   Loading...
                 </div>

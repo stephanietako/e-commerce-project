@@ -11,6 +11,7 @@
     justify-content: flex-end;
     position: relative;
     flex-direction: column;
+    padding: 2rem;
 
     .products_text {
       display: flex;
@@ -20,17 +21,15 @@
       align-items: center;
       flex-wrap: wrap;
       padding: 2rem;
-      // border: 2px solid red;
-
-      // margin-top: 3rem;
     }
+
     .__box {
       display: flex;
       width: auto;
       height: auto;
       // border: 3px solid black;
       flex-wrap: wrap;
-      margin: 2rem;
+      justify-content: center;
 
       .products_list_item {
         width: 100%;
@@ -45,6 +44,13 @@
           height: auto;
           display: flex;
         }
+
+        .custom_checkbox {
+          color: gray;
+          padding-left: 0.3rem;
+          align-items: center;
+          display: flex;
+        }
       }
 
       .__filtered_products {
@@ -52,14 +58,14 @@
         width: 100%;
         height: auto;
         position: relative;
-        // padding: 2rem;
+        padding: 2rem;
         // justify-content: center;
         // // border: 2px solid gray;
         align-items: center;
         flex-wrap: wrap;
-        // margin-top: 11rem;
       }
     }
+
     input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;

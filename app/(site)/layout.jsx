@@ -1,7 +1,7 @@
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
-import Header from "./components/Header/Header";
+// import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Toast from "./components/Toasts/Toasts";
 import { NextAuthProvider } from "./components/AuthProvider/AuthProvider";
@@ -24,7 +24,7 @@ export default async function RootLayout({ children, session }) {
           <Toast />
           <main className="main">
             <Navbar />
-            <Header />
+            {/* <Header /> */}
             {children}
             <Footer />
           </main>

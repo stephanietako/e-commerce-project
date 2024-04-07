@@ -1,28 +1,28 @@
 "use client";
 
-// Styles
-import styles from "./styles.module.scss";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import userCircleImage from "@/public/assets/user-circle.png";
 import Image from "next/image";
+// Styles
+import styles from "./styles.module.scss";
 
 const Header = () => {
   const { data: session } = useSession();
   return (
     <div className={styles.header_container}>
       <ul>
-        <li className="session_users">
+        <li className={styles.__session_users}>
           {session?.user ? (
             <Link href={`/users/${session.user.id}`}>
               {session.user.image ? (
-                <div className="profil_user_header">
+                <div className={styles.profil_user_header}>
                   <Image
                     src={session.user.image}
                     alt={session.user.name}
                     width={50}
                     height={50}
-                    className="image_profil_user"
+                    className={styles.image_profil_user}
                   />
                 </div>
               ) : (

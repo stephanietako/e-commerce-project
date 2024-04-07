@@ -27,7 +27,6 @@ const CheckboxProducts = () => {
           display: "flex",
           width: "100%",
           height: "auto",
-          padding: "0 4rem",
         }}
       >
         <FiltersProducts

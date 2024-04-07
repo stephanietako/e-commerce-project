@@ -1,15 +1,13 @@
 .header_container {
   display: flex;
-  width: 100%;
+  width: auto;
   height: auto;
-  flex-direction: column;
 
-  li {
+  .__session_users {
     display: flex;
-    width: 100%;
+    width: auto;
     height: auto;
     // border: 2px solid white;
-    justify-content: flex-end;
     padding: 0.5rem;
   }
 }
