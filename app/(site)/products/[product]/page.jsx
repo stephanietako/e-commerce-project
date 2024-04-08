@@ -20,12 +20,7 @@ const ProductsDetails = async ({ params }) => {
           margin: "4rem",
         }}
       >
-        <div
-          className="__productsDetails_bloc"
-          style={{
-            marginTop: "6rem",
-          }}
-        >
+        <div className="__productsDetails_bloc">
           {product ? (
             <div
               className="container_products_details"
@@ -114,7 +109,7 @@ const ProductsDetails = async ({ params }) => {
         <div
           className="productspages_display_categories"
           style={{
-            marginTop: "2rem",
+            marginTop: "6rem",
           }}
         >
           <p>Toutes nos catégories de {product.name}:</p>
