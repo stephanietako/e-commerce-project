@@ -1,7 +1,5 @@
 import { getDataProduct } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
-//import ImageGallery from "../../components/ImageGallery/ImageGallery";
-import { getCategories } from "@/sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
 export const dynamic = "force-dynamic";
@@ -9,170 +7,186 @@ export const dynamic = "force-dynamic";
 const ProductsDetails = async ({ params }) => {
   const slug = params.product;
   const product = await getDataProduct(slug);
-  const display = await getCategories();
-  // console.log("TITLE SLUG Product", slug);
-  // console.log("Product!!!!!!!!!!!!", product);
 
   return (
     <>
-      <div className="title_slug_singlepage_product">
-        <h1>{product.name} ICI C EST PRODUCT !!!!!</h1>
-      </div>
-      <div
-        className="gallery_container"
+      <section
+        className="productsDetails_section"
         style={{
           display: "flex",
           width: "100%",
-          height: "100%",
-          border: "5px solid green",
-          alignItems: "center",
+          height: " auto",
+          justifyContent: "center",
+          margin: "4rem",
         }}
       >
-        <p>
-          ICI JE VAIS CREER UN DISPLAY DE CHAQUE PRODUIT AVEC TOUTES LES
-          CATEGORIES PAR PRODUIT
-        </p>
         <div
-          className="categories_cards"
+          className="__productsDetails_bloc"
           style={{
-            display: "flex",
-            flexWrap: "wrap",
-            width: "100%",
-            height: "auto",
-            justifyContent: "center",
-            marginTop: "4rem",
+            marginTop: "6rem",
           }}
         >
-          <h3
-            className="_bycategory_subtitle"
+          {product ? (
+            <div
+              className="container_products_details"
+              style={{
+                display: "flex",
+                width: "100%",
+                height: "100%",
+                // border: "5px solid green",
+                alignItems: "center",
+                flexDirection: "column",
+              }}
+            >
+              <div
+                className="title_slug_singlepage_product"
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "100%",
+                  // border: "5px solid red",
+                  alignItems: "center",
+                  flexDirection: "column",
+                }}
+              >
+                <h1>{product && product.name}</h1>
+              </div>
+
+              <div
+                className="images"
+                style={{
+                  display: "flex",
+                  width: "auto",
+                  height: "auto",
+                  padding: "1rem",
+                }}
+              >
+                {product.coverImages ? (
+                  <Image
+                    src={product.coverImages}
+                    alt="les fleurs"
+                    className="product__img"
+                    width={300}
+                    height={300}
+                    style={{
+                      objectFit: "cover",
+                      borderRadius: "30px",
+                    }}
+                  />
+                ) : (
+                  <p>No image available</p>
+                )}
+              </div>
+              <div
+                className="products_content"
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "auto",
+                  flexDirection: "column",
+                  padding: "1rem",
+                }}
+              >
+                <div className="products_infos">
+                  {/* <p>{product._type}</p> */}
+
+                  <span>
+                    <PortableText value={product.content} />
+                  </span>
+                  <span>{product.body}</span>
+                  <span className="ref_products_categories">
+                    <p
+                      style={{
+                        color: "gray",
+                        fontSize: "10px",
+                      }}
+                    >
+                      REF: {product._id}
+                    </p>
+                  </span>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <p>Not found</p>
+          )}
+        </div>
+        <div
+          className="productspages_display_categories"
+          style={{
+            marginTop: "2rem",
+          }}
+        >
+          <p>Toutes nos catégories de {product.name}:</p>
+          <ul
+            className="display_categories"
             style={{
               display: "flex",
-              flexWrap: "wrap",
               width: "100%",
-              height: "auto",
-              justifyContent: "center",
+              border: "2px solid green",
             }}
           >
-            Toutes nos categories de produits
-          </h3>
-
-          {/* Boucle EXTERNE à travers toutes les categories */}
-          {display.map((categories) => (
-            <div key={categories._id}>
-              {/* Vérification de la disponibilité de produits pour cette categorie */}
-              {categories.products && categories.products.length > 0 ? (
-                <div
-                  className="display_infos_products"
+            {product.categories.map((category) => (
+              <>
+                <li
+                  className="__list_display_categories"
                   style={{
                     display: "flex",
-                    border: "3px solid black",
-                    flexWrap: "wrap",
-                    justifyContent: "center",
-                    margin: "2rem",
+                    border: "3px solid #000",
+                    flexDirection: "column",
+                    padding: "1rem",
+                    margin: "1rem",
                     borderRadius: "30px",
-                    padding: "2rem",
                   }}
+                  key={category._id}
                 >
-                  <div
-                    className="main_title_categories"
-                    style={{
-                      display: "flex",
-                      width: "100%",
-                      height: "auto",
-                      alignItems: "center",
-                      padding: "14px",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    <h2>
-                      <Link href={`/categories/${categories.slug}`}>
-                        {categories.name}
-                      </Link>
-                    </h2>
-                  </div>
-                  {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}
-                  {categories.products.map((product) => (
-                    <>
-                      <div
-                        key={product._id}
-                        className="data_group"
-                        style={{
-                          padding: "20px",
-                        }}
-                      >
-                        {/* Contenu détaillé de la sous-catégorie */}
-                        <div
-                          className="content_categories"
+                  <h3>
+                    <Link href={`/categories/${category.slug}`}>
+                      {category.name}
+                    </Link>
+                  </h3>
+                  <span>
+                    {" "}
+                    <div
+                      className="images"
+                      style={{
+                        padding: "0.5rem",
+                      }}
+                    >
+                      {category.coverImages ? (
+                        <Image
+                          src={category.coverImages}
+                          alt="les fleurs"
+                          className="product__img"
+                          width={180}
+                          height={180}
                           style={{
-                            display: "flex",
-                            // border: "3px solid pink",
-                            flexDirection: "column",
+                            objectFit: "cover",
+                            borderRadius: "30px",
                           }}
-                        >
-                          <div className="product">
-                            <h3
-                              className="title_products"
-                              style={{
-                                color: "#fff",
-                              }}
-                            >
-                              <Link href={`/products/${product.slug}`}>
-                                {product.name}
-                              </Link>
-                            </h3>
-                            <div className="images_products_categories">
-                              {categories.coverImages && (
-                                <Image
-                                  src={categories.coverImages}
-                                  alt="les fleurs"
-                                  className="product__img"
-                                  width={180}
-                                  height={180}
-                                  style={{
-                                    objectFit: "cover",
-                                    borderRadius: "30px",
-                                  }}
-                                />
-                              )}
-                            </div>
-                            <div
-                              className="content"
-                              style={{
-                                display: "flex",
-                                flexDirection: "column",
-                              }}
-                            >
-                              <p className="price_content">
-                                €{categories.price.toFixed(2)}
-                              </p>
-                            </div>
-                            <div>
-                              <PortableText value={categories.content} />
-                            </div>
-                            <span className="ref_products_categories">
-                              <p
-                                style={{
-                                  color: "gray",
-                                  fontSize: "10px",
-                                }}
-                              >
-                                REF: {categories._id}
-                              </p>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  ))}
-                </div>
-              ) : (
-                <p>No products available for this category.</p>
-              )}
-            </div>
-          ))}
-          {/* fin boucle externe */}
+                        />
+                      ) : (
+                        <p>No image available</p>
+                      )}
+                    </div>
+                  </span>
+                  <span>
+                    <p className="price_content">€{category.price}</p>
+                  </span>
+                  <span>
+                    <Link
+                      href={`/categories/${category.slug}`}
+                      className="link"
+                    >
+                      View Details
+                    </Link>
+                  </span>
+                </li>
+              </>
+            ))}
+          </ul>
         </div>
-      </div>
+      </section>
     </>
   );
 };

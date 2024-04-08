@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
 export const dynamic = "force-dynamic";
+
 const SearchFlowers = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();

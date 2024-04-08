@@ -77,7 +77,7 @@ const ProductsPages = ({ product }) => {
                     className="list_display_categories"
                     style={{
                       display: "flex",
-                      border: "3px solid black",
+                      border: "3px solid #000",
                       flexDirection: "column",
                       padding: "1rem",
                       margin: "1rem",

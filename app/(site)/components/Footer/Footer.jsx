@@ -1,12 +1,10 @@
-import Link from "next/link";
-import { getPages } from "@/sanity/lib/client";
 // Styles
 import styles from "./styles.module.scss";
 // Assets
 import logo from "@/public/assets/logo192.png";
 import Image from "next/image";
 
-const Footer = async () => {
+const Footer = () => {
   const date = new Date();
   const currentYear = date.getFullYear();
 

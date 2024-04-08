@@ -30,7 +30,7 @@ const Navbar = () => {
                 <li>Une question ?</li>
                 <li>Notre boutique</li>
                 {/* //////// */}
-                <Contact />
+                {/* <Contact /> */}
                 {/* //////// */}
                 <li key={index}>
                   {pathname === link.href ? (

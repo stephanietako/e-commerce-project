@@ -19,6 +19,7 @@ function HeroCard({ imageUrl, title, subtitle, description }) {
             ocean.
           </p>
         </div>
+        <div>Faire des cartes ici</div>
       </div>
       <figure className={styles.figure}>
         <div className={styles.card}>

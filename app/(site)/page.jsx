@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 //import { getProductsByCategories } from "@/sanity/lib/client";
 //import { getPages } from "@/sanity/lib/client";
 import { getCategories } from "@/sanity/lib/client";

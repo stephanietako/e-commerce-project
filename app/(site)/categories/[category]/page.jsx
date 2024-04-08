@@ -36,7 +36,7 @@ const CategoryDetails = async ({ params }) => {
             }}
           >
             {/* <h1>ICI C EST CATEGORY</h1> */}
-            <h1>{data && data.name} CATEGORY SINGLE PAGE</h1>
+            <h1>{data && data.name}</h1>
           </div>
           <div
             className="gallery_container"
