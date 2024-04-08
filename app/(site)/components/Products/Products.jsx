@@ -187,6 +187,7 @@ const Products = ({ allproducts }) => {
                                         width: "auto",
                                         height: "auto",
                                         justifyContent: "center",
+                                        padding: "0.5rem",
                                       }}
                                     >
                                       {category.coverImages && (
@@ -220,10 +221,7 @@ const Products = ({ allproducts }) => {
                                   </span>
                                   <Link
                                     href={`/categories/${category.slug}`}
-                                    className="link_items"
-                                    style={{
-                                      color: "turquoise",
-                                    }}
+                                    className="link"
                                   >
                                     View Details
                                   </Link>

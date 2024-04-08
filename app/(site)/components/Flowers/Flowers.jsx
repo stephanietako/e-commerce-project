@@ -182,6 +182,7 @@ const Flowers = ({ allflowers }) => {
                                         style={{
                                           objectFit: "cover",
                                           borderRadius: "30px",
+                                          padding: "0.5rem",
                                         }}
                                       />
                                     )}

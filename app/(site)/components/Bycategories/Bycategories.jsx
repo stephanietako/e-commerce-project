@@ -189,6 +189,7 @@ const ByCategory = ({ bycategory }) => {
                                         width: "auto",
                                         height: "auto",
                                         justifyContent: "center",
+                                        padding: "0.5rem",
                                       }}
                                     >
                                       {categories.coverImages && (
@@ -234,7 +235,7 @@ const ByCategory = ({ bycategory }) => {
                                   <div className="bycategories_link">
                                     <Link
                                       href={`/categories/${categories.slug}`}
-                                      className="link_items"
+                                      className="link"
                                     >
                                       View Details
                                     </Link>

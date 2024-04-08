@@ -8,14 +8,15 @@ const CartBtn = ({ img, onClick }) => {
     flexDirection: "column",
     cursor: "pointer",
     backgroundColor: "transparent",
+    border: "none",
   };
   const spanStyle = {
     textAlign: "center",
   };
   return (
     <button type="button" onClick={onClick} style={buttonStyle}>
-      <Image src={img} alt="Cart" width={20} height={20} />
-      <span style={spanStyle}>Cart</span>
+      <Image src={img} alt="Cart" width={30} height={30} />
+      {/* <span style={spanStyle}>Cart</span> */}
     </button>
   );
 };
