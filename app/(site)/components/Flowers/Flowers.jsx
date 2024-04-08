@@ -119,7 +119,7 @@ const Flowers = ({ allflowers }) => {
                           display: "flex",
                           border: "3px solid black",
                           flexWrap: "wrap",
-                          justifyContent: "center",
+                          justifyContent: "space-around",
                           margin: "2rem",
                           borderRadius: "30px",
                           padding: "2rem",
@@ -151,6 +151,8 @@ const Flowers = ({ allflowers }) => {
                               className="data_group_products"
                               style={{
                                 padding: "20px",
+                                borderRadius: "30px",
+                                border: "2px solid #000",
                               }}
                             >
                               <div
@@ -163,9 +165,9 @@ const Flowers = ({ allflowers }) => {
                                 <div className="flowers">
                                   <h3
                                     className="title_flowers_categories"
-                                    style={{
-                                      color: "white",
-                                    }}
+                                    // style={{
+                                    //   color: "white",
+                                    // }}
                                   >
                                     <Link href={`/categories/${category.slug}`}>
                                       {category.name}
@@ -205,10 +207,7 @@ const Flowers = ({ allflowers }) => {
                                   </span>
                                   <Link
                                     href={`/categories/${category.slug}`}
-                                    className="link_items"
-                                    style={{
-                                      color: "turquoise",
-                                    }}
+                                    className="link"
                                   >
                                     View Details
                                   </Link>

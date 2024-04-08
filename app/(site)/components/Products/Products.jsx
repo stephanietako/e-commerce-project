@@ -130,6 +130,7 @@ const Products = ({ allproducts }) => {
                           margin: "2rem",
                           borderRadius: "30px",
                           padding: "2rem",
+                          justifyContent: "space-around",
                         }}
                       >
                         <div
@@ -158,6 +159,8 @@ const Products = ({ allproducts }) => {
                               className="data_group_products"
                               style={{
                                 padding: "20px",
+                                borderRadius: "30px",
+                                border: "2px solid #000",
                               }}
                             >
                               <div

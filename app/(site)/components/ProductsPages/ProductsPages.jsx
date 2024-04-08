@@ -121,7 +121,7 @@ const ProductsPages = ({ product }) => {
                     <span>
                       <Link
                         href={`/categories/${category.slug}`}
-                        className="link_items"
+                        className="link"
                       >
                         View Details
                       </Link>

@@ -69,6 +69,7 @@ const StarProducts = ({ starproducts }) => {
                     flexWrap: "wrap",
                     borderRadius: "30px",
                     padding: "2rem",
+                    justifyContent: "space-around",
                   }}
                 >
                   {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}
@@ -78,7 +79,9 @@ const StarProducts = ({ starproducts }) => {
                         key={subCategory._id}
                         className="data_group"
                         style={{
-                          padding: "12px",
+                          padding: "20px",
+                          borderRadius: "30px",
+                          border: "2px solid #000",
                         }}
                       >
                         {/* Contenu détaillé de la sous-catégorie */}

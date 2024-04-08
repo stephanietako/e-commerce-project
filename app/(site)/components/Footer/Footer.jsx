@@ -9,7 +9,7 @@ import Image from "next/image";
 const Footer = async () => {
   const date = new Date();
   const currentYear = date.getFullYear();
-  const pages = await getPages();
+
   return (
     <div className={styles.footer}>
       <footer className={styles.__container}>
@@ -32,20 +32,7 @@ const Footer = async () => {
               &#169; Copyright {currentYear} | Tako Dev
             </div>
           </li>
-          <li>
-            <div className="links_about_contact">
-              {/* <SearchBar /> */}
-              {pages.map((page) => (
-                <Link
-                  key={page._id}
-                  href={`/pages/${page.slug}`}
-                  className="link"
-                >
-                  {page.title}
-                </Link>
-              ))}
-            </div>
-          </li>
+          <li></li>
         </ul>
       </footer>
     </div>

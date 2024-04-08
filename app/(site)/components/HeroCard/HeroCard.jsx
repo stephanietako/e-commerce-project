@@ -9,7 +9,7 @@ function HeroCard({ imageUrl, title, subtitle, description }) {
     <div className={styles.herocard_container}>
       <div className={styles.herocard_bloc}>
         <div className={styles.herocard_bloc_text}>
-          <h1>salut</h1>
+          <h1>VIBES CBD SAINT-TROPEZ</h1>
           <p>
             Jellyfish are fascinating marine creatures known for their graceful
             and mesmerizing movements in the water. Belonging to the phylum

@@ -4,14 +4,13 @@
   display: flex;
   justify-content: center;
   margin-top: 4rem;
-  border: 3px solid red;
 
   .__sectionWrapper {
-    width: 70%;
+    width: 80%;
     height: 100%;
     display: flex;
     justify-content: center;
-    border: 5px solid pink;
+    border: 3px solid #000;
     border-radius: 30px;
     padding: 3rem;
   }
