@@ -13,15 +13,6 @@ const FiltersProducts = () => {
   const [searchQuery, setSearchQuery] = useState([]);
   const searchParams = useSearchParams();
 
-  // const customStyles = {
-  //   option: (provided, state) => ({
-  //     ...provided,
-  //     fontSize: 14,
-  //     color: "blue",
-  //     backgroundColor: state.isSelected ? "lightblue" : "white", // Change background color for selected options
-  //   }),
-  // };
-  /////////////////////////
   useEffect(() => {
     const searchQuery = searchParams.get("searchQuery");
     if (searchQuery) setSearchQuery(searchQuery);

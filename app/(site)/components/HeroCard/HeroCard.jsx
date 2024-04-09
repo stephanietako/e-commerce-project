@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import FlipCardsHero from "../FlipCardsHero/FlipCardsHero";
+import AnimeCart from "../AnimeCart/AnimeCart";
 import styles from "./styles.module.scss";
 
 function HeroCard({ imageUrl, title, subtitle, description }) {
@@ -21,7 +22,7 @@ function HeroCard({ imageUrl, title, subtitle, description }) {
         </div>
         <div>
           {" "}
-          <FlipCardsHero />
+          <AnimeCart />
         </div>
       </div>
 
