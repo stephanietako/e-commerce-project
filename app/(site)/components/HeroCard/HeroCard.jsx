@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-
+import FlipCardsHero from "../FlipCardsHero/FlipCardsHero";
 import styles from "./styles.module.scss";
 
 function HeroCard({ imageUrl, title, subtitle, description }) {
@@ -19,16 +19,20 @@ function HeroCard({ imageUrl, title, subtitle, description }) {
             ocean.
           </p>
         </div>
-        <div>Faire des cartes ici</div>
+        <div>
+          {" "}
+          <FlipCardsHero />
+        </div>
       </div>
+
       <figure className={styles.figure}>
         <div className={styles.card}>
           <Image
             src={imageUrl}
             alt="fish"
             className="hero__img"
-            width={800}
-            height={400}
+            width={100}
+            height={200}
             style={{
               display: "block",
               objectFit: "cover",

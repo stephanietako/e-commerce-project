@@ -26,46 +26,30 @@ const Navbar = () => {
         <ul className={styles.__navbar_container}>
           <div className={styles.__link_navbar}>
             {navLinks.map((link, index) => (
-              <>
-                <li>Une question ?</li>
-                <li>Notre boutique</li>
-                {/* //////// */}
-                {/* <Contact /> */}
-                {/* //////// */}
-                <li key={index}>
-                  {pathname === link.href ? (
-                    <Link
-                      className={`${link} ${link.className}`}
-                      href={link.href}
-                    >
-                      {link.name}
-                    </Link>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className={styles.autre_classe_link_hover_transition}
-                    >
-                      {link.name}
-                    </Link>
-                  )}
-                </li>
-                <li>
-                  <Header />
-                </li>
-                <li>
-                  <div className={styles.btn_cart}>
-                    <CartBtn img={cart} />
-                  </div>
-                </li>
-              </>
+              <li key={index}>
+                <Link
+                  href={link.href}
+                  className={
+                    pathname === link.href
+                      ? `${styles.active_link} ${styles.autre_classe_link_hover_transition}`
+                      : styles.autre_classe_link_hover_transition
+                  }
+                >
+                  {link.name}
+                </Link>
+              </li>
             ))}
-
-            {/* <div className={styles.btn_cart}>
-              <CartBtn
-                img={cart}
-                // onClick={() => console.log("Button clicked!")}
-              />
-            </div> */}
+            <li>
+              <Contact />
+            </li>
+            <li>
+              <Header />
+            </li>
+            <li>
+              <div className={styles.btn_cart}>
+                <CartBtn img={cart} />
+              </div>
+            </li>
           </div>
         </ul>
       </nav>

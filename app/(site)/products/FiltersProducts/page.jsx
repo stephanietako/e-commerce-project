@@ -13,14 +13,14 @@ const FiltersProducts = () => {
   const [searchQuery, setSearchQuery] = useState([]);
   const searchParams = useSearchParams();
 
-  const customStyles = {
-    option: (provided, state) => ({
-      ...provided,
-      fontSize: 14,
-      color: "blue",
-      backgroundColor: state.isSelected ? "lightblue" : "white", // Change background color for selected options
-    }),
-  };
+  // const customStyles = {
+  //   option: (provided, state) => ({
+  //     ...provided,
+  //     fontSize: 14,
+  //     color: "blue",
+  //     backgroundColor: state.isSelected ? "lightblue" : "white", // Change background color for selected options
+  //   }),
+  // };
   /////////////////////////
   useEffect(() => {
     const searchQuery = searchParams.get("searchQuery");
@@ -87,7 +87,7 @@ const FiltersProducts = () => {
                       value={name}
                       checked={isChecked}
                       onChange={(event) => handleChange(event, index)}
-                      styles={customStyles}
+                      // styles={customStyles}
                     />
                     <label
                       htmlFor={`custom_checkbox-${index}`}
