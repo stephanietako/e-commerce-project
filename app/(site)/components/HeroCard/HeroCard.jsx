@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import FlipCardsHero from "../FlipCardsHero/FlipCardsHero";
-import AnimeCart from "../AnimeCart/AnimeCart";
+import AnimeCartFilter from "../AnimeCartFilter/AnimeCartFilter";
 import styles from "./styles.module.scss";
 
 function HeroCard({ imageUrl, title, subtitle, description }) {
@@ -20,9 +19,9 @@ function HeroCard({ imageUrl, title, subtitle, description }) {
             ocean.
           </p>
         </div>
-        <div>
+        <div className={styles.__bloc_animecart}>
           {" "}
-          <AnimeCart />
+          <AnimeCartFilter />
         </div>
       </div>
 
@@ -32,8 +31,8 @@ function HeroCard({ imageUrl, title, subtitle, description }) {
             src={imageUrl}
             alt="fish"
             className="hero__img"
-            width={100}
-            height={200}
+            width={300}
+            height={300}
             style={{
               display: "block",
               objectFit: "cover",

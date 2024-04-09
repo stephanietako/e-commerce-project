@@ -1,10 +1,9 @@
 .app {
   display: flex;
   text-align: center;
-  width: auto;
+  width: 17rem;
   height: 24rem;
-  flex-direction: column;
-  border: 3px solid red;
+  border: 3px solid turquoise;
 }
 
 .geeks {
@@ -63,7 +62,6 @@
 }
 
 .card_content {
-  padding: 20px;
   text-align: center;
 }
 

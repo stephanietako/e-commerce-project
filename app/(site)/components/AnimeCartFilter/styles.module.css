@@ -1,0 +1,23 @@
+.container_filter_flipcart {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.products_flipcart_list {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.__box {
+  display: flex;
+  width: auto;
+  height: 100%;
+  border: 4px solid red;
+  justify-items: center;
+}
+.cardsContainer {
+  display: flex;
+  width: 100%;
+  height: auto;
+}

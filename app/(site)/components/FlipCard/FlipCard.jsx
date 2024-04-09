@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { PortableText } from "@portabletext/react";
-import styles from "./styles.module.css";
 import Image from "next/image";
+// Styles
+import styles from "./styles.module.css";
 
 const FlipCard = ({ product }) => {
   const [isFlipped, setFlipped] = useState(false);
@@ -14,8 +15,6 @@ const FlipCard = ({ product }) => {
 
   return (
     <div className={styles.app}>
-      <h2 className={styles.geeks}>GeeksforGeeks</h2>
-      <h3>React Example for Flip Card Effect</h3>
       <div className={`${styles.flip_card} ${isFlipped ? styles.flipped : ""}`}>
         <div className={styles.flip_card_inner}>
           <div className={styles.flip_card_front}>
@@ -30,7 +29,6 @@ const FlipCard = ({ product }) => {
                 style={{
                   display: "flex",
                   width: "100%",
-                  padding: "2rem",
                 }}
               >
                 {product.coverImages ? (
@@ -38,8 +36,8 @@ const FlipCard = ({ product }) => {
                     src={product.coverImages}
                     alt="les fleurs"
                     className="product__img"
-                    width={100}
-                    height={100}
+                    width={170}
+                    height={170}
                     style={{
                       objectFit: "cover",
                     }}
