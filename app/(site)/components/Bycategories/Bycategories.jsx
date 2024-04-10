@@ -1,4 +1,4 @@
-// import { getCategories } from "@/sanity/lib/client";
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
@@ -171,16 +171,6 @@ const ByCategory = ({ bycategory }) => {
                                 }}
                               >
                                 <div className="product">
-                                  {/* <h3
-                                    className="title_products"
-                                    style={{
-                                      color: "#fff",
-                                    }}
-                                  >
-                                    <Link href={`/products/${product.slug}`}>
-                                      {product.name}
-                                    </Link>
-                                  </h3> */}
                                   <div className="images_products_categories">
                                     <div
                                       className="bloc_img_products__categories"
