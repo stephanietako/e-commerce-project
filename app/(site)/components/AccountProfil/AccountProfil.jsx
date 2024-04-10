@@ -7,7 +7,7 @@ import Image from "next/image";
 // Styles
 import styles from "./styles.module.scss";
 
-const Header = () => {
+const AccountProfil = () => {
   const { data: session } = useSession();
   return (
     <div className={styles.header_container}>
@@ -52,4 +52,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AccountProfil;

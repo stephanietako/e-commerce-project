@@ -1,44 +1,36 @@
 "use client";
 
 import Image from "next/image";
+import backgroundImg from "@/public/assets/background.webp";
 import AnimeCartFilter from "../AnimeCartFilter/AnimeCartFilter";
 import styles from "./styles.module.scss";
 
-function HeroCard({ imageUrl, title, subtitle, description }) {
+function HeroCard({ imageUrl, title, subtitle, description, bg }) {
   return (
     <div className={styles.herocard_container}>
-      <div className={styles.herocard_bloc}>
-        <div className={styles.herocard_bloc_text}>
-          <h1>VIBES CBD SAINT-TROPEZ</h1>
-          <p>
-            Jellyfish are fascinating marine creatures known for their graceful
-            and mesmerizing movements in the water. Belonging to the phylum
-            Cnidaria, these gelatinous animals come in various shapes, sizes,
-            and colors. One distinctive feature of jellyfish is their
-            umbrella-shaped bell, which pulsates to propel them through the
-            ocean.
-          </p>
-        </div>
-        <div className={styles.__bloc_animecart}>
-          {" "}
-          <AnimeCartFilter />
-        </div>
-      </div>
-
+      <Image
+        src={backgroundImg}
+        alt="palm trees"
+        className={styles.__bg_img}
+        fill={true}
+        style={{
+          borderRadius: "30px",
+        }}
+      />
       <figure className={styles.figure}>
         <div className={styles.card}>
           <Image
             src={imageUrl}
-            alt="fish"
+            alt="logo vibes shop"
             className="hero__img"
-            width={300}
-            height={300}
+            width={50}
+            height={50}
             style={{
-              display: "block",
+              display: "flex",
               objectFit: "cover",
-              borderRadius: "30px",
             }}
           />
+
           <h2 className={styles.title}>{title}</h2>
           <h4 className={styles.subtitle}>{subtitle}</h4>
           <figcaption>

@@ -100,8 +100,8 @@ const StarProducts = ({ starproducts }) => {
                                   src={subCategory.coverImages}
                                   alt="les fleurs"
                                   className="product__img"
-                                  width={300}
-                                  height={300}
+                                  width={200}
+                                  height={200}
                                   style={{
                                     objectFit: "cover",
                                     borderRadius: "30px",
@@ -141,7 +141,7 @@ const StarProducts = ({ starproducts }) => {
                   {/* fin boucle interne de map de data */}
                 </div>
               ) : (
-                <p>No category available for this product.</p>
+                <p>1No category available for this product.</p>
               )}
             </div>
           ))}

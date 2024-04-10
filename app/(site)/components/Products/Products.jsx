@@ -248,7 +248,7 @@ const Products = ({ allproducts }) => {
                         {/* fin boucle interne */}
                       </div>
                     ) : (
-                      <p>No category available for this product.</p>
+                      <p>3No category available for this product.</p>
                     )}
                   </div>
                 ))}

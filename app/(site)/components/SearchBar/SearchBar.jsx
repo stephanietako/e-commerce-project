@@ -62,7 +62,7 @@ const SearchBar = () => {
 
   // Fonction pour gérer le clic sur un bouton de recherche
   // Fonction pour gérer le clic sur un bouton de recherche
-  const handleFilterClick = async (type) => {
+  const handleFilterClick = (type) => {
     // Récupération et nettoyage de la valeur de recherche
     const searchTerm = searchQuery.trim();
     // Détermination du préfixe à utiliser en fonction du type (catégorie ou produit)

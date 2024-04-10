@@ -2,37 +2,19 @@
   display: flex;
   width: 100%;
   height: 100%;
-  // border: 5px solid violet;
+  position: relative;
 
-  .herocard_bloc {
-    display: flex;
-    width: 81%;
-    height: auto;
-    // margin: auto;
-    flex-wrap: wrap;
-    border: 5px solid yellow;
-
-    .herocard_bloc_text {
-      display: flex;
-      width: 100%;
-      height: auto;
-      flex-direction: column;
-      padding: 3rem;
-      // border: 4px solid turquoise;
-    }
-
-    .__bloc_animecart {
-      display: flex;
-      width: auto;
-      height: auto;
-    }
+  &.__bg_img {
+    object-fit: cover;
+    z-index: -5;
+    border-radius: 30px;
   }
 
   .figure {
     // border: 4px solid yellow;
     position: relative;
-    width: 25%;
-    height: auto;
+    width: 100%;
+    height: 35rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -56,10 +38,12 @@
       align-items: flex-start;
       justify-content: flex-start;
       border-radius: 30px;
+      position: relative;
+      z-index: 2;
 
       img {
-        width: 100%;
-        height: auto;
+        width: auto;
+        height: 40%;
         margin-bottom: 25px;
         border-radius: 5px;
       }
@@ -112,7 +96,7 @@
         border-radius: 3px;
         text-decoration: none;
         overflow: hidden;
-        z-index: 1;
+        z-index: 2;
         transition: all 0.6s ease !important;
         border-radius: 30px;
 
@@ -142,8 +126,8 @@
             #2641ff99,
             #2649ff99
           );
+
           content: "";
-          z-index: -1;
           transition: all 0.6s ease;
         }
 
@@ -169,6 +153,7 @@
     }
 
     &:hover {
+      z-index: 999;
       background: linear-gradient(
         135deg,
         #ff1e9c99,

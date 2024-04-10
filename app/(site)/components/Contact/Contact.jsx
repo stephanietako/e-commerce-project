@@ -1,8 +1,11 @@
-import Link from "next/link";
-import { getPages } from "@/sanity/lib/client";
+"use client";
 
-const Contact = async () => {
-  const pages = await getPages();
+import Link from "next/link";
+// import { getPages } from "@/sanity/lib/client";
+export const dynamic = "force-dynamic";
+
+const Contact = ({ contact }) => {
+  // const pages = await getPages();
   return (
     <div
       className="contact_about"
@@ -22,10 +25,9 @@ const Contact = async () => {
           alignItems: "center",
         }}
       >
-        {/* <SearchBar /> */}
-        {pages.map((page) => (
-          <Link key={page._id} href={`/pages/${page.slug}`} className="link">
-            {page.title}
+        {contact.map((pages) => (
+          <Link key={pages._id} href={`/pages/${pages.slug}`} className="link">
+            {pages.title}
           </Link>
         ))}
       </div>

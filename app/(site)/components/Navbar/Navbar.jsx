@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -8,8 +9,8 @@ import styles from "./styles.module.scss";
 import logo from "@/public/assets/vibes.png";
 import cart from "@/public/assets/cart.png";
 import CartBtn from "../CartBtn/Cartbtn";
-import Header from "../Header/Header";
-import Contact from "../Contact/Contact";
+import AccountProfil from "../AccountProfil/AccountProfil";
+import NavContactAboutLink from "../NavContactAboutLink/NavContactAboutLink";
 
 const navLinks = [{ name: "Accueil", href: "/" }];
 
@@ -40,10 +41,10 @@ const Navbar = () => {
               </li>
             ))}
             <li>
-              <Contact />
+              <NavContactAboutLink />
             </li>
             <li>
-              <Header />
+              <AccountProfil />
             </li>
             <li>
               <div className={styles.btn_cart}>

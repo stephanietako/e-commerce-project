@@ -231,7 +231,7 @@ const Flowers = ({ allflowers }) => {
                         {/* fin boucle interne */}
                       </div>
                     ) : (
-                      <p>No category available for this product.</p>
+                      <p>2No category available for this product.</p>
                     )}
                   </div>
                 ))}
