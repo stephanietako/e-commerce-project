@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import { urlFor } from "@/sanity/config/client-config";
 import { useState } from "react";

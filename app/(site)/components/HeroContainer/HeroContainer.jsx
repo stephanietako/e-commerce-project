@@ -16,13 +16,13 @@ function HeroContainer() {
 
   return (
     <article className={styles.article}>
-      <section className={styles.__sectionWrapper}>
+      <div className={styles.__sectionWrapper}>
         {cards.map((card, index) => (
           <div key={index}>
             <HeroCard {...card} />
           </div>
         ))}
-      </section>
+      </div>
     </article>
   );
 }

@@ -140,7 +140,7 @@ const ByCategory = ({ bycategory }) => {
                             width: "100%",
                             height: "auto",
                             alignItems: "center",
-                            padding: "14px",
+                            padding: "1rem",
                             flexWrap: "wrap",
                           }}
                         >

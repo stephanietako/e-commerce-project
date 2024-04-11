@@ -45,7 +45,7 @@ const Home = async () => {
 
   return (
     <>
-      <section className="menu_products_section">
+      <div className="menu_products">
         <div className="links">
           {products.map((product) => (
             <Link
@@ -57,9 +57,9 @@ const Home = async () => {
             </Link>
           ))}
         </div>
-      </section>
+      </div>
       {/* //////////////////////////////////// */}
-      <section
+      <div
         className="first_section"
         style={{
           display: "flex",
@@ -104,7 +104,7 @@ const Home = async () => {
           ))}
         </div> */}
         {/* </Suspense> */}
-      </section>
+      </div>
       <section className="starproducts_section">
         <StarProducts starproducts={starproducts} />
       </section>

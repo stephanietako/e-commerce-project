@@ -91,6 +91,9 @@ a:hover {
   align-items: center;
 }
 
+section {
+  margin-top: 5rem;
+}
 .bloc_text {
   display: flex;
   width: 100%;

@@ -6,6 +6,7 @@
   border: 3px solid #000;
   border-radius: 30px;
   flex-direction: column;
+  padding: 4rem;
 }
 .title {
   display: block;

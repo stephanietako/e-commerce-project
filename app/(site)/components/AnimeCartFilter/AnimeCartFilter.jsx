@@ -44,15 +44,15 @@ const AnimeCartFilter = () => {
     <div className={styles.container_filter_flipcart}>
       <span className={styles.title}>
         <h1>
-          Salut
+          Découvrez nos produits
           <span className={styles.icon}>
             {" "}
             <Image
               src={canaIcon}
               alt="les produits de la boutiques vibes cbd"
               className="cana_icon__img"
-              width={80}
-              height={80}
+              width={100}
+              height={0}
               style={{
                 objectFit: "cover",
               }}

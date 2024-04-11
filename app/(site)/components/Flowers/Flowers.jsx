@@ -8,19 +8,6 @@ export const dynamic = "force-dynamic";
 const Flowers = ({ allflowers }) => {
   return (
     <>
-      <header
-        className="header_flowers"
-        style={{
-          display: "flex",
-          width: "auto",
-          height: "auto",
-          padding: "33px",
-        }}
-      >
-        <h2 className="_flowers"> TOUTES NOS FLEURS</h2>
-      </header>
-
-      {/* Section principale des produits */}
       <section
         className="flowers_section"
         style={{
@@ -43,6 +30,17 @@ const Flowers = ({ allflowers }) => {
             flexDirection: "column",
           }}
         >
+          <header
+            className="header_flowers"
+            style={{
+              display: "flex",
+              width: "auto",
+              height: "auto",
+              padding: "33px",
+            }}
+          >
+            <h2 className="_flowers"> TOUTES NOS FLEURS</h2>
+          </header>
           <div
             className="display_all_flowers"
             style={{

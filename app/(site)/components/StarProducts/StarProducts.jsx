@@ -6,21 +6,6 @@ export const dynamic = "force-dynamic";
 const StarProducts = ({ starproducts }) => {
   return (
     <>
-      <header
-        className="header_starproducts"
-        style={{
-          display: "flex",
-          width: "auto",
-          height: "auto",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "33px",
-          flexWrap: "wrap",
-        }}
-      >
-        <h2 className="_bycategory_main_title">NOS PRODUITS STAR</h2>
-      </header>
-      {/* Section principale des produits */}
       <section
         className="starproducts_section"
         style={{
@@ -46,6 +31,7 @@ const StarProducts = ({ starproducts }) => {
             padding: "2rem",
           }}
         >
+          <h2 className="_bycategory_main_title">NOS PRODUITS STAR</h2>
           {/* Boucle EXTERNE à travers toutes les categories */}
           {starproducts.map((product) => (
             <div key={product._id}>
