@@ -18,12 +18,7 @@ body {
   overflow-x: hidden;
   color: rgb(var(--foreground-rgb));
   background-color: rgb(8, 60, 48);
-  /* font-family: "Figtree", sans-serif;
-  font-optical-sizing: auto; */
   font-style: normal;
-  /* font-size: 110%;
-  font-weight: 400;
-  line-height: 150%; */
 }
 
 a {
@@ -50,40 +45,6 @@ a:hover {
   -webkit-background-clip: text;
   color: transparent;
 }
-/* a:hover {
-  color: linear-gradient(
-    135deg,
-    #ff1e9c99,
-    #ff1ea499,
-    #ff1fbc99,
-    #ff1fde99,
-    #f620ff99,
-    #c721ff99,
-    #9723ff99,
-    #6a24ff99,
-    #4125ff99,
-    #252aff99,
-    #2641ff99,
-    #2649ff99
-  );
-} */
-/* a:hover {
-  background: linear-gradient(
-    135deg,
-    #ff1e9c99,
-    #ff1ea499,
-    #ff1fbc99,
-    #ff1fde99,
-    #f620ff99,
-    #c721ff99,
-    #9723ff99,
-    #6a24ff99,
-    #4125ff99,
-    #252aff99,
-    #2641ff99,
-    #2649ff99
-  );
-} */
 
 .header {
   display: flex;
@@ -112,23 +73,7 @@ a:hover {
   width: 100%;
   flex-wrap: wrap;
 }
-/* .links:hover {
-  background: linear-gradient(
-    135deg,
-    #ff1e9c99,
-    #ff1ea499,
-    #ff1fbc99,
-    #ff1fde99,
-    #f620ff99,
-    #c721ff99,
-    #9723ff99,
-    #6a24ff99,
-    #4125ff99,
-    #252aff99,
-    #2641ff99,
-    #2649ff99
-  );
-} */
+
 .link {
   display: flex;
   justify-content: flex-end;
@@ -138,40 +83,7 @@ a:hover {
   padding: 1rem;
   font-size: 23px;
 }
-/* .links a:hover {
-  background: linear-gradient(
-    135deg,
-    #ff1e9c99,
-    #ff1ea499,
-    #ff1fbc99,
-    #ff1fde99,
-    #f620ff99,
-    #c721ff99,
-    #9723ff99,
-    #6a24ff99,
-    #4125ff99,
-    #252aff99,
-    #2641ff99,
-    #2649ff99
-  );
-} */
-/* .link:hover {
-  background: linear-gradient(
-    135deg,
-    #ff1e9c99,
-    #ff1ea499,
-    #ff1fbc99,
-    #ff1fde99,
-    #f620ff99,
-    #c721ff99,
-    #9723ff99,
-    #6a24ff99,
-    #4125ff99,
-    #252aff99,
-    #2641ff99,
-    #2649ff99
-  );
-} */
+
 .home_section {
   display: flex;
   flex-direction: column;
@@ -194,7 +106,7 @@ h1 {
 }
 
 h2 {
-  color: turquoise;
+  color: gray;
 }
 
 h3 {

@@ -2,7 +2,25 @@
   display: flex;
   width: 100%;
   height: 100%;
+  margin-top: 2rem;
+  border: 3px solid #000;
+  border-radius: 30px;
+  flex-direction: column;
 }
+.title {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.icon {
+  display: block;
+  position: absolute;
+  left: -21px;
+  z-index: -1;
+  transform: translateY(-76%) rotate(-29deg);
+}
+
 .products_flipcart_list {
   display: flex;
   width: 100%;
@@ -13,7 +31,6 @@
   display: flex;
   width: auto;
   height: 100%;
-  border: 4px solid red;
   justify-items: center;
 }
 .cardsContainer {

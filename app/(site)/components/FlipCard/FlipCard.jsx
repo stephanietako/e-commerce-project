@@ -1,45 +1,50 @@
 "use client";
 
 import { useState } from "react";
+import { getCategories } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
+import Link from "next/link";
+import useSWR from "swr";
 import Image from "next/image";
 // Styles
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 const FlipCard = ({ product }) => {
   const [isFlipped, setFlipped] = useState(false);
+
+  const { data: categories, error } = useSWR("/categories", getCategories);
+
+  if (error) return <p>Error: {error.message}</p>;
 
   const handleFlip = () => {
     setFlipped(!isFlipped);
   };
 
   return (
-    <div className={styles.app}>
+    <div className={styles.flipcart_container}>
       <div className={`${styles.flip_card} ${isFlipped ? styles.flipped : ""}`}>
-        <div className={styles.flip_card_inner}>
-          <div className={styles.flip_card_front}>
-            <div className={styles.card_content}>
-              {/* Afficher les données du produit */}
-              <p>NAME:{product.name}</p>
-              <span>
-                <PortableText value={product.content} />
-              </span>
-              <div
-                className="images"
-                style={{
-                  display: "flex",
-                  width: "100%",
-                }}
-              >
+        <div className={styles.__flip_card__inner}>
+          {/* Carte recto*/}
+          <div className={styles.__flip_card__front}>
+            <div className={styles.__card__content}>
+              <div className={styles.__flip_card__infos}>
+                <span className={styles.title}></span>
+                <h2>{product.name}</h2>
+                <span>
+                  <PortableText value={product.content} />
+                </span>
+              </div>
+              <div className={styles.image}>
                 {product.coverImages ? (
                   <Image
                     src={product.coverImages}
-                    alt="les fleurs"
+                    alt="les produits de la boutiques vibes cbd"
                     className="product__img"
-                    width={170}
-                    height={170}
+                    width={150}
+                    height={150}
                     style={{
                       objectFit: "cover",
+                      borderRadius: "30px",
                     }}
                   />
                 ) : (
@@ -48,23 +53,41 @@ const FlipCard = ({ product }) => {
               </div>
             </div>
             <button className={styles.flip_button} onClick={handleFlip}>
-              Flip
+              <p>Voir plus</p>
             </button>
           </div>
           {/* Carte verso */}
-          <div className={styles.flip_card_back}>
-            <div className={styles.flip_card_back_fetch}>
-              {/* Afficher les données supplémentaires du produit */}
-              <p>{product.additionalInfo}</p>
-            </div>
-            <div className={styles.card_content}>
-              {/* Afficher les données du produit */}
-              <p>{product.name}</p>
-              <p>{product.description}</p>
-              <p>{product.price}</p>
+          <div className={styles.__flip_card__back}>
+            <div className={styles.__card__content}>
+              <div className={styles.__flip_card__infos}>
+                <p>{product.name}</p>
+                <span>
+                  <PortableText value={product.body} />
+                </span>
+                <br />
+                {/* LIEN CATEGORY */}
+                <span>
+                  <div className="container__products_categories">
+                    {product.categories.map((category) => (
+                      <div key={category._id}>
+                        <h2>
+                          <Link
+                            key={category._id}
+                            href={`/categories/${category.slug}`}
+                            className="link_categories_flipcart"
+                          >
+                            {category.name}
+                          </Link>
+                        </h2>
+                      </div>
+                    ))}
+                  </div>
+                </span>
+                {/* ////////////////// */}
+              </div>
             </div>
             <button className={styles.flip_button} onClick={handleFlip}>
-              Flip
+              <p>Retour</p>
             </button>
           </div>
         </div>

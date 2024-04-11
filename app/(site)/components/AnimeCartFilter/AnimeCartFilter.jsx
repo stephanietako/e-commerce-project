@@ -1,12 +1,16 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import Image from "next/image";
 import useSWR from "swr";
 import FlipCard from "../FlipCard/FlipCard";
-import { fetchDataProduct } from "../../../../sanity/lib/api";
+import { fetchDataProduct } from "@/sanity/lib/api";
+import canaIcon from "@/public/assets/canaleaf.png";
+// Styles
 import styles from "./styles.module.css";
 
-const AnimeCart = () => {
+const AnimeCartFilter = () => {
   const [searchQuery, setSearchQuery] = useState([]);
   const { data, error, isLoading } = useSWR("/products", fetchDataProduct);
   const searchParams = useSearchParams();
@@ -38,13 +42,32 @@ const AnimeCart = () => {
 
   return (
     <div className={styles.container_filter_flipcart}>
+      <span className={styles.title}>
+        <h1>
+          Salut
+          <span className={styles.icon}>
+            {" "}
+            <Image
+              src={canaIcon}
+              alt="les produits de la boutiques vibes cbd"
+              className="cana_icon__img"
+              width={80}
+              height={80}
+              style={{
+                objectFit: "cover",
+              }}
+            />
+          </span>
+        </h1>
+      </span>
+
       <ul className={styles.products_flipcart_list}>
         <div className={styles.__box}>
           {isLoading ? (
             <div>Loading...</div>
           ) : (
             // Grouper les cartes par groupe de trois
-            chunkArray(filteredProducts, 2).map((group, index) => (
+            chunkArray(filteredProducts, 1).map((group, index) => (
               <div key={index} className={styles.cardGroup}>
                 {group.map((product) => (
                   <div key={product._id} className={styles.cardsContainer}>
@@ -60,4 +83,4 @@ const AnimeCart = () => {
   );
 };
 
-export default AnimeCart;
+export default AnimeCartFilter;

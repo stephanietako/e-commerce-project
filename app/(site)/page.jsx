@@ -11,8 +11,8 @@ import { getDataStarProducts } from "@/sanity/lib/client";
 import { getDataProducts } from "@/sanity/lib/client";
 import { getDataFlowers } from "@/sanity/lib/client";
 import Flowers from "./components/Flowers/Flowers";
-
 import HeroContainer from "./components/HeroContainer/HeroContainer";
+import AnimeCartFilter from "./components/AnimeCartFilter/AnimeCartFilter";
 // import All from "./components/All/All";
 //import { fetchDataSearchBar } from "@/sanity/lib/api";
 
@@ -32,20 +32,20 @@ const Home = async () => {
   // const all = await fetchDataSearchBar();
   ///////////////
   // const categorypages = getProductsByCategories();
-  /////////////////
-  // Vos données de cartes
+
   const cards = [
     {
-      imageUrl: "/assets/vibes.png", // Chemin de l'image corrigé
+      imageUrl: "/assets/vibes.png",
       title: "essai",
       subtitle: "Not Made of Jelly",
       description:
         "Jellyfish are fascinating marine creatures known for their graceful and mesmerizing movements in the water. Belonging to the phylum Cnidaria, these gelatinous animals come in various shapes, sizes, and colors. One distinctive feature of jellyfish is their umbrella-shaped bell, which pulsates to propel them through the ocean.",
     },
   ];
+
   return (
     <>
-      <section>
+      <section className="menu_products_section">
         <div className="links">
           {products.map((product) => (
             <Link
@@ -70,11 +70,13 @@ const Home = async () => {
         }}
       >
         {/* ////////////////HERO//////////////////// */}
-        <section>
+        <section className="herocontainer_section">
           <HeroContainer cards={cards} />
           {/* <Hero cards={cards} /> */}
         </section>
-
+        <section className="animefilter_section">
+          <AnimeCartFilter />
+        </section>
         {/* <section>
           <h2>Search bar de tout le shop</h2>
           <SearchBarAll />
@@ -129,7 +131,7 @@ const Home = async () => {
         <All all={all} />
       </section> */}
 
-      <section>
+      <section className="all_products_section">
         <Products allproducts={allproducts} />
       </section>
       <section className="by_categories_section">

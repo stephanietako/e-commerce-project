@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
-import { fetchDataProduct } from "../../../../sanity/lib/api";
+import { fetchDataProduct } from "@/sanity/lib/api";
 import ProductsPages from "../../components/ProductsPages/ProductsPages";
 // Styles
 import styles from "./styles.module.scss";

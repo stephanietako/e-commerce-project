@@ -1,0 +1,113 @@
+.flipcart_container {
+  display: flex;
+  text-align: center;
+  width: 17rem;
+  height: 24rem;
+  position: relative;
+
+  .flip_card {
+    display: flex;
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    padding: 2rem;
+
+    &.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .__flip_card__inner {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+
+      .__flip_card__front,
+      .__flip_card__back {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backface-visibility: hidden;
+        border-radius: 30px;
+      }
+
+      .__flip_card__front {
+        background-color: transparent;
+        border: 3px solid #000;
+        border-radius: 30px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .__flip_card__back {
+        background-color: rgba(0, 0, 0, 0.7);
+        transform: rotateY(180deg);
+      }
+
+      .__card__content {
+        text-align: center;
+
+        .__flip_card__infos {
+          display: flex;
+          width: auto;
+          height: auto;
+          justify-content: center;
+          flex-direction: column;
+          padding: 1rem;
+        }
+
+        .image {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          height: 100%;
+        }
+      }
+
+      .flip_button {
+        display: flex;
+        width: auto;
+        height: 2rem;
+        padding: 10px;
+        font-size: 16px;
+        background-color: transparent;
+        color: #ffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translateY(-50%);
+        justify-content: center;
+        p {
+          color: gray;
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+      &:hover {
+        border-radius: 30px;
+        background: linear-gradient(
+          135deg,
+          #ff1e9c99,
+          #ff1ea499,
+          #ff1fbc99,
+          #ff1fde99,
+          #f620ff99,
+          #c721ff99,
+          #9723ff99,
+          #6a24ff99,
+          #4125ff99,
+          #252aff99,
+          #2641ff99,
+          #2649ff99
+        );
+      }
+    }
+  }
+}

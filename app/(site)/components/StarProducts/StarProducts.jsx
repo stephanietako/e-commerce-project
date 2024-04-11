@@ -43,7 +43,6 @@ const StarProducts = ({ starproducts }) => {
             borderRadius: "30px",
             flexWrap: "wrap",
             justifyContent: "center",
-            margin: "2rem",
             padding: "2rem",
           }}
         >

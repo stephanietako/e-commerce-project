@@ -1,8 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import backgroundImg from "@/public/assets/background.webp";
-import AnimeCartFilter from "../AnimeCartFilter/AnimeCartFilter";
+// Styles
 import styles from "./styles.module.scss";
 
 function HeroCard({ imageUrl, title, subtitle, description, bg }) {
