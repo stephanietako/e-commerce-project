@@ -1,5 +1,4 @@
 import HeroCard from "../HeroCard/HeroCard";
-
 import vibesImage from "@/public/assets/vibes.png";
 import styles from "./styles.module.scss";
 

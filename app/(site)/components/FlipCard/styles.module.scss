@@ -1,8 +1,8 @@
 .flipcart_container {
   display: flex;
   text-align: center;
-  width: 17rem;
-  height: 24rem;
+  width: 12rem;
+  height: 20rem;
   position: relative;
 
   .flip_card {
@@ -13,7 +13,7 @@
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.5s;
-    padding: 2rem;
+    padding: 0.5rem;
 
     &.flipped {
       transform: rotateY(180deg);

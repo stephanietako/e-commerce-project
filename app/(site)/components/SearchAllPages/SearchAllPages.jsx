@@ -13,9 +13,7 @@ const SearchAllPages = () => {
         display: "flex",
         height: "auto",
         justifyContent: "center",
-        width: "84rem",
-        border: "3px solid gray",
-        borderRadius: "30px",
+        width: "100%",
       }}
     >
       <div

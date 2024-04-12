@@ -1,4 +1,5 @@
 // import { getProductsByCategories } from "@/sanity/lib/client";
+
 import Image from "next/image";
 import Link from "next/link";
 // import { getProductsByCategories } from "@/sanity/lib/client";
@@ -16,10 +17,7 @@ const Categories = ({ category }) => {
           display: "flex",
           width: "auto",
           height: "auto",
-          justifyContent: "space-between",
-          border: "2px solid blue",
           alignItems: "center",
-          padding: "33px",
         }}
       >
         <h2 className="_category">ALL CATEGORIES OF PRODUCTS</h2>

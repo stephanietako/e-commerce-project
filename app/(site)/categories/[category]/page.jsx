@@ -81,7 +81,6 @@ const CategoryDetails = async ({ params }) => {
                 >
                   <span>
                     {data.products}
-
                     <h2>{data.name}</h2>
                     <p>{data.type}</p>
                     {/* <p>{data._id}</p> */}

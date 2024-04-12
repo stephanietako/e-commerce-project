@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
@@ -14,13 +15,11 @@ const ByCategory = ({ bycategory }) => {
           display: "flex",
           width: "auto",
           height: "auto",
-          justifyContent: "space-between",
-          border: "2px solid blue",
           alignItems: "center",
           padding: "33px",
         }}
       >
-        <h2 className="_bycategory_title">TOUTES LES CATEGORIES</h2>
+        <h1 className="_bycategory_title">TOUTES LES CATEGORIES</h1>
       </header>
       {/* Section principale des categories */}
       <section
@@ -152,9 +151,8 @@ const ByCategory = ({ bycategory }) => {
                         </div>
                         {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}
                         {categories.products.map((product) => (
-                          <>
+                          <React.Fragment key={product._id}>
                             <div
-                              key={product._id}
                               className="data_group"
                               style={{
                                 padding: "9px",
@@ -242,7 +240,7 @@ const ByCategory = ({ bycategory }) => {
                                 </div>
                               </div>
                             </div>
-                          </>
+                          </React.Fragment>
                         ))}
                       </div>
                     ) : (

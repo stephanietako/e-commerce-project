@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import FiltersProducts from "../../products/FiltersProducts/page";
+import FiltersProducts from "../FiltersProducts/page";
 // Styles
 //import styles from "./styles.module.scss";
 
@@ -16,9 +16,7 @@ const CheckboxProducts = () => {
         display: "flex",
         height: "auto",
         justifyContent: "center",
-        width: "84rem",
-        border: "3px solid gray",
-        borderRadius: "30px",
+        width: "100%",
       }}
     >
       <div

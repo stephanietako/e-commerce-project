@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 // import { getPages } from "@/sanity/lib/client";
 export const dynamic = "force-dynamic";

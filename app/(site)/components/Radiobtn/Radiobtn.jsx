@@ -1,5 +1,3 @@
-"use client";
-
 // Importation des styles
 import styles from "./styles.module.css";
 

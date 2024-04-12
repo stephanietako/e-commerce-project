@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { fetchData } from "@/sanity/lib/api";
-import CategoriesPages from "../../components/CategoriesPages/CategoriesPages";
+import CategoriesPages from "../CategoriesPages/CategoriesPages";
 // Styles
 import styles from "./styles.module.scss";
 

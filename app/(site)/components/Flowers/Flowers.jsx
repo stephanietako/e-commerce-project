@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
@@ -30,17 +31,6 @@ const Flowers = ({ allflowers }) => {
             flexDirection: "column",
           }}
         >
-          <header
-            className="header_flowers"
-            style={{
-              display: "flex",
-              width: "auto",
-              height: "auto",
-              padding: "33px",
-            }}
-          >
-            <h2 className="_flowers"> TOUTES NOS FLEURS</h2>
-          </header>
           <div
             className="display_all_flowers"
             style={{
@@ -63,39 +53,6 @@ const Flowers = ({ allflowers }) => {
                 flexDirection: "column",
               }}
             >
-              <div
-                className="section_searchbox_flowers"
-                style={{
-                  display: "flex",
-                  width: "100%",
-                  height: "100%",
-                  flexWrap: "wrap",
-                  justifyContent: "space-evenly",
-                }}
-              >
-                <div
-                  className="_searchbox_flowers"
-                  style={{
-                    display: "flex",
-                    width: "auto",
-                    height: "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  <SearchFlowers />
-                </div>
-                <div
-                  className="_searchbox_flowers_type"
-                  style={{
-                    display: "flex",
-                    width: "auto",
-                    height: "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  <SearchTypeFlowers />
-                </div>
-              </div>
               <div
                 className="flowers_cards"
                 style={{
@@ -121,8 +78,53 @@ const Flowers = ({ allflowers }) => {
                           margin: "2rem",
                           borderRadius: "30px",
                           padding: "2rem",
+                          width: "auto",
+                          height: "auto",
                         }}
                       >
+                        <header
+                          className="header_flowers"
+                          style={{
+                            display: "flex",
+                            width: "100%",
+                            height: "auto",
+                          }}
+                        >
+                          <h1 className="_flowers"> TOUTES NOS FLEURS</h1>
+                        </header>
+                        <div
+                          className="section_searchbox_flowers"
+                          style={{
+                            display: "flex",
+                            width: "100%",
+                            height: "100%",
+                            flexWrap: "wrap",
+                            justifyContent: "space-evenly",
+                          }}
+                        >
+                          <div
+                            className="_searchbox_flowers"
+                            style={{
+                              display: "flex",
+                              width: "auto",
+                              height: "auto",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <SearchFlowers />
+                          </div>
+                          <div
+                            className="_searchbox_flowers_type"
+                            style={{
+                              display: "flex",
+                              width: "auto",
+                              height: "auto",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <SearchTypeFlowers />
+                          </div>
+                        </div>
                         <div
                           className="main_title_flowers"
                           style={{
@@ -143,9 +145,8 @@ const Flowers = ({ allflowers }) => {
 
                         {/*  Boucle INTERNE SUBCATEGORIES à travers toutes les sous-catégories du produit */}
                         {product.categories.map((category) => (
-                          <>
+                          <React.Fragment key={category._id}>
                             <div
-                              key={category._id}
                               className="data_group_products"
                               style={{
                                 padding: "20px",
@@ -224,7 +225,7 @@ const Flowers = ({ allflowers }) => {
                               </div>
                               {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
                             </div>
-                          </>
+                          </React.Fragment>
                         ))}
                         {/* fin boucle interne */}
                       </div>

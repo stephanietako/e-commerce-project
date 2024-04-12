@@ -1,4 +1,4 @@
-// import { getDataProductsPages } from "@/sanity/lib/client";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
@@ -9,22 +9,6 @@ export const dynamic = "force-dynamic";
 const Products = ({ allproducts }) => {
   return (
     <>
-      <header
-        className="header_products"
-        style={{
-          display: "flex",
-          width: "auto",
-          height: "auto",
-          justifyContent: "space-between",
-          // border: "2px solid blue",
-          alignItems: "center",
-          padding: "33px",
-        }}
-      >
-        <h2 className="_products">TOUS LES PRODUITS</h2>
-      </header>
-
-      {/* Section principale des produits */}
       <section
         className="products_section"
         style={{
@@ -37,7 +21,6 @@ const Products = ({ allproducts }) => {
           flexDirection: "column",
         }}
       >
-        {/* Conteneur des produits */}
         <div
           className="products_container"
           style={{
@@ -48,16 +31,31 @@ const Products = ({ allproducts }) => {
           }}
         >
           <div
-            className="display_all_products"
+            className="display_all_products_salut"
             style={{
               display: "flex",
-              width: "100%",
+              width: "auto",
               height: "auto",
               alignItems: "center",
-              justifyContent: "center",
               flexWrap: "wrap",
+              borderRadius: "30px",
+              border: "3px solid #000",
+              margin: "2rem",
+              padding: "2rem",
             }}
           >
+            <header
+              className="header_products"
+              style={{
+                display: "flex",
+                width: "auto",
+                height: "auto",
+                alignItems: "center",
+                padding: "33px",
+              }}
+            >
+              <h1 className="_products">TOUS LES PRODUITS</h1>
+            </header>
             <div
               className="products_content"
               style={{
@@ -115,6 +113,7 @@ const Products = ({ allproducts }) => {
                 >
                   Tous nos produits
                 </h3>
+
                 {/* Boucle EXTERNE à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
                 {allproducts.map((product) => (
                   <div key={product._id}>
@@ -153,9 +152,8 @@ const Products = ({ allproducts }) => {
 
                         {/*  Boucle INTERNE SUBCATEGORIES à travers toutes les sous-catégories du produit */}
                         {product.categories.map((category) => (
-                          <>
+                          <React.Fragment key={category._id}>
                             <div
-                              key={category._id}
                               className="data_group_products"
                               style={{
                                 padding: "20px",
@@ -243,7 +241,7 @@ const Products = ({ allproducts }) => {
                               </div>
                               {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
                             </div>
-                          </>
+                          </React.Fragment>
                         ))}
                         {/* fin boucle interne */}
                       </div>

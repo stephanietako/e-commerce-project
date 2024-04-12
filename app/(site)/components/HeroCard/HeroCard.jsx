@@ -3,7 +3,7 @@ import backgroundImg from "@/public/assets/background.webp";
 // Styles
 import styles from "./styles.module.scss";
 
-function HeroCard({ imageUrl, title, subtitle, description, bg }) {
+function HeroCard({ imageUrl, title, subtitle, description }) {
   return (
     <div className={styles.herocard_container}>
       <Image

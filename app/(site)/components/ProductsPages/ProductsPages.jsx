@@ -13,15 +13,16 @@ const ProductsPages = ({ product }) => {
           width: "100%",
           height: " auto",
           justifyContent: "center",
+          margin: "4rem",
         }}
       >
         <div
           className="__productspages_bloc"
           style={{
             display: "flex",
-            width: "auto",
+            width: "100%",
             height: " auto",
-            marginTop: "4rem",
+            // marginTop: "4rem",
             // justifyContent: "space-evenly",
           }}
         >
@@ -29,9 +30,9 @@ const ProductsPages = ({ product }) => {
             className="infos_product"
             style={{
               display: "flex",
-              width: "auto",
+              width: "100%",
               height: "auto",
-              padding: "4rem",
+              padding: "1rem",
               flexDirection: "column",
             }}
           >
@@ -70,7 +71,14 @@ const ProductsPages = ({ product }) => {
 
           <div className="productspages_display_categories">
             <p>Toutes nos catégories de {product.name}:</p>
-            <ul>
+            <ul
+              className="productspages_display_content"
+              style={{
+                display: "flex",
+                width: "100%",
+                height: "auto",
+              }}
+            >
               {product.categories.map((category) => (
                 <div key={category._id}>
                   <>

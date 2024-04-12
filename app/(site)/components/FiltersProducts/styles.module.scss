@@ -11,7 +11,6 @@
     justify-content: flex-end;
     position: relative;
     flex-direction: column;
-    padding: 2rem;
 
     .products_text {
       display: flex;
@@ -20,14 +19,13 @@
       // justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      padding: 2rem;
+      padding: 3rem;
     }
 
     .__box {
       display: flex;
-      width: auto;
+      width: 100%;
       height: auto;
-      // border: 3px solid black;
       flex-wrap: wrap;
       justify-content: center;
 
@@ -55,12 +53,11 @@
 
       .__filtered_products {
         display: flex;
-        width: 100%;
+        width: 87rem;
         height: auto;
         position: relative;
-        padding: 2rem;
-        // justify-content: center;
-        // // border: 2px solid gray;
+
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
       }
