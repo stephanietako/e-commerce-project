@@ -31,7 +31,7 @@ const Products = ({ allproducts }) => {
           }}
         >
           <div
-            className="display_all_products_salut"
+            className="display_allproducts"
             style={{
               display: "flex",
               width: "auto",
@@ -40,7 +40,6 @@ const Products = ({ allproducts }) => {
               flexWrap: "wrap",
               borderRadius: "30px",
               border: "3px solid #000",
-              margin: "2rem",
               padding: "2rem",
             }}
           >
