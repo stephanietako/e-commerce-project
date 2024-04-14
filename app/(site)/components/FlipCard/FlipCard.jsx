@@ -28,11 +28,7 @@ const FlipCard = ({ product }) => {
           <div className={styles.__flip_card__front}>
             <div className={styles.__card__content}>
               <div className={styles.__flip_card__infos}>
-                <span className={styles.title}></span>
                 <h2>{product.name}</h2>
-                <span>
-                  <PortableText value={product.content} />
-                </span>
               </div>
               <div className={styles.image}>
                 {product.coverImages ? (
@@ -62,6 +58,10 @@ const FlipCard = ({ product }) => {
               <div className={styles.__flip_card__infos}>
                 <p>{product.name}</p>
                 <span>
+                  <PortableText value={product.content} />
+                </span>
+                <br />
+                <span>
                   <PortableText value={product.body} />
                 </span>
                 <br />
@@ -70,7 +70,7 @@ const FlipCard = ({ product }) => {
                   <div className="container__products_categories">
                     {product.categories.map((category) => (
                       <div key={category._id}>
-                        <h2>
+                        <h3>
                           <Link
                             key={category._id}
                             href={`/categories/${category.slug}`}
@@ -78,7 +78,7 @@ const FlipCard = ({ product }) => {
                           >
                             {category.name}
                           </Link>
-                        </h2>
+                        </h3>
                       </div>
                     ))}
                   </div>

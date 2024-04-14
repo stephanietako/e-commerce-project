@@ -117,7 +117,13 @@ const StarProducts = ({ starproducts }) => {
                                 }}
                               >
                                 <div className="starproducts">
-                                  <div className="images_starproducts">
+                                  <div
+                                    className="images_starproducts"
+                                    style={{
+                                      display: "flex",
+                                      justifyContent: "center",
+                                    }}
+                                  >
                                     {category.coverImages && (
                                       <Image
                                         src={category.coverImages}
