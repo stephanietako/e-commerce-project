@@ -22,7 +22,7 @@ const ByCategory = ({ bycategory }) => {
         <h1 className="_bycategory_title">TOUTES LES CATEGORIES</h1>
       </header>
       {/* Section principale des categories */}
-      <section
+      <div
         className="categories_section"
         style={{
           display: "flex",
@@ -253,7 +253,7 @@ const ByCategory = ({ bycategory }) => {
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 };
