@@ -128,6 +128,7 @@ const Products = ({ allproducts }) => {
                           margin: "2rem",
                           borderRadius: "30px",
                           padding: "2rem",
+                          width: "auto",
                           justifyContent: "space-around",
                         }}
                       >

@@ -130,6 +130,7 @@ const ByCategory = ({ bycategory }) => {
                           borderRadius: "30px",
                           padding: "2rem",
                           margin: "2rem",
+                          width: "22rem",
                         }}
                       >
                         <div

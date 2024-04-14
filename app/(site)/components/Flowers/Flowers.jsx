@@ -74,7 +74,7 @@ const Flowers = ({ allflowers }) => {
                           display: "flex",
                           border: "3px solid black",
                           flexWrap: "wrap",
-                          justifyContent: "space-around",
+                          justifyContent: "center",
                           margin: "2rem",
                           borderRadius: "30px",
                           padding: "2rem",
@@ -149,9 +149,11 @@ const Flowers = ({ allflowers }) => {
                             <div
                               className="data_group_products"
                               style={{
+                                display: "flex",
                                 padding: "20px",
                                 borderRadius: "30px",
                                 border: "2px solid #000",
+                                margin: "2rem",
                               }}
                             >
                               <div
