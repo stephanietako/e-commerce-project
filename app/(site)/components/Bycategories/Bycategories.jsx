@@ -196,12 +196,7 @@ const ByCategory = ({ bycategory }) => {
                                       )}
                                     </div>
                                   </div>
-                                  <h3
-                                    className="title_products"
-                                    style={{
-                                      color: "#fff",
-                                    }}
-                                  >
+                                  <h3 className="title_products">
                                     <Link href={`/products/${product.slug}`}>
                                       {product.name}
                                     </Link>

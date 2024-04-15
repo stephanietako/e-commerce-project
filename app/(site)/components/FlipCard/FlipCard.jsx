@@ -41,6 +41,7 @@ const FlipCard = ({ product }) => {
                     style={{
                       objectFit: "cover",
                       borderRadius: "30px",
+                      padding: "1rem",
                     }}
                   />
                 ) : (

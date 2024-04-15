@@ -15,7 +15,7 @@ const ProductsDetails = async ({ params }) => {
         style={{
           display: "flex",
           width: "auto",
-          height: " auto",
+          height: "auto",
           justifyContent: "center",
         }}
       >
@@ -25,7 +25,6 @@ const ProductsDetails = async ({ params }) => {
             display: "flex",
             width: "70%",
             height: " auto",
-            border: "3px solid yellow",
             position: "relative",
             justifyContent: "center",
             flexDirection: "column",
@@ -37,7 +36,6 @@ const ProductsDetails = async ({ params }) => {
               display: "flex",
               width: "100%",
               height: " auto",
-              border: "3px solid red",
               position: "relative",
               justifyContent: "center",
             }}
@@ -51,6 +49,7 @@ const ProductsDetails = async ({ params }) => {
                 justifyContent: "center",
                 position: "absolute",
                 top: "40%",
+                zIndex: 2,
               }}
             >
               <h1>{product && product.name}</h1>
@@ -59,9 +58,11 @@ const ProductsDetails = async ({ params }) => {
               className="images"
               style={{
                 display: "flex",
-                width: "auto",
+                width: "100%",
                 height: "auto",
-                padding: "1rem",
+                overflow: "hidden",
+                position: "relative",
+                borderRadius: "30px",
               }}
             >
               {product.coverImages ? (
@@ -69,7 +70,7 @@ const ProductsDetails = async ({ params }) => {
                   src={product.coverImages}
                   alt="les fleurs"
                   className="product__img"
-                  width={1000}
+                  width={2000}
                   height={300}
                   style={{
                     objectFit: "cover",
@@ -79,6 +80,16 @@ const ProductsDetails = async ({ params }) => {
               ) : (
                 <p>No image available</p>
               )}
+              <span
+                className="images_bg"
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "100%",
+                  position: "absolute",
+                  backgroundColor: "rgba(0, 0, 0, 0.7);",
+                }}
+              ></span>
             </div>
           </div>
           {product ? (
@@ -131,7 +142,6 @@ const ProductsDetails = async ({ params }) => {
               style={{
                 display: "flex",
                 width: "100%",
-                border: "2px solid green",
                 justifyContent: "center",
               }}
             >

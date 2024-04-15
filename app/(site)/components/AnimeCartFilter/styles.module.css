@@ -15,10 +15,12 @@
   padding: 2rem;
 
   .title {
-    display: block;
+    display: flex;
     position: relative;
     z-index: 1;
     padding: 2rem;
+    width: 55rem;
+    height: auto;
 
     .icon {
       display: block;

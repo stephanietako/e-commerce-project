@@ -12,7 +12,7 @@
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.5s;
+    // transition: transform 0.5s, background-image 0.5s ease;
     padding: 0.5rem;
 
     &.flipped {
@@ -31,6 +31,7 @@
         position: absolute;
         backface-visibility: hidden;
         border-radius: 30px;
+        overflow: hidden;
       }
 
       .__flip_card__front {
@@ -39,6 +40,20 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        &:hover {
+          background-image: linear-gradient(
+              45deg,
+              rgba(0, 0, 255, 0.5),
+              rgba(255, 255, 0, 0.5)
+            ),
+            url("/assets/background.webp");
+          background-size: cover;
+          background-position: center;
+          border-radius: 30px;
+          transition: 2s ease;
+          overflow: hidden;
+        }
       }
 
       .__flip_card__back {
@@ -89,25 +104,21 @@
           }
         }
       }
-      &:hover {
-        border-radius: 30px;
-        background-color: rgba(0, 0, 0, 0.7);
-        // background: linear-gradient(
-        //   135deg,
-        //   #ff1e9c99,
-        //   #ff1ea499,
-        //   #ff1fbc99,
-        //   #ff1fde99,
-        //   #f620ff99,
-        //   #c721ff99,
-        //   #9723ff99,
-        //   #6a24ff99,
-        //   #4125ff99,
-        //   #252aff99,
-        //   #2641ff99,
-        //   #2649ff99
-        // );
-      }
+
+      // &:hover {
+      //   // background-image: linear-gradient(
+      //   //     45deg,
+      //   //     rgba(0, 0, 255, 0.5),
+      //   //     rgba(255, 255, 0, 0.5)
+      //   //   ),
+      //   //   url("/assets/background.webp");
+      //   background-image: url("/assets/background.webp");
+      //   // background-size: cover;
+      //   // background-position: center;
+      //   // border-radius: 30px;
+      //   // transition: 0.5s ease;
+      //   // overflow: hidden;
+      // }
     }
   }
 }

@@ -16,7 +16,7 @@ export const metadata = {
   description: "Découvrez la boutique Vibes CBD de saint-Tropez",
 };
 
-export default async function RootLayout({ children, session }) {
+export default function RootLayout({ children, session }) {
   return (
     <html lang="en">
       <body className={roboto.className}>

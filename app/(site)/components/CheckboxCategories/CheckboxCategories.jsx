@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import FiltersCategories from "../../FiltersCategories/page";
+import FiltersCategories from "../FiltersCategories/FiltersCategories";
 // Styles
 import styles from "./styles.module.scss";
 

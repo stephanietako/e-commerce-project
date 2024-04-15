@@ -12,7 +12,7 @@ import CartBtn from "../CartBtn/Cartbtn";
 import AccountProfil from "../AccountProfil/AccountProfil";
 import NavContactAboutLink from "../NavContactAboutLink/NavContactAboutLink";
 
-const navLinks = [{ name: "Accueil", href: "/" }];
+// const navLinks = [{ name: "Accueil", href: "/" }];
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -26,7 +26,7 @@ const Navbar = () => {
         </div>
         <ul className={styles.__navbar_container}>
           <div className={styles.__link_navbar}>
-            {navLinks.map((link, index) => (
+            {/* {navLinks.map((link, index) => (
               <li key={index}>
                 <Link
                   href={link.href}
@@ -39,7 +39,7 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               </li>
-            ))}
+            ))} */}
             <li>
               <NavContactAboutLink />
             </li>

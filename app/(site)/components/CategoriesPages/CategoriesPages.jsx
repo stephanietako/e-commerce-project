@@ -8,8 +8,9 @@ export const dynamic = "force-dynamic";
 const CategoriesPages = ({ category }) => {
   return (
     <>
-      <section className={styles.categoriespages_section}>
-        <div className={styles.__categoriespages_bloc}>
+      <section className={styles.categoriespages__section}>
+        <div className={styles.categoriespages__container}>
+          <h2 className={styles.categoriespages__title}>{category.name}</h2>
           <div className={styles.images}>
             {category.coverImages ? (
               <>
@@ -30,27 +31,25 @@ const CategoriesPages = ({ category }) => {
             )}
           </div>
 
-          <div className={styles.infos_content}>
-            <div className={styles.infos}>
-              <p className={styles.infos_name}>{category.name}</p>
+          <div className={styles.categoriespages__content}>
+            <div className={styles.categoriespages__infos}>
               <p className={styles.infos_type}>{category.type} </p>
-              <div className={styles.content}>
-                <span>
-                  {" "}
-                  <p
-                    className="price_content"
-                    style={{
-                      fontSize: "1.5rem",
-                    }}
-                  >
-                    {category.price.toFixed(2)}€
-                  </p>
-                </span>
-              </div>
+              <span>
+                {" "}
+                <p
+                  className="price_content"
+                  style={{
+                    fontSize: "1.5rem",
+                  }}
+                >
+                  {category.price.toFixed(2)}€
+                </p>
+              </span>
+
               <span>
                 <PortableText value={category.content} />
               </span>
-              <div className={styles.categoriespages_link}>
+              <div className={styles.categoriespages__link}>
                 <Link
                   href={`/categories/${category.slug}`}
                   className="link_items"

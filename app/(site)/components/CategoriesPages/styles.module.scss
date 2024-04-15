@@ -1,4 +1,4 @@
-.categoriespages_section {
+.categoriespages__section {
   display: flex;
   width: auto;
   height: auto;
@@ -6,12 +6,14 @@
   flex-wrap: wrap;
   margin: 2rem;
 
-  .__categoriespages_bloc {
+  .categoriespages__container {
     display: flex;
     flex-direction: column;
     border: 3px solid #000;
     border-radius: 30px;
     padding: 2rem;
+    width: 22rem;
+    height: auto;
 
     .images {
       width: 100%;
@@ -21,7 +23,7 @@
       padding: 0.5rem;
     }
 
-    .infos {
+    .categoriespages__infos {
       width: 100%;
       height: auto;
 
@@ -29,13 +31,7 @@
         color: gray;
       }
 
-      .content {
-        display: flex;
-        // border: 3px solid pink;
-        flex-direction: column;
-      }
-
-      .categoriespages_link {
+      .categoriespages__link {
         display: flex;
         width: auto;
         height: auto;

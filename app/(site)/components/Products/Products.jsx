@@ -38,9 +38,6 @@ const Products = ({ allproducts }) => {
               height: "auto",
               alignItems: "center",
               flexWrap: "wrap",
-              borderRadius: "30px",
-              border: "3px solid #000",
-              padding: "2rem",
             }}
           >
             <header
@@ -169,12 +166,7 @@ const Products = ({ allproducts }) => {
                                 }}
                               >
                                 <div className="categories">
-                                  <h3
-                                    className="title_categories"
-                                    style={{
-                                      color: "white",
-                                    }}
-                                  >
+                                  <h3 className="title_categories">
                                     <Link href={`/categories/${category.slug}`}>
                                       {category.name}
                                     </Link>
