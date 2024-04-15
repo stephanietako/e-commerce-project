@@ -9,18 +9,6 @@ export const dynamic = "force-dynamic";
 const ByCategory = ({ bycategory }) => {
   return (
     <>
-      <header
-        className="header_category"
-        style={{
-          display: "flex",
-          width: "auto",
-          height: "auto",
-          alignItems: "center",
-          padding: "33px",
-        }}
-      >
-        <h1 className="_bycategory_title">TOUTES LES CATEGORIES</h1>
-      </header>
       {/* Section principale des categories */}
       <div
         className="categories_section"
@@ -28,12 +16,22 @@ const ByCategory = ({ bycategory }) => {
           display: "flex",
           width: "100%",
           height: "auto",
-          alignItems: "center",
-          justifyContent: "space-evenly",
           flexWrap: "wrap",
           flexDirection: "column",
         }}
       >
+        <header
+          className="header_category"
+          style={{
+            display: "flex",
+            width: "auto",
+            height: "auto",
+            alignItems: "center",
+            padding: "33px",
+          }}
+        >
+          <h1 className="_bycategory_title">TOUTES LES CATEGORIES</h1>
+        </header>
         <div
           className="bycategories_container"
           style={{
@@ -47,11 +45,13 @@ const ByCategory = ({ bycategory }) => {
             className="display_all_categories"
             style={{
               display: "flex",
-              width: "100%",
+              width: "auto",
               height: "auto",
               alignItems: "center",
-              justifyContent: "center",
               flexWrap: "wrap",
+              borderRadius: "30px",
+              // border: "3px solid #000",
+              padding: "2rem",
             }}
           >
             <div
@@ -101,7 +101,7 @@ const ByCategory = ({ bycategory }) => {
                   marginTop: "4rem",
                 }}
               >
-                <h3
+                {/* <h3
                   className="_bycategory_subtitle"
                   style={{
                     display: "flex",
@@ -112,7 +112,7 @@ const ByCategory = ({ bycategory }) => {
                   }}
                 >
                   Toutes nos categories de produits
-                </h3>
+                </h3> */}
 
                 {/* Boucle EXTERNE à travers toutes les categories */}
                 {bycategory.map((categories) => (
@@ -213,9 +213,17 @@ const ByCategory = ({ bycategory }) => {
                                       flexDirection: "column",
                                     }}
                                   >
-                                    <p className="price_content">
-                                      €{categories.price.toFixed(2)}
-                                    </p>
+                                    <span>
+                                      {" "}
+                                      <p
+                                        className="price_content"
+                                        style={{
+                                          fontSize: "1.5rem",
+                                        }}
+                                      >
+                                        {categories.price.toFixed(2)}€
+                                      </p>
+                                    </span>
                                   </div>
                                   <div>
                                     <PortableText value={categories.content} />

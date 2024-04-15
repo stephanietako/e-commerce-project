@@ -96,9 +96,17 @@ const Categories = ({ category }) => {
                           flexDirection: "column",
                         }}
                       >
-                        <p className="price_content">
-                          €{categories.price.toFixed(2)}
-                        </p>
+                        <span>
+                          {" "}
+                          <p
+                            className="price_content"
+                            style={{
+                              fontSize: "1.5rem",
+                            }}
+                          >
+                            {categories.price.toFixed(2)}€
+                          </p>
+                        </span>
                       </div>
                     </div>
                   ))}

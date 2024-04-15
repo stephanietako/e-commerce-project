@@ -113,7 +113,7 @@ const CategoryDetails = async ({ params }) => {
                           fontSize: "3rem",
                         }}
                       >
-                        €{data.price.toFixed(2)}
+                        {data.price.toFixed(2)}€
                       </p>
                     </span>
                     <span>

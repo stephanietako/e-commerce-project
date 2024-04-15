@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { fetchDataProduct } from "@/sanity/lib/api";
-import ProductsPages from "../ProductsPages/ProductsPages";
+import ProductsPages from "../components/ProductsPages/ProductsPages";
 // Styles
 import styles from "./styles.module.scss";
 
@@ -51,7 +51,7 @@ const FiltersProducts = () => {
             className={styles.title_select_products}
             style={{
               display: "block",
-              paddingBottom: "1rem",
+              paddingBottom: "2rem",
             }}
           >
             Select Products

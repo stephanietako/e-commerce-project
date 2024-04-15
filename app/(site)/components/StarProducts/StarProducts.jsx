@@ -143,9 +143,18 @@ const StarProducts = ({ starproducts }) => {
                                       {category.name}
                                     </Link>
                                   </h3>
-                                  <p className="price_content">
-                                    €{category.price.toFixed(2)}
-                                  </p>
+                                  <span>
+                                    {" "}
+                                    <p
+                                      className="price_content"
+                                      style={{
+                                        fontSize: "1.5rem",
+                                      }}
+                                    >
+                                      {category.price.toFixed(2)}€
+                                    </p>
+                                  </span>
+
                                   <span>
                                     <PortableText value={category.content} />
                                   </span>

@@ -1,65 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
-
+// Styles
+import styles from "./styles.module.scss";
 export const dynamic = "force-dynamic";
 // DISPLAY
 const ProductsPages = ({ product }) => {
   return (
     <>
-      <section
-        className="container"
-        style={{
-          display: "flex",
-          width: "100%",
-          height: " auto",
-          border: "3px solid #000",
-          borderRadius: "30px",
-          padding: "2rem",
-        }}
-      >
-        <div
-          className="productspages"
-          style={{
-            display: "flex",
-            width: "100%",
-            height: " auto",
-            justifyContent: "center",
-            flexDirection: "column",
-          }}
-        >
-          <header
-            className="productspages_header"
-            style={{
-              display: "flex",
-              width: "100%",
-              height: " auto",
-              justifyContent: "center",
-              position: "relative",
-              zIndex: "1",
-            }}
-          >
-            <div
-              className="productspages"
-              style={{
-                display: "flex",
-                width: "100%",
-                height: " auto",
-                justifyContent: "center",
-                position: "absolute",
-                top: "40%",
-              }}
-            >
+      <section className={styles.container_productspages}>
+        <div className={styles.productspages__header}>
+          <header className={styles.__header}>
+            <div className={styles.productspages__title}>
               <h1>{product.name}</h1>
             </div>
-            <div
-              className="images"
-              style={{
-                display: "flex",
-                width: "100%",
-                height: "100%",
-              }}
-            >
+            <div className={styles.productspages__images}>
               {product.coverImages ? (
                 <Image
                   src={product.coverImages}
@@ -79,27 +34,9 @@ const ProductsPages = ({ product }) => {
             </div>
           </header>
         </div>
-        <div className="productspages_section">
-          <div
-            className="__productspages_bloc"
-            style={{
-              display: "flex",
-              width: "100%",
-              height: " auto",
-              justifyContent: "center",
-              flexDirection: "column",
-            }}
-          >
-            <div
-              className="infos_product"
-              style={{
-                display: "flex",
-                width: "auto",
-                height: "auto",
-                flexDirection: "column",
-                padding: "2rem",
-              }}
-            >
+        <div className={styles.productspages__section}>
+          <div className={styles.productspages__bloc}>
+            <div className={styles.infos_product}>
               <span>
                 <PortableText value={product.content} />
               </span>
@@ -109,45 +46,19 @@ const ProductsPages = ({ product }) => {
               </span>
             </div>
 
-            <div
-              className="productspages_display_categories"
-              style={{
-                display: "flex",
-                width: "100%",
-                height: "auto",
-                flexDirection: "column",
-              }}
-            >
-              <ul
-                className="productspages_display_content"
-                style={{
-                  display: "flex",
-                  width: "100%",
-                  height: "auto",
-                  justifyContent: "center",
-                }}
-              >
+            <div className={styles.productspages_display__categories}>
+              <ul className={styles.productspages_display__content}>
                 {product.categories.map((category) => (
                   <div key={category._id}>
                     <>
-                      <li
-                        className="list_display_categories"
-                        style={{
-                          display: "flex",
-                          border: "3px solid #000",
-                          flexDirection: "column",
-                          padding: "1rem",
-                          margin: "1rem",
-                          borderRadius: "30px",
-                        }}
-                      >
+                      <li className={styles.list_display__categories}>
                         <h3>
                           <Link href={`/categories/${category.slug}`}>
                             {category.name}
                           </Link>
                         </h3>
                         <span>
-                          {" "}
+                          {""}
                           <div
                             className="images"
                             style={{
@@ -172,7 +83,15 @@ const ProductsPages = ({ product }) => {
                           </div>
                         </span>
                         <span>
-                          <p className="price_content">€{category.price}</p>
+                          {" "}
+                          <p
+                            className="price_content"
+                            style={{
+                              fontSize: "1.5rem",
+                            }}
+                          >
+                            {category.price.toFixed(2)}€
+                          </p>
                         </span>
                         <span>
                           <Link

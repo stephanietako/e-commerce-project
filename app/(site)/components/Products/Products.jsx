@@ -100,7 +100,7 @@ const Products = ({ allproducts }) => {
                   marginTop: "4rem",
                 }}
               >
-                <h3
+                {/* <h3
                   className="_bycategory_subtitle"
                   style={{
                     display: "flex",
@@ -111,7 +111,7 @@ const Products = ({ allproducts }) => {
                   }}
                 >
                   Tous nos produits
-                </h3>
+                </h3> */}
 
                 {/* Boucle EXTERNE à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
                 {allproducts.map((product) => (
@@ -214,9 +214,17 @@ const Products = ({ allproducts }) => {
                                     flexDirection: "column",
                                   }}
                                 >
-                                  <p className="price_content">
-                                    €{category.price}
-                                  </p>
+                                  <span>
+                                    {" "}
+                                    <p
+                                      className="price_content"
+                                      style={{
+                                        fontSize: "1.5rem",
+                                      }}
+                                    >
+                                      {category.price.toFixed(2)}€
+                                    </p>
+                                  </span>
                                   <span>
                                     <PortableText value={category.content} />
                                   </span>

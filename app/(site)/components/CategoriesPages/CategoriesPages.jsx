@@ -35,7 +35,17 @@ const CategoriesPages = ({ category }) => {
               <p className={styles.infos_name}>{category.name}</p>
               <p className={styles.infos_type}>{category.type} </p>
               <div className={styles.content}>
-                <p className={styles.price_content}>€{category.price}</p>
+                <span>
+                  {" "}
+                  <p
+                    className="price_content"
+                    style={{
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    {category.price.toFixed(2)}€
+                  </p>
+                </span>
               </div>
               <span>
                 <PortableText value={category.content} />
