@@ -47,7 +47,7 @@ const FiltersCategories = () => {
   return (
     <div className={styles.container_filter_categories}>
       <ul className={styles.categories__list}>
-        <div className={styles.__box}>
+        <div className={styles.categories__box}>
           {filteredCategories.map(({ name }, index) => {
             const isChecked = selectedCategories.includes(name);
 
@@ -83,18 +83,7 @@ const FiltersCategories = () => {
           <li>
             <div className={styles.__filtered_categories}>
               {isLoading ? (
-                <div
-                  style={{
-                    display: "flex",
-                    width: "100%",
-                    // height: "35rem",
-                    position: "relative",
-                    padding: "2rem",
-                    marginTop: "11rem",
-                  }}
-                >
-                  Loading...
-                </div>
+                <div>Loading...</div>
               ) : (
                 data
                   .filter(

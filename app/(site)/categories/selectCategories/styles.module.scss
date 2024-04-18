@@ -33,13 +33,12 @@
     width: 90%;
     height: auto;
     flex-direction: column;
-    border: 7px solid red;
   }
-  .select_categories__bloc {
+
+  .select_categories__bloc_content {
     display: flex;
-    width: 90%;
+    width: 35%;
     height: auto;
-    flex-direction: column;
-    border: 7px solid red;
+    position: relative;
   }
 }
