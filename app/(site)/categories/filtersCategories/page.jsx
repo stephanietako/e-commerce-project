@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { fetchData } from "@/sanity/lib/api";
-import CategoriesPages from "../CategoriesPages/CategoriesPages";
+import CategoriesPages from "../../components/CategoriesPages/CategoriesPages";
 // Styles
 import styles from "./styles.module.scss";
 
@@ -44,35 +44,16 @@ const FiltersCategories = () => {
     }
   };
 
-  //console.log("filteredCategories !!!!!!!!!!!!!!!!!!", filteredCategories);
-
   return (
     <div className={styles.container_filter_categories}>
-      <ul className={styles.categories_list}>
-        <div className={styles.categories_text}>
-          {" "}
-          <h2
-            className={styles.title_select_categories}
-            style={{
-              display: "block",
-              paddingBottom: "1rem",
-            }}
-          >
-            Select Categories
-          </h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-            voluptatum laborum numquam blanditiis !
-          </p>
-        </div>
+      <ul className={styles.categories__list}>
         <div className={styles.__box}>
           {filteredCategories.map(({ name }, index) => {
             const isChecked = selectedCategories.includes(name);
 
             return (
               <li key={index}>
-                <div className={styles.categories_list_item}>
+                <div className={styles.categories__item}>
                   <div className={styles.check_section}>
                     <input
                       type="checkbox"

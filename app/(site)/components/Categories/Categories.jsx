@@ -101,7 +101,7 @@ const Categories = ({ category }) => {
                           <p
                             className="price_content"
                             style={{
-                              fontSize: "1.5rem",
+                              fontSize: "1rem",
                             }}
                           >
                             {categories.price.toFixed(2)}€

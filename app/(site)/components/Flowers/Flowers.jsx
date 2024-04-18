@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import SearchFlowers from "../SearchFlowers/SearchFlowers";
+import canaIcon from "@/public/assets/canaleaf.png";
 import SearchTypeFlowers from "../SearchTypeFlowers/SearchTypeFlowers";
 export const dynamic = "force-dynamic";
 // DISPLAY
@@ -47,7 +48,7 @@ const Flowers = ({ allflowers }) => {
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                width: "70%",
+                width: "75%",
                 height: "auto",
                 justifyContent: "center",
                 border: "2px solid #000",
@@ -72,14 +73,41 @@ const Flowers = ({ allflowers }) => {
                       }}
                     >
                       <header
-                        className="flower__header"
+                        className="title"
                         style={{
                           display: "flex",
-                          width: "100%",
+                          position: "relative",
+                          zIndex: 1,
+                          padding: "2rem",
+                          width: "77rem",
                           height: "auto",
                         }}
                       >
-                        <h1 className="flowers"> TOUTES NOS FLEURS</h1>
+                        <h1>
+                          Toutes nos fleurs
+                          <span
+                            className="icon"
+                            style={{
+                              display: "block",
+                              position: "absolute",
+                              left: " -21px",
+                              zIndex: -1,
+                              transform: " translateY(-76%) rotate(-29deg)",
+                            }}
+                          >
+                            {" "}
+                            <Image
+                              src={canaIcon}
+                              alt="les produits de la boutiques vibes cbd"
+                              className="cana_icon__img"
+                              width={100}
+                              height={0}
+                              style={{
+                                objectFit: "cover",
+                              }}
+                            />
+                          </span>
+                        </h1>
                       </header>
                       <div
                         className="flower__bloc"
@@ -143,6 +171,9 @@ const Flowers = ({ allflowers }) => {
                               borderRadius: "30px",
                               border: "2px solid #000",
                               margin: "2rem",
+                              width: "17rem",
+                              height: "auto",
+                              justifyContent: "center",
                             }}
                           >
                             <div
@@ -163,7 +194,13 @@ const Flowers = ({ allflowers }) => {
                                     {category.name}
                                   </Link>
                                 </h3>
-                                <div className="_flowers_images">
+                                <div
+                                  className="_flowers_images"
+                                  // style={{
+                                  //   display: "flex",
+                                  //   justifyContent: "center",
+                                  // }}
+                                >
                                   {category.coverImages && (
                                     <Image
                                       src={category.coverImages}
@@ -175,6 +212,7 @@ const Flowers = ({ allflowers }) => {
                                         objectFit: "cover",
                                         borderRadius: "30px",
                                         padding: "0.5rem",
+                                        // justifyContent: "center",
                                       }}
                                     />
                                   )}
@@ -193,7 +231,7 @@ const Flowers = ({ allflowers }) => {
                                   <p
                                     className="price_content"
                                     style={{
-                                      fontSize: "1.5rem",
+                                      fontSize: "1rem",
                                     }}
                                   >
                                     {category.price.toFixed(2)}€

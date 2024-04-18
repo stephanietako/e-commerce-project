@@ -30,7 +30,6 @@ const Footer = () => {
               &#169; Copyright {currentYear} | Tako Dev
             </div>
           </li>
-          <li></li>
         </ul>
       </footer>
     </div>

@@ -20,12 +20,11 @@ const ProductsPages = ({ product }) => {
                   src={product.coverImages}
                   alt="les fleurs"
                   className="product__img"
-                  width={1000}
-                  height={200}
+                  width={1500}
+                  height={300}
                   style={{
                     objectFit: "cover",
                     borderRadius: "30px",
-                    width: "100%",
                   }}
                 />
               ) : (
@@ -87,7 +86,7 @@ const ProductsPages = ({ product }) => {
                           <p
                             className="price_content"
                             style={{
-                              fontSize: "1.5rem",
+                              fontSize: "1rem",
                             }}
                           >
                             {category.price.toFixed(2)}€

@@ -18,8 +18,8 @@ const CategoriesPages = ({ category }) => {
                   src={category.coverImages}
                   alt="les fleurs"
                   className="category__img"
-                  width={180}
-                  height={180}
+                  width={150}
+                  height={150}
                   style={{
                     objectFit: "cover",
                     borderRadius: "30px",
@@ -39,7 +39,7 @@ const CategoriesPages = ({ category }) => {
                 <p
                   className="price_content"
                   style={{
-                    fontSize: "1.5rem",
+                    fontSize: "1rem",
                   }}
                 >
                   {category.price.toFixed(2)}€

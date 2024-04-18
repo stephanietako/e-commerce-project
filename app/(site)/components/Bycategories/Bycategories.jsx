@@ -51,7 +51,7 @@ const ByCategory = ({ bycategory }) => {
               flexWrap: "wrap",
               borderRadius: "30px",
               // border: "3px solid #000",
-              padding: "2rem",
+              // padding: "2rem",
             }}
           >
             <div
@@ -98,7 +98,7 @@ const ByCategory = ({ bycategory }) => {
                   width: "100%",
                   height: "auto",
                   justifyContent: "center",
-                  marginTop: "4rem",
+                  marginTop: "2rem",
                 }}
               >
                 {/* <h3
@@ -128,9 +128,9 @@ const ByCategory = ({ bycategory }) => {
                           justifyContent: "center",
                           margin: "2rem",
                           borderRadius: "30px",
-                          padding: "2rem",
-                          margin: "2rem",
-                          width: "22rem",
+                          padding: "1rem",
+                          // margin: "2rem",
+                          width: "17rem",
                         }}
                       >
                         <div
@@ -140,7 +140,6 @@ const ByCategory = ({ bycategory }) => {
                             width: "100%",
                             height: "auto",
                             alignItems: "center",
-                            padding: "1rem",
                             flexWrap: "wrap",
                           }}
                         >

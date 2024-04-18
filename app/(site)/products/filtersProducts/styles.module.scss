@@ -27,8 +27,8 @@
       width: 100%;
       height: auto;
       flex-wrap: wrap;
-      justify-content: center;
       border-radius: 30px;
+      flex-direction: column;
 
       .products_list_item {
         width: 100%;
@@ -38,7 +38,7 @@
         margin-top: 0.3rem;
 
         .check_section {
-          width: 10rem;
+          width: 9rem;
           height: auto;
           display: flex;
         }
@@ -53,7 +53,7 @@
 
       .__filtered_products {
         display: flex;
-        width: 87rem;
+        width: 67rem;
         height: auto;
         position: relative;
         justify-content: center;
@@ -69,15 +69,16 @@
       align-content: center;
       justify-content: center;
       font-size: 2rem;
-      padding: 0.1rem;
+      // padding: 0.1rem;
       border: 0.25rem solid gray;
       border-radius: 0.5rem;
-      width: 1em;
+      width: 1.3rem;
+      height: 1.3rem;
 
       &::before {
         content: "";
-        width: 1.4rem;
-        height: 1.4rem;
+        width: 0.9rem;
+        height: 0.9rem;
         clip-path: polygon(
           20% 0%,
           0% 20%,

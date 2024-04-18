@@ -28,7 +28,7 @@ const FiltersSearchCategories = () => {
     return categories.filter((el) =>
       categoryType
         ? el.type.toLowerCase().includes(categoryType.toLowerCase())
-        : el.name.includes(searchQuery)
+        : el.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
   };
 

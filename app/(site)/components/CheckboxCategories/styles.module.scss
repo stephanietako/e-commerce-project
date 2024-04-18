@@ -1,13 +1,14 @@
 .checkboxPage_container {
   display: flex;
   height: auto;
-  justify-content: center;
+  // justify-content: center;
   width: 100%;
 
   .categoriespages_container {
     display: flex;
     width: 100%;
     height: auto;
-    justify-content: center;
+    // border: 5px solid red;
+    // justify-content: flex-end;
   }
 }

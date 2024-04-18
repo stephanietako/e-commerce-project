@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
+import canaIcon from "@/public/assets/canaleaf.png";
 import CheckboxProducts from "../CheckboxProducts/CheckboxProducts";
 import { Suspense } from "react";
 export const dynamic = "force-dynamic";
@@ -41,16 +42,41 @@ const Products = ({ allproducts }) => {
             }}
           >
             <header
-              className="header_products"
+              className="title"
               style={{
                 display: "flex",
-                width: "auto",
+                position: "relative",
+                zIndex: 1,
+                padding: "2rem",
+                width: "77rem",
                 height: "auto",
-                alignItems: "center",
-                padding: "33px",
               }}
             >
-              <h1 className="_products">TOUS LES PRODUITS</h1>
+              <h1>
+                Tous no produits
+                <span
+                  className="icon"
+                  style={{
+                    display: "block",
+                    position: "absolute",
+                    left: " -21px",
+                    zIndex: -1,
+                    transform: " translateY(-76%) rotate(-29deg)",
+                  }}
+                >
+                  {" "}
+                  <Image
+                    src={canaIcon}
+                    alt="les produits de la boutiques vibes cbd"
+                    className="cana_icon__img"
+                    width={100}
+                    height={0}
+                    style={{
+                      objectFit: "cover",
+                    }}
+                  />
+                </span>
+              </h1>
             </header>
             <div
               className="products_content"
@@ -124,7 +150,7 @@ const Products = ({ allproducts }) => {
                           justifyContent: "center",
                           margin: "2rem",
                           borderRadius: "30px",
-                          padding: "2rem",
+                          padding: "1rem",
                           width: "auto",
                           justifyContent: "space-around",
                         }}
@@ -153,9 +179,14 @@ const Products = ({ allproducts }) => {
                             <div
                               className="data_group_products"
                               style={{
+                                display: "flex",
                                 padding: "20px",
                                 borderRadius: "30px",
                                 border: "2px solid #000",
+                                margin: "2rem",
+                                width: "17rem",
+                                height: "auto",
+                                justifyContent: "center",
                               }}
                             >
                               <div
@@ -211,7 +242,7 @@ const Products = ({ allproducts }) => {
                                     <p
                                       className="price_content"
                                       style={{
-                                        fontSize: "1.5rem",
+                                        fontSize: "1rem",
                                       }}
                                     >
                                       {category.price.toFixed(2)}€

@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
+import canaIcon from "@/public/assets/canaleaf.png";
 export const dynamic = "force-dynamic";
 
 const StarProducts = ({ starproducts }) => {
@@ -31,7 +32,7 @@ const StarProducts = ({ starproducts }) => {
               width: "auto",
               height: "auto",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "flex-end",
               borderRadius: "30px",
             }}
           >
@@ -46,18 +47,45 @@ const StarProducts = ({ starproducts }) => {
                 flexDirection: "column",
                 border: "3px solid #000",
                 borderRadius: "30px",
+                padding: "2rem",
               }}
             >
               <header
-                className="header_STARPRODUCTS"
+                className="title"
                 style={{
                   display: "flex",
-                  width: "100%",
+                  position: "relative",
+                  zIndex: 1,
+                  padding: "2rem",
+                  width: "77rem",
                   height: "auto",
-                  padding: "33px",
                 }}
               >
-                <h1 className="_STARPRODUCTS"> NOS PRODUITS STAR</h1>
+                <h1>
+                  Nos produits star
+                  <span
+                    className="icon"
+                    style={{
+                      display: "block",
+                      position: "absolute",
+                      left: " -21px",
+                      zIndex: -1,
+                      transform: " translateY(-76%) rotate(-29deg)",
+                    }}
+                  >
+                    {" "}
+                    <Image
+                      src={canaIcon}
+                      alt="les produits de la boutiques vibes cbd"
+                      className="cana_icon__img"
+                      width={100}
+                      height={0}
+                      style={{
+                        objectFit: "cover",
+                      }}
+                    />
+                  </span>
+                </h1>
               </header>
               <div
                 className="starproducts_cards"
@@ -92,7 +120,7 @@ const StarProducts = ({ starproducts }) => {
                           // border: "3px solid black",
                           flexWrap: "wrap",
                           borderRadius: "30px",
-                          padding: "2rem",
+                          padding: "1rem",
                           justifyContent: "space-around",
                         }}
                       >
@@ -148,7 +176,7 @@ const StarProducts = ({ starproducts }) => {
                                     <p
                                       className="price_content"
                                       style={{
-                                        fontSize: "1.5rem",
+                                        fontSize: "1rem",
                                       }}
                                     >
                                       {category.price.toFixed(2)}€

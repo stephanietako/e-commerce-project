@@ -1,27 +1,16 @@
 .container_filter_categories {
   display: flex;
-  width: 80%;
   height: auto;
   margin-top: 2rem;
+  width: 100%;
+  height: auto;
 
-  .categories_list {
+  .categories__list {
     display: flex;
     width: 100%;
     height: auto;
-    position: relative;
-    flex-direction: column;
 
-    .categories_text {
-      display: flex;
-      width: 55%;
-      height: auto;
-      // justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 1rem;
-    }
-
-    .__box {
+    .categories__box {
       display: flex;
       width: 100%;
       height: auto;
@@ -29,7 +18,7 @@
       justify-content: center;
       border-radius: 30px;
 
-      .categories_list_item {
+      .categories__item {
         width: 100%;
         height: auto;
         display: flex;
@@ -37,28 +26,23 @@
         margin-top: 0.3rem;
 
         .check_section {
-          width: 12rem;
+          width: 24rem;
           height: auto;
-          display: flex;
-        }
-
-        .custom_checkbox {
-          color: gray;
-          padding-left: 0.3rem;
-          align-items: center;
           display: flex;
         }
       }
 
       .__filtered_categories {
         display: flex;
-        width: 87rem;
+        width: 32rem;
         height: auto;
         position: relative;
-        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        margin-top: 2rem;
+        top: 0;
+        z-index: 2;
+        position: absolute;
+        right: 0;
       }
     }
 
@@ -69,15 +53,15 @@
       align-content: center;
       justify-content: center;
       font-size: 2rem;
-      padding: 0.1rem;
       border: 3px solid gray;
       border-radius: 0.5rem;
-      width: 1em;
+      width: 1.3rem;
+      height: 1.3rem;
 
       &::before {
         content: "";
-        width: 1.4rem;
-        height: 1.4rem;
+        width: 0.9rem;
+        height: 0.9rem;
         clip-path: polygon(
           20% 0%,
           0% 20%,

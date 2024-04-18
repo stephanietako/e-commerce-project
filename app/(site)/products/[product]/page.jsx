@@ -156,6 +156,7 @@ const ProductsDetails = async ({ params }) => {
                       padding: "1rem",
                       margin: "1rem",
                       borderRadius: "30px",
+                      justifyContent: "flex-end",
                     }}
                     key={category._id}
                   >
@@ -194,7 +195,7 @@ const ProductsDetails = async ({ params }) => {
                       <p
                         className="price_content"
                         style={{
-                          fontSize: "1.5rem",
+                          fontSize: "1rem",
                         }}
                       >
                         {category.price.toFixed(2)}€

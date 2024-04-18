@@ -3,7 +3,7 @@ import Link from "next/link";
 //import { getPages } from "@/sanity/lib/client";
 import { getCategories } from "@/sanity/lib/client";
 //import Categories from "./components/Categories/Categories";
-import Bycategories from "./components/Bycategories/Bycategories";
+//import Bycategories from "./components/Bycategories/Bycategories";
 import Products from "./components/Products/Products";
 import { getDataProductsPages } from "@/sanity/lib/client";
 import StarProducts from "./components/StarProducts/StarProducts";
@@ -13,6 +13,9 @@ import { getDataFlowers } from "@/sanity/lib/client";
 import Flowers from "./components/Flowers/Flowers";
 import HeroContainer from "./components/HeroContainer/HeroContainer";
 import AnimeCartFilter from "./components/AnimeCartFilter/AnimeCartFilter";
+import SelectCategories from "./categories/selectCategories/page";
+import CheckboxCategories from "./components/CheckboxCategories/CheckboxCategories";
+
 // import All from "./components/All/All";
 //import { fetchDataSearchBar } from "@/sanity/lib/api";
 
@@ -23,7 +26,7 @@ const Home = async () => {
   //about/contact
   // const pages = await getPages();
   //const category = await getProductsByCategories();
-  const bycategory = await getCategories();
+  //const bycategory = await getCategories();
   const starproducts = await getDataStarProducts();
   const allproducts = await getDataProductsPages();
   const products = await getDataProducts();
@@ -45,45 +48,67 @@ const Home = async () => {
 
   return (
     <>
-      <div className="menu_products">
-        <div className="links">
-          {products.map((product) => (
-            <Link
-              key={product._id}
-              href={`/products/${product.slug}`}
-              className="link"
-            >
-              {product.name}
-            </Link>
-          ))}
-        </div>
-      </div>
-      {/* //////////////////////////////////// */}
-      <div
-        className="first_section"
+      <section
+        className="home_section"
         style={{
           display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          alignContent: "center",
-          alignItems: "center",
+          width: "100%",
+          height: "auto",
+          padding: "2rem",
         }}
       >
-        {/* ////////////////HERO//////////////////// */}
-        <section className="herocontainer_section">
-          <HeroContainer cards={cards} />
-          {/* <Hero cards={cards} /> */}
-        </section>
-        <section className="animefilter_section">
-          <AnimeCartFilter />
-        </section>
-        {/* <section>
+        <div className="menu_products">
+          <div className="links">
+            {products.map((product) => (
+              <Link
+                key={product._id}
+                href={`/products/${product.slug}`}
+                className="link"
+              >
+                {product.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+        {/* //////////////////////////////////// */}
+        <div
+          className="home_page"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {/* ////////////////HERO//////////////////// */}
+          <section className="herocontainer_section">
+            <HeroContainer cards={cards} />
+            {/* <Hero cards={cards} /> */}
+          </section>
+          <section className="animefilter_section">
+            <AnimeCartFilter />
+          </section>
+          <section className="starproducts_section">
+            <StarProducts starproducts={starproducts} />
+          </section>
+          <section className="categories_section">
+            <Flowers allflowers={allflowers} />
+          </section>
+          <section className="all_products_section">
+            <Products allproducts={allproducts} />
+          </section>
+
+          <section>
+            <SelectCategories />
+          </section>
+          {/* <section>
           <h2>Search bar de tout le shop</h2>
           <SearchBarAll />
         </section> */}
 
-        {/* // MENU des projects get projects */}
-        {/* <div className="container__projects">
+          {/* // MENU des projects get projects */}
+          {/* <div className="container__projects">
           {projects.map((project) => (
             <div key={project._id}>
               <h2>
@@ -103,13 +128,11 @@ const Home = async () => {
             </div>
           ))}
         </div> */}
-        {/* </Suspense> */}
-      </div>
-      <section className="starproducts_section">
-        <StarProducts starproducts={starproducts} />
-      </section>
-      {/* ///////////////////// */}
-      {/* <section>
+          {/* </Suspense> */}
+        </div>
+
+        {/* ///////////////////// */}
+        {/* <section>
         <div className="links">
           {categories.map((category) => (
             <Link
@@ -122,24 +145,19 @@ const Home = async () => {
           ))}
         </div>
       </section> */}
-      {/* //////////////////////////////////////////// */}
-      <section className="categories_section">
-        <Flowers allflowers={allflowers} />
-      </section>
+        {/* //////////////////////////////////////////// */}
 
-      {/* <section>
+        {/* <section>
         <All all={all} />
       </section> */}
 
-      <section className="all_products_section">
-        <Products allproducts={allproducts} />
-      </section>
-      <section className="by_categories_section">
+        {/* <section className="by_categories_section">
         <Bycategories bycategory={bycategory} />
-      </section>
-      {/* <section className="all_categories_section">
+      </section> */}
+        {/* <section className="all_categories_section">
         <Categories category={category} />
       </section> */}
+      </section>
     </>
   );
 };
