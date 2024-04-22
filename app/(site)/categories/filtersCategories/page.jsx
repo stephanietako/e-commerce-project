@@ -46,6 +46,7 @@ const FiltersCategories = () => {
 
   return (
     <div className={styles.container_filter_categories}>
+      COUCOU !!!!
       <ul className={styles.categories__list}>
         <div className={styles.categories__box}>
           {filteredCategories.map(({ name }, index) => {

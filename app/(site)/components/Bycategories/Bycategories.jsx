@@ -99,21 +99,10 @@ const ByCategory = ({ bycategory }) => {
                   height: "auto",
                   justifyContent: "center",
                   marginTop: "2rem",
+                  border: "3px solid green",
+                  marginBottom: "4rem",
                 }}
               >
-                {/* <h3
-                  className="_bycategory_subtitle"
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    width: "100%",
-                    height: "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  Toutes nos categories de produits
-                </h3> */}
-
                 {/* Boucle EXTERNE à travers toutes les categories */}
                 {bycategory.map((categories) => (
                   <div key={categories._id}>

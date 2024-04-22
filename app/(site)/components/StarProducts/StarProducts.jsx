@@ -32,7 +32,7 @@ const StarProducts = ({ starproducts }) => {
               width: "auto",
               height: "auto",
               alignItems: "center",
-              justifyContent: "flex-end",
+              justifyContent: "center",
               borderRadius: "30px",
             }}
           >

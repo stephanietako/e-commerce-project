@@ -1,3 +1,11 @@
+.select_categories {
+  display: flex;
+  width: 100%;
+  height: auto;
+  border: 3px solid lime;
+  flex-direction: column;
+}
+
 .select_categories__header {
   display: flex;
   width: 100%;
@@ -27,12 +35,14 @@
   width: 100%;
   height: auto;
   position: relative;
+  border: 3px solid red;
 
   .select_categories__bloc {
     display: flex;
     width: 90%;
     height: auto;
     flex-direction: column;
+    border: 3px solid turquoise;
   }
 
   .select_categories__bloc_content {
