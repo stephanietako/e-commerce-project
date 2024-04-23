@@ -19,11 +19,6 @@ const Navbar = () => {
   return (
     <>
       <nav className={styles.navbar}>
-        <div className={styles.__logo}>
-          <a href="/">
-            <Image className={styles.__img} src={logo} alt="les fleurs" />
-          </a>
-        </div>
         <ul className={styles.__navbar_container}>
           <div className={styles.__link_navbar}>
             {/* {navLinks.map((link, index) => (
@@ -40,6 +35,26 @@ const Navbar = () => {
                 </Link>
               </li>
             ))} */}
+            <li>
+              <div className={styles.__logo}>
+                <a href="/">
+                  <Image
+                    className={styles.__img}
+                    src={logo}
+                    alt="les fleurs"
+                    width={110}
+                    height={110}
+                    style={{
+                      display: "block",
+                      objectFit: "cover",
+                      width: "auto",
+                      height: "auto",
+                      border: "3px solid red",
+                    }}
+                  />
+                </a>
+              </div>
+            </li>
             <li>
               <NavContactAboutLink />
             </li>

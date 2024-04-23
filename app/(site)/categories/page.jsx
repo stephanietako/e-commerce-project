@@ -25,12 +25,23 @@ const FiltersSearchCategories = () => {
   ///////////////
   //Filtrage des categories
   const filterCategories = (categories) => {
-    return categories.filter((el) =>
-      categoryType
-        ? el.type.toLowerCase().includes(categoryType.toLowerCase())
-        : el.name.toLowerCase().includes(searchQuery.toLowerCase())
+    return categories.filter(
+      (el) =>
+        typeof el.type === "string" &&
+        typeof el.name === "string" &&
+        (categoryType
+          ? el.type.toLowerCase().includes(categoryType.toLowerCase())
+          : el.name.toLowerCase().includes(searchQuery.toLowerCase()))
     );
   };
+
+  // const filterCategories = (categories) => {
+  //   return categories.filter((el) =>
+  //     categoryType
+  //       ? el.type.toLowerCase().includes(categoryType.toLowerCase())
+  //       : el.name.toLowerCase().includes(searchQuery.toLowerCase())
+  //   );
+  // };
 
   const filteredCategories = filterCategories(data || []);
   //console.log(filteredCategories);

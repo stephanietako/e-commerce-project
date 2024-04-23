@@ -68,7 +68,6 @@ const Categories = ({ category }) => {
                         padding: "20px",
                       }}
                     >
-                      llllllllllll
                       <div className="images">
                         {categories.coverImages ? (
                           <>

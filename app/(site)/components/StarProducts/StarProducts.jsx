@@ -94,7 +94,6 @@ const StarProducts = ({ starproducts }) => {
                   flexWrap: "wrap",
                   width: "100%",
                   height: "auto",
-                  justifyContent: "center",
                 }}
               >
                 {/* Boucle EXTERNE à travers toutes les categories */}
@@ -117,11 +116,8 @@ const StarProducts = ({ starproducts }) => {
                         className="display_infos_products"
                         style={{
                           display: "flex",
-                          // border: "3px solid black",
                           flexWrap: "wrap",
-                          borderRadius: "30px",
                           padding: "1rem",
-                          justifyContent: "space-around",
                         }}
                       >
                         {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}
@@ -133,6 +129,8 @@ const StarProducts = ({ starproducts }) => {
                                 padding: "20px",
                                 borderRadius: "30px",
                                 border: "2px solid #000",
+                                width: "14rem",
+                                height: "25rem",
                               }}
                             >
                               {/* Contenu détaillé de la sous-catégorie */}
@@ -157,8 +155,8 @@ const StarProducts = ({ starproducts }) => {
                                         src={category.coverImages}
                                         alt="les fleurs"
                                         className="product__img"
-                                        width={200}
-                                        height={200}
+                                        width={170}
+                                        height={170}
                                         style={{
                                           objectFit: "cover",
                                           borderRadius: "30px",

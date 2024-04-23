@@ -20,7 +20,7 @@ const ProductsPages = ({ product }) => {
                   src={product.coverImages}
                   alt="les fleurs"
                   className="product__img"
-                  width={1500}
+                  width={750}
                   height={300}
                   style={{
                     objectFit: "cover",

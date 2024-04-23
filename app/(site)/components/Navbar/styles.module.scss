@@ -14,16 +14,10 @@
 
   .__logo {
     display: flex;
-    width: 14%;
+    width: 100%;
     height: auto;
     align-items: center;
-
-    .__img {
-      max-height: 8rem;
-      object-fit: contain;
-      position: relative;
-      width: auto;
-    }
+    border: 3px solid blue;
   }
   .__navbar_container {
     display: flex;

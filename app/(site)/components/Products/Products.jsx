@@ -5,65 +5,20 @@ import { PortableText } from "@portabletext/react";
 import canaIcon from "@/public/assets/canaleaf.png";
 import CheckboxProducts from "../CheckboxProducts/CheckboxProducts";
 import { Suspense } from "react";
+// Styles
+import styles from "./styles.module.scss";
 export const dynamic = "force-dynamic";
 // DISPLAY
 const Products = ({ allproducts }) => {
   return (
     <>
-      <section
-        className="products_section"
-        style={{
-          display: "flex",
-          width: "100%",
-          height: "auto",
-          alignItems: "center",
-          justifyContent: "space-evenly",
-          flexWrap: "wrap",
-          flexDirection: "column",
-        }}
-      >
-        <div
-          className="products_container"
-          style={{
-            display: "flex",
-            width: "100%",
-            height: "auto",
-            flexDirection: "column",
-          }}
-        >
-          <div
-            className="display_allproducts"
-            style={{
-              display: "flex",
-              width: "auto",
-              height: "auto",
-              alignItems: "center",
-              flexWrap: "wrap",
-            }}
-          >
-            <header
-              className="title"
-              style={{
-                display: "flex",
-                position: "relative",
-                zIndex: 1,
-                padding: "2rem",
-                width: "77rem",
-                height: "auto",
-              }}
-            >
+      <section className={styles.products_section}>
+        <div className={styles.products_container}>
+          <div className={styles.display_allproducts}>
+            <header className={styles.title}>
               <h1>
-                Tous no produits
-                <span
-                  className="icon"
-                  style={{
-                    display: "block",
-                    position: "absolute",
-                    left: " -21px",
-                    zIndex: -1,
-                    transform: " translateY(-76%) rotate(-29deg)",
-                  }}
-                >
+                Selection de nos produits
+                <span className={styles.icon}>
                   {" "}
                   <Image
                     src={canaIcon}
@@ -78,212 +33,140 @@ const Products = ({ allproducts }) => {
                 </span>
               </h1>
             </header>
-            <div
-              className="products_content"
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                width: "100%",
-                height: "auto",
-                justifyContent: "center",
-                flexDirection: "column",
-              }}
-            >
-              <div
-                className="section_checkbox_products"
+            <div className={styles.display_allproducts__text}>
+              <p
                 style={{
-                  display: "flex",
-                  width: "100%",
-                  height: "100%",
-                  flexWrap: "wrap",
+                  fontSize: "2rem",
                 }}
               >
-                <div
-                  className="_checkbox"
-                  style={{
-                    display: "flex",
-                    width: "100%",
-                    height: "auto",
-                    justifyContent: "center",
-                  }}
-                >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                mollitia, molestiae quas vel sint commodi repudiandae
+                consequuntur voluptatum laborum numquam blanditiis ! Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                molestiae quas vel sint commodi repudiandae consequuntur
+                voluptatum laborum numquam blanditiis !
+              </p>
+            </div>
+            <div className={styles.products__container}>
+              <div className={styles.products__content}>
+                <div className={styles.products__cards}>
+                  {allproducts.map((product) => (
+                    <div key={product._id}>
+                      {/* Vérification de la disponibilité de catégories pour ce produit */}
+                      {product.categories && product.categories.length > 0 ? (
+                        <div className={styles.display_infos_products}>
+                          <div className={styles.main_title_products}>
+                            <h2>
+                              <Link href={`/products/${product.slug}`}>
+                                {product.name}
+                              </Link>
+                            </h2>
+                          </div>
+
+                          {/*  Boucle INTERNE SUBCATEGORIES à travers toutes les sous-catégories du produit */}
+                          {product.categories.map((category) => (
+                            <React.Fragment key={category._id}>
+                              <div className={styles.data_group_products}>
+                                <div
+                                  className={
+                                    styles.content_products__categories
+                                  }
+                                >
+                                  <div className={styles.categories}>
+                                    <h3 className={styles.title_categories}>
+                                      <Link
+                                        href={`/categories/${category.slug}`}
+                                      >
+                                        {category.name}
+                                      </Link>
+                                    </h3>
+                                    <div className={styles._categories}>
+                                      <div className={styles.bloc_img_products}>
+                                        {category.coverImages && (
+                                          <Image
+                                            src={category.coverImages}
+                                            alt="les fleurs"
+                                            className="product__img"
+                                            width={170}
+                                            height={170}
+                                            style={{
+                                              objectFit: "cover",
+                                              borderRadius: "30px",
+                                            }}
+                                          />
+                                        )}
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className="content"
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                    }}
+                                  >
+                                    <span>
+                                      {" "}
+                                      <p
+                                        className="price_content"
+                                        style={{
+                                          fontSize: "1rem",
+                                        }}
+                                      >
+                                        {category.price.toFixed(2)}€
+                                      </p>
+                                    </span>
+                                    <span>
+                                      <PortableText value={category.content} />
+                                    </span>
+                                    <Link
+                                      href={`/categories/${category.slug}`}
+                                      className="link"
+                                    >
+                                      View Details
+                                    </Link>
+                                    <span className="ref_products_categories">
+                                      {" "}
+                                      <p
+                                        style={{
+                                          color: "gray",
+                                          fontSize: "10px",
+                                        }}
+                                      >
+                                        REF: {product._id}
+                                      </p>
+                                    </span>
+                                  </div>
+                                </div>
+                                {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
+                              </div>
+                            </React.Fragment>
+                          ))}
+                          {/* fin boucle interne */}
+                        </div>
+                      ) : (
+                        <p>3No category available for this product.</p>
+                      )}
+                    </div>
+                  ))}
+                  {/* // FIN BOUCLE EXTERIEURE EN DESSOUS DE LA DIV EN DESSOUS DE LA DIV */}
+                </div>
+              </div>
+              <div className={styles.section_checkbox_products}>
+                <div className={styles.__checkbox}>
                   <Suspense fallback={<h2>In Progress...</h2>}>
                     <CheckboxProducts />
                   </Suspense>
                 </div>
               </div>
-              <div
-                className="products_cards"
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  width: "100%",
-                  height: "auto",
-                  justifyContent: "center",
-                  marginTop: "4rem",
-                }}
-              >
-                {/* <h3
-                  className="_bycategory_subtitle"
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    width: "100%",
-                    height: "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  Tous nos produits
-                </h3> */}
-
-                {/* Boucle EXTERNE à travers tous les produits, cette boucle extérieure parcourt tous les produits disponibles. */}
-                {allproducts.map((product) => (
-                  <div key={product._id}>
-                    {/* Vérification de la disponibilité de catégories pour ce produit */}
-                    {product.categories && product.categories.length > 0 ? (
-                      <div
-                        className="display_infos_products"
-                        style={{
-                          display: "flex",
-                          border: "3px solid black",
-                          flexWrap: "wrap",
-                          justifyContent: "center",
-                          margin: "2rem",
-                          borderRadius: "30px",
-                          padding: "1rem",
-                          width: "auto",
-                          justifyContent: "space-around",
-                        }}
-                      >
-                        <div
-                          className="main_title_products"
-                          style={{
-                            display: "flex",
-                            width: "100%",
-                            height: "auto",
-                            alignItems: "center",
-                            padding: "14px",
-                            flexWrap: "wrap",
-                          }}
-                        >
-                          <h2>
-                            <Link href={`/products/${product.slug}`}>
-                              {product.name}
-                            </Link>
-                          </h2>
-                        </div>
-
-                        {/*  Boucle INTERNE SUBCATEGORIES à travers toutes les sous-catégories du produit */}
-                        {product.categories.map((category) => (
-                          <React.Fragment key={category._id}>
-                            <div
-                              className="data_group_products"
-                              style={{
-                                display: "flex",
-                                padding: "20px",
-                                borderRadius: "30px",
-                                border: "2px solid #000",
-                                margin: "2rem",
-                                width: "17rem",
-                                height: "auto",
-                                justifyContent: "center",
-                              }}
-                            >
-                              <div
-                                className="content_products_categories"
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                }}
-                              >
-                                <div className="categories">
-                                  <h3 className="title_categories">
-                                    <Link href={`/categories/${category.slug}`}>
-                                      {category.name}
-                                    </Link>
-                                  </h3>
-                                  <div className="_categories">
-                                    <div
-                                      className="bloc_img_products"
-                                      style={{
-                                        display: "flex",
-                                        // border: "3px solid pink",
-                                        width: "auto",
-                                        height: "auto",
-                                        justifyContent: "center",
-                                        padding: "0.5rem",
-                                      }}
-                                    >
-                                      {category.coverImages && (
-                                        <Image
-                                          src={category.coverImages}
-                                          alt="les fleurs"
-                                          className="product__img"
-                                          width={200}
-                                          height={200}
-                                          style={{
-                                            objectFit: "cover",
-                                            borderRadius: "30px",
-                                          }}
-                                        />
-                                      )}
-                                    </div>
-                                  </div>
-                                </div>
-                                <div
-                                  className="content"
-                                  style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                  }}
-                                >
-                                  <span>
-                                    {" "}
-                                    <p
-                                      className="price_content"
-                                      style={{
-                                        fontSize: "1rem",
-                                      }}
-                                    >
-                                      {category.price.toFixed(2)}€
-                                    </p>
-                                  </span>
-                                  <span>
-                                    <PortableText value={category.content} />
-                                  </span>
-                                  <Link
-                                    href={`/categories/${category.slug}`}
-                                    className="link"
-                                  >
-                                    View Details
-                                  </Link>
-                                  <span className="ref_products_categories">
-                                    {" "}
-                                    <p
-                                      style={{
-                                        color: "gray",
-                                        fontSize: "10px",
-                                      }}
-                                    >
-                                      REF: {product._id}
-                                    </p>
-                                  </span>
-                                </div>
-                              </div>
-                              {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
-                            </div>
-                          </React.Fragment>
-                        ))}
-                        {/* fin boucle interne */}
-                      </div>
-                    ) : (
-                      <p>3No category available for this product.</p>
-                    )}
-                  </div>
-                ))}
-                {/* // FIN BOUCLE EXTERIEURE EN DESSOUS DE LA DIV EN DESSOUS DE LA DIV */}
-              </div>
             </div>
+            {/* <div className={styles.section_checkbox_products}>
+              <div className={styles.__checkbox}>
+                <Suspense fallback={<h2>In Progress...</h2>}>
+                  <CheckboxProducts />
+                </Suspense>
+              </div>
+            </div> */}
           </div>
         </div>
       </section>

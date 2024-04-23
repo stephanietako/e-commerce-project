@@ -48,7 +48,7 @@ const Flowers = ({ allflowers }) => {
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                width: "75%",
+                width: "100%",
                 height: "auto",
                 justifyContent: "center",
                 border: "2px solid #000",
@@ -152,9 +152,10 @@ const Flowers = ({ allflowers }) => {
                                 padding: "20px",
                                 borderRadius: "30px",
                                 border: "2px solid #000",
-                                width: "17rem",
-                                height: "auto",
+                                width: "14rem",
+                                height: "25rem",
                                 justifyContent: "center",
+                                margin: "2rem",
                               }}
                             >
                               <div

@@ -2,8 +2,11 @@
   display: flex;
   width: 100%;
   height: auto;
-  border: 3px solid lime;
   flex-direction: column;
+  border: 3px solid #000;
+  border-radius: 30px;
+  padding: 3rem;
+  position: relative;
 }
 
 .select_categories__header {
@@ -17,7 +20,7 @@
     position: relative;
     z-index: 1;
     padding: 2rem;
-    width: 77rem;
+    width: 100%;
     height: auto;
   }
 
@@ -34,21 +37,19 @@
   display: flex;
   width: 100%;
   height: auto;
-  position: relative;
-  border: 3px solid red;
 
   .select_categories__bloc {
     display: flex;
-    width: 90%;
+    width: 100%;
     height: auto;
     flex-direction: column;
-    border: 3px solid turquoise;
+    // border: 3px solid lime;
   }
 
   .select_categories__bloc_content {
     display: flex;
-    width: 35%;
+    width: 40%;
     height: auto;
-    position: relative;
+    // border: 3px solid red;
   }
 }

@@ -20,18 +20,6 @@ const ByCategory = ({ bycategory }) => {
           flexDirection: "column",
         }}
       >
-        <header
-          className="header_category"
-          style={{
-            display: "flex",
-            width: "auto",
-            height: "auto",
-            alignItems: "center",
-            padding: "33px",
-          }}
-        >
-          <h1 className="_bycategory_title">TOUTES LES CATEGORIES</h1>
-        </header>
         <div
           className="bycategories_container"
           style={{
@@ -49,9 +37,6 @@ const ByCategory = ({ bycategory }) => {
               height: "auto",
               alignItems: "center",
               flexWrap: "wrap",
-              borderRadius: "30px",
-              // border: "3px solid #000",
-              // padding: "2rem",
             }}
           >
             <div
@@ -80,7 +65,7 @@ const ByCategory = ({ bycategory }) => {
                     display: "flex",
                     width: "100%",
                     height: "auto",
-                    justifyContent: "center",
+                    // justifyContent: "center",
                     // border: "4px solid pink",
                   }}
                 >
@@ -97,10 +82,8 @@ const ByCategory = ({ bycategory }) => {
                   flexWrap: "wrap",
                   width: "100%",
                   height: "auto",
-                  justifyContent: "center",
-                  marginTop: "2rem",
-                  border: "3px solid green",
-                  marginBottom: "4rem",
+                  margin: "2rem,0,4rem",
+                  justifyContent: "flex-end",
                 }}
               >
                 {/* Boucle EXTERNE à travers toutes les categories */}
@@ -119,7 +102,8 @@ const ByCategory = ({ bycategory }) => {
                           borderRadius: "30px",
                           padding: "1rem",
                           // margin: "2rem",
-                          width: "17rem",
+                          width: "14rem",
+                          height: "25rem",
                         }}
                       >
                         <div
@@ -173,8 +157,8 @@ const ByCategory = ({ bycategory }) => {
                                           src={categories.coverImages}
                                           alt="les fleurs"
                                           className="product__img"
-                                          width={200}
-                                          height={200}
+                                          width={170}
+                                          height={170}
                                           style={{
                                             display: "block",
                                             objectFit: "cover",
@@ -201,7 +185,7 @@ const ByCategory = ({ bycategory }) => {
                                       <p
                                         className="price_content"
                                         style={{
-                                          fontSize: "1.5rem",
+                                          fontSize: "1rem",
                                         }}
                                       >
                                         {categories.price.toFixed(2)}€
