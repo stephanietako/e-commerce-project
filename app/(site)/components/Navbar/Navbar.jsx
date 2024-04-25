@@ -49,7 +49,6 @@ const Navbar = () => {
                       objectFit: "cover",
                       width: "auto",
                       height: "auto",
-                      border: "3px solid red",
                     }}
                   />
                 </a>

@@ -13,12 +13,12 @@
 
     .categories__box {
       display: flex;
-      width: 50%;
+      width: 60%;
       height: 100%;
       flex-wrap: wrap;
       border-radius: 30px;
-      // border: 3px solid blue;
-      margin-top: -17rem;
+      border: 3px solid red;
+      justify-content: center;
 
       .categories__item {
         width: 100%;

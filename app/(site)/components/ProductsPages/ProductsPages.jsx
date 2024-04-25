@@ -20,8 +20,8 @@ const ProductsPages = ({ product }) => {
                   src={product.coverImages}
                   alt="les fleurs"
                   className="product__img"
-                  width={750}
-                  height={300}
+                  width={450}
+                  height={200}
                   style={{
                     objectFit: "cover",
                     borderRadius: "30px",
@@ -61,6 +61,10 @@ const ProductsPages = ({ product }) => {
                           <div
                             className="images"
                             style={{
+                              display: "flex",
+                              width: "auto",
+                              height: "auto",
+                              justifyContent: "center",
                               padding: "0.5rem",
                             }}
                           >
@@ -69,8 +73,8 @@ const ProductsPages = ({ product }) => {
                                 src={category.coverImages}
                                 alt="les fleurs"
                                 className="product__img"
-                                width={180}
-                                height={180}
+                                width={150}
+                                height={150}
                                 style={{
                                   objectFit: "cover",
                                   borderRadius: "30px",
@@ -104,7 +108,7 @@ const ProductsPages = ({ product }) => {
                           <p
                             style={{
                               color: "gray",
-                              fontSize: "10px",
+                              fontSize: "8px",
                             }}
                           >
                             REF: {category._id}

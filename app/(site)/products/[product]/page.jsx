@@ -124,7 +124,7 @@ const ProductsDetails = async ({ params }) => {
                   <p
                     style={{
                       color: "gray",
-                      fontSize: "10px",
+                      fontSize: "8px",
                     }}
                   >
                     REF: {product._id}

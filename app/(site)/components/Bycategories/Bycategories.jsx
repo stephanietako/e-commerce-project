@@ -9,7 +9,6 @@ export const dynamic = "force-dynamic";
 const ByCategory = ({ bycategory }) => {
   return (
     <>
-      {/* Section principale des categories */}
       <div
         className="categories_section"
         style={{
@@ -82,14 +81,11 @@ const ByCategory = ({ bycategory }) => {
                   flexWrap: "wrap",
                   width: "100%",
                   height: "auto",
-                  margin: "2rem,0,4rem",
-                  justifyContent: "flex-end",
+                  justifyContent: "flex-start",
                 }}
               >
-                {/* Boucle EXTERNE à travers toutes les categories */}
                 {bycategory.map((categories) => (
                   <div key={categories._id}>
-                    {/* Vérification de la disponibilité de produits pour cette categorie */}
                     {categories.products && categories.products.length > 0 ? (
                       <div
                         className="display_infos_products"
@@ -102,8 +98,8 @@ const ByCategory = ({ bycategory }) => {
                           borderRadius: "30px",
                           padding: "1rem",
                           // margin: "2rem",
-                          width: "14rem",
-                          height: "25rem",
+                          width: "12rem",
+                          height: "22rem",
                         }}
                       >
                         <div
@@ -122,7 +118,7 @@ const ByCategory = ({ bycategory }) => {
                             </Link>
                           </h2>
                         </div>
-                        {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}
+
                         {categories.products.map((product) => (
                           <React.Fragment key={product._id}>
                             <div
@@ -131,7 +127,6 @@ const ByCategory = ({ bycategory }) => {
                                 padding: "9px",
                               }}
                             >
-                              {/* Contenu détaillé de la sous-catégorie */}
                               <div
                                 className="content_categories"
                                 style={{
@@ -157,8 +152,8 @@ const ByCategory = ({ bycategory }) => {
                                           src={categories.coverImages}
                                           alt="les fleurs"
                                           className="product__img"
-                                          width={170}
-                                          height={170}
+                                          width={150}
+                                          height={150}
                                           style={{
                                             display: "block",
                                             objectFit: "cover",
@@ -207,7 +202,7 @@ const ByCategory = ({ bycategory }) => {
                                     <p
                                       style={{
                                         color: "gray",
-                                        fontSize: "10px",
+                                        fontSize: "8px",
                                       }}
                                     >
                                       REF: {categories._id}
@@ -224,7 +219,6 @@ const ByCategory = ({ bycategory }) => {
                     )}
                   </div>
                 ))}
-                {/* fin boucle externe */}
               </div>
             </div>
           </div>

@@ -94,6 +94,7 @@ const StarProducts = ({ starproducts }) => {
                   flexWrap: "wrap",
                   width: "100%",
                   height: "auto",
+                  justifyContent: "center",
                 }}
               >
                 {/* Boucle EXTERNE à travers toutes les categories */}
@@ -126,11 +127,11 @@ const StarProducts = ({ starproducts }) => {
                             <div
                               className="data_group"
                               style={{
-                                padding: "20px",
+                                padding: "1rem",
                                 borderRadius: "30px",
                                 border: "2px solid #000",
-                                width: "14rem",
-                                height: "25rem",
+                                width: "12rem",
+                                height: "22rem",
                               }}
                             >
                               {/* Contenu détaillé de la sous-catégorie */}
@@ -155,8 +156,8 @@ const StarProducts = ({ starproducts }) => {
                                         src={category.coverImages}
                                         alt="les fleurs"
                                         className="product__img"
-                                        width={170}
-                                        height={170}
+                                        width={150}
+                                        height={150}
                                         style={{
                                           objectFit: "cover",
                                           borderRadius: "30px",
@@ -164,37 +165,68 @@ const StarProducts = ({ starproducts }) => {
                                       />
                                     )}
                                   </div>
-                                  <h3 className="title_starproducts_categories">
-                                    <Link href={`/categories/${category.slug}`}>
-                                      {category.name}
-                                    </Link>
-                                  </h3>
-                                  <span>
-                                    {" "}
-                                    <p
-                                      className="price_content"
-                                      style={{
-                                        fontSize: "1rem",
-                                      }}
-                                    >
-                                      {category.price.toFixed(2)}€
-                                    </p>
-                                  </span>
 
-                                  <span>
-                                    <PortableText value={category.content} />
-                                  </span>
-                                  <span className="ref_products_categories">
-                                    {" "}
-                                    <p
+                                  <div
+                                    className="starproducts__infos"
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      width: "100%",
+                                      height: "auto",
+                                      border: "3px solid pink",
+                                      paddingTop: "1rem",
+                                    }}
+                                  >
+                                    <h3
+                                      className="title_starproducts_categories"
                                       style={{
-                                        color: "gray",
-                                        fontSize: "10px",
+                                        textAlign: "end",
                                       }}
                                     >
-                                      REF: {product._id}
-                                    </p>
-                                  </span>
+                                      <Link
+                                        href={`/categories/${category.slug}`}
+                                      >
+                                        {category.name}
+                                      </Link>
+                                    </h3>{" "}
+                                    <span className="price_content">
+                                      <p
+                                        style={{
+                                          textAlign: "end",
+                                        }}
+                                      >
+                                        {category.price.toFixed(2)}€
+                                      </p>
+                                    </span>
+                                    <span>
+                                      <PortableText value={category.content} />
+                                    </span>
+                                    <Link
+                                      href={`/categories/${category.slug}`}
+                                      className="link"
+                                    >
+                                      View Details
+                                    </Link>
+                                    <span
+                                      className="ref_products_categories"
+                                      style={{
+                                        display: "flex",
+                                        width: "100%",
+                                        height: "100%",
+                                        paddingTop: "1rem",
+                                      }}
+                                    >
+                                      {" "}
+                                      <p
+                                        style={{
+                                          color: "gray",
+                                          fontSize: "8px",
+                                        }}
+                                      >
+                                        REF: {product._id}
+                                      </p>
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
                               {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}

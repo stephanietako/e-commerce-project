@@ -21,6 +21,7 @@ const Contact = ({ contact }) => {
           fontSize: "10px",
           display: "flex",
           alignItems: "center",
+          paddingLeft: "5rem",
         }}
       >
         {contact.map((pages) => (

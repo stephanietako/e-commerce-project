@@ -152,8 +152,8 @@ const Flowers = ({ allflowers }) => {
                                 padding: "20px",
                                 borderRadius: "30px",
                                 border: "2px solid #000",
-                                width: "14rem",
-                                height: "25rem",
+                                width: "12rem",
+                                height: "22rem",
                                 justifyContent: "center",
                                 margin: "2rem",
                               }}
@@ -188,8 +188,8 @@ const Flowers = ({ allflowers }) => {
                                         src={category.coverImages}
                                         alt="les fleurs"
                                         className="product__img"
-                                        width={200}
-                                        height={200}
+                                        width={150}
+                                        height={150}
                                         style={{
                                           objectFit: "cover",
                                           borderRadius: "30px",
@@ -205,7 +205,9 @@ const Flowers = ({ allflowers }) => {
                                   style={{
                                     display: "flex",
                                     flexDirection: "column",
-                                    width: "12rem",
+                                    width: "100%",
+                                    height: "auto",
+                                    border: "3px solid red",
                                   }}
                                 >
                                   <span>
@@ -214,6 +216,7 @@ const Flowers = ({ allflowers }) => {
                                       className="price_content"
                                       style={{
                                         fontSize: "1rem",
+                                        textAlign: "end",
                                       }}
                                     >
                                       {category.price.toFixed(2)}€
@@ -234,7 +237,7 @@ const Flowers = ({ allflowers }) => {
                                     <p
                                       style={{
                                         color: "gray",
-                                        fontSize: "10px",
+                                        fontSize: "8px",
                                       }}
                                     >
                                       REF: {product._id}

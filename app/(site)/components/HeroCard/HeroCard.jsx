@@ -1,5 +1,5 @@
 import Image from "next/image";
-import backgroundImg from "@/public/assets/background.webp";
+import backgroundImg from "@/public/assets/village.webp";
 // Styles
 import styles from "./styles.module.scss";
 
@@ -13,6 +13,7 @@ function HeroCard({ imageUrl, title, subtitle, description }) {
         fill={true}
         style={{
           borderRadius: "30px",
+          objectFit: "cover",
         }}
       />
       <figure className={styles.figure}>

@@ -2,14 +2,13 @@
   display: flex;
   height: auto;
   justify-content: flex-end;
-  width: auto;
+  width: 100%;
   position: absolute;
+  right: 0;
 
   .categoriespages_container {
     display: flex;
     width: 50%;
     height: auto;
-    // border: 5px solid red;
-    // justify-content: flex-end;
   }
 }

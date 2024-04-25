@@ -76,12 +76,11 @@ a:hover {
 
 .link {
   display: flex;
-  justify-content: flex-end;
   color: gray;
   border: transparent;
-  border-radius: 14px;
-  padding: 1rem;
-  font-size: 23px;
+
+  padding: 0.5rem;
+  font-size: 18px;
 }
 
 .home_section {
@@ -115,11 +114,11 @@ h1 {
 }
 
 h2 {
-  color: gray;
+  color: #000;
 }
 
 h3 {
-  color: turquoise;
+  color: gray;
 }
 
 p {
@@ -139,6 +138,7 @@ ul {
   margin: 4rem;
   flex-direction: column;
 }
+
 .box {
   display: flex;
   width: auto;
@@ -146,6 +146,7 @@ ul {
   padding: 2rem;
   border: 3px solid red;
 }
+
 .project_name {
   display: flex;
   width: auto;

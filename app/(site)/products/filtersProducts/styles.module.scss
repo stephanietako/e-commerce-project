@@ -4,11 +4,14 @@
   height: auto;
   border: 3px solid blue;
   position: relative;
+  justify-content: flex-end;
 
   .filter_products__list {
     display: flex;
-    width: 100%;
+    width: 33rem;
     height: auto;
+    position: relative;
+    justify-content: flex-end;
 
     .filter_products__list__box {
       display: flex;
@@ -24,6 +27,7 @@
         height: auto;
         display: flex;
         margin-top: 0.3rem;
+        justify-content: flex-end;
 
         .check_section {
           width: 10rem;

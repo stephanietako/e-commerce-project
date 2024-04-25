@@ -34,11 +34,7 @@ const SelectCategories = async () => {
               </header>
             </div>
             <div className={styles.select_categories__text}>
-              <p
-                style={{
-                  fontSize: "2rem",
-                }}
-              >
+              <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
                 mollitia, molestiae quas vel sint commodi repudiandae
                 consequuntur voluptatum laborum numquam blanditiis ! Lorem ipsum

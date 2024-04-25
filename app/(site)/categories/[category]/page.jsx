@@ -35,7 +35,6 @@ const CategoryDetails = async ({ params }) => {
               flexDirection: "column",
             }}
           >
-            {/* <h1>ICI C EST CATEGORY</h1> */}
             <h1>{data && data.name}</h1>
           </div>
           <div
@@ -89,7 +88,7 @@ const CategoryDetails = async ({ params }) => {
                     <p
                       style={{
                         color: "gray",
-                        fontSize: "10px",
+                        fontSize: "8px",
                       }}
                     >
                       REF: {data._id}
