@@ -32,16 +32,16 @@ const SelectCategories = async () => {
                   </span>
                 </h1>
               </header>
-            </div>
-            <div className={styles.select_categories__text}>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-                mollitia, molestiae quas vel sint commodi repudiandae
-                consequuntur voluptatum laborum numquam blanditiis ! Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                molestiae quas vel sint commodi repudiandae consequuntur
-                voluptatum laborum numquam blanditiis !
-              </p>
+              <div className={styles.select_categories__text}>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Maxime mollitia, molestiae quas vel sint commodi repudiandae
+                  consequuntur voluptatum laborum numquam blanditiis ! Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                  mollitia, molestiae quas vel sint commodi repudiandae
+                  consequuntur voluptatum laborum numquam blanditiis !
+                </p>
+              </div>
             </div>
 
             <ByCategories bycategory={bycategory} />

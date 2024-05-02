@@ -1,33 +1,22 @@
-"use client";
-
-import useSWR from "swr";
 import { fetchDataProduct } from "@/sanity/lib/api";
-
 import FiltersProductsCompt from "../../components/FiltersProductsCompt/FiltersProductsCompt";
-const FiltersProducts = ({ searchQuery }) => {
-  const { data, error, isLoading } = useSWR("/products", fetchDataProduct);
 
-  if (error) throw new Error("Cannot fetch data");
-  if (typeof data === "undefined" && !isLoading)
-    throw new Error("Cannot fetch data");
-  ///////////////
-  // Filtrage des produits
-  const filterProducts = (products) => {
-    return products.filter((el) => el.name.includes(searchQuery));
-  };
+const FiltersProducts = async ({ searchQuery }) => {
+  try {
+    const data = await fetchDataProduct();
+    const filterProducts = (categories) => {
+      return categories.filter((el) => el.name.includes(searchQuery));
+    };
+    const filteredProducts = filterProducts(data || []);
 
-  const filteredProducts = filterProducts(data || []);
-
-  return (
-    <>
-      <FiltersProductsCompt
-        data={data}
-        isLoading={isLoading}
-        error={error}
-        filteredCategories={filteredProducts}
-      />
-    </>
-  );
+    return (
+      <>
+        <FiltersProductsCompt data={data} filteredProducts={filteredProducts} />
+      </>
+    );
+  } catch (error) {
+    return <p>erreur dans la récupération des données</p>;
+  }
 };
 
 export default FiltersProducts;

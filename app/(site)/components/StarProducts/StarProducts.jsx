@@ -33,21 +33,25 @@ const StarProducts = ({ starproducts }) => {
               height: "auto",
               alignItems: "center",
               justifyContent: "center",
-              borderRadius: "30px",
+              // borderRadius: "30px",
+              // border: "3px solid red",
+              flexWrap: "wrap",
             }}
           >
             <div
               className="display_infos"
               style={{
                 display: "flex",
-                width: "auto",
-                height: "auto",
-                alignItems: "center",
-                justifyContent: "center",
+                width: "100%",
+                height: "100%",
+                // alignItems: "center",
+                // justifyContent: "center",
                 flexDirection: "column",
                 border: "3px solid #000",
                 borderRadius: "30px",
                 padding: "2rem",
+                // border: "3px solid violet",
+                // flexWrap: "wrap",
               }}
             >
               <header
@@ -88,160 +92,180 @@ const StarProducts = ({ starproducts }) => {
                 </h1>
               </header>
               <div
-                className="starproducts_cards"
+                className="starproducts_container"
                 style={{
                   display: "flex",
                   flexWrap: "wrap",
-                  width: "100%",
+                  maxWidth: "100%",
                   height: "auto",
                   justifyContent: "center",
+                  // border: "3px solid red",
                 }}
               >
-                {/* Boucle EXTERNE à travers toutes les categories */}
-                {starproducts.map((product) => (
-                  <div key={product._id}>
-                    <h2
-                      className="title_starproducts_products"
-                      style={{
-                        paddingLeft: "2rem",
-                      }}
-                    >
-                      <Link href={`/products/${product.slug}`}>
-                        {product.name}
-                      </Link>
-                    </h2>
-
-                    {/* Vérification de la disponibilité de produits pour cette categorie */}
-                    {product.categories && product.categories.length > 0 ? (
-                      <div
-                        className="display_infos_products"
+                <div
+                  className="starproducts_cards"
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    maxWidth: "40%",
+                    height: "auto",
+                    justifyContent: "center",
+                    // border: "3px solid blue",
+                    alignItems: "center",
+                  }}
+                >
+                  {/* Boucle EXTERNE à travers toutes les categories */}
+                  {starproducts.map((product) => (
+                    <div key={product._id}>
+                      <h2
+                        className="title_starproducts_products"
                         style={{
-                          display: "flex",
-                          flexWrap: "wrap",
-                          padding: "1rem",
+                          paddingLeft: "2rem",
                         }}
                       >
-                        {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}
-                        {product.categories.map((category) => (
-                          <React.Fragment key={category._id}>
-                            <div
-                              className="data_group"
-                              style={{
-                                padding: "1rem",
-                                borderRadius: "30px",
-                                border: "2px solid #000",
-                                width: "12rem",
-                                height: "22rem",
-                              }}
-                            >
-                              {/* Contenu détaillé de la sous-catégorie */}
+                        <Link href={`/products/${product.slug}`}>
+                          {product.name}
+                        </Link>
+                      </h2>
+
+                      {/* Vérification de la disponibilité de produits pour cette categorie */}
+                      {product.categories && product.categories.length > 0 ? (
+                        <div
+                          className="display_infos_products"
+                          style={{
+                            display: "flex",
+                            // flexWrap: "wrap",
+                            padding: "1rem",
+                            // border: "3px solid yellow",
+                            width: "100%",
+                            height: "auto",
+                            alignItems: "center",
+                          }}
+                        >
+                          {/*  Boucle INTERNE  à travers toutes les sous-produits de la categorie */}
+                          {product.categories.map((category) => (
+                            <React.Fragment key={category._id}>
                               <div
-                                className="content_starproducts"
+                                className="data_group"
                                 style={{
-                                  display: "flex",
-                                  // border: "3px solid pink",
-                                  flexDirection: "column",
+                                  padding: "1rem",
+                                  borderRadius: "30px",
+                                  border: "2px solid #000",
+                                  width: "12rem",
+                                  height: "22rem",
                                 }}
                               >
-                                <div className="starproducts">
-                                  <div
-                                    className="images_starproducts"
-                                    style={{
-                                      display: "flex",
-                                      justifyContent: "center",
-                                    }}
-                                  >
-                                    {category.coverImages && (
-                                      <Image
-                                        src={category.coverImages}
-                                        alt="les fleurs"
-                                        className="product__img"
-                                        width={150}
-                                        height={150}
-                                        style={{
-                                          objectFit: "cover",
-                                          borderRadius: "30px",
-                                        }}
-                                      />
-                                    )}
-                                  </div>
-
-                                  <div
-                                    className="starproducts__infos"
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "column",
-                                      width: "100%",
-                                      height: "auto",
-                                      // border: "3px solid pink",
-                                      paddingTop: "1rem",
-                                    }}
-                                  >
-                                    <h3
-                                      className="title_starproducts_categories"
+                                {/* Contenu détaillé de la sous-catégorie */}
+                                <div
+                                  className="content_starproducts"
+                                  style={{
+                                    display: "flex",
+                                    // border: "3px solid pink",
+                                    flexDirection: "column",
+                                  }}
+                                >
+                                  <div className="starproducts">
+                                    <div
+                                      className="images_starproducts"
                                       style={{
-                                        textAlign: "end",
+                                        display: "flex",
+                                        justifyContent: "center",
                                       }}
                                     >
-                                      <Link
-                                        href={`/categories/${category.slug}`}
-                                      >
-                                        {category.name}
-                                      </Link>
-                                    </h3>{" "}
-                                    <span className="price_content">
-                                      <p
+                                      {category.coverImages && (
+                                        <Image
+                                          src={category.coverImages}
+                                          alt="les fleurs"
+                                          className="product__img"
+                                          width={150}
+                                          height={150}
+                                          style={{
+                                            objectFit: "cover",
+                                            borderRadius: "30px",
+                                          }}
+                                        />
+                                      )}
+                                    </div>
+
+                                    <div
+                                      className="starproducts__infos"
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        width: "100%",
+                                        height: "auto",
+                                        // border: "3px solid pink",
+                                        paddingTop: "1rem",
+                                      }}
+                                    >
+                                      <h3
+                                        className="title_starproducts_categories"
                                         style={{
                                           textAlign: "end",
                                         }}
                                       >
-                                        {category.price.toFixed(2)}€
-                                      </p>
-                                    </span>
-                                    <span>
-                                      <PortableText value={category.content} />
-                                    </span>
-                                    <Link
-                                      href={`/categories/${category.slug}`}
-                                      className="link"
-                                    >
-                                      View Details
-                                    </Link>
-                                    <span
-                                      className="ref_products_categories"
-                                      style={{
-                                        display: "flex",
-                                        width: "100%",
-                                        height: "100%",
-                                        paddingTop: "1rem",
-                                      }}
-                                    >
-                                      {" "}
-                                      <p
+                                        <Link
+                                          href={`/categories/${category.slug}`}
+                                        >
+                                          {category.name}
+                                        </Link>
+                                      </h3>{" "}
+                                      <span className="price_content">
+                                        <p
+                                          style={{
+                                            textAlign: "end",
+                                          }}
+                                        >
+                                          {category.price.toFixed(2)}€
+                                        </p>
+                                      </span>
+                                      <span>
+                                        <PortableText
+                                          value={category.content}
+                                        />
+                                      </span>
+                                      <Link
+                                        href={`/categories/${category.slug}`}
+                                        className="link"
+                                      >
+                                        View Details
+                                      </Link>
+                                      <span
+                                        className="ref_products_categories"
                                         style={{
-                                          color: "gray",
-                                          fontSize: "8px",
+                                          display: "flex",
+                                          width: "100%",
+                                          height: "100%",
+                                          paddingTop: "1rem",
                                         }}
                                       >
-                                        REF: {product._id}
-                                      </p>
-                                    </span>
+                                        {" "}
+                                        <p
+                                          style={{
+                                            color: "gray",
+                                            fontSize: "8px",
+                                          }}
+                                        >
+                                          REF: {product._id}
+                                        </p>
+                                      </span>
+                                    </div>
                                   </div>
                                 </div>
+                                {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
                               </div>
-                              {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}
-                            </div>
-                          </React.Fragment>
-                        ))}
+                            </React.Fragment>
+                          ))}
 
-                        {/* fin boucle interne de map de data */}
-                      </div>
-                    ) : (
-                      <p>1No category available for this product.</p>
-                    )}
-                  </div>
-                ))}
-                {/* fin boucle externe */}
+                          {/* fin boucle interne de map de data */}
+                        </div>
+                      ) : (
+                        <p>1No category available for this product.</p>
+                      )}
+                    </div>
+                  ))}
+                  {/* fin boucle externe */}
+                </div>
               </div>
             </div>
           </div>

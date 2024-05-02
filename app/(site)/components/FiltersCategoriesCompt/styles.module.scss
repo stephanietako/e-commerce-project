@@ -10,15 +10,13 @@
     width: 100%;
     height: auto;
     justify-content: flex-end;
+    margin-top: -5rem;
 
     .categories__box {
       display: flex;
-      width: 60%;
+      width: 75%;
       height: 100%;
       flex-wrap: wrap;
-      border-radius: 30px;
-      // border: 3px solid red;
-      justify-content: center;
 
       .categories__item {
         width: 100%;
@@ -38,14 +36,11 @@
         display: flex;
         width: auto;
         height: auto;
-        position: relative;
         align-items: center;
         flex-wrap: wrap;
         // top: 0;
         z-index: 2;
         position: relative;
-        justify-content: center;
-        // border: 3px solid pink;
         margin-top: 2rem;
       }
     }

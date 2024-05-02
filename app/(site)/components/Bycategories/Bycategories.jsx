@@ -70,7 +70,6 @@ const ByCategory = ({ bycategory }) => {
                     // border: "4px solid pink",
                   }}
                 >
-                  ici !!!!!!!
                   <Suspense fallback={<h2>In Progress...</h2>}>
                     <CheckboxCategories />
                   </Suspense>
@@ -82,7 +81,7 @@ const ByCategory = ({ bycategory }) => {
                 style={{
                   display: "flex",
                   flexWrap: "wrap",
-                  width: "100%",
+                  width: "85%",
                   height: "auto",
                   justifyContent: "flex-start",
                 }}
@@ -97,10 +96,10 @@ const ByCategory = ({ bycategory }) => {
                           border: "3px solid black",
                           flexWrap: "wrap",
                           justifyContent: "center",
-                          margin: "2rem",
+                          margin: "0.5rem",
                           borderRadius: "30px",
                           padding: "1rem",
-                          // margin: "2rem",
+
                           width: "12rem",
                           height: "24rem",
                         }}

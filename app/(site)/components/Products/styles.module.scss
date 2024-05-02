@@ -29,7 +29,7 @@
         position: relative;
         z-index: 1;
         padding: 2rem;
-        width: 100%;
+        width: auto;
         height: auto;
         // border: 3px solid turquoise;
         .icon {
@@ -68,9 +68,8 @@
             flex-wrap: wrap;
             width: 100%;
             height: auto;
-            // border: 3px solid lime;
             position: relative;
-            justify-content: center;
+            flex-direction: column;
           }
 
           .display_allproducts__infos {
@@ -78,11 +77,10 @@
             border: 3px solid black;
             flex-wrap: wrap;
             justify-content: center;
-            margin: 2rem;
+            margin: 1rem;
             border-radius: 30px;
             padding: 1rem;
             width: auto;
-            justify-content: space-around;
 
             .display_allproducts__subtitle {
               display: flex;

@@ -16,10 +16,6 @@ const Flowers = ({ allflowers }) => {
           display: "flex",
           width: "100%",
           height: "auto",
-          alignItems: "center",
-          justifyContent: "space-around",
-          flexWrap: "wrap",
-          flexDirection: "column",
         }}
       >
         {/* Conteneur des produits */}
@@ -36,7 +32,7 @@ const Flowers = ({ allflowers }) => {
             className="display_all_flowers"
             style={{
               display: "flex",
-              width: "100%",
+              width: "auto",
               height: "auto",
               alignItems: "center",
               justifyContent: "center",
@@ -48,10 +44,11 @@ const Flowers = ({ allflowers }) => {
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                width: "100%",
+                maxWidth: "60%",
                 height: "auto",
                 justifyContent: "center",
-                border: "2px solid #000",
+                border: "3px solid #000",
+                alignItems: "center",
                 borderRadius: "30px",
               }}
             >
@@ -117,7 +114,7 @@ const Flowers = ({ allflowers }) => {
                             width: "100%",
                             height: "100%",
                             flexWrap: "wrap",
-                            justifyContent: "space-evenly",
+                            justifyContent: "space-around",
                           }}
                         >
                           <div
