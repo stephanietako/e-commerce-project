@@ -1,3 +1,5 @@
+"use client";
+
 import { fetchData } from "@/sanity/lib/api";
 
 import useSWR from "swr";

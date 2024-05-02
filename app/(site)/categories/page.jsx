@@ -8,7 +8,7 @@ import CategoriesPages from "../components/CategoriesPages/CategoriesPages";
 
 const FiltersSearchCategories = () => {
   // const [categoryTypeFilter, setCategoryTypeFilter] = useState([]);
-  const [searchQuery, setSearchQuery] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const searchParams = useSearchParams();
   const categoryType = searchParams.get("categoryType");
 
@@ -24,16 +24,16 @@ const FiltersSearchCategories = () => {
     throw new Error("Cannot fetch data");
   ///////////////
   //Filtrage des categories
-  const filterCategories = (categories) => {
-    return categories.filter(
-      (el) =>
-        typeof el.type === "string" &&
-        typeof el.name === "string" &&
-        (categoryType
-          ? el.type.toLowerCase().includes(categoryType.toLowerCase())
-          : el.name.toLowerCase().includes(searchQuery.toLowerCase()))
-    );
-  };
+  // const filterCategories = (categories) => {
+  //   return categories.filter(
+  //     (el) =>
+  //       typeof el.type === "string" &&
+  //       typeof el.name === "string" &&
+  //       (categoryType
+  //         ? el.type.toLowerCase().includes(categoryType.toLowerCase())
+  //         : el.name.toLowerCase().includes(searchQuery.toLowerCase()))
+  //   );
+  // };
 
   // const filterCategories = (categories) => {
   //   return categories.filter((el) =>
@@ -42,6 +42,27 @@ const FiltersSearchCategories = () => {
   //       : el.name.toLowerCase().includes(searchQuery.toLowerCase())
   //   );
   // };
+  const filterCategories = (categories) => {
+    return categories.filter((el) => {
+      const categoryName = (el.name || "").toLowerCase().trim();
+      const categoryTypeLowerCase = categoryType
+        ? categoryType.toLowerCase().trim()
+        : "";
+      const searchQueryLowerCase = searchQuery
+        ? searchQuery.toLowerCase().trim()
+        : "";
+
+      if (el.type && typeof el.type === "string") {
+        const categoryTypeLower = el.type.toLowerCase().trim();
+        return categoryTypeLowerCase
+          ? categoryTypeLower.includes(categoryTypeLowerCase) &&
+              categoryName.includes(searchQueryLowerCase)
+          : categoryName.includes(searchQueryLowerCase);
+      } else {
+        return categoryName.includes(searchQueryLowerCase);
+      }
+    });
+  };
 
   const filteredCategories = filterCategories(data || []);
   //console.log(filteredCategories);
