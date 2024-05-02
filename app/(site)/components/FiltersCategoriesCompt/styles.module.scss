@@ -1,55 +1,52 @@
-.container_filter_products {
+.container_filter_categories {
   display: flex;
+  height: auto;
+  margin-top: 2rem;
   width: 100%;
   height: auto;
-  // border: 3px solid blue;
-  position: relative;
-  justify-content: flex-end;
 
-  .filter_products__list {
+  .categories__list {
     display: flex;
-    width: 33rem;
+    width: 100%;
     height: auto;
-    position: relative;
     justify-content: flex-end;
 
-    .filter_products__list__box {
+    .categories__box {
       display: flex;
-      width: 100%;
-      height: auto;
+      width: 60%;
+      height: 100%;
       flex-wrap: wrap;
       border-radius: 30px;
-      flex-direction: column;
       // border: 3px solid red;
+      justify-content: center;
 
-      .filter_products__item {
-        width: auto;
+      .categories__item {
+        width: 100%;
         height: auto;
         display: flex;
-        margin-top: 0.3rem;
         justify-content: flex-end;
+        margin-top: 0.3rem;
 
         .check_section {
           width: 10rem;
           height: auto;
           display: flex;
         }
-
-        .custom_checkbox {
-          color: gray;
-          padding-left: 0.3rem;
-          align-items: center;
-          display: flex;
-        }
       }
 
-      .__filtered_products {
+      .__filtered_categories {
         display: flex;
-        width: 100%;
+        width: auto;
         height: auto;
+        position: relative;
         align-items: center;
         flex-wrap: wrap;
-        flex-direction: column;
+        // top: 0;
+        z-index: 2;
+        position: relative;
+        justify-content: center;
+        // border: 3px solid pink;
+        margin-top: 2rem;
       }
     }
 
@@ -60,8 +57,7 @@
       align-content: center;
       justify-content: center;
       font-size: 2rem;
-      // padding: 0.1rem;
-      border: 0.25rem solid gray;
+      border: 3px solid gray;
       border-radius: 0.5rem;
       width: 1.3rem;
       height: 1.3rem;

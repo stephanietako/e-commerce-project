@@ -173,7 +173,7 @@ const StarProducts = ({ starproducts }) => {
                                       flexDirection: "column",
                                       width: "100%",
                                       height: "auto",
-                                      border: "3px solid pink",
+                                      // border: "3px solid pink",
                                       paddingTop: "1rem",
                                     }}
                                   >

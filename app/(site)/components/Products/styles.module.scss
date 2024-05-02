@@ -31,7 +31,7 @@
         padding: 2rem;
         width: 100%;
         height: auto;
-        border: 3px solid turquoise;
+        // border: 3px solid turquoise;
         .icon {
           display: block;
           position: absolute;
@@ -45,13 +45,13 @@
         display: flex;
         width: 100%;
         height: auto;
-        border: 8px solid violet;
+        // border: 8px solid violet;
 
         .display_allproducts__text {
           display: flex;
           width: 100%;
           height: auto;
-          border: 3px solid yellow;
+          // border: 3px solid yellow;
         }
 
         .display_allproducts__content {
@@ -68,7 +68,7 @@
             flex-wrap: wrap;
             width: 100%;
             height: auto;
-            border: 3px solid lime;
+            // border: 3px solid lime;
             position: relative;
             justify-content: center;
           }
@@ -133,7 +133,7 @@
           width: 33rem;
           height: 100%;
           flex-wrap: wrap;
-          border: 7px solid pink;
+          // border: 7px solid pink;
 
           .__checkbox {
             display: flex;

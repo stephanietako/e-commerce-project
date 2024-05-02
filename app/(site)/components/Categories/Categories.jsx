@@ -27,7 +27,7 @@ const Categories = ({ category }) => {
         className="categories_container"
         style={{
           display: "flex",
-          border: "3px solid blue",
+          // border: "3px solid blue",
           flexDirection: "column",
           width: " 100%",
           height: " auto",
@@ -37,7 +37,7 @@ const Categories = ({ category }) => {
           className="display_category"
           style={{
             display: "flex",
-            border: "3px solid violet",
+            // border: "3px solid violet",
             justifyContent: "space-evenly",
             flexWrap: "wrap",
           }}
@@ -91,7 +91,7 @@ const Categories = ({ category }) => {
                         className="content"
                         style={{
                           display: "flex",
-                          border: "3px solid pink",
+                          // border: "3px solid pink",
                           flexDirection: "column",
                         }}
                       >

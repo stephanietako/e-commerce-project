@@ -3,7 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import CheckboxCategories from "../CheckboxCategories/CheckboxCategories";
+
 import { Suspense } from "react";
+
 export const dynamic = "force-dynamic";
 // DISPLAY
 const ByCategory = ({ bycategory }) => {
@@ -68,6 +70,7 @@ const ByCategory = ({ bycategory }) => {
                     // border: "4px solid pink",
                   }}
                 >
+                  ici !!!!!!!
                   <Suspense fallback={<h2>In Progress...</h2>}>
                     <CheckboxCategories />
                   </Suspense>
@@ -99,7 +102,7 @@ const ByCategory = ({ bycategory }) => {
                           padding: "1rem",
                           // margin: "2rem",
                           width: "12rem",
-                          height: "22rem",
+                          height: "24rem",
                         }}
                       >
                         <div
@@ -181,6 +184,7 @@ const ByCategory = ({ bycategory }) => {
                                         className="price_content"
                                         style={{
                                           fontSize: "1rem",
+                                          textAlign: "right",
                                         }}
                                       >
                                         {categories.price.toFixed(2)}€

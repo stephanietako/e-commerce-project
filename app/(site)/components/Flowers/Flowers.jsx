@@ -207,7 +207,7 @@ const Flowers = ({ allflowers }) => {
                                     flexDirection: "column",
                                     width: "100%",
                                     height: "auto",
-                                    border: "3px solid red",
+                                    // border: "3px solid red",
                                   }}
                                 >
                                   <span>

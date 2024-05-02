@@ -15,7 +15,8 @@ import HeroContainer from "./components/HeroContainer/HeroContainer";
 import AnimeCartFilter from "./components/AnimeCartFilter/AnimeCartFilter";
 import SelectCategories from "./categories/selectCategories/page";
 import CheckboxCategories from "./components/CheckboxCategories/CheckboxCategories";
-
+// import FiltersCategoriesView from "./components/FiltersCategoriesView/FiltersCategoriesView";
+// import { fetchData } from "@/sanity/lib/api";
 // import All from "./components/All/All";
 //import { fetchDataSearchBar } from "@/sanity/lib/api";
 
@@ -33,6 +34,7 @@ const Home = async () => {
   // const categories = await getCategories();
   const allflowers = await getDataFlowers();
   // const all = await fetchDataSearchBar();
+  // const filteredCategories = await fetchData();
   ///////////////
   // const categorypages = getProductsByCategories();
 
@@ -86,6 +88,9 @@ const Home = async () => {
             <HeroContainer cards={cards} />
             {/* <Hero cards={cards} /> */}
           </section>
+          {/* <section>
+            <FiltersCategoriesView filteredCategories={filteredCategories} />
+          </section> */}
           <section className="animefilter_section">
             <AnimeCartFilter />
           </section>
