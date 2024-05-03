@@ -1,9 +1,4 @@
 import Link from "next/link";
-//import { getProductsByCategories } from "@/sanity/lib/client";
-//import { getPages } from "@/sanity/lib/client";
-import { getCategories } from "@/sanity/lib/client";
-//import Categories from "./components/Categories/Categories";
-//import Bycategories from "./components/Bycategories/Bycategories";
 import Products from "./components/Products/Products";
 import { getDataProductsPages } from "@/sanity/lib/client";
 import StarProducts from "./components/StarProducts/StarProducts";
@@ -14,29 +9,16 @@ import Flowers from "./components/Flowers/Flowers";
 import HeroContainer from "./components/HeroContainer/HeroContainer";
 import AnimeCartFilter from "./components/AnimeCartFilter/AnimeCartFilter";
 import SelectCategories from "./categories/selectCategories/page";
-import CheckboxCategories from "./components/CheckboxCategories/CheckboxCategories";
-// import FiltersCategoriesView from "./components/FiltersCategoriesView/FiltersCategoriesView";
-// import { fetchData } from "@/sanity/lib/api";
 // import All from "./components/All/All";
-//import { fetchDataSearchBar } from "@/sanity/lib/api";
-
 // import SearchBarAll from "./components/SearchBarAll/SearchBarAll";
 
 const Home = async () => {
   // const projects = await getProjects();
-  //about/contact
-  // const pages = await getPages();
-  //const category = await getProductsByCategories();
-  //const bycategory = await getCategories();
   const starproducts = await getDataStarProducts();
   const allproducts = await getDataProductsPages();
   const products = await getDataProducts();
-  // const categories = await getCategories();
   const allflowers = await getDataFlowers();
   // const all = await fetchDataSearchBar();
-  // const filteredCategories = await fetchData();
-  ///////////////
-  // const categorypages = getProductsByCategories();
 
   const cards = [
     {
@@ -86,11 +68,8 @@ const Home = async () => {
           {/* ////////////////HERO//////////////////// */}
           <section className="herocontainer_section">
             <HeroContainer cards={cards} />
-            {/* <Hero cards={cards} /> */}
           </section>
-          {/* <section>
-            <FiltersCategoriesView filteredCategories={filteredCategories} />
-          </section> */}
+
           <section className="animefilter_section">
             <AnimeCartFilter />
           </section>
@@ -135,33 +114,6 @@ const Home = async () => {
         </div> */}
           {/* </Suspense> */}
         </div>
-
-        {/* ///////////////////// */}
-        {/* <section>
-        <div className="links">
-          {categories.map((category) => (
-            <Link
-              key={category._id}
-              href={`/categories/${category.slug}`}
-              className="link"
-            >
-              {category.name}
-            </Link>
-          ))}
-        </div>
-      </section> */}
-        {/* //////////////////////////////////////////// */}
-
-        {/* <section>
-        <All all={all} />
-      </section> */}
-
-        {/* <section className="by_categories_section">
-        <Bycategories bycategory={bycategory} />
-      </section> */}
-        {/* <section className="all_categories_section">
-        <Categories category={category} />
-      </section> */}
       </section>
     </>
   );

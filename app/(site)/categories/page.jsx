@@ -1,85 +1,44 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import useSWR from "swr";
 import { fetchData } from "@/sanity/lib/api";
-import CategoriesPages from "../components/CategoriesPages/CategoriesPages";
+import FiltersSearchCategoriesCompt from "../components/FiltersSearchCategoriesCompt/FiltersSearchCategoriesCompt";
 
-const FiltersSearchCategories = () => {
-  // const [categoryTypeFilter, setCategoryTypeFilter] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const searchParams = useSearchParams();
-  const categoryType = searchParams.get("categoryType");
+const SelectCategories = async ({ searchQuery }) => {
+  try {
+    const data = await fetchData();
+    const filterCategories = (categories, categoryType, searchQuery) => {
+      return categories.filter((el) => {
+        const categoryName = (el.name || "").toLowerCase().trim();
+        const categoryTypeLowerCase = categoryType
+          ? categoryType.toLowerCase().trim()
+          : "";
+        const searchQueryLowerCase = searchQuery
+          ? searchQuery.toLowerCase().trim()
+          : "";
 
-  useEffect(() => {
-    const searchQuery = searchParams.get("searchQuery");
-    if (searchQuery) setSearchQuery(searchQuery);
-  }, [searchParams]);
+        if (el.type && typeof el.type === "string") {
+          const categoryTypeLower = el.type.toLowerCase().trim();
+          return categoryTypeLowerCase
+            ? categoryTypeLower.includes(categoryTypeLowerCase) &&
+                categoryName.includes(searchQueryLowerCase)
+            : categoryName.includes(searchQueryLowerCase);
+        } else {
+          return categoryName.includes(searchQueryLowerCase);
+        }
+      });
+    };
 
-  const { data, error, isLoading } = useSWR("/categories", fetchData);
+    const filteredCategories = filterCategories(data || [], "", searchQuery);
 
-  if (error) throw new Error("Cannot fetch data");
-  if (typeof data === "undefined" && !isLoading)
-    throw new Error("Cannot fetch data");
-  ///////////////
-  //Filtrage des categories
-  // const filterCategories = (categories) => {
-  //   return categories.filter(
-  //     (el) =>
-  //       typeof el.type === "string" &&
-  //       typeof el.name === "string" &&
-  //       (categoryType
-  //         ? el.type.toLowerCase().includes(categoryType.toLowerCase())
-  //         : el.name.toLowerCase().includes(searchQuery.toLowerCase()))
-  //   );
-  // };
-
-  // const filterCategories = (categories) => {
-  //   return categories.filter((el) =>
-  //     categoryType
-  //       ? el.type.toLowerCase().includes(categoryType.toLowerCase())
-  //       : el.name.toLowerCase().includes(searchQuery.toLowerCase())
-  //   );
-  // };
-  const filterCategories = (categories) => {
-    return categories.filter((el) => {
-      const categoryName = (el.name || "").toLowerCase().trim();
-      const categoryTypeLowerCase = categoryType
-        ? categoryType.toLowerCase().trim()
-        : "";
-      const searchQueryLowerCase = searchQuery
-        ? searchQuery.toLowerCase().trim()
-        : "";
-
-      if (el.type && typeof el.type === "string") {
-        const categoryTypeLower = el.type.toLowerCase().trim();
-        return categoryTypeLowerCase
-          ? categoryTypeLower.includes(categoryTypeLowerCase) &&
-              categoryName.includes(searchQueryLowerCase)
-          : categoryName.includes(searchQueryLowerCase);
-      } else {
-        return categoryName.includes(searchQueryLowerCase);
-      }
-    });
-  };
-
-  const filteredCategories = filterCategories(data || []);
-  //console.log(filteredCategories);
-  return (
-    <div className="search_components">
-      <h2> PAGE DE L AFFICHAGE DES CATEGORIES DE FLEURS</h2>
-      <div className="filteredCategories">
-        {isLoading ? (
-          <div>Loading...</div>
-        ) : (
-          filteredCategories.map((category) => {
-            return <CategoriesPages key={category._id} category={category} />;
-          })
-        )}
-      </div>
-    </div>
-  );
+    return (
+      <>
+        <FiltersSearchCategoriesCompt
+          data={data}
+          filteredCategories={filteredCategories}
+        />
+      </>
+    );
+  } catch (error) {
+    return <p>Erreur dans la récupération des données</p>;
+  }
 };
 
-export default FiltersSearchCategories;
+export default SelectCategories;
