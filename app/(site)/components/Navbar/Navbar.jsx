@@ -3,14 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import Menu from "../../menu/page";
+
 // Styles
 import styles from "./styles.module.scss";
 import logo from "@/public/assets/vibes.png";
 import cart from "@/public/assets/cart.png";
 import CartBtn from "../CartBtn/Cartbtn";
 import AccountProfil from "../AccountProfil/AccountProfil";
-// import NavContactAboutLink from "../../[navContactAboutLink]/page";
+import NavContactAboutLink from "../../contact/[navContactAboutLink]/page";
 
 // const navLinks = [{ name: "Accueil", href: "/" }];
 
@@ -54,15 +54,13 @@ const Navbar = ({ products }) => {
                 </a>
               </div>
             </li>
-            {/* <li>
+            <li>
               <NavContactAboutLink />
-            </li> */}
+            </li>
             <li>
               <AccountProfil />
             </li>
-            <li>
-              <Menu products={products} />
-            </li>
+
             <li>
               <div className={styles.btn_cart}>
                 <CartBtn img={cart} />

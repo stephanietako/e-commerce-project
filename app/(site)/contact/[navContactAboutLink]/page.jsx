@@ -1,4 +1,4 @@
-import Contact from "../components/Contact/Contact";
+import Contact from "../../components/Contact/Contact";
 import { getPages } from "@/sanity/lib/client";
 export const dynamic = "force-dynamic";
 
