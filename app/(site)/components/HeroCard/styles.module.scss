@@ -48,13 +48,19 @@
         border-radius: 5px;
       }
 
-      h2 {
-        font-size: 200%;
+      .title_content {
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+      }
+      h1 {
         line-height: 110%;
         margin: 0 0 7px 0;
         color: #fff;
         background-color: #111;
         border-radius: 100%;
+        justify-content: center;
       }
 
       h4 {

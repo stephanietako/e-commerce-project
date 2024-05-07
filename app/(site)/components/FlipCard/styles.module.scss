@@ -1,7 +1,7 @@
 .flipcart_container {
   display: flex;
   text-align: center;
-  width: 12rem;
+  width: 20rem;
   height: 20rem;
   position: relative;
 
@@ -12,7 +12,6 @@
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    // transition: transform 0.5s, background-image 0.5s ease;
     padding: 0.5rem;
 
     &.flipped {
@@ -35,11 +34,9 @@
       }
 
       .__flip_card__front {
-        border: 3px solid #000;
         border-radius: 30px;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
 
         &:hover {
           background-image: linear-gradient(
@@ -53,11 +50,17 @@
           border-radius: 30px;
           transition: 2s ease;
           overflow: hidden;
+
+          h2 {
+            color: white; // Changement de couleur du titre lorsque le background-image est appliqué
+          }
         }
       }
 
       .__flip_card__back {
-        background-color: rgba(0, 0, 0, 0.7);
+        background-image: url("/assets/canaimg.webp");
+        background-size: cover;
+        background-position: center;
         transform: rotateY(180deg);
       }
 
@@ -70,9 +73,17 @@
           height: auto;
           justify-content: center;
           flex-direction: column;
-          padding: 1rem;
+          padding: 0.5rem;
         }
-
+        h2 {
+          color: gray;
+        }
+        h3 {
+          color: #fff;
+        }
+        p {
+          color: #fff;
+        }
         .image {
           display: flex;
           width: 100%;
@@ -104,21 +115,6 @@
           }
         }
       }
-
-      // &:hover {
-      //   // background-image: linear-gradient(
-      //   //     45deg,
-      //   //     rgba(0, 0, 255, 0.5),
-      //   //     rgba(255, 255, 0, 0.5)
-      //   //   ),
-      //   //   url("/assets/background.webp");
-      //   background-image: url("/assets/background.webp");
-      //   // background-size: cover;
-      //   // background-position: center;
-      //   // border-radius: 30px;
-      //   // transition: 0.5s ease;
-      //   // overflow: hidden;
-      // }
     }
   }
 }

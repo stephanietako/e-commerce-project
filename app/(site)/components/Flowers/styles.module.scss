@@ -1,0 +1,126 @@
+.flowers__section {
+  display: flex;
+  width: 100%;
+  height: auto;
+
+  .flowers__container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+
+    .display_all_flowers {
+      display: flex;
+      width: auto;
+      height: auto;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .title__content {
+        display: flex;
+        width: 100%;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+
+        .title {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: auto;
+          position: relative;
+          z-index: 1;
+          .icon {
+            display: block;
+            position: absolute;
+            left: -45px;
+            z-index: -1;
+            transform: translateY(-5%) rotate(-29deg);
+          }
+        }
+      }
+
+      .flowers_cards {
+        display: flex;
+        width: 100%;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+
+        .flowers_cards__display {
+          display: flex;
+          margin-top: 4rem;
+          width: auto;
+          height: auto;
+
+          .flowers_bloc {
+            display: flex;
+            width: 100%;
+            height: auto;
+
+            .flowers_bloc__searchbar {
+              display: flex;
+              width: 100%;
+              height: 100%;
+              flex-direction: column;
+              padding: 2rem;
+
+              .flowers__searchflowers {
+                display: flex;
+                width: auto;
+                height: auto;
+                justify-content: center;
+              }
+
+              .flowers__searchtypeflowers {
+                display: flex;
+                width: auto;
+                height: auto;
+                justify-content: center;
+              }
+            }
+            .data_group__container {
+              display: flex;
+              width: auto;
+              height: 100%;
+              //   border: 3px solid yellow;
+
+              .data_group__products {
+                display: flex;
+                padding: 20px;
+                border-radius: 30px;
+                width: 12rem;
+                height: 22rem;
+                justify-content: center;
+                margin: 2rem;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+                &:hover {
+                  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                }
+
+                .content_flowers {
+                  display: flex;
+                  flex-direction: column;
+
+                  .flowers__infos {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    height: auto;
+
+                    .__price_content {
+                      font-size: 1rem;
+                      text-align: end;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

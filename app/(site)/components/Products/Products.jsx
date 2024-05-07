@@ -7,6 +7,7 @@ import CheckboxProducts from "../CheckboxProducts/CheckboxProducts";
 import { Suspense } from "react";
 // Styles
 import styles from "./styles.module.scss";
+
 export const dynamic = "force-dynamic";
 // DISPLAY
 const Products = ({ allproducts }) => {
@@ -46,24 +47,13 @@ const Products = ({ allproducts }) => {
                     consequuntur voluptatum laborum numquam blanditiis !
                   </p>
                 </div>
+
                 <div className={styles.display_allproducts__content}>
                   <div className={styles.display_allproducts__cards}>
                     {allproducts.map((product) => (
                       <div key={product._id}>
-                        {/* Vérification de la disponibilité de catégories pour ce produit */}
                         {product.categories && product.categories.length > 0 ? (
                           <div className={styles.display_allproducts__infos}>
-                            <div
-                              className={styles.display_allproducts__subtitle}
-                            >
-                              <h2>
-                                <Link href={`/products/${product.slug}`}>
-                                  {product.name}
-                                </Link>
-                              </h2>
-                            </div>
-
-                            {/*  Boucle INTERNE SUBCATEGORIES à travers toutes les sous-catégories du produit */}
                             {product.categories.map((category) => (
                               <React.Fragment key={category._id}>
                                 <div className={styles.data_group_products}>
@@ -79,6 +69,7 @@ const Products = ({ allproducts }) => {
                                         {category.name}
                                       </Link>
                                     </h3>
+
                                     <div className={styles.content__categories}>
                                       <div className={styles.bloc_img_products}>
                                         {category.coverImages && (
@@ -146,6 +137,7 @@ const Products = ({ allproducts }) => {
                   </div>
                 </div>
               </div>
+
               <div className={styles.display_allproducts__second_bloc}>
                 <div className={styles.__checkbox}>
                   <Suspense fallback={<h2>In Progress...</h2>}>

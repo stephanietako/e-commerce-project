@@ -1,0 +1,107 @@
+.starproducts__section {
+  display: flex;
+  width: 100%;
+  height: auto;
+
+  .starproducts__container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 30px;
+    padding: 2rem;
+
+    .display_starproducts {
+      display: flex;
+      width: auto;
+      height: auto;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+
+      .title__content {
+        display: flex;
+        width: 100%;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+
+        .title {
+          display: flex;
+          align-items: center;
+          padding: 2rem;
+          width: 100%;
+          height: auto;
+          position: relative;
+          z-index: 1;
+          .icon {
+            display: block;
+            position: absolute;
+            left: -21px;
+            z-index: -1;
+            transform: translateY(-5%) rotate(-29deg);
+          }
+        }
+      }
+
+      .display_all_starproducts {
+        display: flex;
+        width: auto;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem;
+
+        .starproducts__cards {
+          display: flex;
+          width: 50%;
+          height: 100%;
+          justify-content: center;
+
+          .title_starproducts_products {
+            padding-left: 2rem;
+          }
+
+          .display_infos__products {
+            display: flex;
+            height: auto;
+            width: auto;
+
+            .data_group_starproducts {
+              display: flex;
+              padding: 1rem;
+              width: auto;
+              height: auto;
+              align-items: center;
+
+              .content_starproducts {
+                display: flex;
+                flex-direction: column;
+                width: 12rem;
+                height: 22rem;
+                padding: 1rem;
+                border-radius: 30px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+                &:hover {
+                  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                }
+                .title_starproducts_categories {
+                  text-align: end;
+
+                  .price_content {
+                    p {
+                      text-align: end;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

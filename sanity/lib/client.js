@@ -77,7 +77,7 @@ export async function getPage(slug) {
 //  STARPRODUCTS &  ALL PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
 export async function getDataStarProducts() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "product"] [0...3] | order(name asc){
+    groq`*[_type == "product"] [0...7] | order(name asc){
   _id,
       _createdAt,
       _type,

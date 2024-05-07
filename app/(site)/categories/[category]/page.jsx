@@ -97,7 +97,7 @@ const CategoryDetails = async ({ params }) => {
                   <div
                     className="products_price"
                     style={{
-                      border: "3px solid black",
+                      border: "3px solid #000",
                       marginTop: "25px",
                       fontSize: "3rem",
                       borderRadius: "30px",

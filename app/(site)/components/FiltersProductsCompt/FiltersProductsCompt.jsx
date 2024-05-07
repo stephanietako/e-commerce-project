@@ -27,9 +27,9 @@ const FiltersProductsCompt = ({ data, isLoading, error }) => {
     }
   };
 
-  // Filtrage des categories
-  const filterCategories = (categories) => {
-    return categories.filter((el) => el.name.includes(searchQuery));
+  // Filtrage des produits
+  const filterProducts = (products) => {
+    return products.filter((el) => el.name.includes(searchQuery));
   };
   return (
     <div className={styles.container_filter_products}>

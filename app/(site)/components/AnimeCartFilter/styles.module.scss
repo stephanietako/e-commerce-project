@@ -1,69 +1,106 @@
 .flipcart {
   display: flex;
   width: 100%;
-  height: 100%;
-  justify-content: center;
-  // border: 4px solid violet;
+  height: auto;
 
   .container_filter_flipcart {
     display: flex;
     width: 100%;
-    height: 100%;
-    justify-content: center;
-    // border: 4px solid lime;
+    height: auto;
+    flex-direction: column;
 
-    .display_infos_animecart {
+    .display_animecartfilter {
       display: flex;
-      border: 3px solid #000;
-      flex-direction: column;
-      width: 100%;
-      height: 100%;
-      border-radius: 30px;
-      padding: 2rem;
-      // flex-wrap: wrap;
+      width: auto;
+      height: auto;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
 
-      .title {
+      .title__content {
         display: flex;
-        position: relative;
-        z-index: 1;
-        padding: 2rem;
-        width: 77rem;
+        width: 100%;
         height: auto;
-
-        .icon {
-          display: block;
-          position: absolute;
-          left: -21px;
-          z-index: -1;
-          transform: translateY(-76%) rotate(-29deg);
-        }
-      }
-
-      .products_flipcart_list {
-        display: flex;
-        flex-wrap: wrap;
-        width: auto;
-        height: auto;
-        // border: 5px solid pink;
-        // flex-direction: column;
+        align-items: center;
         justify-content: center;
 
-        .__box {
+        .title {
           display: flex;
-          max-width: 70%;
+          align-items: center;
+          width: 100%;
           height: auto;
-          // border: 3px solid blue;
-          justify-content: center;
           position: relative;
-          flex-wrap: wrap;
+          z-index: 1;
+          .icon {
+            display: block;
+            position: absolute;
+            left: -21px;
+            z-index: -1;
+            transform: translateY(-5%) rotate(-29deg);
+          }
+        }
+      }
+      .display_infos_animecart {
+        display: flex;
+        // border: 3px solid gray;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
 
-          .cardsContainer {
+        .title__content {
+          display: flex;
+          width: 100%;
+          height: auto;
+          align-items: center;
+          justify-content: center;
+
+          .title {
             display: flex;
-            width: auto;
-            height: auto;
-            flex-wrap: wrap;
-            // border: 3px solid red;
             align-items: center;
+            padding: 2rem;
+            width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 1;
+            .icon {
+              display: block;
+              position: absolute;
+              left: -45px;
+              z-index: -1;
+              transform: translateY(-9%) rotate(-29deg);
+            }
+          }
+        }
+
+        .products_flipcart_list {
+          display: flex;
+          flex-wrap: wrap;
+          width: auto;
+          height: auto;
+          // border: 5px solid pink;
+          // flex-direction: column;
+          justify-content: center;
+
+          .__box {
+            display: flex;
+            max-width: 70%;
+            height: auto;
+            // border: 3px solid blue;
+            justify-content: center;
+            position: relative;
+            flex-wrap: wrap;
+            margin-top: 4rem;
+            padding: 2rem;
+
+            .cardsContainer {
+              display: flex;
+              width: auto;
+              height: auto;
+              flex-wrap: wrap;
+              // border: 3px solid red;
+              align-items: center;
+            }
           }
         }
       }

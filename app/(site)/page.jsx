@@ -9,6 +9,7 @@ import Flowers from "./components/Flowers/Flowers";
 import HeroContainer from "./components/HeroContainer/HeroContainer";
 import AnimeCartFilter from "./components/AnimeCartFilter/AnimeCartFilter";
 import SelectCategories from "./categories/selectCategories/page";
+import SelectProducts from "./products/selectProducts/page";
 // import All from "./components/All/All";
 // import SearchBarAll from "./components/SearchBarAll/SearchBarAll";
 
@@ -38,7 +39,6 @@ const Home = async () => {
           display: "flex",
           width: "100%",
           height: "auto",
-          padding: "2rem",
         }}
       >
         <div className="menu_products">
@@ -73,19 +73,23 @@ const Home = async () => {
           <section className="animefilter_section">
             <AnimeCartFilter />
           </section>
-          <section className="starproducts_section">
-            <StarProducts starproducts={starproducts} />
-          </section>
+
           <section className="categories_section">
             <Flowers allflowers={allflowers} />
           </section>
-          <section className="all_products_section">
-            <Products allproducts={allproducts} />
+          <section className="starproducts_section">
+            <StarProducts starproducts={starproducts} />
           </section>
-
+          {/* <section className="all_products_section">
+            <Products allproducts={allproducts} />
+          </section> */}
+          <section>
+            <SelectProducts />
+          </section>
           <section>
             <SelectCategories />
           </section>
+
           {/* <section>
           <h2>Search bar de tout le shop</h2>
           <SearchBarAll />

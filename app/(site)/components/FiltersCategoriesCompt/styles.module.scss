@@ -1,47 +1,56 @@
 .container_filter_categories {
   display: flex;
-  height: auto;
-  margin-top: 2rem;
   width: 100%;
   height: auto;
+  // border: 3px solid blue;
+  position: relative;
+  justify-content: flex-end;
 
   .categories__list {
     display: flex;
-    width: 100%;
+    width: 33rem;
     height: auto;
+    position: relative;
     justify-content: flex-end;
-    margin-top: -5rem;
 
     .categories__box {
       display: flex;
-      width: 75%;
-      height: 100%;
+      width: 100%;
+      height: auto;
       flex-wrap: wrap;
+      border-radius: 30px;
+      flex-direction: column;
+      border: 3px solid yellow;
 
       .categories__item {
-        width: 100%;
+        width: auto;
         height: auto;
         display: flex;
-        justify-content: flex-end;
         margin-top: 0.3rem;
+        justify-content: flex-end;
 
         .check_section {
           width: 10rem;
           height: auto;
           display: flex;
         }
+
+        .custom_checkbox {
+          color: gray;
+          padding-left: 0.3rem;
+          align-items: center;
+          display: flex;
+        }
       }
 
       .__filtered_categories {
         display: flex;
-        width: auto;
+        width: 100%;
         height: auto;
         align-items: center;
         flex-wrap: wrap;
-        // top: 0;
-        z-index: 2;
-        position: relative;
-        margin-top: 2rem;
+        flex-direction: column;
+        border: 3px solid pink;
       }
     }
 

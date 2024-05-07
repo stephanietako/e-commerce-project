@@ -1,0 +1,110 @@
+.container_filter_categories {
+  display: flex;
+  width: 100%;
+  height: auto;
+  // border: 3px solid blue;
+  position: relative;
+  justify-content: flex-end;
+
+  .categories__list {
+    display: flex;
+    width: 33rem;
+    height: auto;
+    position: relative;
+    justify-content: flex-end;
+
+    .categories__box {
+      display: flex;
+      width: 100%;
+      height: auto;
+      flex-wrap: wrap;
+      border-radius: 30px;
+      flex-direction: column;
+      border: 3px solid violet;
+
+      .categories__item {
+        width: auto;
+        height: auto;
+        display: flex;
+        margin-top: 0.3rem;
+        justify-content: flex-end;
+
+        .check_section {
+          width: 10rem;
+          height: auto;
+          display: flex;
+        }
+
+        .check_section {
+          color: gray;
+          padding-left: 0.3rem;
+          align-items: center;
+          display: flex;
+        }
+      }
+
+      .__filtered_categories {
+        display: flex;
+        width: 100%;
+        height: auto;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+      }
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      font-size: 2rem;
+      // padding: 0.1rem;
+      border: 0.25rem solid gray;
+      border-radius: 0.5rem;
+      width: 1.3rem;
+      height: 1.3rem;
+
+      &::before {
+        content: "";
+        width: 0.9rem;
+        height: 0.9rem;
+        clip-path: polygon(
+          20% 0%,
+          0% 20%,
+          30% 50%,
+          0% 80%,
+          20% 100%,
+          50% 70%,
+          80% 100%,
+          100% 80%,
+          70% 50%,
+          100% 20%,
+          80% 0%,
+          50% 30%
+        );
+        transform: scale(0);
+        background: linear-gradient(
+          135deg,
+          #ff1e9c99,
+          #ff1ea499,
+          #ff1fbc99,
+          #ff1fde99,
+          #f620ff99,
+          #c721ff99,
+          #9723ff99,
+          #6a24ff99,
+          #4125ff99,
+          #252aff99,
+          #2641ff99,
+          #2649ff99
+        );
+      }
+
+      &:checked::before {
+        transform: scale(1);
+      }
+    }
+  }
+}

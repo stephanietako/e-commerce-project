@@ -1,0 +1,103 @@
+.categories_section {
+  display: flex;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border: 3px solid red;
+  border-radius: 30px;
+  padding: 3rem;
+  position: relative;
+
+  .bycategories_container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    // border: 3px solid blue;
+
+    .display_bycategories {
+      display: flex;
+      width: 100%;
+      height: auto;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .__checkbox {
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+      }
+
+      .display_bycategories__cards {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: auto;
+        position: relative;
+        border: 3px solid blue;
+
+        .display_infos_products {
+          display: flex;
+          flex-direction: column;
+          padding: 20px;
+          border-radius: 30px;
+          width: 12rem;
+          height: 22rem;
+          justify-content: center;
+          margin: 1rem;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          transition: 0.3s;
+
+          &:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          }
+        }
+
+        .display_bycategories__content {
+          display: flex;
+          flex-direction: column;
+
+          .data_group_bycategories {
+            display: flex;
+            flex-direction: column;
+
+            .bloc_img_products__categories {
+              display: flex;
+              // border: 3px solid pink;
+              width: auto;
+              height: auto;
+              justify-content: center;
+              padding: 0.5rem;
+            }
+
+            .display_bycategories__content {
+              display: flex;
+              padding: 20px;
+              border-radius: 30px;
+              width: 12rem;
+              height: 22rem;
+              justify-content: center;
+              margin: 1rem;
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+              transition: 0.3s;
+
+              &:hover {
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+              }
+            }
+          }
+        }
+      }
+
+      .__checkbox {
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+      }
+    }
+  }
+}

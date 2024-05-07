@@ -56,7 +56,7 @@ const Categories = ({ category }) => {
                   className="display_infos"
                   style={{
                     display: "flex",
-                    border: "3px solid black",
+                    border: "3px solid gray",
                     borderRadius: "30px",
                   }}
                 >

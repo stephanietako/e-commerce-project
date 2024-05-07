@@ -20,6 +20,23 @@ const Navbar = ({ products }) => {
     <>
       <nav className={styles.navbar}>
         <ul className={styles.__navbar_container}>
+          <div className={styles.__logo}>
+            <a href="/">
+              <Image
+                className={styles.__img}
+                src={logo}
+                alt="les fleurs"
+                width={100}
+                height={100}
+                style={{
+                  display: "block",
+                  objectFit: "cover",
+                  width: "auto",
+                  height: "auto",
+                }}
+              />
+            </a>
+          </div>
           <div className={styles.__link_navbar}>
             {/* {navLinks.map((link, index) => (
               <li key={index}>
@@ -35,7 +52,7 @@ const Navbar = ({ products }) => {
                 </Link>
               </li>
             ))} */}
-            <li>
+            {/* <li>
               <div className={styles.__logo}>
                 <a href="/">
                   <Image
@@ -53,7 +70,7 @@ const Navbar = ({ products }) => {
                   />
                 </a>
               </div>
-            </li>
+            </li> */}
             <li>
               <NavContactAboutLink />
             </li>

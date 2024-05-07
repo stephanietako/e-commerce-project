@@ -29,8 +29,9 @@ function HeroCard({ imageUrl, title, subtitle, description }) {
               objectFit: "cover",
             }}
           />
-
-          <h2 className={styles.title}>{title}</h2>
+          <div className={styles.title_content}>
+            <h1 className={styles.title}>{title}</h1>
+          </div>
           <h4 className={styles.subtitle}>{subtitle}</h4>
           <figcaption>
             <p>{description}</p>

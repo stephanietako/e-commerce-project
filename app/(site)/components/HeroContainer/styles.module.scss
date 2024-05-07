@@ -5,12 +5,12 @@
   justify-content: center;
 
   .__sectionWrapper {
-    width: 100%;
+    width: auto;
     height: 100%;
     display: flex;
     justify-content: center;
-    border: 3px solid #000;
-    border-radius: 30px;
+    // border: 3px solid gray;
+    // border-radius: 30px;
     padding: 1rem;
   }
 }

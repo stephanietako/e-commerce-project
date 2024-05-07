@@ -8,7 +8,7 @@ import styles from "./styles.module.scss";
 
 const FiltersCategoriesCompt = ({ data, isLoading, error }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(""); // Ajout de setSearchQuery
+  const [searchQuery, setSearchQuery] = useState("");
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -30,9 +30,9 @@ const FiltersCategoriesCompt = ({ data, isLoading, error }) => {
   };
 
   // Filtrage des categories
-  const filterCategories = (categories) => {
-    return categories.filter((el) => el.name.includes(searchQuery));
-  };
+  // const filterCategories = (categories) => {
+  //   return categories.filter((el) => el.name.includes(searchQuery));
+  // };
   return (
     <div className={styles.container_filter_categories}>
       <ul className={styles.categories__list}>

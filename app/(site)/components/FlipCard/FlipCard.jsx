@@ -36,8 +36,8 @@ const FlipCard = ({ product }) => {
                     src={product.coverImages}
                     alt="les produits de la boutiques vibes cbd"
                     className="product__img"
-                    width={150}
-                    height={150}
+                    width={200}
+                    height={200}
                     style={{
                       objectFit: "cover",
                       borderRadius: "30px",
@@ -57,8 +57,13 @@ const FlipCard = ({ product }) => {
           <div className={styles.__flip_card__back}>
             <div className={styles.__card__content}>
               <div className={styles.__flip_card__infos}>
-                <p>{product.name}</p>
-                <span>
+                <h3>{product.name}</h3>
+                <br />
+                <span
+                  style={{
+                    color: "#fff",
+                  }}
+                >
                   <PortableText value={product.content} />
                 </span>
                 <br />
