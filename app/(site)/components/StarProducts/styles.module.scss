@@ -2,6 +2,8 @@
   display: flex;
   width: 100%;
   height: auto;
+  border: 3px solid red;
+  border-radius: 30px;
 
   .starproducts__container {
     display: flex;
@@ -9,7 +11,6 @@
     height: auto;
     flex-direction: column;
     justify-content: center;
-    border-radius: 30px;
     padding: 2rem;
 
     .display_starproducts {
@@ -52,13 +53,14 @@
         height: auto;
         align-items: center;
         justify-content: center;
-        padding: 3rem;
+        border: 3px solid black;
 
         .starproducts__cards {
           display: flex;
-          width: 50%;
+          width: 55%;
           height: 100%;
-          justify-content: center;
+          flex-wrap: wrap;
+          justify-content: space-around;
 
           .title_starproducts_products {
             padding-left: 2rem;

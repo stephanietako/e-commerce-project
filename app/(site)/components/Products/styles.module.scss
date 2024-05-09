@@ -1,6 +1,6 @@
 .products_section {
   display: flex;
-  width: 100%;
+  width: 80%;
   height: auto;
   align-items: center;
   flex-wrap: wrap;
@@ -19,7 +19,7 @@
 
     .display_allproducts {
       display: flex;
-      width: 100%;
+      width: 80%;
       height: auto;
       align-items: center;
       flex-wrap: wrap;
@@ -70,14 +70,14 @@
             height: auto;
             position: relative;
             flex-direction: column;
-            border: 3px solid blue;
+            border: 3px solid yellow;
           }
 
           .display_allproducts__infos {
             display: flex;
             // border: 3px solid gray;
             flex-wrap: wrap;
-            justify-content: center;
+            // justify-content: center;
             margin: 1rem;
             border-radius: 30px;
             padding: 1rem;

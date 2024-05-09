@@ -2,6 +2,7 @@
   display: flex;
   width: 100%;
   height: auto;
+  border: 4px solid red;
 
   .flowers__container {
     display: flex;
@@ -58,13 +59,15 @@
             display: flex;
             width: 100%;
             height: auto;
+            justify-content: center;
 
             .flowers_bloc__searchbar {
               display: flex;
-              width: 100%;
+              width: 15%;
               height: 100%;
               flex-direction: column;
               padding: 2rem;
+              border: 3px solid blue;
 
               .flowers__searchflowers {
                 display: flex;
@@ -82,9 +85,10 @@
             }
             .data_group__container {
               display: flex;
-              width: auto;
+              width: 55%;
               height: 100%;
-              //   border: 3px solid yellow;
+              border: 4px solid black;
+              flex-wrap: wrap;
 
               .data_group__products {
                 display: flex;

@@ -10,6 +10,11 @@ import styles from "./styles.module.scss";
 export const dynamic = "force-dynamic";
 // DISPLAY
 const ByCategory = ({ bycategory }) => {
+  //  Afficher les catégories sans produits
+  const categoriesWithoutProducts = bycategory.filter(
+    (category) => !category.products || category.products.length === 0
+  );
+  console.log("Catégories sans produits :", categoriesWithoutProducts);
   return (
     <>
       <div className={styles.categories_section}>
@@ -102,7 +107,7 @@ const ByCategory = ({ bycategory }) => {
                       ))}
                     </div>
                   ) : (
-                    <p>No products available for this category.</p>
+                    <p>No categories available for this product.</p>
                   )}
                 </div>
               ))}
