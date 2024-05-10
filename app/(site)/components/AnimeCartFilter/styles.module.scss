@@ -85,14 +85,14 @@
 
           .__box {
             display: flex;
-            max-width: 70%;
+            width: 100%;
             height: auto;
             // border: 3px solid blue;
             justify-content: center;
             position: relative;
             flex-wrap: wrap;
-            margin-top: 4rem;
-            padding: 2rem;
+            margin-top: 2rem;
+            padding: 1rem;
 
             .cardsContainer {
               display: flex;
@@ -101,6 +101,7 @@
               flex-wrap: wrap;
               // border: 3px solid red;
               align-items: center;
+              margin: 0.7rem;
             }
           }
         }

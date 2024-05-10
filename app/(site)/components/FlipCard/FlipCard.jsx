@@ -36,8 +36,8 @@ const FlipCard = ({ product }) => {
                     src={product.coverImages}
                     alt="les produits de la boutiques vibes cbd"
                     className="product__img"
-                    width={200}
-                    height={200}
+                    width={315}
+                    height={220}
                     style={{
                       objectFit: "cover",
                       borderRadius: "30px",

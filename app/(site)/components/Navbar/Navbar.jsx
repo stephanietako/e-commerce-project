@@ -10,11 +10,11 @@ import logo from "@/public/assets/vibes.png";
 import cart from "@/public/assets/cart.png";
 import CartBtn from "../CartBtn/Cartbtn";
 import AccountProfil from "../AccountProfil/AccountProfil";
-import NavContactAboutLink from "../../contact/[navContactAboutLink]/page";
+// import Contact from "../Contact/Contact";
 
 // const navLinks = [{ name: "Accueil", href: "/" }];
 
-const Navbar = ({ products }) => {
+const Navbar = () => {
   const pathname = usePathname();
   return (
     <>
@@ -71,9 +71,9 @@ const Navbar = ({ products }) => {
                 </a>
               </div>
             </li> */}
-            <li>
-              <NavContactAboutLink />
-            </li>
+            {/* <li>
+              <Contact />
+            </li> */}
             <li>
               <AccountProfil />
             </li>

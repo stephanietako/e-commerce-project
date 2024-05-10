@@ -51,11 +51,11 @@ const ByCategory = ({ bycategory }) => {
                                   src={categories.coverImages}
                                   alt="les fleurs"
                                   className="product__img"
-                                  width={150}
-                                  height={150}
+                                  width={250}
+                                  height={200}
                                   style={{
                                     display: "block",
-                                    objectFit: "cover",
+                                    objectFit: "contain",
                                     borderRadius: "30px",
                                   }}
                                 />
@@ -77,7 +77,8 @@ const ByCategory = ({ bycategory }) => {
                                     textAlign: "right",
                                   }}
                                 >
-                                  {categories.price.toFixed(2)}€
+                                  {/* {categories.price.toFixed(2)}€ */}
+                                  {categories.price}€
                                 </p>
                               </span>
                             </div>

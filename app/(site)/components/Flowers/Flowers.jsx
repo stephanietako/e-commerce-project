@@ -77,8 +77,8 @@ const Flowers = ({ allflowers }) => {
                                             src={category.coverImages}
                                             alt="les fleurs"
                                             className="product__img"
-                                            width={150}
-                                            height={150}
+                                            width={315}
+                                            height={220}
                                             style={{
                                               objectFit: "cover",
                                               borderRadius: "30px",

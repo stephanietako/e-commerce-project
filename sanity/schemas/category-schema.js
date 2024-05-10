@@ -35,7 +35,7 @@ const category = {
         },
       ],
       validation: (Rule) =>
-        Rule.required().min(3).error("Minimum of 3 images required"),
+        Rule.required().min(1).error("Minimum of 1 images required"),
     },
 
     {

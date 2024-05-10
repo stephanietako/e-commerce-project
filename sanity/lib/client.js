@@ -77,7 +77,7 @@ export async function getPage(slug) {
 //  STARPRODUCTS &  ALL PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
 export async function getDataStarProducts() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "product"] [0...10] | order(_createdAt asc){
+    groq`*[_type == "product"] [0...3] | order(_createdAt desc){
   _id,
       _createdAt,
       _type,
@@ -122,7 +122,7 @@ export async function getDataProductsPages() {
          "coverImages": images[0].asset->url,
   body,
            content,
-  "categories": *[_type == 'category' && references(^._id)][0...100] | order(_createdAt asc) {
+  "categories": *[_type == 'category' && references(^._id)][0...100] | order(_createdAt desc) {
     _id,
      _createdAt,
       _type,
@@ -144,7 +144,7 @@ export async function getDataProductsPages() {
 ///////////////////
 export async function getDataProducts() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == 'product'][0...10] | order(_createdAt asc){
+    groq`*[_type == 'product'][0...5] | order(_createdAt asc){
   _id,
    _createdAt,
       _type,
@@ -271,7 +271,7 @@ export async function getCategory() {
 //////////////////////////
 export async function getDataFlowers() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "product" && name == "Fleurs CBD"] [0...50] | order(name asc){
+    groq`*[_type == "product" && name == "Fleurs CBD"] [0...50]  {
   _id,
        _createdAt,
       _type,
@@ -328,7 +328,7 @@ export async function getData(slug) {
 //// slug PRODUCT single page
 export async function getDataProduct(slug) {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "product" && slug.current == $slug][0]{
+    groq`*[_type == "product" && slug.current == $slug][0] {
 _id,
    _createdAt,
       _type,
@@ -337,7 +337,7 @@ _id,
          "coverImages": images[0].asset->url,
            content, 
             "body": pt::text(body),    
-  "categories": *[_type == 'category' && references(^._id)][0...50] | order(name asc) {
+  "categories": *[_type == 'category' && references(^._id)][0...100] | order(name asc) {
     _id,
     _createdAt,
       _type,
@@ -363,7 +363,7 @@ _ref,
 /////////////////////////
 export async function getAll() {
   return createClient(clientConfig).fetch(
-    groq` *[_type in ['product', 'category' ]  ] | order(_createdAt asc){
+    groq` *[_type in ['product', 'category' ]  ] | order(name desc){
   _id,
     _type,
   name,

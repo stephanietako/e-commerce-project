@@ -98,7 +98,8 @@ const Products = ({ allproducts }) => {
                                             textAlign: "end",
                                           }}
                                         >
-                                          {category.price.toFixed(2)}€
+                                          {/* {category.price.toFixed(2)}€ */}
+                                          {category.price}€
                                         </p>
                                       </span>
                                       <span>

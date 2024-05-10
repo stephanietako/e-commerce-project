@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Products from "./components/Products/Products";
-import { getDataProductsPages } from "@/sanity/lib/client";
+// import Products from "./components/Products/Products";
+// import { getDataProductsPages } from "@/sanity/lib/client";
 import StarProducts from "./components/StarProducts/StarProducts";
 import { getDataStarProducts } from "@/sanity/lib/client";
 import { getDataProducts } from "@/sanity/lib/client";
@@ -16,7 +16,7 @@ import SelectProducts from "./products/selectProducts/page";
 const Home = async () => {
   // const projects = await getProjects();
   const starproducts = await getDataStarProducts();
-  const allproducts = await getDataProductsPages();
+  // const allproducts = await getDataProductsPages();
   const products = await getDataProducts();
   const allflowers = await getDataFlowers();
   // const all = await fetchDataSearchBar();
