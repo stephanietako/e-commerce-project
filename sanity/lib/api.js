@@ -6,7 +6,7 @@ import { groq } from "next-sanity";
 // import { getCategories } from "@/sanity/lib/client";
 export async function fetchData() {
   return await sanityClient.fetch(
-    groq` *[_type == "category"]| order(name asc){
+    groq` *[_type == "category"] | order(_createdAt desc){
   _id,
       _createdAt,
   name,
@@ -19,7 +19,7 @@ export async function fetchData() {
     currency,
   "products": products[]{
 _ref,
-  "products": *[_type == 'product' && references(^._id)][0...25] | order(name asc) {
+  "products": *[_type == 'product' && references(^._id)][0...50]  | order(_createdAt desc){
     _id,
     price,
     currency,
@@ -40,7 +40,7 @@ _ref,
 ///////////
 export async function fetchDataProduct() {
   return await sanityClient.fetch(
-    groq`*[_type == "product"] | order(name asc){
+    groq`*[_type == "product"] | order(_createdAt desc){
   _id,
       _createdAt,
   name,
@@ -71,7 +71,7 @@ export async function fetchDataProduct() {
 //////////////////////////
 export async function fetchDataSearchBarSlug(slug) {
   return await sanityClient.fetch(
-    groq`*[_type in ["product", "category"] && defined(slug.current)] | order(name asc) {
+    groq`*[_type in ["product", "category"] && defined(slug.current)]  {
   _id,
   _createdAt,
   name,

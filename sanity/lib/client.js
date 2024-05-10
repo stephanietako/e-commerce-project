@@ -113,7 +113,7 @@ _ref,
 ///////////// ALL PRODUCTS ////////////////////
 export async function getDataProductsPages() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "product"] | order(_createdAt asc){
+    groq`*[_type == "product"] | order(_createdAt desc){
   _id,
     _createdAt,
       _type,
@@ -122,7 +122,7 @@ export async function getDataProductsPages() {
          "coverImages": images[0].asset->url,
   body,
            content,
-  "categories": *[_type == 'category' && references(^._id)][0...100] | order(_createdAt desc) {
+  "categories": *[_type == 'category' && references(^._id)][0...100] | order(name asc)  {
     _id,
      _createdAt,
       _type,
@@ -144,7 +144,7 @@ export async function getDataProductsPages() {
 ///////////////////
 export async function getDataProducts() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == 'product'][0...5] | order(_createdAt asc){
+    groq`*[_type == 'product'][0...10] | order(_createdAt desc){
   _id,
    _createdAt,
       _type,
@@ -172,7 +172,7 @@ _ref,
 // produits par categories
 export async function getProductsByCategories() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == 'category'][0...100] | order(_createdAt asc){
+    groq`*[_type == 'category'][0...100] | order(_createdAt desc){
   _id,
     _createdAt,
       _type,
@@ -197,7 +197,7 @@ _ref,
 // produits par categories
 export async function getCategories() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "category"] | order(_createdAt asc){
+    groq`*[_type == "category"] | order(name asc) {
   _id,
        _createdAt,
       _type,
@@ -206,7 +206,7 @@ export async function getCategories() {
   price,
    "slug": slug.current,
    content,
-  "products": *[_type == 'product' && references(^._id)][0...10] | order(_createdAt asc){
+  "products": *[_type == 'product' && references(^._id)][0...10] | order(_createdAt desc){
     _id,
      _createdAt,
       _type,
@@ -232,7 +232,7 @@ _ref,
 
 export async function getBycategories() {
   return createClient(clientConfig).fetch(
-    groq`  *[_type == "category"] [0...100] | order(_createdAt asc){
+    groq`  *[_type == "category"] [0...100] | order(name asc) {
 _id,
  _createdAt,
       _type,
@@ -306,7 +306,7 @@ _ref,
 //// slug CATEGORY single page
 export async function getData(slug) {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "category" && slug.current == $slug][0]{
+    groq`*[_type == "category" && slug.current == $slug][0] {
       _id,
       _createdAt,
       _type,
@@ -337,7 +337,7 @@ _id,
          "coverImages": images[0].asset->url,
            content, 
             "body": pt::text(body),    
-  "categories": *[_type == 'category' && references(^._id)][0...100] | order(name asc) {
+  "categories": *[_type == 'category' && references(^._id)][0...100] | order(_createdAt desc) {
     _id,
     _createdAt,
       _type,
@@ -363,8 +363,9 @@ _ref,
 /////////////////////////
 export async function getAll() {
   return createClient(clientConfig).fetch(
-    groq` *[_type in ['product', 'category' ]  ] | order(name desc){
+    groq` *[_type in ['product', 'category' ]  ] | order(_createdAt desc){
   _id,
+      _createdAt,
     _type,
   name,
     price,

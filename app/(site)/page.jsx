@@ -20,7 +20,7 @@ const Home = async () => {
   const products = await getDataProducts();
   const allflowers = await getDataFlowers();
   // const all = await fetchDataSearchBar();
-
+  ////////////////
   const cards = [
     {
       imageUrl: "/assets/vibes.png",
