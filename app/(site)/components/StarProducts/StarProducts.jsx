@@ -38,17 +38,6 @@ const StarProducts = ({ starproducts }) => {
                 {/* Boucle EXTERNE à travers toutes les categories */}
                 {starproducts.map((product) => (
                   <div key={product._id}>
-                    <h2
-                      className={styles.title_starproducts_products}
-                      // style={{
-                      //   paddingLeft: "2rem",
-                      // }}
-                    >
-                      <Link href={`/products/${product.slug}`}>
-                        {product.name}
-                      </Link>
-                    </h2>
-
                     {/* Vérification de la disponibilité de produits pour cette categorie */}
                     {product.categories && product.categories.length > 0 ? (
                       <div className={styles.display_infos__products}>
@@ -61,53 +50,67 @@ const StarProducts = ({ starproducts }) => {
                                 <div
                                   className={styles.starproducts__cards_infos}
                                 >
+                                  <h3
+                                    className={
+                                      styles.title_starproducts_products
+                                    }
+                                  >
+                                    <Link href={`/products/${product.slug}`}>
+                                      {product.name}
+                                    </Link>
+                                  </h3>
                                   <div className={styles.images_starproducts}>
                                     {category.coverImages && (
                                       <Image
                                         src={category.coverImages}
                                         alt="les fleurs"
                                         className="product__img"
-                                        width={150}
-                                        height={150}
+                                        width={315}
+                                        height={220}
                                         style={{
                                           objectFit: "cover",
                                           borderRadius: "30px",
+                                          padding: "0.5rem",
                                         }}
                                       />
                                     )}
                                   </div>
-                                  <h3
-                                    className={
-                                      styles.title_starproducts_categories
-                                    }
-                                  >
-                                    <Link href={`/categories/${category.slug}`}>
-                                      {category.name}
-                                    </Link>
-                                  </h3>{" "}
-                                  <span className={styles.price_content}>
-                                    <p>{category.price.toFixed(2)}€</p>
-                                  </span>
-                                  <span>
-                                    <PortableText value={category.content} />
-                                  </span>
-                                  <Link
-                                    href={`/categories/${category.slug}`}
-                                    className="link"
-                                  >
-                                    View Details
-                                  </Link>
-                                  <span className="ref_products_flowers">
-                                    {" "}
-                                    <p
-                                      style={{
-                                        color: "gray",
-                                        fontSize: "8px",
-                                      }}
+                                  <div className={styles.starproducts__infos}>
+                                    <h3
+                                      className={
+                                        styles.starproducts__infos_categories
+                                      }
                                     >
-                                      REF: {product._id}
-                                    </p>
-                                  </span>
+                                      <Link
+                                        href={`/categories/${category.slug}`}
+                                      >
+                                        {category.name}
+                                      </Link>
+                                    </h3>{" "}
+                                    <span className={styles.price_content}>
+                                      <p>{category.price.toFixed(2)}€</p>
+                                    </span>
+                                    <span>
+                                      <PortableText value={category.content} />
+                                    </span>
+                                    <Link
+                                      href={`/categories/${category.slug}`}
+                                      className="link"
+                                    >
+                                      View Details
+                                    </Link>
+                                    <span className="ref_products_starproducts">
+                                      {" "}
+                                      <p
+                                        style={{
+                                          color: "gray",
+                                          fontSize: "8px",
+                                        }}
+                                      >
+                                        REF: {product._id}
+                                      </p>
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
                               {/* // FIN SUBCATEGORIES KEY CLASS DATA GROUP EN DESSOUS DE LA DIV */}

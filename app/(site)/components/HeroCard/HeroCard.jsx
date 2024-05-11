@@ -1,5 +1,5 @@
 import Image from "next/image";
-import backgroundImg from "@/public/assets/village.webp";
+import backgroundImg from "@/public/assets/vibes-shop1.webp";
 // Styles
 import styles from "./styles.module.scss";
 

@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Toast from "./components/Toasts/Toasts";
 import { NextAuthProvider } from "./components/AuthProvider/AuthProvider";
 // import { Suspense } from "react";
+import Cursor from "./components/Cursor/Cursor";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
@@ -24,7 +25,8 @@ export default function RootLayout({ children, session }) {
           <Toast />
           <main className="main">
             <Navbar />
-            {/* <Header /> */}
+
+            <Cursor />
             {children}
             <Footer />
           </main>

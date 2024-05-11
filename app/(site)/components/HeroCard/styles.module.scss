@@ -19,7 +19,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    background-color: rgba(237, 13, 203, 0.8);
+    background-color: rgba(100, 42, 234, 0.8);
     border-radius: 7px;
     padding: 10px;
     margin: 0;
@@ -58,7 +58,7 @@
         line-height: 110%;
         margin: 0 0 7px 0;
         color: #fff;
-        background-color: #111;
+        background-color: #1d1c1c;
         border-radius: 100%;
         justify-content: center;
       }
@@ -119,18 +119,18 @@
           height: 100%;
           background: linear-gradient(
             135deg,
-            #ff1e9c99,
-            #ff1ea499,
-            #ff1fbc99,
-            #ff1fde99,
-            #f620ff99,
-            #c721ff99,
+            #40289999,
+            #7c3ec299,
+            #7c1fff99,
+            #8f4df399,
+            #b582eb99,
+            #a236f499,
             #9723ff99,
             #6a24ff99,
             #4125ff99,
             #252aff99,
             #2641ff99,
-            #2649ff99
+            #3555f899
           );
 
           content: "";
@@ -162,18 +162,18 @@
       z-index: 999;
       background: linear-gradient(
         135deg,
-        #ff1e9c99,
-        #ff1ea499,
-        #ff1fbc99,
-        #ff1fde99,
-        #f620ff99,
-        #c721ff99,
+        #40289999,
+        #7c3ec299,
+        #7c1fff99,
+        #8f4df399,
+        #b582eb99,
+        #a236f499,
         #9723ff99,
         #6a24ff99,
         #4125ff99,
         #252aff99,
         #2641ff99,
-        #2649ff99
+        #3555f899
       );
     }
   }

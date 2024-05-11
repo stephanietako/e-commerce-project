@@ -39,19 +39,49 @@ const Home = async () => {
           display: "flex",
           width: "100%",
           height: "auto",
+          border: "3px solid blue",
         }}
       >
-        <div className="menu_products">
-          <div className="links">
-            {products.map((product) => (
-              <Link
-                key={product._id}
-                href={`/products/${product.slug}`}
-                className="link"
-              >
-                {product.name}
-              </Link>
-            ))}
+        <div
+          className="header_container_home"
+          style={{
+            display: "flex",
+            width: "100%",
+            height: "100%",
+            border: "5px solid lime",
+          }}
+        >
+          <div
+            className="header_container_home__bg"
+            style={{
+              display: "flex",
+              width: "50%",
+              height: "auto",
+              border: "3px solid red",
+              alignItems: "center",
+            }}
+          ></div>
+          <div
+            className="menu_products"
+            style={{
+              display: "flex",
+              width: "auto",
+              height: "12rem",
+              border: "3px solid green",
+              alignItems: "center",
+            }}
+          >
+            <div className="links">
+              {products.map((product) => (
+                <Link
+                  key={product._id}
+                  href={`/products/${product.slug}`}
+                  className="link"
+                >
+                  {product.name}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
         {/* //////////////////////////////////// */}
@@ -63,6 +93,7 @@ const Home = async () => {
             flexDirection: "column",
             alignContent: "center",
             alignItems: "center",
+            border: "3px solid pink",
           }}
         >
           {/* ////////////////HERO//////////////////// */}

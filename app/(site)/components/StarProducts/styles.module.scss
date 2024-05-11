@@ -74,15 +74,15 @@
             .data_group_starproducts {
               display: flex;
               padding: 1rem;
-              width: auto;
+              width: 100%;
               height: auto;
-              align-items: center;
 
               .content_starproducts {
                 display: flex;
                 flex-direction: column;
-                width: 12rem;
-                height: 22rem;
+                justify-content: center;
+                width: 24rem;
+                height: 24rem;
                 padding: 1rem;
                 border-radius: 30px;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -90,12 +90,20 @@
                 &:hover {
                   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
                 }
-                .title_starproducts_categories {
-                  text-align: end;
 
-                  .price_content {
-                    p {
-                      text-align: end;
+                .starproducts__cards_infos {
+                  display: flex;
+                  width: auto;
+                  justify-content: center;
+                  flex-direction: column;
+
+                  .title_starproducts_categories {
+                    text-align: end;
+
+                    .price_content {
+                      p {
+                        text-align: end;
+                      }
                     }
                   }
                 }

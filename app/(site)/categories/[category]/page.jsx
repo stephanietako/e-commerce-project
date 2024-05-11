@@ -133,7 +133,7 @@ const CategoryDetails = async ({ params }) => {
                     <button
                       style={{
                         marginTop: "20px",
-                        cursor: "pointer",
+                        cursor: "none",
                       }}
                     >
                       {" "}
@@ -142,7 +142,7 @@ const CategoryDetails = async ({ params }) => {
                     <button
                       style={{
                         marginTop: "20px",
-                        cursor: "pointer",
+                        cursor: "none",
                       }}
                     >
                       Checkout now

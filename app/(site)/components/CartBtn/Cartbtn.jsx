@@ -6,7 +6,7 @@ const CartBtn = ({ img, onClick }) => {
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    cursor: "pointer",
+    cursor: "none",
     backgroundColor: "transparent",
     border: "none",
   };
