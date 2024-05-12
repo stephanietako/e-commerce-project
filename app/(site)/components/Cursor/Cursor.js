@@ -19,10 +19,11 @@ const Cursor = () => {
     <div
       className="cursor"
       style={{
-        left: mousePosition.x - 10 + "px", // Adjust offset as needed
-        top: mousePosition.y - 10 + "px", // Adjust offset as needed
+        left: mousePosition.x - 20 + "px", // Adjust offset as needed
+        top: mousePosition.y - 20 + "px", // Adjust offset as needed
         position: "absolute",
-        zIndex: 1, // Ensure cursor is above other elements
+        zIndex: 999,
+        pointerEvents: "none",
       }}
     >
       {/* Replace with your SVG content */}

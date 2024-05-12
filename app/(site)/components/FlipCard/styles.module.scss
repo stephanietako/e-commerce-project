@@ -52,7 +52,7 @@
           overflow: hidden;
 
           h2 {
-            color: white; // Changement de couleur du titre lorsque le background-image est appliqué
+            color: #fff;
           }
         }
       }
@@ -102,7 +102,7 @@
         color: #ffff;
         border: none;
         border-radius: 5px;
-        cursor: none;
+
         position: absolute;
         top: 90%;
         left: 50%;
@@ -110,6 +110,7 @@
         justify-content: center;
         p {
           color: gray;
+
           &:hover {
             color: #fff;
           }

@@ -47,7 +47,7 @@ const ImageGallery = ({ images }) => {
               style={{
                 display: "flex",
                 objectFit: "cover",
-                cursor: "none",
+                pointerEvents: "all",
                 padding: "1rem",
                 borderRadius: "30px",
               }}

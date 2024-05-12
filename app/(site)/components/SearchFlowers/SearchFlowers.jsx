@@ -41,7 +41,7 @@ const SearchFlowers = () => {
               background:
                 "linear-gradient(135deg, #ff1e9c99, #ff1ea499, #ff1fbc99, #ff1fde99, #f620ff99, #c721ff99, #9723ff99, #6a24ff99, #4125ff99, #252aff99, #2641ff99, #2649ff99)",
               borderRadius: "30px",
-              cursor: "none",
+              pointerEvents: "all",
               width: "10rem",
               height: "1.5rem",
               color: "#ffff",
@@ -52,6 +52,20 @@ const SearchFlowers = () => {
             <option value="Orange">Orange </option>
             <option value="Purple">Purple </option>
             <option value="Tropicale">tropicale </option>
+            {/* <option value="">Select...</option>
+            <option value="Tropical">Tropical</option>
+            <option value="Amnesia XXL">Amnesia XXL</option>
+            <option value="Lemoncello">Lemoncello</option>
+            <option value="Gorilla Mandarine">Gorilla Mandarine</option>
+            <option value="Durban Poison">Durban Poison</option>
+            <option value="Orange Tonic">Orange Tonic</option>
+            <option value="Straw Mango">Straw Mango</option>
+            <option value="Lemon Super">Lemon Super</option>
+            <option value="Lifter">Lifter</option>
+            <option value="Gelato">Gelato</option>
+            <option value="Tropicale">Purple Haze</option>
+            <option value="Cryo">Cryo</option>
+            <option value="Gandalf">Gandalf</option> */}
           </select>
         </div>
       </div>
