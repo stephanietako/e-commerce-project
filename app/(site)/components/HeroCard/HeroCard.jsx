@@ -1,5 +1,5 @@
 import Image from "next/image";
-import backgroundImg from "@/public/assets/vibes-shop1.webp";
+import backgroundImg from "@/public/assets/vibes_front_shop.webp";
 // Styles
 import styles from "./styles.module.scss";
 
@@ -8,12 +8,12 @@ function HeroCard({ imageUrl, title, subtitle, description }) {
     <div className={styles.herocard_container}>
       <Image
         src={backgroundImg}
-        alt="palm trees"
+        alt="boutique Vibes Saint-tropez"
         className={styles.__bg_img}
         fill={true}
         style={{
           borderRadius: "30px",
-          objectFit: "cover",
+          objectFit: "fill",
         }}
       />
       <figure className={styles.figure}>

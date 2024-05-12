@@ -22,7 +22,7 @@ const Cursor = () => {
         left: mousePosition.x - 20 + "px", // Adjust offset as needed
         top: mousePosition.y - 20 + "px", // Adjust offset as needed
         position: "absolute",
-        zIndex: 999,
+        zIndex: 9999,
         pointerEvents: "none",
       }}
     >
@@ -30,8 +30,8 @@ const Cursor = () => {
 
       <svg
         fill="#000000"
-        width="50px"
-        height="50px"
+        width="40px"
+        height="40px"
         viewBox="0 0 14 14"
         role="img"
         focusable="false"
