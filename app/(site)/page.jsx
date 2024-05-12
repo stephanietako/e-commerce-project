@@ -12,7 +12,8 @@ import SelectCategories from "./categories/selectCategories/page";
 import SelectProducts from "./products/selectProducts/page";
 // import All from "./components/All/All";
 // import SearchBarAll from "./components/SearchBarAll/SearchBarAll";
-
+import Image from "next/image";
+import backgroundImg from "@/public/assets/notorious.webp";
 const Home = async () => {
   // const projects = await getProjects();
   const starproducts = await getDataStarProducts();
@@ -43,6 +44,30 @@ const Home = async () => {
         }}
       >
         <div
+          className="header_container_home__bg"
+          style={{
+            display: "flex",
+            width: "100%",
+            height: "auto",
+            border: "3px solid red",
+            alignItems: "center",
+            position: "absolute",
+            top: 0,
+          }}
+        >
+          {" "}
+          <Image
+            src={backgroundImg}
+            alt="boutique Vibes Saint-tropez"
+            className="bg_img"
+            width={550}
+            height={750}
+            style={{
+              objectFit: "fill",
+            }}
+          />
+        </div>
+        <div
           className="header_container_home"
           style={{
             display: "flex",
@@ -52,23 +77,14 @@ const Home = async () => {
           }}
         >
           <div
-            className="header_container_home__bg"
-            style={{
-              display: "flex",
-              width: "50%",
-              height: "auto",
-              border: "3px solid red",
-              alignItems: "center",
-            }}
-          ></div>
-          <div
             className="menu_products"
             style={{
               display: "flex",
-              width: "auto",
+              width: "50%",
               height: "12rem",
               border: "3px solid green",
               alignItems: "center",
+              justifyContent: "flex-end",
             }}
           >
             <div className="links">

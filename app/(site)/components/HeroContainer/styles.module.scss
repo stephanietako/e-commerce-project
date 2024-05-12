@@ -12,5 +12,12 @@
     // border: 3px solid gray;
     // border-radius: 30px;
     padding: 1rem;
+
+    .__wrapper {
+      display: flex;
+      width: 100%;
+      height: auto;
+      justify-content: center;
+    }
   }
 }
