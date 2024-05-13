@@ -90,6 +90,11 @@ const Products = ({ allproducts }) => {
 
                                     <div className={styles.infos_content}>
                                       <span>
+                                        <PortableText
+                                          value={category.content}
+                                        />
+                                      </span>
+                                      <span>
                                         {" "}
                                         <p
                                           className="price_content"
@@ -102,16 +107,11 @@ const Products = ({ allproducts }) => {
                                           {category.price}€
                                         </p>
                                       </span>
-                                      <span>
-                                        <PortableText
-                                          value={category.content}
-                                        />
-                                      </span>
                                       <Link
                                         href={`/categories/${category.slug}`}
-                                        className="link"
+                                        className="link_cards"
                                       >
-                                        View Details
+                                        Acheter
                                       </Link>
                                       <span className="ref_products_categories">
                                         {" "}

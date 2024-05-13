@@ -9,8 +9,8 @@
   justify-content: flex-end;
   align-content: center;
   background-color: none;
-  /* padding: 2rem 8rem 0; */
-  border: 4px solid red;
+  padding: 2rem 8rem 0;
+  // border: 4px solid red;
 
   .__logo {
     display: flex;
@@ -21,7 +21,10 @@
   .__navbar_container {
     display: flex;
     align-items: center;
-    // border: 2px solid salmon;
+    /* justify-content: center; */
+    // border: 3px solid blue;
+    width: 50%;
+    height: auto;
 
     li {
       display: flex;
@@ -35,6 +38,7 @@
       width: 100%;
       height: auto;
       color: gray;
+      justify-content: flex-end;
     }
   }
 }

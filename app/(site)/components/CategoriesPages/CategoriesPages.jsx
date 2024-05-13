@@ -54,7 +54,7 @@ const CategoriesPages = ({ category }) => {
                   href={`/categories/${category.slug}`}
                   className="link_items"
                 >
-                  View Details
+                  Acheter
                 </Link>
               </div>
             </div>

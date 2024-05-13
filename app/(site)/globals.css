@@ -25,7 +25,8 @@ body {
 }
 
 a {
-  color: inherit;
+  color: gray;
+  /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;  */
   text-decoration: none;
   cursor: none;
 }
@@ -74,7 +75,6 @@ a:hover {
 
 .links {
   display: flex;
-  justify-content: center;
   width: 100%;
   flex-wrap: wrap;
   cursor: none;
@@ -82,11 +82,31 @@ a:hover {
 
 .link {
   display: flex;
-  color: gray;
+  /* color: rgb(120, 136, 120); */
   border: transparent;
   padding: 0.5rem;
-  font-size: 18px;
+  font-size: 22px;
   cursor: none;
+  color: rgb(19, 230, 22);
+  /* text-shadow: -1px 0 black; */
+  -webkit-text-stroke: 1px #000;
+}
+a:hover {
+  background-image: linear-gradient(
+    135deg,
+    #ff1e9c99,
+    #ff1ea499,
+    #ff1fbc99,
+    #ff1fde99,
+    #f620ff99,
+    #c721ff99,
+    #9723ff99,
+    #6a24ff99,
+    #4125ff99,
+    #252aff99,
+    #2641ff99,
+    #2649ff99
+  );
 }
 
 .home_section {

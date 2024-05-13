@@ -77,7 +77,7 @@ export async function getPage(slug) {
 //  STARPRODUCTS &  ALL PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
 export async function getDataStarProducts() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "product"] [0...3] | order(_createdAt desc){
+    groq`*[_type == "product"] [0...3] |order(_createdAt desc) {
   _id,
       _createdAt,
       _type,
@@ -86,7 +86,7 @@ export async function getDataStarProducts() {
          "coverImages": images[0].asset->url,
    body,
            content, 
-  "categories": *[_type == 'category' && references(^._id)][0...1] | order(name asc) {
+  "categories": *[_type == 'category' && references(^._id)][0...1]  {
     _id,
      _createdAt,
       _type,

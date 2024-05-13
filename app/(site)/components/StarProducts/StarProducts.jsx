@@ -87,17 +87,17 @@ const StarProducts = ({ starproducts }) => {
                                         {category.name}
                                       </Link>
                                     </h3>{" "}
-                                    <span className={styles.price_content}>
-                                      <p>{category.price.toFixed(2)}€</p>
-                                    </span>
                                     <span>
                                       <PortableText value={category.content} />
                                     </span>
+                                    <span className={styles.price_content}>
+                                      <p>{category.price.toFixed(2)}€</p>
+                                    </span>
                                     <Link
                                       href={`/categories/${category.slug}`}
-                                      className="link"
+                                      className="link_cards"
                                     >
-                                      View Details
+                                      Acheter
                                     </Link>
                                     <span className="ref_products_starproducts">
                                       {" "}

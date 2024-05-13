@@ -91,22 +91,21 @@ const Flowers = ({ allflowers }) => {
                                     </div>
                                     <div className={styles.flowers__infos}>
                                       <span>
+                                        <PortableText
+                                          value={category.content}
+                                        />
+                                      </span>
+                                      <span>
                                         {" "}
                                         <p className={styles.__price_content}>
                                           {category.price.toFixed(2)}€
                                         </p>
                                       </span>
-
-                                      <span>
-                                        <PortableText
-                                          value={category.content}
-                                        />
-                                      </span>
                                       <Link
                                         href={`/categories/${category.slug}`}
-                                        className="link"
+                                        className="link_cards"
                                       >
-                                        View Details
+                                        Acheter
                                       </Link>
                                       <span className="ref_products_flowers">
                                         {" "}

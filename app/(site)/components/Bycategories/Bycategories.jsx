@@ -90,7 +90,7 @@ const ByCategory = ({ bycategory }) => {
                                 href={`/categories/${categories.slug}`}
                                 className="link"
                               >
-                                View Details
+                                Acheter
                               </Link>
                             </div>
                             <span className={styles.ref_products_categories}>

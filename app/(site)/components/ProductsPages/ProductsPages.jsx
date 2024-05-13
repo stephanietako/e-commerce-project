@@ -101,7 +101,7 @@ const ProductsPages = ({ product }) => {
                             href={`/categories/${category.slug}`}
                             className="link"
                           >
-                            View Details
+                            Acheter
                           </Link>
                         </span>
                         <span className="ref_products_categories">

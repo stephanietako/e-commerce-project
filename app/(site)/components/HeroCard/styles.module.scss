@@ -2,11 +2,12 @@
   display: flex;
   width: 100%;
   height: auto;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: 3rem;
 
   .herocard_container {
     display: flex;
-    width: 80%;
+    width: 75%;
     height: 100%;
     position: relative;
 
@@ -20,7 +21,7 @@
       // border: 4px solid yellow;
       position: relative;
       width: 100%;
-      height: 35rem;
+      height: 32rem;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -60,6 +61,7 @@
           height: auto;
           justify-content: center;
         }
+
         h1 {
           line-height: 110%;
           margin: 0 0 7px 0;

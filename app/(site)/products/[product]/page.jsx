@@ -143,6 +143,9 @@ const ProductsDetails = async ({ params }) => {
                 display: "flex",
                 width: "100%",
                 justifyContent: "center",
+                width: "100%",
+                height: "auto",
+                flexWrap: "wrap",
               }}
             >
               {product.categories.map((category) => (
@@ -178,8 +181,8 @@ const ProductsDetails = async ({ params }) => {
                             src={category.coverImages}
                             alt="les fleurs"
                             className="product__img"
-                            width={180}
-                            height={180}
+                            width={315}
+                            height={220}
                             style={{
                               objectFit: "cover",
                               borderRadius: "30px",
@@ -206,7 +209,7 @@ const ProductsDetails = async ({ params }) => {
                         href={`/categories/${category.slug}`}
                         className="link"
                       >
-                        View Details
+                        Acheter
                       </Link>
                     </span>
                   </li>

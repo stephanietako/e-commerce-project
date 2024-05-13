@@ -8,8 +8,9 @@ import { getDataFlowers } from "@/sanity/lib/client";
 import Flowers from "./components/Flowers/Flowers";
 import HeroContainer from "./components/HeroContainer/HeroContainer";
 import AnimeCartFilter from "./components/AnimeCartFilter/AnimeCartFilter";
-import SelectCategories from "./categories/selectCategories/page";
-import SelectProducts from "./products/selectProducts/page";
+// import SelectCategories from "./categories/selectCategories/page";
+// import SelectProducts from "./products/selectProducts/page";
+import Banner from "./components/Banner/Banner";
 // import All from "./components/All/All";
 // import SearchBarAll from "./components/SearchBarAll/SearchBarAll";
 import Image from "next/image";
@@ -34,13 +35,13 @@ const Home = async () => {
 
   return (
     <>
-      <section
+      <div
         className="home_section"
         style={{
           display: "flex",
           width: "100%",
           height: "auto",
-          border: "3px solid blue",
+          // border: "3px solid blue",
         }}
       >
         <div
@@ -49,42 +50,62 @@ const Home = async () => {
             display: "flex",
             width: "100%",
             height: "auto",
-            border: "3px solid red",
+            // border: "3px solid red",
             alignItems: "center",
             position: "absolute",
-            top: 0,
-          }}
-        >
-          {" "}
-          <Image
-            src={backgroundImg}
-            alt="boutique Vibes Saint-tropez"
-            className="bg_img"
-            width={550}
-            height={750}
-            style={{
-              objectFit: "fill",
-            }}
-          />
-        </div>
-        <div
-          className="header_container_home"
-          style={{
-            display: "flex",
-            width: "100%",
-            height: "100%",
-            border: "5px solid lime",
+            top: 37,
           }}
         >
           <div
-            className="menu_products"
+            style={{ position: "relative", width: "600px", height: "750px" }}
+          >
+            {/* Image */}
+            <Image
+              src={backgroundImg}
+              alt="biggie small"
+              className="bg_img"
+              fill={true}
+              style={{
+                objectFit: "cover",
+                objectPosition: "center",
+              }}
+            />
+            {/* pseudo-élément pour l'effet d'assombrissement */}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                boxShadow: "inset 0px 0px 58px 73px #fff",
+              }}
+            />
+          </div>
+        </div>
+
+        <div
+          className="menu"
+          style={{
+            display: "flex",
+            width: "100%",
+            height: "auto",
+            // border: "5px solid lime",
+            justifyContent: "center",
+            zIndex: 3,
+            marginTop: "2rem",
+          }}
+        >
+          <div
+            className="menu__products"
             style={{
               display: "flex",
-              width: "50%",
-              height: "12rem",
-              border: "3px solid green",
+              width: "auto",
+              height: "auto",
+              // border: "3px solid green",
               alignItems: "center",
-              justifyContent: "flex-end",
+              justifyContent: "center",
             }}
           >
             <div className="links">
@@ -109,13 +130,16 @@ const Home = async () => {
             flexDirection: "column",
             alignContent: "center",
             alignItems: "center",
-            border: "3px solid pink",
+            // border: "3px solid pink",
           }}
         >
           {/* ////////////////HERO//////////////////// */}
-          <section className="herocontainer_section">
+          <div className="herocontainer_section">
             <HeroContainer cards={cards} />
-          </section>
+            <div>
+              <Banner />
+            </div>
+          </div>
 
           <section className="animefilter_section">
             <AnimeCartFilter />
@@ -130,12 +154,12 @@ const Home = async () => {
           {/* <section className="all_products_section">
             <Products allproducts={allproducts} />
           </section> */}
-          <section>
+          {/* <section>
             <SelectProducts />
           </section>
           <section>
             <SelectCategories />
-          </section>
+          </section> */}
 
           {/* <section>
           <h2>Search bar de tout le shop</h2>
@@ -165,7 +189,7 @@ const Home = async () => {
         </div> */}
           {/* </Suspense> */}
         </div>
-      </section>
+      </div>
     </>
   );
 };

@@ -23,8 +23,8 @@ function HeroCard({ imageUrl, title, subtitle, description }) {
               src={imageUrl}
               alt="logo vibes shop"
               className="hero__img"
-              width={50}
-              height={50}
+              width={100}
+              height={100}
               style={{
                 display: "flex",
                 objectFit: "cover",
