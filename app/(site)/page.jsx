@@ -15,6 +15,7 @@ import Banner from "./components/Banner/Banner";
 // import SearchBarAll from "./components/SearchBarAll/SearchBarAll";
 import Image from "next/image";
 import backgroundImg from "@/public/assets/notorious.webp";
+
 const Home = async () => {
   // const projects = await getProjects();
   const starproducts = await getDataStarProducts();
@@ -48,11 +49,13 @@ const Home = async () => {
           className="header_container_home__bg"
           style={{
             display: "flex",
-            width: "100%",
+            width: "auto",
             height: "auto",
-            // border: "3px solid red",
             alignItems: "center",
             position: "absolute",
+            justifyContent: "flex-start",
+            alignContent: "flex-start",
+            alignSelf: "flex-start",
             top: 37,
           }}
         >
@@ -84,7 +87,6 @@ const Home = async () => {
             />
           </div>
         </div>
-
         <div
           className="menu"
           style={{

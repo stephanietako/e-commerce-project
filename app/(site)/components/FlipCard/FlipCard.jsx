@@ -36,8 +36,8 @@ const FlipCard = ({ product }) => {
                     src={product.coverImages}
                     alt="les produits de la boutiques vibes cbd"
                     className="product__img"
-                    width={315}
-                    height={220}
+                    width={350}
+                    height={250}
                     style={{
                       objectFit: "cover",
                       borderRadius: "30px",
@@ -59,14 +59,6 @@ const FlipCard = ({ product }) => {
               <div className={styles.__flip_card__infos}>
                 <h3>{product.name}</h3>
                 <br />
-                <span
-                  style={{
-                    color: "#fff",
-                  }}
-                >
-                  <PortableText value={product.content} />
-                </span>
-                <br />
                 <span>
                   <PortableText value={product.body} />
                 </span>
@@ -76,7 +68,7 @@ const FlipCard = ({ product }) => {
                   <div className="container__products_categories">
                     {product.categories.map((category) => (
                       <div key={category._id}>
-                        <h3>
+                        <h4>
                           <Link
                             key={category._id}
                             href={`/categories/${category.slug}`}
@@ -84,7 +76,7 @@ const FlipCard = ({ product }) => {
                           >
                             {category.name}
                           </Link>
-                        </h3>
+                        </h4>
                       </div>
                     ))}
                   </div>

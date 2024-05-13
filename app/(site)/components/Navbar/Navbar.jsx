@@ -25,7 +25,7 @@ const Navbar = () => {
               <Image
                 className={styles.__img}
                 src={logo}
-                alt="les fleurs"
+                alt="Boutique Vibes CBD Saint-Troez "
                 width={50}
                 height={50}
                 style={{
@@ -52,25 +52,7 @@ const Navbar = () => {
                 </Link>
               </li>
             ))} */}
-            {/* <li>
-              <div className={styles.__logo}>
-                <a href="/">
-                  <Image
-                    className={styles.__img}
-                    src={logo}
-                    alt="les fleurs"
-                    width={110}
-                    height={110}
-                    style={{
-                      display: "block",
-                      objectFit: "cover",
-                      width: "auto",
-                      height: "auto",
-                    }}
-                  />
-                </a>
-              </div>
-            </li> */}
+
             {/* <li>
               <Contact />
             </li> */}

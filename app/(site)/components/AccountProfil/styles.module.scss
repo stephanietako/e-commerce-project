@@ -2,12 +2,12 @@
   display: flex;
   width: auto;
   height: auto;
+  z-index: 4;
 
   .__session_users {
     display: flex;
     width: auto;
     height: auto;
-    // border: 2px solid white;
     padding: 0.5rem;
 
     .icon_image_user {
@@ -15,8 +15,8 @@
       border: 2px solid gray;
       padding: 0.5rem;
       background: transparent;
+
       &:hover {
-        background: transparent;
         background-image: linear-gradient(
           135deg,
           #ff1e9c99,
