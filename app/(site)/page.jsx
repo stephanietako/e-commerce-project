@@ -6,7 +6,7 @@ import { getDataStarProducts } from "@/sanity/lib/client";
 import { getDataProducts } from "@/sanity/lib/client";
 import { getDataFlowers } from "@/sanity/lib/client";
 import Flowers from "./components/Flowers/Flowers";
-import HeroContainer from "./components/HeroContainer/HeroContainer";
+//import HeroContainer from "./components/HeroContainer/HeroContainer";
 import AnimeCartFilter from "./components/AnimeCartFilter/AnimeCartFilter";
 // import SelectCategories from "./categories/selectCategories/page";
 // import SelectProducts from "./products/selectProducts/page";
@@ -15,7 +15,7 @@ import Banner from "./components/Banner/Banner";
 // import SearchBarAll from "./components/SearchBarAll/SearchBarAll";
 import Image from "next/image";
 import backgroundImg from "@/public/assets/notorious.webp";
-
+import Hero from "./components/Hero/Hero";
 const Home = async () => {
   // const projects = await getProjects();
   const starproducts = await getDataStarProducts();
@@ -24,15 +24,15 @@ const Home = async () => {
   const allflowers = await getDataFlowers();
   // const all = await fetchDataSearchBar();
   ////////////////
-  const cards = [
-    {
-      imageUrl: "/assets/vibes.png",
-      title: "essai",
-      subtitle: "Not Made of Jelly",
-      description:
-        "Jellyfish are fascinating marine creatures known for their graceful and mesmerizing movements in the water. Belonging to the phylum Cnidaria, these gelatinous animals come in various shapes, sizes, and colors. One distinctive feature of jellyfish is their umbrella-shaped bell, which pulsates to propel them through the ocean.",
-    },
-  ];
+  // const cards = [
+  //   {
+  //     imageUrl: "/assets/vibes.png",
+  //     title: "essai",
+  //     subtitle: "Not Made of Jelly",
+  //     description:
+  //       "Jellyfish are fascinating marine creatures known for their graceful and mesmerizing movements in the water. Belonging to the phylum Cnidaria, these gelatinous animals come in various shapes, sizes, and colors. One distinctive feature of jellyfish is their umbrella-shaped bell, which pulsates to propel them through the ocean.",
+  //   },
+  // ];
 
   return (
     <>
@@ -46,54 +46,12 @@ const Home = async () => {
         }}
       >
         <div
-          className="header_container_home__bg"
-          style={{
-            display: "flex",
-            width: "auto",
-            height: "auto",
-            alignItems: "center",
-            position: "absolute",
-            justifyContent: "flex-start",
-            alignContent: "flex-start",
-            alignSelf: "flex-start",
-            top: 37,
-          }}
-        >
-          <div
-            style={{ position: "relative", width: "600px", height: "750px" }}
-          >
-            {/* Image */}
-            <Image
-              src={backgroundImg}
-              alt="biggie small"
-              className="bg_img"
-              fill={true}
-              style={{
-                objectFit: "cover",
-                objectPosition: "center",
-              }}
-            />
-            {/* pseudo-élément pour l'effet d'assombrissement */}
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                backgroundColor: "rgba(0, 0, 0, 0.5)",
-                boxShadow: "inset 0px 0px 58px 73px #fff",
-              }}
-            />
-          </div>
-        </div>
-        <div
           className="menu"
           style={{
             display: "flex",
             width: "100%",
             height: "auto",
-            // border: "5px solid lime",
+
             justifyContent: "center",
             zIndex: 3,
             marginTop: "2rem",
@@ -105,7 +63,7 @@ const Home = async () => {
               display: "flex",
               width: "auto",
               height: "auto",
-              // border: "3px solid green",
+
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -136,13 +94,20 @@ const Home = async () => {
           }}
         >
           {/* ////////////////HERO//////////////////// */}
-          <div className="herocontainer_section">
-            <HeroContainer cards={cards} />
-            <div>
-              <Banner />
-            </div>
+          <div
+            className="herocontainer_section"
+            style={{
+              display: "flex",
+              width: "100%",
+              height: "100%",
+              border: "3px solid blue",
+            }}
+          >
+            <Hero />
           </div>
-
+          <div>
+            <Banner />
+          </div>
           <section className="animefilter_section">
             <AnimeCartFilter />
           </section>

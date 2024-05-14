@@ -11,8 +11,7 @@ import cart from "@/public/assets/cart.png";
 import CartBtn from "../CartBtn/Cartbtn";
 import AccountProfil from "../AccountProfil/AccountProfil";
 // import Contact from "../Contact/Contact";
-
-// const navLinks = [{ name: "Accueil", href: "/" }];
+const navLinks = [{ name: "Accueil", href: "/" }];
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -38,7 +37,7 @@ const Navbar = () => {
             </a>
           </div>
           <div className={styles.__link_navbar}>
-            {/* {navLinks.map((link, index) => (
+            {navLinks.map((link, index) => (
               <li key={index}>
                 <Link
                   href={link.href}
@@ -51,11 +50,13 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               </li>
-            ))} */}
+            ))}
+            <li>
+              <div className={styles.btn_cart}>
+                <CartBtn img={cart} />
+              </div>
+            </li>
 
-            {/* <li>
-              <Contact />
-            </li> */}
             <li>
               <AccountProfil />
             </li>
