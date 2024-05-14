@@ -52,20 +52,6 @@ const SearchFlowers = () => {
             <option value="Orange">Orange </option>
             <option value="Purple">Purple </option>
             <option value="Tropicale">tropicale </option>
-            {/* <option value="">Select...</option>
-            <option value="Tropical">Tropical</option>
-            <option value="Amnesia XXL">Amnesia XXL</option>
-            <option value="Lemoncello">Lemoncello</option>
-            <option value="Gorilla Mandarine">Gorilla Mandarine</option>
-            <option value="Durban Poison">Durban Poison</option>
-            <option value="Orange Tonic">Orange Tonic</option>
-            <option value="Straw Mango">Straw Mango</option>
-            <option value="Lemon Super">Lemon Super</option>
-            <option value="Lifter">Lifter</option>
-            <option value="Gelato">Gelato</option>
-            <option value="Tropicale">Purple Haze</option>
-            <option value="Cryo">Cryo</option>
-            <option value="Gandalf">Gandalf</option> */}
           </select>
         </div>
       </div>
@@ -74,64 +60,3 @@ const SearchFlowers = () => {
 };
 
 export default SearchFlowers;
-// "use client";
-
-// // Importation des styles
-// import styles from "./styles.module.scss";
-// import { useRouter } from "next/navigation";
-// import { useState } from "react";
-// import Radiobtn from "../Radiobtn/Radiobtn"; // Importez le composant de bouton radio
-
-// const SearchFlowers = ({}) => {
-//   const [searchQuery, setSearchQuery] = useState(""); // Mettez à jour l'état initial
-//   const router = useRouter();
-
-//   // Mettez à jour la fonction de gestion du changement
-//   const handleSearchQueryChange = (value) => {
-//     setSearchQuery(value);
-//     router.push(`/categories?searchQuery=${value}`);
-//   };
-
-//   return (
-//     <section className={styles.section_search_categories}>
-//       <div className={styles.search_container}>
-//         <h2>Nos Fleurs</h2>
-//         <label className={styles.__label_search}>Selection...</label>
-//         <br />
-//         <div className={styles.radio_container}>
-//           {/* Remplacez le select par des boutons radio */}
-//           <Radiobtn
-//             label="Haze"
-//             value="Haze"
-//             isSelected={searchQuery === "Haze"}
-//             onRadioChange={handleSearchQueryChange}
-//             className={styles.radio_option}
-//           />
-//           <Radiobtn
-//             label="Orange"
-//             value="Orange"
-//             isSelected={searchQuery === "Orange"}
-//             onRadioChange={handleSearchQueryChange}
-//             className={styles.radio_option}
-//           />
-//           <Radiobtn
-//             label="Purple"
-//             value="Purple"
-//             isSelected={searchQuery === "Purple"}
-//             onRadioChange={handleSearchQueryChange}
-//             className={styles.radio_option}
-//           />
-//           <Radiobtn
-//             label="Tropicale"
-//             value="Tropicale"
-//             isSelected={searchQuery === "Tropicale"}
-//             onRadioChange={handleSearchQueryChange}
-//             className={styles.radio_option}
-//           />
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default SearchFlowers;
