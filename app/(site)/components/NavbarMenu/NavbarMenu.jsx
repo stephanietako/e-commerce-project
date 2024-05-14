@@ -1,46 +1,106 @@
 "use client";
 
-import { useState } from "react";
-import { usePathname } from "next/navigation";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-// Styles
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import styles from "./styles.module.scss";
-export const dynamic = "force-dynamic";
+
 const navLinks = [
   {
     name: "Fleurs CBD",
     href: "/products/fleurs-cbd",
-    categories: ["Tropical", "White Russian", "Amnesia XXL"],
+    categories: [
+      "Tropical",
+      "White Russian Weed",
+      "Amnesia XXL",
+      "Lemoncello",
+      "Gorilla Mandarine",
+      "Durban Poison Weed",
+      "Orange Tonic",
+      "Straw Mango",
+      "Lemon Super",
+      "Lifter",
+      "Gelato",
+      "Purple Haze",
+      "Cryo",
+      "Gandalf",
+      "Mac",
+    ],
   },
   {
     name: "Hash CBD",
     href: "/products/hash-cbd",
-    categories: ["Category4", "Category5", "Category6"],
-  },
-  {
-    name: "Hash CBD",
-    href: "/products/hash-cbd",
-    categories: ["Category4", "Category5", "Category6"],
+    categories: [
+      "SSC",
+      "White Russian Hash",
+      "Charas",
+      ,
+      "Durban Poison Hash",
+      ,
+      "Yellow Kief",
+      ,
+      "Hash Hollandais",
+      "Bubble Green",
+      "Afghan",
+      "Nepalais",
+    ],
   },
   {
     name: "Vapes CBD",
     href: "/products/hash-cbd",
-    categories: ["Category4", "Category5", "Category6"],
+    categories: [
+      "Happease Cartridge Mountain River",
+      "Happease Cartridge Tropical sunrise",
+      "Happease Cartridge Lemon Tree",
+      "Happeasey Pen Mountain River",
+      "Happease Pen Tropical sunrise",
+      "Happease Pen Lemon Tree",
+      ,
+      "Kush Vape Pen Amnesia Haze",
+      "Kush Vape Pen OG Kush",
+      "Kush Vape Pen Orange Runtz",
+      "Kush Vape Pen super Lemon Haze",
+      "Kush Vape Pen White Widow",
+      "Kush Vape Pen Skittles",
+    ],
   },
   {
     name: "Huiles CBD",
-    href: "/products/hash-cbd",
-    categories: ["Category4", "Category5", "Category6"],
+    href: "/products/huiles-cbd",
+    categories: ["Huile 10%", "Huile 20%", "CHuile 30%", "Huile 40%"],
   },
   {
     name: "Infusions CBD",
-    href: "/products/hash-cbd",
-    categories: ["Category4", "Category5", "Category6"],
+    href: "/products/infusions-cbd",
+    categories: [
+      "Category4",
+      "Category5",
+      "Category6",
+      "Category5",
+      "Category6",
+      ,
+      "Category5",
+      "Category6",
+      ,
+      "Category5",
+      "Category6",
+    ],
   },
   {
     name: "Cosmétiques CBD",
-    href: "/products/hash-cbd",
-    categories: ["Category4", "Category5", "Category6"],
+    href: "/products/cosmetique-cbd",
+    categories: [
+      "Chanvria crème visage",
+      "Chanvria Serum visage",
+      "Chanvria Baume corps",
+      "Chanvria crème mains",
+      "Chanvria serum huile de chanvre bio",
+      ,
+      "Baume",
+      "Roller",
+      "Huile Massage",
+    ],
   },
 ];
 
@@ -60,11 +120,10 @@ const NavbarMenu = () => {
     }
   };
 
-  const handleSearchQueryChange = (event) => {
-    const selectedQuery = event.target.value;
-    setSearchQuery(selectedQuery);
-    router.push(`/categories?searchQuery=${selectedQuery}`);
+  const handleCategoryClick = (category) => {
+    router.push(`/categories?searchQuery=${encodeURIComponent(category)}`);
   };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.__navbar_container}>
@@ -77,12 +136,20 @@ const NavbarMenu = () => {
                 }
                 onClick={() => handleLinkClick(link.categories)}
               >
-                {link.name}
+                <span>{link.name}</span>
               </span>
               {showCategories === link.categories && (
                 <ul className={styles.submenu}>
                   {link.categories.map((category, idx) => (
-                    <li key={idx}>{category}</li>
+                    <li key={idx}>
+                      <Link
+                        href={`/categories?searchQuery=${encodeURIComponent(
+                          category
+                        )}`}
+                      >
+                        <span className={styles.categoryLink}>{category}</span>
+                      </Link>
+                    </li>
                   ))}
                 </ul>
               )}

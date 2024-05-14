@@ -42,7 +42,7 @@ const CategoriesPages = ({ category }) => {
                     fontSize: "1rem",
                   }}
                 >
-                  {category.price.toFixed(2)}€
+                  {category.price}€
                 </p>
               </span>
 
