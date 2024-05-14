@@ -26,12 +26,10 @@ const Cursor = () => {
         pointerEvents: "none",
       }}
     >
-      {/* Replace with your SVG content */}
-
       <svg
         fill="#000000"
-        width="40px"
-        height="40px"
+        width="27px"
+        height="35px"
         viewBox="0 0 14 14"
         role="img"
         focusable="false"

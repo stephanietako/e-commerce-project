@@ -50,10 +50,6 @@
           border-radius: 30px;
           transition: 2s ease;
           overflow: hidden;
-
-          h2 {
-            color: #fff;
-          }
         }
       }
 
@@ -67,17 +63,30 @@
       .__card__content {
         text-align: center;
 
-        .__flip_card__infos {
+        .title__content {
           display: flex;
-          width: auto;
+          width: 100%;
           height: auto;
+          align-items: center;
           justify-content: center;
-          flex-direction: column;
-          padding: 0.5rem;
+
+          .title {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 1;
+            justify-content: center;
+            .icon {
+              display: block;
+              margin-top: -1rem;
+              // z-index: -1;
+              // transform: translateY(-5%) rotate(-29deg);
+            }
+          }
         }
-        h2 {
-          color: gray;
-        }
+
         h3 {
           color: #fff;
         }

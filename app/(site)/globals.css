@@ -129,13 +129,14 @@ section {
 
 h1 {
   font-size: 5rem;
-  font-weight: bolder;
-  color: gray;
+  font-weight: lighter;
+  color: #000;
 }
 
 h2 {
-  font-size: 3rem;
-  color: gray;
+  font-size: 2rem;
+  color: #000;
+  font-weight: lighter;
 }
 
 h3 {

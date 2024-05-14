@@ -11,7 +11,12 @@ import cart from "@/public/assets/cart.png";
 import CartBtn from "../CartBtn/Cartbtn";
 import AccountProfil from "../AccountProfil/AccountProfil";
 // import Contact from "../Contact/Contact";
-const navLinks = [{ name: "Accueil", href: "/" }];
+
+const navLinks = [
+  { name: "Guide du CBD", href: "/" },
+  { name: "Qui sommes-nous", href: "/" },
+  { name: "Contact", href: "/" },
+];
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -25,8 +30,8 @@ const Navbar = () => {
                 className={styles.__img}
                 src={logo}
                 alt="Boutique Vibes CBD Saint-Troez "
-                width={60}
-                height={60}
+                width={70}
+                height={70}
                 style={{
                   display: "block",
                   objectFit: "cover",
@@ -51,22 +56,16 @@ const Navbar = () => {
                 </Link>
               </li>
             ))}
-            <li>
-              <div className={styles.btn_cart}>
-                <CartBtn img={cart} />
-              </div>
-            </li>
-
-            <li>
-              <AccountProfil />
-            </li>
-
-            <li>
-              <div className={styles.btn_cart}>
-                <CartBtn img={cart} />
-              </div>
-            </li>
           </div>
+          <span className={styles.__link_navbar_user_cart}>
+            {" "}
+            <div>
+              <AccountProfil />
+            </div>
+            <div className={styles.btn_cart}>
+              <CartBtn img={cart} />
+            </div>
+          </span>
         </ul>
       </nav>
     </>

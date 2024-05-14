@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import arrowIcon from "@/public/assets/arrow-colored.png";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./styles.module.scss";
 
@@ -35,11 +37,8 @@ const navLinks = [
       "SSC",
       "White Russian Hash",
       "Charas",
-      ,
       "Durban Poison Hash",
-      ,
       "Yellow Kief",
-      ,
       "Hash Hollandais",
       "Bubble Green",
       "Afghan",
@@ -56,7 +55,6 @@ const navLinks = [
       "Happeasey Pen Mountain River",
       "Happease Pen Tropical sunrise",
       "Happease Pen Lemon Tree",
-      ,
       "Kush Vape Pen Amnesia Haze",
       "Kush Vape Pen OG Kush",
       "Kush Vape Pen Orange Runtz",
@@ -68,24 +66,12 @@ const navLinks = [
   {
     name: "Huiles CBD",
     href: "/products/huiles-cbd",
-    categories: ["Huile 10%", "Huile 20%", "CHuile 30%", "Huile 40%"],
+    categories: ["Huile 10%", "Huile 20%", "Huile 30%", "Huile 40%"],
   },
   {
     name: "Infusions CBD",
     href: "/products/infusions-cbd",
-    categories: [
-      "Category4",
-      "Category5",
-      "Category6",
-      "Category5",
-      "Category6",
-      ,
-      "Category5",
-      "Category6",
-      ,
-      "Category5",
-      "Category6",
-    ],
+    categories: ["Infusion Hexazen", "Infusion Herboristerie Alexandra"],
   },
   {
     name: "Cosmétiques CBD",
@@ -96,7 +82,6 @@ const navLinks = [
       "Chanvria Baume corps",
       "Chanvria crème mains",
       "Chanvria serum huile de chanvre bio",
-      ,
       "Baume",
       "Roller",
       "Huile Massage",
@@ -137,6 +122,18 @@ const NavbarMenu = () => {
                 onClick={() => handleLinkClick(link.categories)}
               >
                 <span>{link.name}</span>
+                <span className={styles.icon}>
+                  <Image
+                    src={arrowIcon}
+                    alt="les produits de la boutiques vibes cbd"
+                    className="cana_icon__img"
+                    width={30}
+                    height={30}
+                    style={{
+                      objectFit: "cover",
+                    }}
+                  />
+                </span>
               </span>
               {showCategories === link.categories && (
                 <ul className={styles.submenu}>

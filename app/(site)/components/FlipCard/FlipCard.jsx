@@ -6,6 +6,7 @@ import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import useSWR from "swr";
 import Image from "next/image";
+import canaIcon from "@/public/assets/canaleaf.png";
 // Styles
 import styles from "./styles.module.scss";
 
@@ -28,7 +29,25 @@ const FlipCard = ({ product }) => {
           <div className={styles.__flip_card__front}>
             <div className={styles.__card__content}>
               <div className={styles.__flip_card__infos}>
-                <h2>{product.name}</h2>
+                <header className={styles.title__bloc}>
+                  <div className={styles.title__content}>
+                    <h1 className={styles.title}>
+                      <span className={styles.icon}>
+                        <Image
+                          src={canaIcon}
+                          alt="les produits de la boutiques vibes cbd"
+                          className="cana_icon__img"
+                          width={40}
+                          height={40}
+                          style={{
+                            objectFit: "cover",
+                          }}
+                        />
+                      </span>
+                      <h2>{product.name}</h2>
+                    </h1>
+                  </div>
+                </header>
               </div>
               <div className={styles.image}>
                 {product.coverImages ? (
@@ -49,12 +68,12 @@ const FlipCard = ({ product }) => {
                 )}
               </div>
             </div>
-            <button className={styles.flip_button} onClick={handleFlip}>
+            {/* <button className={styles.flip_button} onClick={handleFlip}>
               <p>Voir plus</p>
-            </button>
+            </button> */}
           </div>
           {/* Carte verso */}
-          <div className={styles.__flip_card__back}>
+          {/* <div className={styles.__flip_card__back}>
             <div className={styles.__card__content}>
               <div className={styles.__flip_card__infos}>
                 <h3>{product.name}</h3>
@@ -63,7 +82,7 @@ const FlipCard = ({ product }) => {
                   <PortableText value={product.body} />
                 </span>
                 <br />
-                {/* LIEN CATEGORY */}
+
                 <span>
                   <div className="container__products_categories">
                     {product.categories.map((category) => (
@@ -81,13 +100,12 @@ const FlipCard = ({ product }) => {
                     ))}
                   </div>
                 </span>
-                {/* ////////////////// */}
               </div>
             </div>
             <button className={styles.flip_button} onClick={handleFlip}>
               <p>Retour</p>
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

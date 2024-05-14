@@ -9,7 +9,7 @@ const Hero = () => {
     <div className={styles.hero}>
       <div className={styles.hero__content}>
         <div className={styles.hero__text}>
-          <h1>VIBES CBD SHOP SAINT-TROPEZ</h1>
+          <h1>VIBES CBD SHOP</h1>
           <h2>FRENCH EXPERT CANNABIS</h2>
         </div>
 

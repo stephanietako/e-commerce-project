@@ -34,9 +34,9 @@
           z-index: 1;
           .icon {
             display: block;
-            position: absolute;
-            left: -21px;
-            z-index: -1;
+            // position: absolute;
+            // left: -21px;
+            // z-index: -1;
             transform: translateY(-5%) rotate(-29deg);
           }
         }
@@ -91,7 +91,6 @@
             justify-content: center;
             position: relative;
             flex-wrap: wrap;
-            margin-top: 2rem;
             padding: 1rem;
 
             .cardsContainer {
