@@ -65,9 +65,9 @@ const ProductsDetails = async ({ params }) => {
                 borderRadius: "30px",
               }}
             >
-              {product.coverImages ? (
+              {product.images ? (
                 <Image
-                  src={product.coverImages}
+                  src={product.images}
                   alt="les fleurs"
                   className="product__img"
                   width={2000}
@@ -201,7 +201,7 @@ const ProductsDetails = async ({ params }) => {
                           fontSize: "1rem",
                         }}
                       >
-                        {category.price.toFixed(2)}€
+                        {category.price}€
                       </p>
                     </span>
                     <span>

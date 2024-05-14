@@ -16,6 +16,7 @@ import Banner from "./components/Banner/Banner";
 import Image from "next/image";
 import backgroundImg from "@/public/assets/notorious.webp";
 import Hero from "./components/Hero/Hero";
+import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
 const Home = async () => {
   // const projects = await getProjects();
   const starproducts = await getDataStarProducts();
@@ -57,7 +58,8 @@ const Home = async () => {
             marginTop: "2rem",
           }}
         >
-          <div
+          <NavbarMenu />
+          {/* <div
             className="menu__products"
             style={{
               display: "flex",
@@ -79,7 +81,7 @@ const Home = async () => {
                 </Link>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
         {/* //////////////////////////////////// */}
         <div

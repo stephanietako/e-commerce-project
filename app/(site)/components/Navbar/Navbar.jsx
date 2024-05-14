@@ -25,8 +25,8 @@ const Navbar = () => {
                 className={styles.__img}
                 src={logo}
                 alt="Boutique Vibes CBD Saint-Troez "
-                width={50}
-                height={50}
+                width={60}
+                height={60}
                 style={{
                   display: "block",
                   objectFit: "cover",
