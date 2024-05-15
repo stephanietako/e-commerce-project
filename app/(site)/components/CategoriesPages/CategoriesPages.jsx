@@ -36,7 +36,7 @@ const CategoriesPages = ({ category }) => {
                   src={category.coverImages}
                   alt="les fleurs"
                   className="product__img"
-                  width={375}
+                  width={475}
                   height={320}
                   style={{
                     objectFit: "cover",
