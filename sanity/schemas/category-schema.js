@@ -5,6 +5,7 @@ const categoryTypes = [
   { title: "Indoor", value: "indoor" },
   { title: "Outdoor", value: "outdoor" },
   { title: "Hybride", value: "hybride" },
+  { title: "Basic", value: "basic" },
 ];
 
 const category = {
