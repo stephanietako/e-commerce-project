@@ -1,6 +1,8 @@
 // Styles
 import styles from "./styles.module.scss";
 // Assets
+import at from "@/public/assets/at.png";
+import phone from "@/public/assets/phone.png";
 import logo from "@/public/assets/vibes.png";
 import backgroundImg from "@/public/assets/canaimg.webp";
 import shop from "@/public/assets/vibes_front_shop.webp";
@@ -9,6 +11,10 @@ import Image from "next/image";
 const Footer = () => {
   const date = new Date();
   const currentYear = date.getFullYear();
+  const contactLinks = [
+    { logo: phone, alt: "Phone symbol", link: "tel:+33986673582" },
+    { logo: at, alt: "Mail symbol", link: "mailto:renaudsttropez@vibescbd.fr" },
+  ];
 
   return (
     <div className={styles.footer}>
@@ -18,7 +24,7 @@ const Footer = () => {
             src={backgroundImg}
             alt="boutique Vibes Saint-tropez"
             className={styles.bg_img}
-            fill={true}
+            fill
             style={{
               objectFit: "cover",
             }}
@@ -43,11 +49,39 @@ const Footer = () => {
           </li>
           <li>
             <h3>VIBES CBD SHOP SAINT-TROPEZ</h3>
-            <p>Ouvert tous jours</p>
+            <p>Ouvert tous les jours</p>
             <p>De 10h30 à 20h30</p>
-            <p>24 Rue Sibillie</p>
+            <p>24 Rue Sibille</p>
             <p>83990 Saint-Tropez</p>
-            <p>09-86-67-35</p>
+
+            <div className={styles.icons_contacts}>
+              <div className={styles.__icons}>
+                <ul>
+                  {contactLinks.map((contact, index) => (
+                    <li key={index}>
+                      <a
+                        href={contact.link}
+                        style={{
+                          color: "white",
+                        }}
+                      >
+                        <Image
+                          src={contact.logo}
+                          alt={contact.alt}
+                          className="cana_icon__img"
+                          width={40}
+                          height={40}
+                          style={{
+                            objectFit: "cover",
+                          }}
+                        />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
             <br />
             <span className={styles.infos}>
               <p>VIBES CBD SHOP</p>

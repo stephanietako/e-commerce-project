@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import arrowIcon from "@/public/assets/arrow-colored.png";
-import backgroundImg from "@/public/assets/vibes_front_shop.webp";
+// import backgroundImg from "@/public/assets/vibes_front_shop.webp";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./styles.module.scss";

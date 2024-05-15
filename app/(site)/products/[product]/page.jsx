@@ -1,9 +1,11 @@
 import { getDataProduct } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
+import canaIcon from "@/public/assets/canaleaf.png";
 import Link from "next/link";
 import Image from "next/image";
+
 export const dynamic = "force-dynamic";
-// single page
+
 const ProductsDetails = async ({ params }) => {
   const slug = params.product;
   const product = await getDataProduct(slug);
@@ -24,10 +26,11 @@ const ProductsDetails = async ({ params }) => {
           style={{
             display: "flex",
             width: "100%",
-            height: " auto",
+            height: "auto",
             position: "relative",
             justifyContent: "center",
             flexDirection: "column",
+            cursor: "none",
           }}
         >
           <div
@@ -35,9 +38,10 @@ const ProductsDetails = async ({ params }) => {
             style={{
               display: "flex",
               width: "100%",
-              height: " auto",
+              height: "auto",
               position: "relative",
               justifyContent: "center",
+              border: "4px solid red",
             }}
           >
             <div
@@ -45,7 +49,7 @@ const ProductsDetails = async ({ params }) => {
               style={{
                 display: "flex",
                 width: "100%",
-                height: " auto",
+                height: "auto",
                 justifyContent: "center",
                 position: "absolute",
                 top: "40%",
@@ -66,16 +70,16 @@ const ProductsDetails = async ({ params }) => {
                 display: "flex",
                 width: "100%",
                 height: "auto",
-                overflow: "hidden",
                 position: "relative",
                 borderRadius: "30px",
+                justifyContent: "center",
               }}
             >
               {product.coverImages ? (
                 <Image
                   src={product.coverImages}
                   alt="les fleurs"
-                  className="product__img"
+                  className="darkened_image"
                   width={1500}
                   height={500}
                   style={{
@@ -86,100 +90,92 @@ const ProductsDetails = async ({ params }) => {
               ) : (
                 <p>No image available</p>
               )}
-              <span
-                className="images_bg"
-                style={{
-                  display: "flex",
-                  width: "100%",
-                  height: "100%",
-                  position: "absolute",
-                  justifyContent: "center",
-                }}
-              ></span>
             </div>
           </div>
-          {product ? (
-            <div
-              className="products_details__infos"
-              style={{
-                display: "flex",
-                width: "100%",
-                height: "100%",
-                // border: "5px solid green",
-                alignItems: "center",
-                flexDirection: "column",
-              }}
-            >
-              <div
-                className="products_details__content"
-                style={{
-                  display: "flex",
-                  width: "100%",
-                  height: "auto",
-                  flexDirection: "column",
-                  padding: "1rem",
-                }}
-              >
-                {/* <p>{product._type}</p> */}
-
-                {/* <span>
-                  <PortableText value={product.content} />
-                </span> */}
-                {/* <span>{product.body}</span> */}
-                {/* <span className="ref_products_categories">
-                  <p
-                    style={{
-                      color: "gray",
-                      fontSize: "8px",
-                    }}
-                  >
-                    REF: {product._id}
-                  </p>
-                </span> */}
-              </div>
-            </div>
-          ) : (
-            <p>Not found</p>
-          )}
 
           <div className="products_details__categories">
-            <ul
+            <div
               className="display_categories"
               style={{
                 display: "flex",
                 width: "100%",
                 justifyContent: "center",
-                width: "100%",
                 height: "auto",
                 flexWrap: "wrap",
               }}
             >
               {product.categories.map((category) => (
-                <>
-                  <li
+                <Link
+                  href={`/categories/${category.slug}`}
+                  key={category._id}
+                  style={{
+                    textDecoration: "none",
+                    display: "block",
+                    width: "34rem",
+                    height: "24rem",
+                    margin: "1rem",
+                  }}
+                >
+                  <div
                     className="list_display_categories"
                     style={{
                       display: "flex",
-                      border: "3px solid gray",
-                      flexDirection: "column",
-                      padding: "1rem",
-                      margin: "1rem",
+                      padding: "2rem",
                       borderRadius: "30px",
-                      justifyContent: "flex-end",
+                      width: "100%",
+                      height: "100%",
+                      justifyContent: "center",
+                      boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                      transition: "0.3s",
+                      flexDirection: "column",
+                      background: "#fff",
                     }}
-                    key={category._id}
                   >
-                    <h3>
-                      <Link href={`/categories/${category.slug}`}>
+                    <div className="title__content">
+                      <h3
+                        className="title"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          width: "100%",
+                          height: "auto",
+                          position: "relative",
+                          zIndex: 1,
+                          justifyContent: "center",
+                          color: "#000",
+                          fontSize: "27px",
+                        }}
+                      >
+                        <span
+                          className="icon"
+                          style={{
+                            display: "block",
+                          }}
+                        >
+                          <Image
+                            src={canaIcon}
+                            alt="les produits de la boutiques vibes cbd"
+                            className="cana_icon__img"
+                            width={40}
+                            height={40}
+                            style={{
+                              objectFit: "cover",
+                            }}
+                          />
+                        </span>
                         {category.name}
-                      </Link>
-                    </h3>
+                      </h3>
+                    </div>
                     <span>
-                      {" "}
                       <div
                         className="images"
                         style={{
+                          display: "flex",
+                          width: "auto",
+                          height: "auto",
+                          justifyContent: "center",
                           padding: "0.5rem",
+                          borderRadius: "30px",
                         }}
                       >
                         {category.coverImages ? (
@@ -187,7 +183,7 @@ const ProductsDetails = async ({ params }) => {
                             src={category.coverImages}
                             alt="les fleurs"
                             className="product__img"
-                            width={315}
+                            width={325}
                             height={220}
                             style={{
                               objectFit: "cover",
@@ -199,33 +195,49 @@ const ProductsDetails = async ({ params }) => {
                         )}
                       </div>
                     </span>
-                    <span>
-                      {" "}
-                      <p
-                        className="price_content"
-                        style={{
-                          fontSize: "1rem",
-                        }}
-                      >
-                        {category.price}€
-                      </p>
-                    </span>
-                    <span>
-                      <Link
-                        href={`/categories/${category.slug}`}
-                        className="link"
-                      >
-                        Acheter
-                      </Link>
-                    </span>
-                  </li>
-                </>
+                    <div className="productDetails__infos">
+                      <span>
+                        <PortableText value={category.content} />
+                      </span>
+                      <span>
+                        <p
+                          className="price_content"
+                          style={{
+                            textAlign: "right",
+                          }}
+                        >
+                          {category.price}€
+                        </p>
+                      </span>
+                      <span>
+                        {" "}
+                        <Link
+                          href={`/categories/${category.slug}`}
+                          className="link"
+                        >
+                          Découvrir
+                        </Link>
+                      </span>
+                      <span>
+                        <p
+                          style={{
+                            fontSize: "8px",
+                            color: "gray",
+                          }}
+                        >
+                          REF: {category._id}
+                        </p>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </section>
     </>
   );
 };
+
 export default ProductsDetails;
