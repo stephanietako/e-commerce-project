@@ -3,6 +3,7 @@ import Image from "next/image";
 import backgroundImg from "@/public/assets/canaleafimg.jpg";
 // Styles
 import styles from "./styles.module.scss";
+import { AutoCollapseMenu } from "sanity";
 
 const Hero = () => {
   return (
