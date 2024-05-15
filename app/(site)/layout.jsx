@@ -9,7 +9,7 @@ import { NextAuthProvider } from "./components/AuthProvider/AuthProvider";
 import Cursor from "./components/Cursor/Cursor";
 
 const playfair = Playfair_Display({
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-playfair",
 });
