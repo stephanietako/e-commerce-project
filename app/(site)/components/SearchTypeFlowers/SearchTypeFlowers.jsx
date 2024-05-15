@@ -17,9 +17,9 @@ const SearchTypeFlowers = () => {
   };
 
   return (
-    <section className={styles.section_search_categories}>
+    <div className={styles.section_search_categories}>
       <div className={styles.search_container}>
-        <h2>Nos Types de Fleurs</h2>
+        <h2>Variétés</h2>
         <label className={styles.__label_search}>
           {" "}
           <p>Selection...</p>
@@ -58,7 +58,7 @@ const SearchTypeFlowers = () => {
           </select>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

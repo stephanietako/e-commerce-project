@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import canaIcon from "@/public/assets/canaleaf.png";
 import { PortableText } from "@portabletext/react";
 // Styles
 import styles from "./styles.module.scss";
@@ -10,19 +11,38 @@ const CategoriesPages = ({ category }) => {
     <>
       <section className={styles.categoriespages__section}>
         <div className={styles.categoriespages__container}>
-          <h2 className={styles.categoriespages__title}>{category.name}</h2>
+          {/* <h2 className={styles.categoriespages__title}>{category.name}</h2> */}
+          <div className={styles.title__content}>
+            <h2 className={styles.title}>
+              <span className={styles.icon}>
+                <Image
+                  src={canaIcon}
+                  alt="les produits de la boutiques vibes cbd"
+                  className="cana_icon__img"
+                  width={40}
+                  height={40}
+                  style={{
+                    objectFit: "cover",
+                  }}
+                />
+              </span>
+              {category.name}
+            </h2>
+          </div>
           <div className={styles.images}>
             {category.coverImages ? (
               <>
                 <Image
                   src={category.coverImages}
                   alt="les fleurs"
-                  className="category__img"
-                  width={150}
-                  height={150}
+                  className="product__img"
+                  width={375}
+                  height={320}
                   style={{
                     objectFit: "cover",
                     borderRadius: "30px",
+                    padding: "0.5rem",
+                    // justifyContent: "center",
                   }}
                 />
               </>
@@ -34,20 +54,21 @@ const CategoriesPages = ({ category }) => {
           <div className={styles.categoriespages__content}>
             <div className={styles.categoriespages__infos}>
               <p className={styles.infos_type}>{category.type} </p>
+
+              <span>
+                <PortableText value={category.content} />
+              </span>
               <span>
                 {" "}
                 <p
                   className="price_content"
                   style={{
                     fontSize: "1rem",
+                    textAlign: "right",
                   }}
                 >
                   {category.price}€
                 </p>
-              </span>
-
-              <span>
-                <PortableText value={category.content} />
               </span>
               <div className={styles.categoriespages__link}>
                 <Link

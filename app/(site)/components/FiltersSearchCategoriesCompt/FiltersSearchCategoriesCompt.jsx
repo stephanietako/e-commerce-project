@@ -3,11 +3,12 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import CategoriesPages from "../CategoriesPages/CategoriesPages";
+import Image from "next/image";
+import backgroundImg from "@/public/assets/psycho.jpeg";
 // Styles
 import styles from "./styles.module.scss";
 
 const FiltersSearchCategoriesCompt = ({ data }) => {
-  // Définition du composant FiltersSearchCategoriesCompt avec la prop data
   const [searchQuery, setSearchQuery] = useState("");
   const searchParams = useSearchParams();
   const categoryType = searchParams.get("categoryType");
@@ -18,30 +19,41 @@ const FiltersSearchCategoriesCompt = ({ data }) => {
   }, [searchParams]);
 
   const filteredCategories = data.filter((category) => {
-    // Filtrage des catégories en fonction de searchQuery et categoryType
-    const categoryName = (category.name || "").toLowerCase().trim(); // Conversion du nom de catégorie en minuscules et suppression des espaces
-    const categoryTypeLowerCase = categoryType // Conversion de categoryType en minuscules et suppression des espaces
+    const categoryName = (category.name || "").toLowerCase().trim();
+    const categoryTypeLowerCase = categoryType
       ? categoryType.toLowerCase().trim()
       : "";
-    const searchQueryLowerCase = searchQuery // Conversion de searchQuery en minuscules et suppression des espaces
+    const searchQueryLowerCase = searchQuery
       ? searchQuery.toLowerCase().trim()
       : "";
 
     if (category.type && typeof category.type === "string") {
-      // Vérification du type de catégorie
-      const categoryTypeLower = category.type.toLowerCase().trim(); // Conversion du type de catégorie en minuscules et suppression des espaces
-      return categoryTypeLowerCase // Filtrage en fonction de categoryType et searchQuery
+      const categoryTypeLower = category.type.toLowerCase().trim();
+      return categoryTypeLowerCase
         ? categoryTypeLower.includes(categoryTypeLowerCase) &&
             categoryName.includes(searchQueryLowerCase)
         : categoryName.includes(searchQueryLowerCase);
     } else {
-      return categoryName.includes(searchQueryLowerCase); // Filtrage basé uniquement sur searchQuery
+      return categoryName.includes(searchQueryLowerCase);
     }
   });
 
   return (
     <div className={styles.search_components}>
-      <h2>PAGE DE AFFICHAGE DES CATÉGORIES DE FLEURS</h2>
+      <div className={styles.search_components__img}>
+        <Image
+          src={backgroundImg}
+          alt="boutique Vibes Saint-tropez"
+          className={styles.bg_img}
+          fill={true}
+          style={{
+            objectFit: "cover",
+            width: "100%",
+            height: "100%",
+            objectPosition: "0 -557px",
+          }}
+        />
+      </div>
       <div className={styles.filteredCategories}>
         {filteredCategories.map((category) => (
           <CategoriesPages key={category._id} category={category} />

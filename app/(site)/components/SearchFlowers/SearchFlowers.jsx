@@ -16,9 +16,9 @@ const SearchFlowers = () => {
   };
 
   return (
-    <section className={styles.section_search_categories}>
+    <div className={styles.section_search_categories}>
       <div className={styles.search_container}>
-        <h2>Nos Fleurs</h2>
+        <h2>Fleurs</h2>
         <label className={styles.__label_search}>
           <p>Selection...</p>
         </label>
@@ -48,14 +48,22 @@ const SearchFlowers = () => {
             }}
           >
             <option value="">Select...</option>
-            <option value="Haze">Haze</option>
-            <option value="Orange">Orange </option>
-            <option value="Purple">Purple </option>
-            <option value="Tropicale">tropicale </option>
+            <option value="Tropical">Tropical</option>
+            <option value="White Russian">White Russian </option>
+            <option value="Amnesia XXL">Amnesia XXL</option>
+            <option value="Lemoncello">Lemoncello </option>
+            <option value="Gorilla Mandarine">Gorilla Mandarine </option>
+            <option value="Durban Poison Weed">Durban Poison Weed</option>
+            <option value="Straw Mango">Straw Mango</option>
+            <option value="Lemon Super">Lemon Super</option>
+            <option value="Lifter">Lifter</option>
+            <option value="Gelato">Gelato </option>
+            <option value="Purple Haze">Purple Haze</option>
+            <option value="Cryo">Cryo</option>
           </select>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

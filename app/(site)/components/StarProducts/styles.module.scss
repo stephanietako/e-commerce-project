@@ -20,6 +20,7 @@
       justify-content: center;
       flex-wrap: wrap;
       flex-direction: column;
+      margin-bottom: 4rem;
 
       .title__content {
         display: flex;
@@ -31,16 +32,10 @@
         .title {
           display: flex;
           align-items: center;
-          padding: 2rem;
           width: 100%;
           height: auto;
-          position: relative;
-          z-index: 1;
           .icon {
             display: block;
-            position: absolute;
-            left: -21px;
-            z-index: -1;
             transform: translateY(-5%) rotate(-29deg);
           }
         }

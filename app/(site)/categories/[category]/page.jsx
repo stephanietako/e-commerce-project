@@ -52,7 +52,9 @@ const CategoryDetails = async ({ params }) => {
               style={{
                 display: "flex",
                 width: "100%",
-                // flexDirection: "column",
+                height: "auto",
+                paddingBottom: "4rem",
+                padding: "3rem",
               }}
             >
               <ImageGallery images={data.images} />
@@ -65,7 +67,7 @@ const CategoryDetails = async ({ params }) => {
                   justifyContent: "center",
                   alignItems: "center",
                   position: "relative",
-                  marginTop: "10%",
+                  padding: "3rem",
                 }}
               >
                 <div
@@ -148,11 +150,11 @@ const CategoryDetails = async ({ params }) => {
                       Checkout now
                     </button>
                   </div>
-                  <div className="products_description">
+                  {/* <div className="products_description">
                     <div>
                       <PortableText value={data.content} />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

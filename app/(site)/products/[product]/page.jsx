@@ -23,7 +23,7 @@ const ProductsDetails = async ({ params }) => {
           className="products_details__container"
           style={{
             display: "flex",
-            width: "70%",
+            width: "100%",
             height: " auto",
             position: "relative",
             justifyContent: "center",
@@ -52,7 +52,13 @@ const ProductsDetails = async ({ params }) => {
                 zIndex: 2,
               }}
             >
-              <h1>{product && product.name}</h1>
+              <h1
+                style={{
+                  color: "#fff",
+                }}
+              >
+                {product && product.name}
+              </h1>
             </div>
             <div
               className="images"
@@ -65,15 +71,15 @@ const ProductsDetails = async ({ params }) => {
                 borderRadius: "30px",
               }}
             >
-              {product.images ? (
+              {product.coverImages ? (
                 <Image
-                  src={product.images}
+                  src={product.coverImages}
                   alt="les fleurs"
                   className="product__img"
-                  width={2000}
-                  height={300}
+                  width={1500}
+                  height={500}
                   style={{
-                    objectFit: "cover",
+                    objectFit: "contain",
                     borderRadius: "30px",
                   }}
                 />
@@ -87,7 +93,7 @@ const ProductsDetails = async ({ params }) => {
                   width: "100%",
                   height: "100%",
                   position: "absolute",
-                  backgroundColor: "rgba(0, 0, 0, 0.7)",
+                  justifyContent: "center",
                 }}
               ></span>
             </div>
@@ -116,11 +122,11 @@ const ProductsDetails = async ({ params }) => {
               >
                 {/* <p>{product._type}</p> */}
 
-                <span>
+                {/* <span>
                   <PortableText value={product.content} />
-                </span>
-                <span>{product.body}</span>
-                <span className="ref_products_categories">
+                </span> */}
+                {/* <span>{product.body}</span> */}
+                {/* <span className="ref_products_categories">
                   <p
                     style={{
                       color: "gray",
@@ -129,7 +135,7 @@ const ProductsDetails = async ({ params }) => {
                   >
                     REF: {product._id}
                   </p>
-                </span>
+                </span> */}
               </div>
             </div>
           ) : (
@@ -154,7 +160,7 @@ const ProductsDetails = async ({ params }) => {
                     className="list_display_categories"
                     style={{
                       display: "flex",
-                      border: "3px solid #000",
+                      border: "3px solid gray",
                       flexDirection: "column",
                       padding: "1rem",
                       margin: "1rem",

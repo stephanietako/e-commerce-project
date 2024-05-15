@@ -1,14 +1,10 @@
 // c'est ce que je vais voir dans mon menu ex: men women teen
 const categoryTypes = [
-  { title: "Unique", value: "unique" },
-  { title: "All", value: "all" },
-  { title: "Basic", value: "basic" },
-  { title: "Medium", value: "medium" },
-  { title: "Large", value: "large" },
   { title: "Sativa", value: "sativa" },
   { title: "Indica", value: "indica" },
   { title: "Indoor", value: "indoor" },
   { title: "Outdoor", value: "outdoor" },
+  { title: "Hybride", value: "hybride" },
 ];
 
 const category = {

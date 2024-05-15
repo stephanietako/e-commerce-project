@@ -22,7 +22,7 @@ const Banner = () => {
             objectPosition: "center",
           }}
         />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Livraison rapide</p>
       </div>
       {/* Deuxième icône */}
       <div className={styles.iconWrapper}>
@@ -36,7 +36,7 @@ const Banner = () => {
             objectPosition: "center",
           }}
         />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Paiement sécurisé et en toute discrétion</p>
       </div>
       {/* Troisième icône */}
       <div className={styles.iconWrapper}>
@@ -50,7 +50,7 @@ const Banner = () => {
             objectPosition: "center",
           }}
         />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>CBD de qualité supérieure</p>
       </div>
     </div>
   );
