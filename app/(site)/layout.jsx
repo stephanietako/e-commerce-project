@@ -1,4 +1,4 @@
-import { Playfair } from "next/font/google";
+import { Playfair_Display } from "@next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 // import Header from "./components/Header/Header";
@@ -8,7 +8,7 @@ import { NextAuthProvider } from "./components/AuthProvider/AuthProvider";
 // import { Suspense } from "react";
 import Cursor from "./components/Cursor/Cursor";
 
-const playfair = Playfair({
+const playfair = Playfair_Display({
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-playfair",
@@ -29,7 +29,6 @@ export default function RootLayout({ children, session }) {
           <Toast />
           <main className="main">
             <Navbar />
-
             <Cursor />
             {children}
             <Footer />
