@@ -57,13 +57,30 @@ const Flowers = ({ allflowers }) => {
                             <div className={styles.data_group__products}>
                               <div className={styles.content_flowers}>
                                 <div className={styles.categories_flowers}>
-                                  <h3
+                                  {/* <h3
                                     className={styles.title_flowers_categories}
                                   >
                                     <Link href={`/categories/${category.slug}`}>
                                       {category.name}
                                     </Link>
-                                  </h3>
+                                  </h3> */}
+                                  <div className={styles.title__content}>
+                                    <h3 className={styles.title}>
+                                      <span className={styles.icon}>
+                                        <Image
+                                          src={canaIcon}
+                                          alt="les produits de la boutiques vibes cbd"
+                                          className="cana_icon__img"
+                                          width={40}
+                                          height={40}
+                                          style={{
+                                            objectFit: "cover",
+                                          }}
+                                        />
+                                      </span>
+                                      {category.name}
+                                    </h3>
+                                  </div>
                                   <div className={styles.__flowers_images}>
                                     {category.coverImages && (
                                       <Image

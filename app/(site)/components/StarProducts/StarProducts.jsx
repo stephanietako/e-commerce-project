@@ -50,15 +50,23 @@ const StarProducts = ({ starproducts }) => {
                                 <div
                                   className={styles.starproducts__cards_infos}
                                 >
-                                  <h3
-                                    className={
-                                      styles.title_starproducts_products
-                                    }
-                                  >
-                                    <Link href={`/products/${product.slug}`}>
+                                  <div className={styles.title__content}>
+                                    <h3 className={styles.title}>
+                                      <span className={styles.icon}>
+                                        <Image
+                                          src={canaIcon}
+                                          alt="les produits de la boutiques vibes cbd"
+                                          className="cana_icon__img"
+                                          width={40}
+                                          height={40}
+                                          style={{
+                                            objectFit: "cover",
+                                          }}
+                                        />
+                                      </span>
                                       {product.name}
-                                    </Link>
-                                  </h3>
+                                    </h3>
+                                  </div>
                                   <div className={styles.images_starproducts}>
                                     {category.coverImages && (
                                       <Image

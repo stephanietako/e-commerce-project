@@ -63,18 +63,22 @@ const Footer = () => {
                         href={contact.link}
                         style={{
                           color: "white",
+                          display: "inline-block", // Ajoutez cette ligne
                         }}
                       >
-                        <Image
-                          src={contact.logo}
-                          alt={contact.alt}
-                          className="cana_icon__img"
-                          width={40}
-                          height={40}
-                          style={{
-                            objectFit: "cover",
-                          }}
-                        />
+                        {/* Encapsuler Image dans une div ou un span */}
+                        <div>
+                          <Image
+                            src={contact.logo}
+                            alt={contact.alt}
+                            className="cana_icon__img"
+                            width={40}
+                            height={40}
+                            style={{
+                              objectFit: "cover",
+                            }}
+                          />
+                        </div>
                       </a>
                     </li>
                   ))}
