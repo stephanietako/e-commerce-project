@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import arrowIcon from "@/public/assets/arrow-colored.png";
+import backgroundImg from "@/public/assets/vibes_front_shop.webp";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./styles.module.scss";
@@ -127,8 +128,8 @@ const NavbarMenu = () => {
                     src={arrowIcon}
                     alt="les produits de la boutiques vibes cbd"
                     className="cana_icon__img"
-                    width={30}
-                    height={30}
+                    width={25}
+                    height={25}
                     style={{
                       objectFit: "cover",
                     }}

@@ -17,6 +17,7 @@ import Image from "next/image";
 import backgroundImg from "@/public/assets/notorious.webp";
 import Hero from "./components/Hero/Hero";
 import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
+import HeaderImg from "./components/HeaderImg/HeaderImg";
 const Home = async () => {
   // const projects = await getProjects();
   const starproducts = await getDataStarProducts();
@@ -24,16 +25,6 @@ const Home = async () => {
   const products = await getDataProducts();
   const allflowers = await getDataFlowers();
   // const all = await fetchDataSearchBar();
-  ////////////////
-  // const cards = [
-  //   {
-  //     imageUrl: "/assets/vibes.png",
-  //     title: "essai",
-  //     subtitle: "Not Made of Jelly",
-  //     description:
-  //       "Jellyfish are fascinating marine creatures known for their graceful and mesmerizing movements in the water. Belonging to the phylum Cnidaria, these gelatinous animals come in various shapes, sizes, and colors. One distinctive feature of jellyfish is their umbrella-shaped bell, which pulsates to propel them through the ocean.",
-  //   },
-  // ];
 
   return (
     <>
@@ -46,44 +37,37 @@ const Home = async () => {
           // border: "3px solid blue",
         }}
       >
+        {/* <HeaderImg /> */}
+        <div
+          className="header_container_home__bg"
+          style={{
+            display: "flex",
+            width: "auto",
+            height: "auto",
+            alignItems: "center",
+            position: "absolute",
+            justifyContent: "flex-start",
+            alignContent: "flex-start",
+            alignSelf: "flex-start",
+            top: 18,
+            left: "2rem",
+          }}
+        >
+          <HeaderImg />
+        </div>
         <div
           className="menu"
           style={{
             display: "flex",
             width: "100%",
             height: "auto",
-
             justifyContent: "center",
             zIndex: 3,
             marginTop: "2rem",
           }}
         >
           <NavbarMenu />
-          {/* <div
-            className="menu__products"
-            style={{
-              display: "flex",
-              width: "auto",
-              height: "auto",
-
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div className="links">
-              {products.map((product) => (
-                <Link
-                  key={product._id}
-                  href={`/products/${product.slug}`}
-                  className="link"
-                >
-                  {product.name}
-                </Link>
-              ))}
-            </div>
-          </div> */}
         </div>
-        {/* //////////////////////////////////// */}
         <div
           className="home_page"
           style={{
