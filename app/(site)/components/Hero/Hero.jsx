@@ -18,6 +18,9 @@ const Hero = () => {
           alt="boutique Vibes Saint-tropez"
           className={styles.bg_img}
           fill={true}
+          placeholder="blur"
+          quality={75}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           style={{
             objectFit: "cover",
           }}

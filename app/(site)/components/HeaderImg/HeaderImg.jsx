@@ -15,6 +15,9 @@ const HeaderImg = () => {
         alt="biggie small"
         className={styles.bg_img}
         fill={true}
+        quality={75}
+        placeholder="blur"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         onLoad={() => setImageLoaded(true)}
         style={{
           objectFit: "cover",

@@ -7,12 +7,12 @@
   .hero__content {
     display: flex;
     width: 100%;
-    height: auto;
-    z-index: 4;
+    height: 100%;
     flex-direction: column;
     padding-top: 8rem;
     align-items: center;
     z-index: 2;
+    position: relative;
     &::before {
       content: "";
       display: block;
@@ -30,7 +30,7 @@
 
   .bg_img {
     z-index: -5;
-    position: relative;
+    // position: relative;
   }
   h1 {
     color: #fff;

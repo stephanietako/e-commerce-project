@@ -106,12 +106,21 @@ const NavbarMenu = () => {
     }
   };
 
-  const handleCategoryClick = (category) => {
-    router.push(`/categories?searchQuery=${encodeURIComponent(category)}`);
-  };
+  // const handleCategoryClick = (category) => {
+  //   router.push(`/categories?searchQuery=${encodeURIComponent(category)}`);
+  // };
 
+  const handleSearchQueryChange = (event) => {
+    const selectedQuery = event.target.value;
+    setSearchQuery(selectedQuery);
+    router.push(`/categories?searchQuery=${selectedQuery}`);
+  };
   return (
-    <nav className={styles.navbar}>
+    <nav
+      className={styles.navbar}
+      value={searchQuery}
+      onChange={handleSearchQueryChange}
+    >
       <div className={styles.__navbar_container}>
         <div className={styles.__navbar_container__link}>
           {navLinks.map((link, index) => (

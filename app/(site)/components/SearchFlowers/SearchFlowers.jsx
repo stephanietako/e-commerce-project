@@ -48,18 +48,18 @@ const SearchFlowers = () => {
             }}
           >
             <option value="">Select...</option>
-            <option value="Tropical">Tropical</option>
-            <option value="White Russian">White Russian </option>
-            <option value="Amnesia XXL">Amnesia XXL</option>
-            <option value="Lemoncello">Lemoncello </option>
-            <option value="Gorilla Mandarine">Gorilla Mandarine </option>
-            <option value="Durban Poison Weed">Durban Poison Weed</option>
-            <option value="Straw Mango">Straw Mango</option>
-            <option value="Lemon Super">Lemon Super</option>
-            <option value="Lifter">Lifter</option>
-            <option value="Gelato">Gelato </option>
-            <option value="Purple Haze">Purple Haze</option>
-            <option value="Cryo">Cryo</option>
+            <option value="tropical">Tropical</option>
+            <option value="white Russian">White Russian </option>
+            <option value="amnesia xxl">Amnesia XXL</option>
+            <option value="lemoncello">Lemoncello </option>
+            <option value="gorilla mandarine">Gorilla Mandarine </option>
+            <option value="durban poison weed">Durban Poison Weed</option>
+            <option value="straw mango">Straw Mango</option>
+            <option value="semon super">Lemon Super</option>
+            <option value="lifter">Lifter</option>
+            <option value="gelato">Gelato </option>
+            <option value="purple haze">Purple Haze</option>
+            <option value="cryo">Cryo</option>
           </select>
         </div>
       </div>

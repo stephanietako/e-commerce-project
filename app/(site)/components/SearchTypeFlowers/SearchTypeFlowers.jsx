@@ -50,11 +50,11 @@ const SearchTypeFlowers = () => {
             }}
           >
             <option value="">Select...</option>
-            <option value="Sativa">Sativa</option>
-            <option value="Indica">Indica </option>
-            <option value="Indoor">Indoor </option>
-            <option value="Outdoor">Outdoor </option>
-            <option value="Large">Large</option>
+            <option value="sativa">Sativa</option>
+            <option value="indica">Indica </option>
+            <option value="indoor">Indoor </option>
+            <option value="outdoor">Outdoor </option>
+            <option value="hybride">Hybride</option>
           </select>
         </div>
       </div>

@@ -210,13 +210,25 @@ const ProductsDetails = async ({ params }) => {
                         </p>
                       </span>
                       <span>
-                        {" "}
+                        {/* {" "}
                         <Link
                           href={`/categories/${category.slug}`}
                           className="link"
                         >
                           Découvrir
-                        </Link>
+                        </Link> */}
+                        <button
+                          style={{
+                            padding: "10px 20px",
+                            backgroundColor: "transparent",
+                            color: "#000",
+                            border: "none",
+                            outline: "none",
+                            cursor: "none",
+                          }}
+                        >
+                          Découvrir
+                        </button>
                       </span>
                       <span>
                         <p
