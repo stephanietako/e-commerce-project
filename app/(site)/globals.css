@@ -105,6 +105,7 @@ section {
   height: 100%;
   flex-wrap: wrap;
   margin-top: 3rem;
+  justify-content: center;
 }
 
 h1 {

@@ -1,71 +1,63 @@
 .sliderShow__container {
   text-align: center;
-  padding: 2rem;
   display: flex;
-  width: auto;
-  height: auto;
-
-  //border: 4px solid rgb(255, 0, 234);
   flex-direction: column;
+  width: 95rem; /* Spécifiez la largeur souhaitée pour le conteneur */
+  height: auto;
+  border: 3px solid rgb(255, 0, 195);
+  margin: 0 auto; /* Centre le conteneur horizontalement */
 
   .carousel {
-    min-width: 100%;
     position: relative;
-    max-width: 100%;
     overflow: hidden;
-    // border: 3px solid turquoise;
-    height: 32rem;
-    //height: 100%;
-
-    .carousel__btn {
-      position: absolute;
-      top: 50%;
-      //   transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      font-size: 1.5rem;
-      border: none;
-      padding: 1rem;
-      cursor: pointer;
-      z-index: 1;
-      transition: background-color 0.3s;
-    }
-    .carousel__btn:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-    .carousel__btn__prev {
-      left: 0;
-    }
-    .carousel__btn__next {
-      right: 0;
-    }
-    .carousel__bloc__img {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      justify-content: center;
-
-      .carousel__img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        //border: 4px solid red;
-        transition: transform 0.3s ease-in-out;
-      }
-      .carousel__img:hover {
-        transform: scale(1.05);
-      }
-    }
-  }
-  .title {
-    display: flex;
-    border: 3px solid lime;
     width: 100%;
-    height: auto;
-    padding: 2rem;
+    height: 32rem;
 
-    // top: 0;
-    bottom: 0;
-    background-color: antiquewhite;
+    .carousel__track {
+      display: flex;
+      width: auto;
+      height: auto;
+      animation: scroll 10s linear infinite;
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .carousel__bloc__img {
+        display: flex;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 350px; /* La même largeur que l'image */
+        height: 450px;
+        padding: 1rem;
+        flex-direction: column;
+        border: 3px solid red;
+        overflow: hidden;
+
+        .carousel__img {
+          border: 3px solid blue;
+          width: 100%;
+          height: 24rem;
+          object-fit: cover;
+          transition: transform 0.3s ease-in-out;
+        }
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+      .title__content {
+        background-color: whitesmoke;
+        padding: 1rem;
+
+        .title {
+          margin-top: 0;
+        }
+      }
+    }
   }
 }
