@@ -12,6 +12,7 @@ function HeroCard({ imageUrl, title, subtitle, description }) {
           alt="boutique Vibes Saint-tropez"
           className={styles.__bg_img}
           fill={true}
+          loading="lazy"
           style={{
             borderRadius: "30px",
             objectFit: "fill",

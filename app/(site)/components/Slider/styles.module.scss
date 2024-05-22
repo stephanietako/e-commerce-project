@@ -1,42 +1,71 @@
 .sliderShow__container {
   text-align: center;
   padding: 2rem;
-  border: 3px solid red;
-}
-.carousel {
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-}
-.carousel__btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  font-size: 1.5rem;
-  border: none;
-  padding: 1rem;
-  cursor: pointer;
-  z-index: 1;
-  transition: background-color 0.3s;
-}
-.carousel__btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-.carousel__btn__prev {
-  left: 0;
-}
-.carousel__btn__next {
-  right: 0;
-}
-.carousel__img {
-  width: 100%;
-  height: 27rem;
-  display: block;
-  transition: transform 0.3s ease-in-out;
-  object-fit: cover;
-}
-.carousel__img:hover {
-  transform: scale(1.05);
+  display: flex;
+  width: auto;
+  height: auto;
+
+  //border: 4px solid rgb(255, 0, 234);
+  flex-direction: column;
+
+  .carousel {
+    min-width: 100%;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    // border: 3px solid turquoise;
+    height: 32rem;
+    //height: 100%;
+
+    .carousel__btn {
+      position: absolute;
+      top: 50%;
+      //   transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 1.5rem;
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      z-index: 1;
+      transition: background-color 0.3s;
+    }
+    .carousel__btn:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .carousel__btn__prev {
+      left: 0;
+    }
+    .carousel__btn__next {
+      right: 0;
+    }
+    .carousel__bloc__img {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+
+      .carousel__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        //border: 4px solid red;
+        transition: transform 0.3s ease-in-out;
+      }
+      .carousel__img:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+  .title {
+    display: flex;
+    border: 3px solid lime;
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+
+    // top: 0;
+    bottom: 0;
+    background-color: antiquewhite;
+  }
 }
