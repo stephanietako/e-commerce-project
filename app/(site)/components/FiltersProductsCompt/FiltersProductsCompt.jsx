@@ -8,7 +8,7 @@ import styles from "./styles.module.scss";
 
 const FiltersProductsCompt = ({ data, isLoading, error }) => {
   const [selectedProducts, setSelectedProducts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(""); // Ajout de setSearchQuery
+  const [searchQuery, setSearchQuery] = useState("");
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -31,6 +31,15 @@ const FiltersProductsCompt = ({ data, isLoading, error }) => {
   const filterProducts = (products) => {
     return products.filter((el) => el.name.includes(searchQuery));
   };
+
+  // Produits filtrés en fonction de la sélection ou par défaut sur "Fleurs"
+  const getDisplayedProducts = () => {
+    if (selectedProducts.length === 0) {
+      return data.filter((product) => product.name.includes("Fleurs"));
+    }
+    return data.filter((product) => selectedProducts.includes(product.name));
+  };
+
   return (
     <div className={styles.container_filter_products}>
       <ul className={styles.filter_products__list}>
@@ -49,8 +58,7 @@ const FiltersProductsCompt = ({ data, isLoading, error }) => {
                         name={name}
                         value={name}
                         checked={isChecked}
-                        onChange={(event) => handleChange(event, index)}
-                        // styles={customStyles}
+                        onChange={(event) => handleChange(event)}
                       />
                       <label
                         htmlFor={`custom_checkbox-${index}`}
@@ -68,37 +76,17 @@ const FiltersProductsCompt = ({ data, isLoading, error }) => {
                 </li>
               );
             })}
-          <li>
-            <div className={styles.__filtered_products}>
-              {isLoading ? (
-                <div
-                // style={{
-                //   display: "flex",
-                //   width: "100%",
-                //   // height: "35rem",
-                //   position: "relative",
-                //   padding: "2rem",
-                //   marginTop: "11rem",
-                // }}
-                >
-                  Loading...
-                </div>
-              ) : (
-                data
-                  .filter(
-                    ({ name }) =>
-                      // Vérifie si le nom du produit est inclus dans les produits sélectionnés ET s'il correspond à la recherche
-                      selectedProducts.includes(name) &&
-                      name.includes(searchQuery)
-                  )
-                  .map((product) => (
-                    <ProductsPages key={product._id} product={product} />
-                  ))
-              )}
-            </div>
-          </li>
         </div>
       </ul>
+      <div className={styles.__filtered_products}>
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          filterProducts(getDisplayedProducts()).map((product) => (
+            <ProductsPages key={product._id} product={product} />
+          ))
+        )}
+      </div>
     </div>
   );
 };

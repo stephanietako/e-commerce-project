@@ -102,33 +102,25 @@ const ProductsDetails = async ({ params }) => {
                 justifyContent: "center",
                 height: "auto",
                 flexWrap: "wrap",
+                margin: "2rem",
               }}
             >
               {product.categories.map((category) => (
-                <Link
-                  href={`/categories/${category.slug}`}
-                  key={category._id}
-                  style={{
-                    textDecoration: "none",
-                    display: "block",
-                    width: "34rem",
-                    height: "24rem",
-                    margin: "1rem",
-                  }}
-                >
+                <Link href={`/categories/${category.slug}`} key={category._id}>
                   <div
-                    className="list_display_categories"
+                    className="data_group__categories"
                     style={{
                       display: "flex",
                       padding: "2rem",
                       borderRadius: "30px",
-                      width: "100%",
-                      height: "100%",
+                      width: "27 rem",
+                      height: "auto",
                       justifyContent: "center",
                       boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
                       transition: "0.3s",
                       flexDirection: "column",
                       background: "#fff",
+                      margin: "2rem",
                     }}
                   >
                     <div className="title__content">
@@ -146,23 +138,6 @@ const ProductsDetails = async ({ params }) => {
                           fontSize: "27px",
                         }}
                       >
-                        <span
-                          className="icon"
-                          style={{
-                            display: "block",
-                          }}
-                        >
-                          <Image
-                            src={canaIcon}
-                            alt="les produits de la boutiques vibes cbd"
-                            className="cana_icon__img"
-                            width={40}
-                            height={40}
-                            style={{
-                              objectFit: "cover",
-                            }}
-                          />
-                        </span>
                         {category.name}
                       </h3>
                     </div>
@@ -183,11 +158,11 @@ const ProductsDetails = async ({ params }) => {
                             src={category.coverImages}
                             alt="les fleurs"
                             className="product__img"
-                            width={325}
-                            height={220}
+                            width={450}
+                            height={300}
                             style={{
                               objectFit: "cover",
-                              borderRadius: "30px",
+                              borderRadius: "18px",
                             }}
                           />
                         ) : (

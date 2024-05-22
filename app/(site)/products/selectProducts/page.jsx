@@ -9,7 +9,7 @@ const SelectProducts = async () => {
   return (
     <>
       <div className={styles.select_products}>
-        <Products allproducts={allproducts} />
+        {/* <Products allproducts={allproducts} /> */}
         {/* <div className={styles.select_categories__bloc_content}></div> */}
       </div>
     </>

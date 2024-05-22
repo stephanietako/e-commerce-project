@@ -13,21 +13,7 @@ const CategoriesPages = ({ category }) => {
         <div className={styles.categoriespages__container}>
           {/* <h2 className={styles.categoriespages__title}>{category.name}</h2> */}
           <div className={styles.title__content}>
-            <h2 className={styles.title}>
-              <span className={styles.icon}>
-                <Image
-                  src={canaIcon}
-                  alt="les produits de la boutiques vibes cbd"
-                  className="cana_icon__img"
-                  width={40}
-                  height={40}
-                  style={{
-                    objectFit: "cover",
-                  }}
-                />
-              </span>
-              {category.name}
-            </h2>
+            <h2 className={styles.title}>{category.name}</h2>
           </div>
           <div className={styles.images}>
             {category.coverImages ? (

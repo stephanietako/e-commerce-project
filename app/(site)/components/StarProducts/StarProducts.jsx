@@ -22,10 +22,10 @@ const StarProducts = ({ starproducts }) => {
                       src={canaIcon}
                       alt="les produits de la boutiques vibes cbd"
                       className="cana_icon__img"
-                      width={100}
-                      height={100}
+                      width={50}
+                      height={70}
                       style={{
-                        objectFit: "cover",
+                        objectFit: "contain",
                       }}
                     />
                   </span>
@@ -52,18 +52,6 @@ const StarProducts = ({ starproducts }) => {
                                 >
                                   <div className={styles.title__content}>
                                     <h3 className={styles.title}>
-                                      <span className={styles.icon}>
-                                        <Image
-                                          src={canaIcon}
-                                          alt="les produits de la boutiques vibes cbd"
-                                          className="cana_icon__img"
-                                          width={40}
-                                          height={40}
-                                          style={{
-                                            objectFit: "cover",
-                                          }}
-                                        />
-                                      </span>
                                       {product.name}
                                     </h3>
                                   </div>

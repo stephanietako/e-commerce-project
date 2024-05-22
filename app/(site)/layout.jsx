@@ -1,4 +1,4 @@
-import { Playfair_Display } from "@next/font/google";
+import { Roboto_Slab } from "@next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 // import Header from "./components/Header/Header";
@@ -8,10 +8,10 @@ import { NextAuthProvider } from "./components/AuthProvider/AuthProvider";
 // import { Suspense } from "react";
 import Cursor from "./components/Cursor/Cursor";
 
-const playfair = Playfair_Display({
-  weight: ["400", "500", "600", "700"],
+const robotoSlab = Roboto_Slab({
+  weight: ["100", "900"],
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--roboto-slab",
 });
 
 export const dynamic = "force-dynamic";
@@ -24,7 +24,7 @@ export const metadata = {
 export default function RootLayout({ children, session }) {
   return (
     <html lang="en">
-      <body className={playfair.variable}>
+      <body className={robotoSlab.variable}>
         <NextAuthProvider session={session}>
           <Toast />
           <main className="main">

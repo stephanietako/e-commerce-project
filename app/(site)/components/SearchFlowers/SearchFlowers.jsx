@@ -55,7 +55,7 @@ const SearchFlowers = () => {
             <option value="gorilla mandarine">Gorilla Mandarine </option>
             <option value="durban poison weed">Durban Poison Weed</option>
             <option value="straw mango">Straw Mango</option>
-            <option value="semon super">Lemon Super</option>
+            <option value="lemon super">Lemon Super</option>
             <option value="lifter">Lifter</option>
             <option value="gelato">Gelato </option>
             <option value="purple haze">Purple Haze</option>

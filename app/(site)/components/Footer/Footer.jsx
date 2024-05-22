@@ -67,7 +67,7 @@ const Footer = () => {
                         }}
                       >
                         {/* Encapsuler Image dans une div ou un span */}
-                        <div>
+                        {/* <div>
                           <Image
                             src={contact.logo}
                             alt={contact.alt}
@@ -78,7 +78,7 @@ const Footer = () => {
                               objectFit: "cover",
                             }}
                           />
-                        </div>
+                        </div> */}
                       </a>
                     </li>
                   ))}
@@ -97,7 +97,7 @@ const Footer = () => {
           </li>
         </ul>
         <ul>
-          <li>
+          {/* <li>
             <div className={styles.__shop_img}>
               <p>Accès à Google Maps en un click sur la boutique</p>
               <a href="/">
@@ -114,7 +114,7 @@ const Footer = () => {
                 />
               </a>
             </div>
-          </li>
+          </li> */}
         </ul>
       </footer>
     </div>

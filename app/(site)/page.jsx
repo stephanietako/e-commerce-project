@@ -9,7 +9,7 @@ import Flowers from "./components/Flowers/Flowers";
 //import HeroContainer from "./components/HeroContainer/HeroContainer";
 import AnimeCartFilter from "./components/AnimeCartFilter/AnimeCartFilter";
 // import SelectCategories from "./categories/selectCategories/page";
-// import SelectProducts from "./products/selectProducts/page";
+import SelectProducts from "./products/selectProducts/page";
 import Banner from "./components/Banner/Banner";
 // import All from "./components/All/All";
 // import SearchBarAll from "./components/SearchBarAll/SearchBarAll";
@@ -18,6 +18,8 @@ import backgroundImg from "@/public/assets/notorious.webp";
 import Hero from "./components/Hero/Hero";
 import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
 import HeaderImg from "./components/HeaderImg/HeaderImg";
+import FiltersProducts from "./products/filtersProducts/page";
+import SliderCompt from "./components/SliderCompt/slidercompt";
 const Home = async () => {
   // const projects = await getProjects();
   const starproducts = await getDataStarProducts();
@@ -53,7 +55,7 @@ const Home = async () => {
             left: "2rem",
           }}
         >
-          <HeaderImg />
+          {/* <HeaderImg /> */}
         </div>
         <div
           className="menu"
@@ -93,9 +95,12 @@ const Home = async () => {
           <div>
             <Banner />
           </div>
-          <section className="animefilter_section">
-            <AnimeCartFilter />
+          <section className="slider_section">
+            <SliderCompt />
           </section>
+          {/* <section className="animefilter_section">
+            <AnimeCartFilter />
+          </section> */}
 
           <section className="categories_section">
             <Flowers allflowers={allflowers} />
@@ -105,11 +110,11 @@ const Home = async () => {
           </section>
           {/* <section className="all_products_section">
             <Products allproducts={allproducts} />
-          </section> */}
+          </section>  */}
           {/* <section>
             <SelectProducts />
-          </section>
-          <section>
+          </section> */}
+          {/* <section>
             <SelectCategories />
           </section> */}
 
@@ -140,6 +145,9 @@ const Home = async () => {
           ))}
         </div> */}
           {/* </Suspense> */}
+          <section>
+            <FiltersProducts />
+          </section>
         </div>
       </div>
     </>
