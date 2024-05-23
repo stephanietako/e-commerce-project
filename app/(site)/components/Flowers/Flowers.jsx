@@ -57,13 +57,6 @@ const Flowers = ({ allflowers }) => {
                             <div className={styles.data_group__products}>
                               <div className={styles.content_flowers}>
                                 <div className={styles.categories_flowers}>
-                                  {/* <h3
-                                    className={styles.title_flowers_categories}
-                                  >
-                                    <Link href={`/categories/${category.slug}`}>
-                                      {category.name}
-                                    </Link>
-                                  </h3> */}
                                   <div className={styles.title__content}>
                                     <h3 className={styles.title}>
                                       {category.name}

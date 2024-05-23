@@ -5,7 +5,8 @@ const categoryTypes = [
   { title: "Indoor", value: "indoor" },
   { title: "Outdoor", value: "outdoor" },
   { title: "Hybride", value: "hybride" },
-  { title: "Basic", value: "basic" },
+  { title: "Vape", value: "vape" },
+  { title: "Pen", value: "pen" },
 ];
 
 const category = {

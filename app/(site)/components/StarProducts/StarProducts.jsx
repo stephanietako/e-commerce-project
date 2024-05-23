@@ -65,7 +65,7 @@ const StarProducts = ({ starproducts }) => {
                                         height={220}
                                         style={{
                                           objectFit: "cover",
-                                          borderRadius: "30px",
+                                          borderRadius: "17px",
                                           padding: "0.5rem",
                                         }}
                                       />

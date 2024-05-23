@@ -13,9 +13,11 @@ function HeroCard({ imageUrl, title, subtitle, description }) {
           className={styles.__bg_img}
           fill={true}
           loading="lazy"
+          placeholder="blur"
+          blurDataURL="data:image/jpeg..."
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           style={{
-            borderRadius: "30px",
-            objectFit: "fill",
+            objectFit: "contain",
           }}
         />
         <figure className={styles.figure}>

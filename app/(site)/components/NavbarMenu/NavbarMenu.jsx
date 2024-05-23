@@ -11,22 +11,13 @@ import styles from "./styles.module.scss";
 const fleursCBD = {
   name: "Fleurs CBD",
   href: "/products/fleurs-cbd",
-  categories: [
-    { name: "Tropical", href: "/categories/tropical" },
-    { name: "White Russian Weed", href: "/categories/white-russian-weed" },
-    { name: "Amnesia XXL", href: "/categories/amnesia-xxl" },
-    { name: "Lemoncello", href: "/categories/lemoncello" },
-    { name: "Gorilla Mandarine", href: "/categories/gorilla-mandarine" },
-    { name: "Durban Poison Weed", href: "/categories/durban-poison-weed" },
-    { name: "Orange Tonic", href: "/categories/orange-tonic" },
-    { name: "Straw Mango", href: "/categories/straw-mango" },
-    { name: "Lemon Super", href: "/categories/lemon-super" },
-    { name: "Lifter", href: "/categories/lifter" },
-    { name: "Gelato", href: "/categories/gelato" },
-    { name: "Purple Haze", href: "/categories/purple-haze" },
-    { name: "Cryo", href: "/categories/cryo" },
-    { name: "Gandalf", href: "/categories/gandalf" },
-    { name: "Mac", href: "/categories/mac" },
+  types: [
+    { name: "Toutes nos Fleurs", href: "/products/fleurs-cbd" },
+    { name: "Sativa", href: "/categories?categoryType=sativa" },
+    { name: "Indica", href: "/categories?categoryType=indica" },
+    { name: "Indoor", href: "/categories?categoryType=indoor" },
+    { name: "Outdoor", href: "/categories?categoryType=outdoor" },
+    { name: "Hybride", href: "/categories?categoryType=hybride" },
   ],
 };
 
@@ -46,61 +37,6 @@ const hashCBD = {
   ],
 };
 
-const vapesCBD = {
-  name: "Vapes CBD",
-  href: "/products/vapes-cbd",
-  categories: [
-    {
-      name: "Happease Cartridge Mountain River",
-      href: "/categories/happease-cartridge-mountain-river",
-    },
-    {
-      name: "Happease Cartridge Tropical Sunrise",
-      href: "/categories/happease-cartridge-tropical-sunrise",
-    },
-    {
-      name: "Happease Cartridge Lemon Tree",
-      href: "/categories/happease-cartridge-lemon-tree",
-    },
-    {
-      name: "Happease Pen Mountain River",
-      href: "/categories/happease-pen-mountain-river",
-    },
-    {
-      name: "Happease Pen Tropical Sunrise",
-      href: "/categories/happease-pen-tropical-sunrise",
-    },
-    {
-      name: "Happease Pen Lemon Tree",
-      href: "/categories/happease-pen-lemon-tree",
-    },
-    {
-      name: "Kush Vape Pen Amnesia Haze",
-      href: "/categories/kush-vape-pen-amnesia-haze",
-    },
-    {
-      name: "Kush Vape Pen OG Kush",
-      href: "/categories/kush-vape-pen-og-kush",
-    },
-    {
-      name: "Kush Vape Pen Orange Runtz",
-      href: "/categories/kush-vape-pen-orange-runtz",
-    },
-    {
-      name: "Kush Vape Pen Super Lemon Haze",
-      href: "/categories/kush-vape-pen-super-lemon-haze",
-    },
-    {
-      name: "Kush Vape Pen White Widow",
-      href: "/categories/kush-vape-pen-white-widow",
-    },
-    {
-      name: "Kush Vape Pen Skittles",
-      href: "/categories/kush-vape-pen-skittles",
-    },
-  ],
-};
-
 const huilesCBD = {
   name: "Huiles CBD",
   href: "/products/huiles-cbd",
@@ -109,18 +45,6 @@ const huilesCBD = {
     { name: "Huile 20%", href: "/categories/huile-20" },
     { name: "Huile 30%", href: "/categories/huile-30" },
     { name: "Huile 40%", href: "/categories/huile-40" },
-  ],
-};
-
-const infusionsCBD = {
-  name: "Infusions CBD",
-  href: "/products/infusions-cbd",
-  categories: [
-    { name: "Infusion Hexazen", href: "/categories/infusion-hexazen" },
-    {
-      name: "Infusion Herboristerie Alexandra",
-      href: "/categories/infusion-herboristerie-alexandra",
-    },
   ],
 };
 
@@ -148,6 +72,31 @@ const cosmetiquesCBD = {
   ],
 };
 
+const vapesCBD = {
+  name: "Vapes CBD",
+  href: "/products/vapes-cbd",
+  categories: [
+    { name: "Toutes nos Vapes", href: "/products/vapes-cbd" },
+    { name: "Vape", href: "/categories?categoryType=vape" },
+    { name: "Pen", href: "/categories?categoryType=pen" },
+  ],
+};
+
+const infusionsCBD = {
+  name: "Infusions CBD",
+  href: "/products/infusions-cbd",
+  categories: [
+    {
+      name: "Infusion Hexazen",
+      href: "/categories?categoryType=infusion-hexazen",
+    },
+    {
+      name: "Infusion Herboristerie Alexandra",
+      href: "/categories?categoryType=infusion-herboristerie-alexandra",
+    },
+  ],
+};
+
 const navLinks = [
   fleursCBD,
   hashCBD,
@@ -159,68 +108,76 @@ const navLinks = [
 
 const NavbarMenu = () => {
   const pathname = usePathname();
+  const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
   const [showCategories, setShowCategories] = useState(null);
   const [currentCategories, setCurrentCategories] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
 
-  const handleLinkClick = (categories) => {
-    if (showCategories === categories) {
+  const handleLinkClick = (link) => {
+    if (showCategories === link.name) {
       setShowCategories(null);
     } else {
-      setShowCategories(categories);
-      setCurrentCategories(categories);
+      setShowCategories(link.name);
+      setCurrentCategories(link.types || link.categories);
     }
   };
 
-  const handleSearchQueryChange = (event) => {
-    const selectedQuery = event.target.value;
-    setSearchQuery(selectedQuery);
-    router.push(`/categories?searchQuery=${selectedQuery}`);
-  };
+  // const handleSearchQueryChange = (event) => {
+  //   const selectedQuery = event.target.value;
+  //   setSearchQuery(selectedQuery);
+  //   router.push(`/categories?searchQuery=${selectedQuery}`);
+  // };
+
+  // const handleCategoryTypeChange = (event) => {
+  //   const selectedCategory = event.target.value;
+  //   setCategoryTypeFilter(selectedCategory);
+  //   router.push(`/categories?categoryType=${selectedCategory}`);
+  // };
 
   return (
     <nav className={styles.navbar}>
       <div className={styles.__navbar_container}>
-        <div className={styles.__navbar_container__link}>
-          {navLinks.map((link, index) => (
-            <div key={index}>
-              <span
-                className={
-                  pathname === link.href ? styles.__link_active : styles.__link
-                }
-                onClick={() => handleLinkClick(link.categories)}
-              >
-                <span>{link.name}</span>
-                <span className={styles.icon}>
-                  <Image
-                    src={arrowIcon}
-                    alt="les produits de la boutiques vibes cbd"
-                    className="cana_icon__img"
-                    width={25}
-                    height={25}
-                    style={{
-                      objectFit: "cover",
-                    }}
-                  />
-                </span>
+        {navLinks.map((link, index) => (
+          <div
+            key={index}
+            className={`${styles.__navbar_container__link} ${
+              showCategories === link.name ? styles.active : ""
+            }`}
+          >
+            <span
+              className={
+                pathname === link.href ? styles.__link_active : styles.__link
+              }
+              onClick={() => handleLinkClick(link)}
+            >
+              <span>{link.name}</span>
+              <span className={styles.icon}>
+                <Image
+                  src={arrowIcon}
+                  alt="les produits de la boutiques vibes cbd"
+                  className="cana_icon__img"
+                  width={25}
+                  height={25}
+                  style={{
+                    objectFit: "cover",
+                  }}
+                />
               </span>
-              {showCategories === link.categories && (
-                <ul className={styles.submenu}>
-                  {link.categories.map((category, idx) => (
-                    <li key={idx}>
-                      <Link href={category.href}>
-                        <span className={styles.categoryLink}>
-                          {category.name}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </div>
+            </span>
+            {showCategories === link.name && currentCategories && (
+              <ul className={styles.submenu}>
+                {currentCategories.map((item, idx) => (
+                  <li key={idx}>
+                    <Link href={item.href}>
+                      <span className={styles.categoryLink}>{item.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
       </div>
     </nav>
   );

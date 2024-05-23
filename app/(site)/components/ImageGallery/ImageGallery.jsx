@@ -30,18 +30,6 @@ const ImageGallery = ({ images }) => {
 
   return (
     <div className="imagegallery_container">
-      {/* <div className="__container">
-        {images.map((image, index) => (
-          <div key={index} onClick={() => handleSmallImageClick(image)}>
-            <Image
-              src={urlFor(image).url()}
-              alt="Thumbnail"
-              width={50}
-              height={50}
-            />
-          </div>
-        ))}
-      </div> */}
       <div
         className="selectBig_img_productpage"
         onMouseEnter={handleMouseEnter}
