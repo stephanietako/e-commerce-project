@@ -16,7 +16,9 @@ const Slider = ({ allproducts }) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
-
+  //   console.log("handleMouseEnter !!!!!!!", handleMouseEnter());
+  //   console.log("handleMouseLeave !!!!!!!", handleMouseLeave());
+  //console.log("isHovered !!!!!:", isHovered);
   return (
     <div className={styles.sliderShow__container}>
       <div
@@ -33,7 +35,7 @@ const Slider = ({ allproducts }) => {
                   alt={`Slide ${index}`}
                   className={styles.carousel__img}
                   width={350}
-                  height={450}
+                  height={350}
                   loading="lazy"
                   placeholder="blur"
                   quality={80}
