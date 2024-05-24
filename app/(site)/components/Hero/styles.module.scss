@@ -2,11 +2,13 @@
   position: relative;
   width: 100vw;
   height: 40vh;
-  z-index: 1; /* Inférieur à celui de la navbar */
+  z-index: 1;
 
   .heroImage {
     object-fit: cover;
     object-position: center;
+    -webkit-filter: opacity(20%); /* Chrome, Safari, Opera */
+    filter: opacity(49%);
   }
 
   .heroContent {
@@ -22,9 +24,21 @@
     color: #fff;
     text-align: center;
   }
-
-  h1,
-  h2 {
+  h1 {
     margin: 0;
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    color: rgb(22, 21, 21);
+    margin: 0;
+    transform: scale(0.94);
+    animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+  }
+  @keyframes scale {
+    100% {
+      transform: scale(1.3);
+    }
   }
 }

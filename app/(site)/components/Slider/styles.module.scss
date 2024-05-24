@@ -4,7 +4,7 @@
   flex-direction: column;
   width: 100%;
   height: auto;
-  border: 3px solid rgb(255, 0, 195);
+  // border: 3px solid rgb(255, 0, 195);
   margin: 0 auto;
 
   .carousel {
@@ -12,7 +12,7 @@
     overflow: hidden;
     width: 100%;
     height: auto;
-    border: 7px solid green;
+    // border: 7px solid green;
 
     .carousel__track {
       display: flex;
@@ -42,19 +42,19 @@
         display: flex;
         justify-content: center;
         flex-shrink: 0;
-        width: 350px;
-        height: 350px;
-        padding: 1rem;
+        max-width: 300px;
+        height: auto;
         flex-direction: column;
-        border: 3px solid red;
+        border: 3px solid blue;
         overflow: hidden;
         margin-right: 5px;
 
         .carousel__img {
-          border: 3px solid blue;
+          border: 3px solid whitesmoke;
           width: 100%;
-          height: 15rem;
+          height: 12rem;
           object-fit: cover;
+          overflow: hidden;
           transition: transform 0.3s ease-in-out;
         }
 
@@ -69,6 +69,24 @@
 
         .title {
           margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .sliderShow__container {
+    .carousel {
+      .carousel__track {
+        .carousel__bloc__img {
+          max-width: 270px; // Remplace 'width' par 'max-width' pour une consistance avec les styles principaux
+          border: 3px solid red;
+
+          .carousel__img {
+            height: 10rem;
+            overflow: hidden;
+          }
         }
       }
     }

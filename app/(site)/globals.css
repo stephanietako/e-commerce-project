@@ -4,15 +4,15 @@
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-  /* --font-playfair: "Playfair Display", serif; */
+  --font-playfair: "Playfair Display", serif;
   --font-roboto-mono: "Roboto Mono", monospace;
   --font-open-sans: "Open Sans", sans-serif;
   --font-roboto-slab: "Roboto Slab", serif;
 }
 
-/* .playfair {
+.playfair {
   font-family: var(--font-playfair);
-} */
+}
 
 .open-sans {
   font-family: var(--font-open-sans);
@@ -32,12 +32,13 @@
 html,
 body {
   max-width: 100vw;
+  scroll-behavior: smooth;
   overflow-x: hidden;
   background-color: rgb(251, 251, 253);
   font-style: normal;
   position: relative;
   cursor: none;
-  font-family: var(--font-open-sans);
+  /* font-family: var(--font-open-sans); */
 }
 
 a {
@@ -110,15 +111,16 @@ section {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bolder;
-  color: #000;
-  font-family: var(--font-playfair); /* h1 utilise Playfair Display */
+  color: #3c3a3a;
+
+  /* font-family: var(--font-playfair); */
 }
 
 h2 {
   font-size: 2rem;
-  color: #000;
+  color: whitesmoke;
   font-weight: lighter;
 }
 

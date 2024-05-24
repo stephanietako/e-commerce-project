@@ -1,4 +1,4 @@
-import { Roboto_Slab } from "@next/font/google";
+import { Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 // import Header from "./components/Header/Header";

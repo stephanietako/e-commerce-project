@@ -21,6 +21,11 @@ const Slider = ({ allproducts }) => {
   //console.log("isHovered !!!!!:", isHovered);
   return (
     <div className={styles.sliderShow__container}>
+      <span>
+        {" "}
+        <h1>DÉCOUVREZ NOS PRODUITS</h1>
+      </span>
+
       <div
         className={styles.carousel}
         onMouseEnter={handleMouseEnter}
@@ -34,7 +39,7 @@ const Slider = ({ allproducts }) => {
                   src={product.coverImages}
                   alt={`Slide ${index}`}
                   className={styles.carousel__img}
-                  width={350}
+                  width={300}
                   height={350}
                   loading="lazy"
                   placeholder="blur"

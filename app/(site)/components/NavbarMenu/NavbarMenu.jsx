@@ -123,18 +123,6 @@ const NavbarMenu = () => {
     }
   };
 
-  // const handleSearchQueryChange = (event) => {
-  //   const selectedQuery = event.target.value;
-  //   setSearchQuery(selectedQuery);
-  //   router.push(`/categories?searchQuery=${selectedQuery}`);
-  // };
-
-  // const handleCategoryTypeChange = (event) => {
-  //   const selectedCategory = event.target.value;
-  //   setCategoryTypeFilter(selectedCategory);
-  //   router.push(`/categories?categoryType=${selectedCategory}`);
-  // };
-
   return (
     <nav className={styles.navbar}>
       <div className={styles.__navbar_container}>
@@ -152,18 +140,6 @@ const NavbarMenu = () => {
               onClick={() => handleLinkClick(link)}
             >
               <span>{link.name}</span>
-              <span className={styles.icon}>
-                <Image
-                  src={arrowIcon}
-                  alt="les produits de la boutiques vibes cbd"
-                  className="cana_icon__img"
-                  width={25}
-                  height={25}
-                  style={{
-                    objectFit: "cover",
-                  }}
-                />
-              </span>
             </span>
             {showCategories === link.name && currentCategories && (
               <ul className={styles.submenu}>

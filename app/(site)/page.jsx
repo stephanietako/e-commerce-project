@@ -23,16 +23,7 @@ const Home = async () => {
         <div className="menu">
           <NavbarMenu />
         </div>
-        {/* <div
-          className="home_page"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignContent: "center",
-            alignItems: "center",
-          }}
-        > */}
+
         <div
           className="hero_section"
           style={{

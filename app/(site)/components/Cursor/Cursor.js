@@ -28,7 +28,7 @@ const Cursor = () => {
     >
       <svg
         fill="#000000"
-        width="27px"
+        width="22px"
         height="35px"
         viewBox="0 0 14 14"
         role="img"
