@@ -121,6 +121,8 @@ const NavbarMenu = () => {
       setShowCategories(link.name);
       setCurrentCategories(link.types || link.categories);
     }
+    console.log("Current categories:", link.types || link.categories);
+    console.log("Show categories state:", showCategories);
   };
 
   return (
