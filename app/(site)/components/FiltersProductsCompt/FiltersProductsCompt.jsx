@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import ProductsPages from "../../components/ProductsPages/ProductsPages";
 // Styles
 import styles from "./styles.module.scss";
-
+export const dynamic = "force-dynamic";
 const FiltersProductsCompt = ({ data, isLoading, error }) => {
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");

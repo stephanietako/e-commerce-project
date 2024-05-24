@@ -6,7 +6,9 @@ import { usePathname } from "next/navigation";
 import arrowIcon from "@/public/assets/arrow-colored.png";
 import Image from "next/image";
 import Link from "next/link";
+// Styles
 import styles from "./styles.module.scss";
+export const dynamic = "force-dynamic";
 
 const fleursCBD = {
   name: "Fleurs CBD",
