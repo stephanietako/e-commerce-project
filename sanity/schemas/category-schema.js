@@ -1,4 +1,3 @@
-// c'est ce que je vais voir dans mon menu ex: men women teen
 const categoryTypes = [
   { title: "Sativa", value: "sativa" },
   { title: "Indica", value: "indica" },

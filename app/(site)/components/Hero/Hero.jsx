@@ -1,6 +1,6 @@
-import React from "react";
 import Image from "next/image";
 import backgroundImg from "@/public/assets/canaleafimg.jpg";
+import Button from "../Button/Button";
 // Styles
 import styles from "./styles.module.scss";
 
@@ -18,6 +18,7 @@ const Hero = () => {
       <div className={styles.heroContent}>
         <h1>VIBES CBD SHOP</h1>
         <h2>FRENCH EXPERT CANNABIS</h2>
+        <Button />
       </div>
     </div>
   );

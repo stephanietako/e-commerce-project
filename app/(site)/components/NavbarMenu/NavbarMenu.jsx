@@ -105,7 +105,7 @@ const navLinks = [
   infusionsCBD,
   cosmetiquesCBD,
 ];
-
+//console.log(navLinks);
 const NavbarMenu = () => {
   const pathname = usePathname();
   const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
@@ -140,6 +140,19 @@ const NavbarMenu = () => {
               onClick={() => handleLinkClick(link)}
             >
               <span>{link.name}</span>
+              <span className={styles.icon}>
+                <Image
+                  src={arrowIcon}
+                  alt="les produits de la boutiques vibes cbd"
+                  className="cana_icon__img"
+                  width={20}
+                  height={20}
+                  style={{
+                    objectFit: "cover",
+                    paddingTop: "9px",
+                  }}
+                />
+              </span>
             </span>
             {showCategories === link.name && currentCategories && (
               <ul className={styles.submenu}>

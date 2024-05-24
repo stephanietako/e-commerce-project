@@ -1,6 +1,6 @@
 :root {
   --max-width: 1100px;
-  --border-radius: 12px;
+  --border-radius: 10px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
@@ -59,7 +59,7 @@ a:hover {
   flex-direction: column;
   align-content: center;
   align-items: center;
-  border: 5px solid pink;
+  /* border: 5px solid pink; */
   width: 100%;
   height: auto;
 }
@@ -149,7 +149,7 @@ ul {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  border-radius: 30px;
+  border-radius: --border-radius;
   /* z-index: 1; */
 }
 

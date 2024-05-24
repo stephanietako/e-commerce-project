@@ -40,13 +40,25 @@ const Home = async () => {
         <section className="slider_section">
           <Slider allproducts={allproducts} />
         </section>
-        <section className="categories_section">
+        {/* <section className="categories_section">
           <Flowers allflowers={allflowers} />
-        </section>
+        </section> */}
         <section className="starproducts_section">
           <StarProducts starproducts={starproducts} />
         </section>
-        <section>
+        <section className="productspages_section">
+          <div
+            className="productspages_main_title"
+            style={{
+              display: "flex",
+              width: "100%",
+              height: "auto%",
+              paddingLeft: "4rem",
+              marginTop: "2rem",
+            }}
+          >
+            <h1>TOUS LES PRODUITS</h1>
+          </div>
           <FiltersProducts />
         </section>
       </div>

@@ -18,7 +18,7 @@
       width: 100%;
       height: auto;
       flex-wrap: wrap;
-      border-radius: 30px;
+      border-radius: --border-radius;
       flex-direction: column;
 
       .categories__item {

@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   flex-direction: column;
   // border: 3px solid red;
-  border-radius: 30px;
+  border-radius: --border-radius;
   padding: 3rem;
   position: relative;
 
@@ -43,7 +43,7 @@
           display: flex;
           flex-direction: column;
           padding: 20px;
-          border-radius: 30px;
+          border-radius: --border-radius;
           width: 17rem;
           height: 27rem;
           justify-content: center;
@@ -76,7 +76,7 @@
             .display_bycategories__content {
               display: flex;
               padding: 20px;
-              border-radius: 30px;
+              border-radius: --border-radius;
               width: 12rem;
               height: 22rem;
               justify-content: center;

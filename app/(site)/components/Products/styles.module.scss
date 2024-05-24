@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   flex-direction: column;
   // border: 3px solid red;
-  border-radius: 30px;
+  border-radius: --border-radius;
   padding: 3rem;
   position: relative;
 
@@ -79,7 +79,7 @@
             flex-wrap: wrap;
             // justify-content: center;
             margin: 1rem;
-            border-radius: 30px;
+            border-radius: --border-radius;
             padding: 1rem;
             width: auto;
 
@@ -95,7 +95,7 @@
             .data_group_products {
               display: flex;
               padding: 20px;
-              border-radius: 30px;
+              border-radius: --border-radius;
               width: 12rem;
               height: 22rem;
               justify-content: center;

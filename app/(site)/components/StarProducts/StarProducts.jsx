@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
-import canaIcon from "@/public/assets/canaleaf.png";
+
 // Styles
 import styles from "./styles.module.scss";
 
@@ -16,21 +16,7 @@ const StarProducts = ({ starproducts }) => {
           <div className={styles.display_starproducts}>
             <header className={styles.title__bloc}>
               <div className={styles.title__content}>
-                <h1 className={styles.title}>
-                  <span className={styles.icon}>
-                    <Image
-                      src={canaIcon}
-                      alt="les produits de la boutiques vibes cbd"
-                      className="cana_icon__img"
-                      width={50}
-                      height={70}
-                      style={{
-                        objectFit: "contain",
-                      }}
-                    />
-                  </span>
-                  Nos Séléctions
-                </h1>
+                <h1 className={styles.title}>LES PLUS POPULAIRES</h1>
               </div>
             </header>
             <div className={styles.display_all_starproducts}>
@@ -61,7 +47,7 @@ const StarProducts = ({ starproducts }) => {
                                         src={category.coverImages}
                                         alt="les fleurs"
                                         className="product__img"
-                                        width={315}
+                                        width={300}
                                         height={220}
                                         style={{
                                           objectFit: "cover",

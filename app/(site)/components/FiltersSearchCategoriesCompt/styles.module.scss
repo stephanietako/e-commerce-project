@@ -3,13 +3,13 @@
   width: 100%;
   flex-direction: column;
 
-  .search_components__img {
-    display: flex;
-    width: 100%;
-    height: 45vh; // Prend toute la hauteur de la vue
-    justify-content: center;
-    position: relative; // Nécessaire pour que l'image prenne tout l'espace du conteneur
-  }
+  // .search_components__img {
+  //   display: flex;
+  //   width: 100%;
+  //   height: 45vh;
+  //   justify-content: center;
+  //   position: relative;
+  // }
 
   .filteredCategories {
     display: flex;
@@ -23,7 +23,7 @@
       display: flex;
       width: 100%;
       flex-wrap: wrap;
-      border-radius: 30px;
+      border-radius: 12rem;
       flex-direction: column;
 
       .categories__item {
@@ -56,16 +56,16 @@
     width: 100%;
     flex-direction: column;
 
-    .search_components__img {
-      display: flex;
-      width: 100%;
-      height: 45vh; // Prend toute la hauteur de la vue
-      justify-content: center;
-      position: relative;
-      object-position: 0 -364px,
-        // Nécessaire pour que l'image prenne tout l'espace du conteneur
-;
-    }
+    //     .search_components__img {
+    //       display: flex;
+    //       width: 100%;
+    //       height: 45vh; // Prend toute la hauteur de la vue
+    //       justify-content: center;
+    //       position: relative;
+    //       object-position: 0 -364px,
+    //         // Nécessaire pour que l'image prenne tout l'espace du conteneur
+    // ;
+    //     }
     .bg_img {
       object-position: 0 -565px;
     }

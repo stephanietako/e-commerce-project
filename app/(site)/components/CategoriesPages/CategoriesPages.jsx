@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import canaIcon from "@/public/assets/canaleaf.png";
 import { PortableText } from "@portabletext/react";
 // Styles
 import styles from "./styles.module.scss";
@@ -40,7 +39,6 @@ const CategoriesPages = ({ category }) => {
           <div className={styles.categoriespages__content}>
             <div className={styles.categoriespages__infos}>
               <p className={styles.infos_type}>{category.type} </p>
-
               <span>
                 <PortableText value={category.content} />
               </span>
@@ -50,7 +48,6 @@ const CategoriesPages = ({ category }) => {
                   className="price_content"
                   style={{
                     fontSize: "1rem",
-                    textAlign: "right",
                   }}
                 >
                   {category.price}€

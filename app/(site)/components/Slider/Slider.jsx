@@ -22,7 +22,7 @@ const Slider = ({ allproducts }) => {
 
   return (
     <div className={styles.sliderShow__container}>
-      <span>
+      <span className={styles.sliderShow__title}>
         <h1>DÉCOUVREZ NOS PRODUITS</h1>
       </span>
 
@@ -31,7 +31,7 @@ const Slider = ({ allproducts }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className={styles.carousel__track} isHovered={isHovered}>
+        <div className={styles.carousel__track} data-ishovered={isHovered}>
           {duplicatedProducts.map((product, index) => (
             <div key={index} className={styles.carousel__bloc__img}>
               <Link href={`/products/${product.slug}`}>

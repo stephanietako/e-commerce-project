@@ -40,7 +40,7 @@ const FiltersSearchCategoriesCompt = ({ data }) => {
 
   return (
     <div className={styles.search_components}>
-      <div className={styles.search_components__img}>
+      {/* <div className={styles.search_components__img}>
         <Image
           src={backgroundImg}
           alt="boutique Vibes Saint-tropez"
@@ -53,7 +53,7 @@ const FiltersSearchCategoriesCompt = ({ data }) => {
             objectPosition: "0 -557px",
           }}
         />
-      </div>
+      </div> */}
       <div className={styles.filteredCategories}>
         {filteredCategories.map((category) => (
           <CategoriesPages key={category._id} category={category} />

@@ -4,8 +4,9 @@ import styles from "./styles.module.scss";
 import at from "@/public/assets/at.png";
 import phone from "@/public/assets/phone.png";
 import logo from "@/public/assets/vibes.png";
+import plan from "@/public/assets/plan.png";
 import backgroundImg from "@/public/assets/canaimg.webp";
-import shop from "@/public/assets/vibes_front_shop.webp";
+
 import Image from "next/image";
 
 const Footer = () => {
@@ -67,18 +68,18 @@ const Footer = () => {
                         }}
                       >
                         {/* Encapsuler Image dans une div ou un span */}
-                        {/* <div>
+                        <div>
                           <Image
                             src={contact.logo}
                             alt={contact.alt}
-                            className="cana_icon__img"
+                            className="plan Saint-Tropez"
                             width={40}
                             height={40}
                             style={{
                               objectFit: "cover",
                             }}
                           />
-                        </div> */}
+                        </div>
                       </a>
                     </li>
                   ))}
@@ -97,14 +98,13 @@ const Footer = () => {
           </li>
         </ul>
         <ul>
-          {/* <li>
+          <li>
             <div className={styles.__shop_img}>
-              <p>Accès à Google Maps en un click sur la boutique</p>
               <a href="/">
                 <Image
                   className={styles.__img}
-                  src={shop}
-                  alt="Boutique Vibes CBD Saint-Tropez"
+                  src={plan}
+                  alt=" Pan Boutique Vibes CBD Saint-Tropez"
                   width={550}
                   height={450}
                   style={{
@@ -114,7 +114,7 @@ const Footer = () => {
                 />
               </a>
             </div>
-          </li> */}
+          </li>
         </ul>
       </footer>
     </div>

@@ -1,6 +1,5 @@
 import { getDataProduct } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
-import canaIcon from "@/public/assets/canaleaf.png";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -41,7 +40,7 @@ const ProductsDetails = async ({ params }) => {
               height: "auto",
               position: "relative",
               justifyContent: "center",
-              border: "4px solid red",
+              // border: "4px solid red",
             }}
           >
             <div
@@ -56,15 +55,9 @@ const ProductsDetails = async ({ params }) => {
                 zIndex: 2,
               }}
             >
-              <h1
-                style={{
-                  color: "#fff",
-                }}
-              >
-                {product && product.name}
-              </h1>
+              <h1>{product && product.name}</h1>
             </div>
-            <div
+            {/* <div
               className="images"
               style={{
                 display: "flex",
@@ -90,7 +83,7 @@ const ProductsDetails = async ({ params }) => {
               ) : (
                 <p>No image available</p>
               )}
-            </div>
+            </div> */}
           </div>
 
           <div className="products_details__categories">
@@ -112,12 +105,10 @@ const ProductsDetails = async ({ params }) => {
                     style={{
                       display: "flex",
                       padding: "2rem",
-                      borderRadius: "30px",
+                      borderRadius: "12px",
                       width: "27 rem",
                       height: "auto",
                       justifyContent: "center",
-                      boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                      transition: "0.3s",
                       flexDirection: "column",
                       background: "#fff",
                       margin: "2rem",
@@ -175,26 +166,12 @@ const ProductsDetails = async ({ params }) => {
                         <PortableText value={category.content} />
                       </span>
                       <span>
-                        <p
-                          className="price_content"
-                          style={{
-                            textAlign: "right",
-                          }}
-                        >
-                          {category.price}€
-                        </p>
+                        <p className="price_content">{category.price}€</p>
                       </span>
                       <span>
-                        {/* {" "}
-                        <Link
-                          href={`/categories/${category.slug}`}
-                          className="link"
-                        >
-                          Découvrir
-                        </Link> */}
                         <button
                           style={{
-                            padding: "10px 20px",
+                            padding: "10px 0",
                             backgroundColor: "transparent",
                             color: "#000",
                             border: "none",
