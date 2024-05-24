@@ -4,7 +4,6 @@
   flex-direction: column;
   width: 100%;
   height: auto;
-  // border: 3px solid rgb(255, 0, 195);
   margin: 0 auto;
 
   .carousel {
@@ -12,37 +11,42 @@
     overflow: hidden;
     width: 100%;
     height: auto;
-    // border: 7px solid green;
 
     .carousel__track {
       display: flex;
-      width: max-content;
+      width: calc(200%); /* Double la largeur pour les éléments dupliqués */
       height: auto;
+      animation: scroll 20s linear infinite;
 
       @keyframes scroll {
         0% {
-          transform: translateX(100%);
+          transform: translateX(0);
+        }
+        45% {
+          transform: translateX(
+            -10%
+          ); /* Défile sur toute la largeur des éléments dupliqués */
+        }
+        55% {
+          transform: translateX(-10%); /* Pause à mi-chemin */
+        }
+        75% {
+          transform: translateX(-10%); /* Pause à mi-chemin */
         }
         100% {
-          transform: translateX(-100%);
+          transform: translateX(0); /* Retour au début */
         }
       }
 
-      /* Applique l'animation uniquement lorsque isHovered est faux */
-      &:not(:hover) {
-        animation: scroll 20s linear infinite;
-      }
-
-      /* Annule l'animation lorsque isHovered est vrai */
       &:hover {
-        animation: none;
+        animation-play-state: paused;
       }
 
       .carousel__bloc__img {
         display: flex;
         justify-content: center;
         flex-shrink: 0;
-        max-width: 300px;
+        width: 300px;
         height: auto;
         flex-direction: column;
         border: 3px solid blue;
@@ -54,7 +58,6 @@
           width: 100%;
           height: 12rem;
           object-fit: cover;
-          overflow: hidden;
           transition: transform 0.3s ease-in-out;
         }
 
@@ -69,24 +72,6 @@
 
         .title {
           margin-top: 0;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1600px) {
-  .sliderShow__container {
-    .carousel {
-      .carousel__track {
-        .carousel__bloc__img {
-          max-width: 270px; // Remplace 'width' par 'max-width' pour une consistance avec les styles principaux
-          border: 3px solid red;
-
-          .carousel__img {
-            height: 10rem;
-            overflow: hidden;
-          }
         }
       }
     }

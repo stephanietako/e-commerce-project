@@ -16,13 +16,13 @@ const Slider = ({ allproducts }) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
-  //   console.log("handleMouseEnter !!!!!!!", handleMouseEnter());
-  //   console.log("handleMouseLeave !!!!!!!", handleMouseLeave());
-  //console.log("isHovered !!!!!:", isHovered);
+
+  // Dupliquez les éléments pour le défilement continu
+  const duplicatedProducts = [...allproducts, ...allproducts];
+
   return (
     <div className={styles.sliderShow__container}>
       <span>
-        {" "}
         <h1>DÉCOUVREZ NOS PRODUITS</h1>
       </span>
 
@@ -31,9 +31,9 @@ const Slider = ({ allproducts }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className={styles.carousel__track}>
-          {allproducts.map((product, index) => (
-            <div key={product._id} className={styles.carousel__bloc__img}>
+        <div className={styles.carousel__track} isHovered={isHovered}>
+          {duplicatedProducts.map((product, index) => (
+            <div key={index} className={styles.carousel__bloc__img}>
               <Link href={`/products/${product.slug}`}>
                 <Image
                   src={product.coverImages}
