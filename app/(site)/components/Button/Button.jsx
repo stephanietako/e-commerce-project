@@ -1,9 +1,9 @@
-import styles from "./styles.module.scss"; // Assurez-vous d'avoir un fichier de style CSS ou SCSS correspondant
+import styles from "./styles.module.scss";
 
-const Button = ({ onClick }) => {
+const Button = ({ onClick, text, className }) => {
   return (
-    <button className={styles.button} onClick={onClick}>
-      <p>Découvrir nos produits</p>
+    <button className={`${styles.button} ${className}`} onClick={onClick}>
+      <p>{text}</p>
     </button>
   );
 };

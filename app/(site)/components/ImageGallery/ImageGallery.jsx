@@ -3,8 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/config/client-config";
+import Button from "../Button/Button";
+// Styles
+import styles from "./styles.module.scss";
 
-const ImageGallery = ({ images }) => {
+const ImageGallery = ({ images, productData }) => {
   const [bigImage, setBigImage] = useState(images[0]);
   const [showLoupe, setShowLoupe] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -22,69 +25,74 @@ const ImageGallery = ({ images }) => {
   };
 
   const handleMouseMove = (e) => {
-    const { left, top, width, height } = e.target.getBoundingClientRect();
+    const { left, top } = e.target.getBoundingClientRect();
     const x = e.clientX - left;
     const y = e.clientY - top;
     setMousePosition({ x, y });
   };
 
   return (
-    <div className="imagegallery_container">
+    <div className={styles.imageGallery__container}>
       <div
-        className="selectBig_img_productpage"
+        className={styles.select_big_img}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
-        style={{
-          borderRadius: "30px",
-          position: "relative",
-          overflow: "hidden",
-        }}
       >
         <Image
           src={urlFor(bigImage).url()}
-          alt="Photo"
-          width={800}
-          height={550}
-          className="__img"
-          style={{
-            objectFit: "cover",
-            padding: "1rem",
-            borderRadius: "30px",
-          }}
+          alt="Produits CBD"
+          width={350}
+          height={250}
+          className={styles.img}
         />
         {showLoupe && (
           <div
-            className="loupe"
+            className={styles.loupe}
             style={{
-              position: "absolute",
-              top: mousePosition.y - 100, // ajustement pour centrer la loupe sur le curseur
-              left: mousePosition.x - 100, // ajustement pour centrer la loupe sur le curseur
-              width: "350px", // largeur et hauteur augmentées
-              height: "350px", // largeur et hauteur augmentées
-              border: "1px solid black",
-              borderRadius: "50%",
-              overflow: "hidden",
-              pointerEvents: "none",
-              zIndex: 9999,
+              top: mousePosition.y - 100,
+              left: mousePosition.x - 100,
             }}
           >
             <Image
               src={urlFor(bigImage).url()}
               alt="Zoom"
-              width={750}
-              height={550}
+              width={350}
+              height={250}
+              className={styles.zoomedImage}
               style={{
-                position: "absolute",
                 top: -mousePosition.y * 2 + 100,
                 left: -mousePosition.x * 2 + 100,
-                transform: "scale(2)",
-                transformOrigin: "top left",
               }}
             />
           </div>
         )}
       </div>
+      <div className={styles.thumbnailContainer}>
+        {images.map((image, index) => (
+          <div key={index} onClick={() => handleSmallImageClick(image)}>
+            <Image
+              src={urlFor(image).url()}
+              alt={`Thumbnail ${index + 1}`}
+              width={70}
+              height={70}
+              className={styles.thumbnail}
+            />
+          </div>
+        ))}
+      </div>
+      {/* <div className={styles.btns_products}>
+        <Button
+          onClick={() => console.log("Add to Bag")}
+          text="Add to Bag"
+          className={styles.addToBagBtn}
+        />
+        <Button
+          onClick={() => console.log("Checkout now")}
+          text="Checkout now"
+          className={styles.checkoutNowBtn}
+        />
+      </div> */}
     </div>
   );
 };

@@ -59,7 +59,6 @@ a:hover {
   flex-direction: column;
   align-content: center;
   align-items: center;
-  /* border: 5px solid pink; */
   width: 100%;
   height: auto;
 }
@@ -73,7 +72,6 @@ a:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: center;
-  position: relative;
 }
 
 .logo {
@@ -108,6 +106,7 @@ section {
   height: 100%;
   flex-wrap: wrap;
   margin-top: 3rem;
+  position: relative;
 }
 
 h1 {
@@ -120,7 +119,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  color: whitesmoke;
+  color: gray;
   font-weight: lighter;
 }
 

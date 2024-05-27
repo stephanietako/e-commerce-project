@@ -18,7 +18,7 @@ const Hero = () => {
       <div className={styles.heroContent}>
         <h1>VIBES CBD SHOP</h1>
         <h2>FRENCH EXPERT CANNABIS</h2>
-        <Button />
+        <Button text="DÉCOUVRIR NOS PRODUITS" />
       </div>
     </div>
   );

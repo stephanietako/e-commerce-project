@@ -1,3 +1,4 @@
+import Link from "next/link";
 // Styles
 import styles from "./styles.module.scss";
 // Assets
@@ -25,12 +26,13 @@ const Footer = () => {
             src={backgroundImg}
             alt="boutique Vibes Saint-tropez"
             className={styles.bg_img}
-            fill
-            style={{
-              objectFit: "cover",
-            }}
+            priority
+            width={1000}
+            height={100}
+            placeholder="blur"
           />
         </div>
+
         <ul>
           <li>
             <div className={styles.__logo}>
@@ -39,10 +41,10 @@ const Footer = () => {
                   className={styles.__img}
                   src={logo}
                   alt="Boutique Vibes CBD Saint-Tropez"
-                  width={150}
-                  height={300}
+                  width={88}
+                  height={164}
                   style={{
-                    objectFit: "cover",
+                    objectFit: "contain",
                   }}
                 />
               </a>
@@ -64,10 +66,9 @@ const Footer = () => {
                         href={contact.link}
                         style={{
                           color: "white",
-                          display: "inline-block", // Ajoutez cette ligne
+                          display: "inline-block",
                         }}
                       >
-                        {/* Encapsuler Image dans une div ou un span */}
                         <div>
                           <Image
                             src={contact.logo}
@@ -86,11 +87,16 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-
             <br />
             <span className={styles.infos}>
               <p>VIBES CBD SHOP</p>
-              <p>Mentions légales</p>
+
+              <Link href="/mentionsLegales">
+                <p>Mentions Légales</p>
+              </Link>
+              <Link href="/rgpd">
+                <p>RGPD</p>
+              </Link>
               <div className={styles.__copyright}>
                 &#169; Copyright {currentYear} | Tako Dev
               </div>

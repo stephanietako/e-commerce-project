@@ -36,7 +36,7 @@ const ProductsPages = ({ product }) => {
                         className="images"
                         style={{
                           display: "flex",
-                          width: "auto",
+                          width: "20rem",
                           height: "auto",
                           justifyContent: "center",
                           padding: "0.5rem",

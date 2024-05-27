@@ -4,13 +4,14 @@ import {
   getDataProductsPages,
 } from "@/sanity/lib/client";
 // import { getDataProductsPages } from "@/sanity/lib/client";
-import Flowers from "./components/Flowers/Flowers";
+// import Flowers from "./components/Flowers/Flowers";
 import StarProducts from "./components/StarProducts/StarProducts";
 import Hero from "./components/Hero/Hero";
 import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
 import FiltersProducts from "./products/filtersProducts/page";
 import Banner from "./components/Banner/Banner";
 import Slider from "./components/Slider/Slider";
+import SliderForCart from "./components/Carousel/Carousel";
 
 const Home = async () => {
   const starproducts = await getDataStarProducts();
@@ -61,8 +62,20 @@ const Home = async () => {
           </div>
           <FiltersProducts />
         </section>
+        <section
+          style={{
+            border: "2px solid red",
+            display: "flex",
+            width: "100%",
+            flexDirection: "column",
+            overflow: "hidden",
+            padding: "3rem",
+          }}
+        >
+          ICI !!!!!!!!!!!!!
+          <SliderForCart allproducts={allproducts} />
+        </section>
       </div>
-      {/* </div> */}
     </>
   );
 };

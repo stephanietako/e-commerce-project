@@ -1,10 +1,11 @@
 .button {
-  margin-top: 3rem;
   background-color: transparent;
   border: 2px solid gray;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 12px;
+  margin: 1rem;
+  cursor: none;
 
   &:hover {
     border: 2px solid whitesmoke;

@@ -90,11 +90,11 @@ const infusionsCBD = {
   categories: [
     {
       name: "Infusion Hexazen",
-      href: "/categories?categoryType=infusion-hexazen",
+      href: "/categories/infusion-hexazen",
     },
     {
       name: "Infusion Herboristerie Alexandra",
-      href: "/categories?categoryType=infusion-herboristerie-alexandra",
+      href: "/categories/infusion-herboristerie-alexandra",
     },
   ],
 };
@@ -149,11 +149,13 @@ const NavbarMenu = () => {
                   src={arrowIcon}
                   alt="les produits de la boutiques vibes cbd"
                   className="cana_icon__img"
-                  width={20}
-                  height={20}
+                  width={16}
+                  height={16}
                   style={{
                     objectFit: "cover",
                     paddingTop: "9px",
+                    width: "auto",
+                    height: "auto",
                   }}
                 />
               </span>

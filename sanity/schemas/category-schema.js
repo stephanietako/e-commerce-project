@@ -6,6 +6,7 @@ const categoryTypes = [
   { title: "Hybride", value: "hybride" },
   { title: "Vape", value: "vape" },
   { title: "Pen", value: "pen" },
+  { title: "Basic", value: "basic" },
 ];
 
 const category = {
