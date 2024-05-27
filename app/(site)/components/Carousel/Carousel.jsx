@@ -39,21 +39,23 @@ const Carousel = ({ allproducts }) => {
           {allproducts.map((item, index) => (
             <div
               key={index}
-              className={styles.carousel_bloc}
+              className={styles.carousel_item}
               style={{ flex: `0 0 ${100 / itemsToShow}%` }}
             >
-              <div className={styles.carousel_inner_bloc}>
-                <Link href={`/products/${item.slug}`}>
-                  <Image
-                    src={item.coverImages}
-                    alt={`Slide ${index}`}
-                    className={styles.carousel_img}
-                    width={250}
-                    height={150}
-                    loading="lazy"
-                    style={{ objectFit: "cover" }}
-                  />
-                </Link>
+              <div className={styles.inner_container}>
+                <div className={styles.image_container}>
+                  <Link href={`/products/${item.slug}`}>
+                    <Image
+                      src={item.coverImages}
+                      alt={`Slide ${index}`}
+                      className={styles.carousel_img}
+                      width={150}
+                      height={250}
+                      loading="lazy"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </Link>
+                </div>
                 <div className={styles.title_content}>
                   <h1 className={styles.title}>
                     <p>{item.name}</p>

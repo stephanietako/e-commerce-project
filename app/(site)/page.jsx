@@ -67,12 +67,13 @@ const Home = async () => {
             border: "2px solid red",
             display: "flex",
             width: "100%",
+            // height: "15rem",
             flexDirection: "column",
             overflow: "hidden",
-            padding: "3rem",
+            padding: "2rem",
+            height: "auto",
           }}
         >
-          ICI !!!!!!!!!!!!!
           <SliderForCart allproducts={allproducts} />
         </section>
       </div>
