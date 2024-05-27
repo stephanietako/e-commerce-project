@@ -66,7 +66,7 @@ const Home = async () => {
           style={{
             border: "2px solid red",
             display: "flex",
-            width: "100%",
+            width: "70%",
             // height: "15rem",
             flexDirection: "column",
             overflow: "hidden",
@@ -74,6 +74,7 @@ const Home = async () => {
             height: "auto",
           }}
         >
+          <h1>NOS PETITS PLUS</h1>
           <SliderForCart allproducts={allproducts} />
         </section>
       </div>

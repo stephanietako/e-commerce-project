@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   border: 3px solid blue;
+  justify-content: center;
 }
 
 .carousel {
@@ -16,7 +17,6 @@
 
 .carousel_slide {
   display: flex;
-  transition: transform 0.5s ease-in-out;
 }
 
 .carousel_item {
@@ -43,10 +43,10 @@
 }
 
 .carousel_img {
-  width: 32rem;
-  height: 22rem;
+  width: 22rem;
+  height: 15rem;
   overflow: hidden;
-  border: 4px solid blue;
+  border: 4px solid turquoise;
 }
 
 .title_content {
@@ -63,7 +63,7 @@
   font-size: 4rem;
   cursor: none;
   z-index: 10;
-  color: rgba(0, 0, 0, 0.5);
+  color: #000;
   border: none;
 }
 
@@ -75,8 +75,11 @@
   right: 10px;
 }
 
-.prev_button:hover,
+/* .prev_button:hover,
 .next_button:hover {
   background-color: rgba(0, 0, 0, 0.8);
   justify-content: center;
-}
+  width: 3rem;
+  height: 6rem;
+  display: flex;
+} */
