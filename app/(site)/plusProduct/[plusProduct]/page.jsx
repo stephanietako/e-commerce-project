@@ -84,27 +84,8 @@ const PlusProductsDetails = async ({ params }) => {
                       justifyContent: "center",
                       flexDirection: "column",
                       background: "#fff",
-                      margin: "2rem",
                     }}
                   >
-                    <div className="title__content">
-                      <h3
-                        className="title"
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          width: "100%",
-                          height: "auto",
-                          position: "relative",
-                          zIndex: 1,
-                          justifyContent: "center",
-                          color: "#000",
-                          fontSize: "27px",
-                        }}
-                      >
-                        {item.name}
-                      </h3>
-                    </div>
                     <span>
                       <div
                         className="images"
@@ -134,6 +115,24 @@ const PlusProductsDetails = async ({ params }) => {
                         )}
                       </div>
                     </span>
+                    <div className="title__content">
+                      <h3
+                        className="title"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          width: "100%",
+                          height: "auto",
+                          position: "relative",
+                          zIndex: 1,
+                          // justifyContent: "center",
+                          color: "#000",
+                          fontSize: "27px",
+                        }}
+                      >
+                        {item.name}
+                      </h3>
+                    </div>
                     <div className="productDetails__infos">
                       <span>
                         <PortableText value={item.content} />

@@ -1,10 +1,18 @@
+// Variables
+$blue: blue;
+$turquoise: turquoise;
+$hover-background-color: rgba(255, 255, 255, 0.7);
+$border-width: 3px;
+$font-size: 4rem;
+$img-width: 100%; // Adjusted to take full width
+$img-height: 100%; // Increased height
+
 .carousel_container {
   position: relative;
   width: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
-  border: 3px solid blue;
   justify-content: center;
 }
 
@@ -12,41 +20,43 @@
   display: inline-block;
   align-items: center;
   overflow: hidden;
-  width: 100%;
+  width: 100%; // Adjusted to take full width
 }
 
 .carousel_slide {
   display: flex;
+  width: 100%; // Adjusted to take full width
+  transition: transform 0.5s ease; // Added transition for smooth sliding
 }
 
 .carousel_item {
   padding: 0 10px;
+  flex: 0 0 100%; // Each item takes full width
 }
 
 .inner_container {
   display: flex;
-  width: auto;
+  width: 100%;
   height: 100%;
   flex-direction: column;
   align-items: center;
-  /* border: 3px solid red; */
+  padding: 2rem;
 }
 
 .image_container {
   display: flex;
-  width: auto;
-  height: 15rem;
+  width: 100%;
+  height: $img-height;
   flex-direction: column;
   align-items: center;
-  /* border: 3px solid red; */
   justify-content: center;
 }
 
 .carousel_img {
-  width: 22rem;
-  height: 15rem;
+  width: 100%; // Adjusted to take full width
+  height: $img-height;
   overflow: hidden;
-  border: 4px solid turquoise;
+  border: 4px solid $turquoise;
 }
 
 .title_content {
@@ -60,11 +70,14 @@
   top: 50%;
   transform: translateY(-50%);
   background-color: transparent;
-  font-size: 4rem;
-  cursor: none;
+  font-size: $font-size;
+  cursor: pointer;
   z-index: 10;
   color: #000;
   border: none;
+  &:hover {
+    background-color: $hover-background-color;
+  }
 }
 
 .prev_button {
@@ -74,12 +87,3 @@
 .next_button {
   right: 10px;
 }
-
-/* .prev_button:hover,
-.next_button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-  justify-content: center;
-  width: 3rem;
-  height: 6rem;
-  display: flex;
-} */

@@ -57,33 +57,6 @@ const ProductsDetails = async ({ params }) => {
             >
               <h1>{product && product.name}</h1>
             </div>
-            {/* <div
-              className="images"
-              style={{
-                display: "flex",
-                width: "100%",
-                height: "auto",
-                position: "relative",
-                borderRadius: "30px",
-                justifyContent: "center",
-              }}
-            >
-              {product.coverImages ? (
-                <Image
-                  src={product.coverImages}
-                  alt="les fleurs"
-                  className="darkened_image"
-                  width={1500}
-                  height={500}
-                  style={{
-                    objectFit: "contain",
-                    borderRadius: "30px",
-                  }}
-                />
-              ) : (
-                <p>No image available</p>
-              )}
-            </div> */}
           </div>
 
           <div className="products_details__categories">
@@ -108,30 +81,11 @@ const ProductsDetails = async ({ params }) => {
                       borderRadius: "12px",
                       width: "27 rem",
                       height: "auto",
-                      justifyContent: "center",
+                      //  justifyContent: "center",
                       flexDirection: "column",
                       background: "#fff",
-                      margin: "2rem",
                     }}
                   >
-                    <div className="title__content">
-                      <h3
-                        className="title"
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          width: "100%",
-                          height: "auto",
-                          position: "relative",
-                          zIndex: 1,
-                          justifyContent: "center",
-                          color: "#000",
-                          fontSize: "27px",
-                        }}
-                      >
-                        {category.name}
-                      </h3>
-                    </div>
                     <span>
                       <div
                         className="images"
@@ -161,6 +115,24 @@ const ProductsDetails = async ({ params }) => {
                         )}
                       </div>
                     </span>
+                    <div className="title__content">
+                      <h3
+                        className="title"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          width: "100%",
+                          height: "auto",
+                          position: "relative",
+                          zIndex: 1,
+                          justifyContent: "center",
+                          color: "#000",
+                          fontSize: "27px",
+                        }}
+                      >
+                        {category.name}
+                      </h3>
+                    </div>
                     <div className="productDetails__infos">
                       <span>
                         <PortableText value={category.content} />

@@ -11,7 +11,7 @@ const Hero = () => {
         src={backgroundImg}
         alt="boutique Vibes Saint-tropez"
         className={styles.heroImage}
-        priority
+        loading="lazy"
         fill={true}
         placeholder="blur"
       />

@@ -128,12 +128,12 @@ const NavbarMenu = () => {
   };
 
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.__navbar_container}>
+    <nav className={styles.navbarMenu}>
+      <div className={styles.__navbarMenu_container}>
         {navLinks.map((link, index) => (
           <div
             key={index}
-            className={`${styles.__navbar_container__link} ${
+            className={`${styles.__navbarMenu_container__link} ${
               showCategories === link.name ? styles.active : ""
             }`}
           >

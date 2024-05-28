@@ -7,6 +7,7 @@ import Toast from "./components/Toasts/Toasts";
 import { NextAuthProvider } from "./components/AuthProvider/AuthProvider";
 // import { Suspense } from "react";
 import Cursor from "./components/Cursor/Cursor";
+import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
 
 const robotoSlab = Roboto_Slab({
   weight: ["100", "900"],
@@ -29,6 +30,9 @@ export default function RootLayout({ children, session }) {
           <Toast />
           <main className="main">
             <Navbar />
+            <div className="menu">
+              <NavbarMenu />{" "}
+            </div>
             <Cursor />
             {children}
             <Footer />

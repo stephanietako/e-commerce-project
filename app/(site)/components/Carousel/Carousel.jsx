@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import styles from "./styles.module.css";
 import Link from "next/link";
 import Image from "next/image";
+// Styles
+import styles from "./styles.module.scss";
 
 const Carousel = ({ plusproduct }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Display three images at a time
-  const itemsToShow = 3;
+  const itemsToShow = 1;
   const totalItems = plusproduct.length;
 
   const nextSlide = () => {
@@ -33,14 +33,14 @@ const Carousel = ({ plusproduct }) => {
         <div
           className={styles.carousel_slide}
           style={{
-            transform: `translateX(-${currentIndex * (100 / itemsToShow)}%)`,
+            transform: `translateX(-${currentIndex * 100}%)`,
           }}
         >
           {plusproduct.map((item, index) => (
             <div
               key={index}
               className={styles.carousel_item}
-              style={{ flex: `0 0 ${100 / itemsToShow}%` }}
+              style={{ flex: `0 0 100%` }}
             >
               <div className={styles.inner_container}>
                 <div className={styles.image_container}>
@@ -49,9 +49,11 @@ const Carousel = ({ plusproduct }) => {
                       src={item.coverImages}
                       alt={`Slide ${index}`}
                       className={styles.carousel_img}
-                      width={150}
-                      height={250}
+                      width={350}
+                      height={150}
                       loading="lazy"
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg..."
                       style={{ objectFit: "cover" }}
                     />
                   </Link>

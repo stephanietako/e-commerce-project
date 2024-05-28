@@ -1,4 +1,4 @@
-.navbar {
+.navbarMenu {
   display: flex;
   height: auto;
   width: 100%;
@@ -10,15 +10,15 @@
   background-color: none;
   z-index: 10;
 
-  .__navbar_container {
+  .__navbarMenu_container {
     display: flex;
     align-items: center;
     width: 100%;
     height: auto;
-    justify-content: flex-end;
+    justify-content: center;
     flex-wrap: wrap;
 
-    .__navbar_container__link {
+    .__navbarMenu_container__link {
       display: flex;
       width: auto;
       height: auto;

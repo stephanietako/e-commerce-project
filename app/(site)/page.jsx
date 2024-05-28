@@ -1,33 +1,26 @@
 import {
   getDataStarProducts,
-  // getDataFlowers,
   getDataProductsPages,
   getDataPlusProductsPages,
-  // getDataPlus,
 } from "@/sanity/lib/client";
-// import { getDataProductsPages } from "@/sanity/lib/client";
-// import Flowers from "./components/Flowers/Flowers";
 import StarProducts from "./components/StarProducts/StarProducts";
 import Hero from "./components/Hero/Hero";
-import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
+// import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
 import FiltersProducts from "./products/filtersProducts/page";
 import Banner from "./components/Banner/Banner";
 import Slider from "./components/Slider/Slider";
 import Carousel from "./components/Carousel/Carousel";
+import HR from "./components/HR/HR";
 
 const Home = async () => {
   const starproducts = await getDataStarProducts();
-  // const allflowers = await getDataFlowers();
   const allproducts = await getDataProductsPages();
   const plusproduct = await getDataPlusProductsPages();
-  // const data = await getDataPlus();
+
   return (
     <>
       <div className="home_section">
-        <div className="menu">
-          <NavbarMenu />
-        </div>
-
+        <div className="menu">{/* <NavbarMenu /> */}</div>
         <div
           className="hero_section"
           style={{
@@ -44,12 +37,11 @@ const Home = async () => {
         <section className="slider_section">
           <Slider allproducts={allproducts} />
         </section>
-        {/* <section className="categories_section">
-          <Flowers allflowers={allflowers} />
-        </section> */}
+        <HR color="gray" />
         <section className="starproducts_section">
           <StarProducts starproducts={starproducts} />
         </section>
+        <HR color="gray" />
         <section className="productspages_section">
           <div
             className="productspages_main_title"
@@ -65,19 +57,27 @@ const Home = async () => {
           </div>
           <FiltersProducts />
         </section>
+        <HR color="gray" />
         <section
           style={{
-            border: "2px solid red",
             display: "flex",
-            width: "70%",
-            // height: "15rem",
+            width: "auto",
             flexDirection: "column",
             overflow: "hidden",
             padding: "2rem",
             height: "auto",
           }}
         >
-          <h1>NOS PETITS PLUS</h1>
+          <div
+            className="plusProduct_main_title"
+            style={{
+              display: "flex",
+              width: "auto",
+              justifyContent: "center",
+            }}
+          >
+            <h1>LES PLUS DE VIBES CBD SHOP</h1>
+          </div>
           <Carousel plusproduct={plusproduct} />
         </section>
       </div>

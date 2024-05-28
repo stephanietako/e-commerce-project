@@ -1,12 +1,15 @@
-// Styles
-import styles from "./styles.module.css";
-
-// Définition du composant HR
-const HR = (props) => {
-  const { className } = props;
-
-  // Fusion des classes avec les classes CSS spécifiées
-  return <hr className={[className, styles.hr].filter(Boolean).join(" ")} />;
+const HR = ({ color }) => {
+  return (
+    <hr
+      style={{
+        color: color,
+        backgroundColor: color,
+        height: "4px",
+        width: "75rem",
+        borderRadius: "100%",
+      }}
+    />
+  );
 };
 
 export default HR;
