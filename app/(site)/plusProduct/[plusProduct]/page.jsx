@@ -50,7 +50,6 @@ const PlusProductsDetails = async ({ params }) => {
                 width: "100%",
                 height: "auto",
                 justifyContent: "center",
-                position: "absolute",
                 top: "40%",
                 zIndex: 2,
               }}
@@ -68,7 +67,6 @@ const PlusProductsDetails = async ({ params }) => {
                 justifyContent: "center",
                 height: "auto",
                 flexWrap: "wrap",
-                margin: "2rem",
               }}
             >
               {plusProduct.plus.map((item) => (
