@@ -1,13 +1,13 @@
-const product = {
-  name: "product",
+const plusProduct = {
+  name: "plusProduct",
   type: "document",
-  title: "Product",
+  title: "PlusProduct",
   fields: [
-    { name: "name", type: "string", title: "Name of Product" },
+    { name: "name", type: "string", title: "Name of PlusProduct" },
     {
       name: "images",
       type: "array",
-      title: "Product Images",
+      title: "PlusProduct Images",
       options: { hotspot: true },
       of: [{ type: "image" }],
       validation: (Rule) =>
@@ -41,10 +41,10 @@ const product = {
 
     { name: "currency", title: "Currency", type: "string" },
     {
-      name: "categories",
-      title: "Product Category",
+      name: "plus",
+      title: "Plus",
       type: "array",
-      of: [{ type: "reference", to: { type: "category" } }],
+      of: [{ type: "reference", to: { type: "plus" } }],
     },
 
     {
@@ -58,4 +58,4 @@ const product = {
   },
 };
 
-export default product;
+export default plusProduct;

@@ -1,7 +1,9 @@
 import {
   getDataStarProducts,
-  getDataFlowers,
+  // getDataFlowers,
   getDataProductsPages,
+  getDataPlusProductsPages,
+  // getDataPlus,
 } from "@/sanity/lib/client";
 // import { getDataProductsPages } from "@/sanity/lib/client";
 // import Flowers from "./components/Flowers/Flowers";
@@ -11,13 +13,14 @@ import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
 import FiltersProducts from "./products/filtersProducts/page";
 import Banner from "./components/Banner/Banner";
 import Slider from "./components/Slider/Slider";
-import SliderForCart from "./components/Carousel/Carousel";
+import Carousel from "./components/Carousel/Carousel";
 
 const Home = async () => {
   const starproducts = await getDataStarProducts();
-  const allflowers = await getDataFlowers();
+  // const allflowers = await getDataFlowers();
   const allproducts = await getDataProductsPages();
-
+  const plusproduct = await getDataPlusProductsPages();
+  // const data = await getDataPlus();
   return (
     <>
       <div className="home_section">
@@ -75,7 +78,7 @@ const Home = async () => {
           }}
         >
           <h1>NOS PETITS PLUS</h1>
-          <SliderForCart allproducts={allproducts} />
+          <Carousel plusproduct={plusproduct} />
         </section>
       </div>
     </>

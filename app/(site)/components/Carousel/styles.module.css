@@ -35,7 +35,7 @@
 .image_container {
   display: flex;
   width: auto;
-  height: 22rem;
+  height: 15rem;
   flex-direction: column;
   align-items: center;
   /* border: 3px solid red; */

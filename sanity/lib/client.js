@@ -42,6 +42,62 @@ export async function getProject(slug) {
   );
 }
 
+//////////////PLUS ////////////////////////////
+export async function getDataPlusProductsPages() {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "plusProduct"] [0...10] | order(_createdAt desc){
+  _id,
+      _createdAt,
+      _type,
+  name,
+    "slug": slug.current,
+         "coverImages": images[0].asset->url,
+   body,
+           content, 
+     "ref": plus[]{
+_ref,
+    
+  "plus": *[_type == 'plus' && references(^._id)][0...5]  {
+    _id,
+     _createdAt,
+      _type,
+    price,
+    currency,
+    name,
+    "slug": slug.current,
+     "coverImages": images[0].asset->url,
+    "images": images[0].asset->url,
+    content,
+      
+  }
+    }
+}`,
+    {
+      cache: "no-store",
+    }
+  );
+}
+///////////////// les categories plus des produits plusProduct////////
+export async function getDataPlus(slug) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "plus" && slug.current == $slug][0] {
+      _id,
+      _createdAt,
+      _type,
+      "coverImages": images[0].asset->url,
+      images,
+      price,
+      name,
+      "slug": slug.current,
+      content,
+      type,
+    }`,
+    { slug },
+    {
+      cache: "no-store",
+    }
+  );
+}
 // PAGES & PAGE ///////////////////////////
 export async function getPages() {
   return createClient(clientConfig).fetch(
@@ -74,7 +130,7 @@ export async function getPage(slug) {
   );
 }
 //////////////////////////////////////////////////////////////////////////////
-//  STARPRODUCTS &  ALL PRODUCTS & PRODUCT CATEGORY & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
+//  STARPRODUCTS &  ALL PRODUCTS & Pplus & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
 export async function getDataStarProducts() {
   return createClient(clientConfig).fetch(
     groq`*[_type == "product"] [0...3] | order(_createdAt desc){
@@ -360,6 +416,41 @@ _ref,
     }
   );
 }
+////////////// plusProduct Single Page
+export async function getDataPlusProductSlug(slug) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "plusProduct" && slug.current == $slug][0] {
+_id,
+   _createdAt,
+      _type,
+  name,
+    "slug": slug.current,
+         "coverImages": images[0].asset->url,
+           content, 
+            "body": pt::text(body),    
+  "plus": *[_type == 'plus' && references(^._id)][0...100] | order(_createdAt desc) {
+    _id,
+    _createdAt,
+      _type,
+    price,
+    currency,
+    name,
+    "slug": slug.current,
+     "coverImages": images[0].asset->url,
+    "images": images[0].asset->url,
+    content,
+      plus,
+       "ref": plus[]{
+_ref,
+    }
+  }
+}`,
+    { slug },
+    {
+      cache: "no-store",
+    }
+  );
+}
 /////////////////////////
 export async function getAll() {
   return createClient(clientConfig).fetch(
@@ -388,6 +479,8 @@ _ref,
     }
   );
 }
+
+/////////////////
 // *[_type in ['product', 'category'] && (
 //   _type match "product" + "*" || _type match "category" + "*"
 // ) && !(_id in path('drafts.**'))] | order(name asc){

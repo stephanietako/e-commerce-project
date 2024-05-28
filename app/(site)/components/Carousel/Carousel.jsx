@@ -5,12 +5,12 @@ import styles from "./styles.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-const Carousel = ({ allproducts }) => {
+const Carousel = ({ plusproduct }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Display three images at a time
   const itemsToShow = 3;
-  const totalItems = allproducts.length;
+  const totalItems = plusproduct.length;
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -36,7 +36,7 @@ const Carousel = ({ allproducts }) => {
             transform: `translateX(-${currentIndex * (100 / itemsToShow)}%)`,
           }}
         >
-          {allproducts.map((item, index) => (
+          {plusproduct.map((item, index) => (
             <div
               key={index}
               className={styles.carousel_item}
@@ -44,7 +44,7 @@ const Carousel = ({ allproducts }) => {
             >
               <div className={styles.inner_container}>
                 <div className={styles.image_container}>
-                  <Link href={`/products/${item.slug}`}>
+                  <Link href={`/plusProduct/${item.slug}`}>
                     <Image
                       src={item.coverImages}
                       alt={`Slide ${index}`}
@@ -57,9 +57,7 @@ const Carousel = ({ allproducts }) => {
                   </Link>
                 </div>
                 <div className={styles.title_content}>
-                  <h1 className={styles.title}>
-                    <p>{item.name}</p>
-                  </h1>
+                  <h3 className={styles.title}>{item.name}</h3>
                 </div>
               </div>
             </div>
