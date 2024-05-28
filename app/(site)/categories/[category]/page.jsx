@@ -1,14 +1,17 @@
 import { getData } from "@/sanity/lib/client";
+import { getDataAccessoires } from "@/sanity/lib/client";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import Button from "../../components/Button/Button";
 
 // Styles
 import styles from "./styles.module.scss";
+import CarouselBeLike from "../../components/CarouselBeLike/CarouselBeLike";
 export const dynamic = "force-dynamic";
 
 const CategoryDetails = async ({ params }) => {
   const slug = params.category;
   const data = await getData(slug);
+  const accessoires = await getDataAccessoires();
 
   return (
     <>
@@ -58,6 +61,17 @@ const CategoryDetails = async ({ params }) => {
       ) : (
         <p>Not found</p>
       )}
+      <div
+        className={styles.carouselBelike_box}
+        style={{
+          display: "flex",
+          width: "100%",
+          height: "100%",
+          justifyContent: "center",
+        }}
+      >
+        <CarouselBeLike accessoires={accessoires} />
+      </div>
     </>
   );
 };

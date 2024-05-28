@@ -358,6 +358,24 @@ _ref,
     }
   );
 }
+//////////////////////////
+export async function getDataAccessoires() {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "plus" && type == "accessoires"] {
+  _id,
+  _createdAt,
+  _type,
+  name,
+  "slug": slug.current,
+  "coverImages": images[0].asset->url,
+  content, 
+  body 
+}`,
+    {
+      cache: "no-cache",
+    }
+  );
+}
 ///////////////////////////////
 //// slug CATEGORY single page
 export async function getData(slug) {
