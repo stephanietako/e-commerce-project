@@ -92,8 +92,7 @@ const PlusProductsDetails = async ({ params }) => {
                           width: "auto",
                           height: "auto",
                           justifyContent: "center",
-                          padding: "0.5rem",
-                          borderRadius: "30px",
+                          borderRadius: "17px",
                         }}
                       >
                         {item.coverImages ? (
