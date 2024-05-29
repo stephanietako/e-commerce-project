@@ -3,6 +3,8 @@ import backgroundImg from "@/public/assets/vibes_front_shop.webp";
 // Styles
 import styles from "./styles.module.scss";
 
+export const dynamic = "force-dynamic";
+
 function HeroCard({ imageUrl, title, subtitle, description }) {
   return (
     <div className={styles.herocard}>

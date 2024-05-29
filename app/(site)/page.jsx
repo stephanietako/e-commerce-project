@@ -1,9 +1,9 @@
 import {
-  getDataStarProducts,
+  getDataStarProductsPages,
   getDataProductsPages,
   getDataPlusProductsPages,
 } from "@/sanity/lib/client";
-import StarProducts from "./components/StarProducts/StarProducts";
+import StarProductsPages from "./components/StarProductsPages/StarProductsPages";
 import Hero from "./components/Hero/Hero";
 // import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
 import FiltersProducts from "./products/filtersProducts/page";
@@ -13,14 +13,13 @@ import Carousel from "./components/Carousel/Carousel";
 import HR from "./components/HR/HR";
 
 const Home = async () => {
-  const starproducts = await getDataStarProducts();
+  const starproducts = await getDataStarProductsPages();
   const allproducts = await getDataProductsPages();
   const plusproduct = await getDataPlusProductsPages();
 
   return (
     <>
       <div className="home_section">
-        <div className="menu">{/* <NavbarMenu /> */}</div>
         <div
           className="hero_section"
           style={{
@@ -39,7 +38,7 @@ const Home = async () => {
         </section>
         <HR color="gray" />
         <section className="starproducts_section">
-          <StarProducts starproducts={starproducts} />
+          <StarProductsPages starproducts={starproducts} />
         </section>
         <HR color="gray" />
         <section className="productspages_section">
@@ -49,7 +48,7 @@ const Home = async () => {
               display: "flex",
               width: "100%",
               height: "auto%",
-              paddingLeft: "4rem",
+              paddingLeft: "3rem",
               marginTop: "2rem",
             }}
           >

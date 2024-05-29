@@ -1,8 +1,12 @@
 "use client";
+
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+// Styles
 import styles from "./styles.module.scss";
+
+export const dynamic = "force-dynamic";
 
 const CarouselBeLike = ({ accessoires }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -48,8 +52,8 @@ const CarouselBeLike = ({ accessoires }) => {
                       src={item.coverImages}
                       alt={`Slide ${index}`}
                       className={styles.carouselBeLike_img}
-                      width={150} // Largeur réduite
-                      height={100} // Hauteur réduite
+                      width={150}
+                      height={100}
                       loading="lazy"
                       placeholder="blur"
                       blurDataURL="data:image/jpeg..."

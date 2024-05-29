@@ -4,6 +4,8 @@ import Button from "../Button/Button";
 // Styles
 import styles from "./styles.module.scss";
 
+export const dynamic = "force-dynamic";
+
 const Hero = () => {
   return (
     <div className={styles.heroWrapper}>

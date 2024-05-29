@@ -5,6 +5,8 @@ import FiltersProducts from "../../products/filtersProducts/page";
 // Styles
 import styles from "./styles.module.scss";
 
+export const dynamic = "force-dynamic";
+
 const CheckboxProducts = () => {
   // const [productTypeFilter, setProductTypeFilter] = useState("");
   const [searchQuery, setSearchQuery] = useState([]);

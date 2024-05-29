@@ -44,7 +44,7 @@ const Carousel = ({ plusproduct }) => {
             >
               <div className={styles.inner_container}>
                 <div className={styles.image_container}>
-                  <Link href={`/plusProduct/${item.slug}`}>
+                  <Link href={`/plusProducts/${item.slug}`}>
                     <Image
                       src={item.coverImages}
                       alt={`Slide ${index}`}

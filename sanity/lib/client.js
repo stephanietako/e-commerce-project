@@ -2,6 +2,38 @@ import { createClient, groq } from "next-sanity";
 import clientConfig from "../config/client-config";
 export const revalidate = 10;
 
+// PAGES & PAGE ///////////////////////////
+export async function getPages() {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "page"]{
+        _id,
+        _createdAt,
+     title,
+        "slug": slug.current,
+    }`,
+    {
+      cache: "no-store",
+    }
+  );
+}
+
+export async function getPage(slug) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "page" && slug.current == $slug][0]{
+       _id,
+       _createdAt,
+   title,
+       "slug":slug.current,
+             content,
+
+    }`,
+    { slug },
+    {
+      cache: "no-store",
+    }
+  );
+}
+
 //PROJECTS & PROJECT //////////////////////
 export async function getProjects() {
   return createClient(clientConfig).fetch(
@@ -42,7 +74,7 @@ export async function getProject(slug) {
   );
 }
 
-//////////////PLUS ////////////////////////////
+//PLUSPRODUCTSPAGES ////////////////////////////
 export async function getDataPlusProductsPages() {
   return createClient(clientConfig).fetch(
     groq`*[_type == "plusProduct"] [0...10] | order(_createdAt desc){
@@ -77,7 +109,42 @@ _ref,
     }
   );
 }
-///////////////// les categories plus des produits plusProduct////////
+////////////// plusProducts Single Page
+export async function getDataPlusProductSlug(slug) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "plusProduct" && slug.current == $slug][0] {
+_id,
+   _createdAt,
+      _type,
+  name,
+    "slug": slug.current,
+         "coverImages": images[0].asset->url,
+           content, 
+            "body": pt::text(body),    
+  "plus": *[_type == 'plus' && references(^._id)][0...100] | order(_createdAt desc) {
+    _id,
+    _createdAt,
+      _type,
+    price,
+    currency,
+    name,
+    "slug": slug.current,
+     "coverImages": images[0].asset->url,
+    "images": images[0].asset->url,
+    content,
+      plus,
+       "ref": plus[]{
+_ref,
+    }
+  }
+}`,
+    { slug },
+    {
+      cache: "no-store",
+    }
+  );
+}
+//////plus single page (categories of plusProduct)
 export async function getDataPlus(slug) {
   return createClient(clientConfig).fetch(
     groq`*[_type == "plus" && slug.current == $slug][0] {
@@ -98,51 +165,21 @@ export async function getDataPlus(slug) {
     }
   );
 }
-// PAGES & PAGE ///////////////////////////
-export async function getPages() {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "page"]{
-        _id,
-        _createdAt,
-     title,
-        "slug": slug.current,
-    }`,
-    {
-      cache: "no-store",
-    }
-  );
-}
 
-export async function getPage(slug) {
+//STARPRODUCTS //////////////////////
+export async function getDataStarProductsPages() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "page" && slug.current == $slug][0]{
-       _id,
-       _createdAt,
-   title,
-       "slug":slug.current,
-             content,
-
-    }`,
-    { slug },
-    {
-      cache: "no-store",
-    }
-  );
-}
-//////////////////////////////////////////////////////////////////////////////
-//  STARPRODUCTS &  ALL PRODUCTS & Pplus & PRODUCT CATEGORY SLUG & PRODUCTS BY CATEGORIES //////////////////////
-export async function getDataStarProducts() {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "product"] [0...3] | order(_createdAt desc){
+    groq`*[_type == "starProduct"] [0...3] | order(_createdAt desc){
   _id,
       _createdAt,
       _type,
   name,
     "slug": slug.current,
-         "coverImages": images[0].asset->url,
+    "coverImages": images[0].asset->url,
    body,
-           content, 
-  "categories": *[_type == 'category' && references(^._id)][0...1]  {
+    content, 
+    
+  "stars": *[_type == 'star' && references(^._id)][0...1]  {
     _id,
      _createdAt,
       _type,
@@ -153,19 +190,67 @@ export async function getDataStarProducts() {
      "coverImages": images[0].asset->url,
     "images": images[0].asset->url,
     content,
-      products,
-       "ref": categories[]{
-_ref,
-    }
+      
   }
-
-}`,
+    }`,
     {
       cache: "no-store",
     }
   );
 }
-
+////////////// starProducts Single Page
+export async function getDataStarProductSlug(slug) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "starProduct" && slug.current == $slug][0] {
+_id,
+   _createdAt,
+      _type,
+  name,
+    "slug": slug.current,
+         "coverImages": images[0].asset->url,
+           content, 
+            "body": pt::text(body),    
+  "stars": *[_type == 'star' && references(^._id)][0...100] | order(_createdAt desc) {
+    _id,
+    _createdAt,
+      _type,
+    price,
+    currency,
+    name,
+    "slug": slug.current,
+     "coverImages": images[0].asset->url,
+    "images": images[0].asset->url,
+    content,
+      
+  }
+}`,
+    { slug },
+    {
+      cache: "no-store",
+    }
+  );
+}
+//////star single page (categories of plusProduct)
+export async function getDataStar(slug) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "star" && slug.current == $slug][0] {
+      _id,
+      _createdAt,
+      _type,
+      "coverImages": images[0].asset->url,
+      images,
+      price,
+      name,
+      "slug": slug.current,
+      content,
+      type,
+    }`,
+    { slug },
+    {
+      cache: "no-store",
+    }
+  );
+}
 ///////////// ALL PRODUCTS ////////////////////
 export async function getDataProductsPages() {
   return createClient(clientConfig).fetch(
@@ -223,8 +308,43 @@ _ref,
     }
   );
 }
+//// slug PRODUCT single page
+export async function getDataProduct(slug) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "product" && slug.current == $slug][0] {
+_id,
+   _createdAt,
+      _type,
+  name,
+    "slug": slug.current,
+         "coverImages": images[0].asset->url,
+           content, 
+            "body": pt::text(body),    
+  "categories": *[_type == 'category' && references(^._id)][0...100] | order(_createdAt desc) {
+    _id,
+    _createdAt,
+      _type,
+    price,
+    currency,
+    name,
+    "slug": slug.current,
+     "coverImages": images[0].asset->url,
+    "images": images[0].asset->url,
+    content,
+      products,
+       "ref": products[]{
+_ref,
+    }
+  }
+}`,
+    { slug },
+    {
+      cache: "no-store",
+    }
+  );
+}
 
-// CATEGORY
+////////////////////////////////////// CATEGORY
 // produits par categories
 export async function getProductsByCategories() {
   return createClient(clientConfig).fetch(
@@ -307,7 +427,7 @@ _ref,
     }
   );
 }
-
+////////////////
 export async function getCategory() {
   return createClient(clientConfig).fetch(
     groq` *[_type == "category"] {
@@ -319,6 +439,28 @@ export async function getCategory() {
     "images": images[0].asset->url,
 
 }`,
+    {
+      cache: "no-store",
+    }
+  );
+}
+
+//// slug CATEGORY single page
+export async function getData(slug) {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "category" && slug.current == $slug][0] {
+      _id,
+      _createdAt,
+      _type,
+      "coverImages": images[0].asset->url,
+      images,
+      price,
+      name,
+      "slug": slug.current,
+      content,
+      type,
+    }`,
+    { slug },
     {
       cache: "no-store",
     }
@@ -376,100 +518,8 @@ export async function getDataAccessoires() {
     }
   );
 }
-///////////////////////////////
-//// slug CATEGORY single page
-export async function getData(slug) {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "category" && slug.current == $slug][0] {
-      _id,
-      _createdAt,
-      _type,
-      "coverImages": images[0].asset->url,
-      images,
-      price,
-      name,
-      "slug": slug.current,
-      content,
-      type,
-    }`,
-    { slug },
-    {
-      cache: "no-store",
-    }
-  );
-}
 
-//// slug PRODUCT single page
-export async function getDataProduct(slug) {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "product" && slug.current == $slug][0] {
-_id,
-   _createdAt,
-      _type,
-  name,
-    "slug": slug.current,
-         "coverImages": images[0].asset->url,
-           content, 
-            "body": pt::text(body),    
-  "categories": *[_type == 'category' && references(^._id)][0...100] | order(_createdAt desc) {
-    _id,
-    _createdAt,
-      _type,
-    price,
-    currency,
-    name,
-    "slug": slug.current,
-     "coverImages": images[0].asset->url,
-    "images": images[0].asset->url,
-    content,
-      products,
-       "ref": products[]{
-_ref,
-    }
-  }
-}`,
-    { slug },
-    {
-      cache: "no-store",
-    }
-  );
-}
-////////////// plusProduct Single Page
-export async function getDataPlusProductSlug(slug) {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "plusProduct" && slug.current == $slug][0] {
-_id,
-   _createdAt,
-      _type,
-  name,
-    "slug": slug.current,
-         "coverImages": images[0].asset->url,
-           content, 
-            "body": pt::text(body),    
-  "plus": *[_type == 'plus' && references(^._id)][0...100] | order(_createdAt desc) {
-    _id,
-    _createdAt,
-      _type,
-    price,
-    currency,
-    name,
-    "slug": slug.current,
-     "coverImages": images[0].asset->url,
-    "images": images[0].asset->url,
-    content,
-      plus,
-       "ref": plus[]{
-_ref,
-    }
-  }
-}`,
-    { slug },
-    {
-      cache: "no-store",
-    }
-  );
-}
-/////////////////////////
+///////////////////////////////
 export async function getAll() {
   return createClient(clientConfig).fetch(
     groq` *[_type in ['product', 'category' ]  ] | order(_createdAt desc){

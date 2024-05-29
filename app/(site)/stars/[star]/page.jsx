@@ -1,4 +1,4 @@
-import { getDataPlus } from "@/sanity/lib/client";
+import { getDataStar } from "@/sanity/lib/client";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import Button from "../../components/Button/Button";
 
@@ -6,17 +6,17 @@ import Button from "../../components/Button/Button";
 import styles from "./styles.module.scss";
 export const dynamic = "force-dynamic";
 
-const PlusDetails = async ({ params }) => {
-  const slug = params.plus;
+const StarDetails = async ({ params }) => {
+  const slug = params.star;
   console.log("Slug:", slug);
   console.log("params:", params);
-  const data = await getDataPlus(slug);
-  console.log("Data de plus !!!!!", data);
+  const data = await getDataStar(slug);
+  console.log("Data de star !!!!!", data);
   return (
     <>
       {data ? (
-        <div className={styles.plusDetails__container}>
-          <div className={styles.plusDetails__title}>
+        <div className={styles.starDetails__container}>
+          <div className={styles.starDetails__title}>
             <h1>{data.name}</h1>
           </div>
           <div className={styles.gallery__container}>
@@ -64,4 +64,4 @@ const PlusDetails = async ({ params }) => {
   );
 };
 
-export default PlusDetails;
+export default StarDetails;

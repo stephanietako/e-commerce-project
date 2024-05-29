@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 const PlusProductsPages = ({ plusproduct }) => {
   if (!plusproduct) {
-    return <div>Loading...</div>; // Ajouter une vérification de sécurité
+    return <div>Loading...</div>;
   }
 
   return (
@@ -15,7 +15,7 @@ const PlusProductsPages = ({ plusproduct }) => {
         <div className={styles.plusProductsPages__header}>
           <header className={styles.__header}>
             <div className={styles.plusProductsPages__title}>
-              <h2>{product.name}</h2>
+              <h2>{plusproduct.name}</h2>
             </div>
           </header>
         </div>
@@ -61,7 +61,7 @@ const PlusProductsPages = ({ plusproduct }) => {
                               fontSize: "1rem",
                             }}
                           >
-                            {category.price.toFixed(2)}€
+                            {plus.price.toFixed(2)}€
                           </p>
                           <span className="ref_products_plus">
                             <p

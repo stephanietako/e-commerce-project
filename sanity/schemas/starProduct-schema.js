@@ -1,11 +1,9 @@
-// c'est par exemple pour une section produit du mois
-
 const starProduct = {
   name: "starProduct",
   type: "document",
-  title: "star Product",
+  title: "StarProduct",
   fields: [
-    { name: "name", type: "string", title: "Name of Star Product" },
+    { name: "name", type: "string", title: "Name of StarProduct" },
     {
       name: "images",
       type: "array",
@@ -13,7 +11,7 @@ const starProduct = {
       options: { hotspot: true },
       of: [{ type: "image" }],
       validation: (Rule) =>
-        Rule.required().min(1).error("Minimum of 1 images required"),
+        Rule.required().min(1).error("Minimum of 1 image required"),
     },
     {
       name: "url",
@@ -33,6 +31,7 @@ const starProduct = {
       options: {
         source: "name",
       },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "price",
@@ -47,10 +46,10 @@ const starProduct = {
     },
     { name: "currency", title: "Currency", type: "string" },
     {
-      name: "categories",
-      title: "Product Category",
+      name: "stars",
+      title: "Stars Product",
       type: "array",
-      of: [{ type: "reference", to: { type: "category" } }],
+      of: [{ type: "reference", to: [{ type: "star" }] }],
     },
   ],
   initialValue: {

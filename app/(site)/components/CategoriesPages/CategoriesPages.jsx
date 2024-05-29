@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 // Styles
 import styles from "./styles.module.scss";
+
 export const dynamic = "force-dynamic";
 // DISPLAY
 const CategoriesPages = ({ category }) => {

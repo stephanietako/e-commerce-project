@@ -51,7 +51,7 @@ const ProductsPages = ({ product }) => {
                             width={300}
                             height={200}
                             style={{
-                              objectFit: "cover",
+                              objectFit: "contain",
                               borderRadius: "12px",
                             }}
                           />

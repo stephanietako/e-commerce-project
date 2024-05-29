@@ -9,6 +9,7 @@ import user from "./schemas/user-schema";
 import account from "./schemas/account-schema";
 import verificationToken from "./schemas/verificationToken-schema";
 import plusProduct from "./schemas/plusProduct-schema";
+import star from "./schemas/star-schema";
 
 export const schema = {
   types: [
@@ -17,6 +18,7 @@ export const schema = {
     page,
     product,
     category,
+    star,
     starProduct,
     plus,
     plusProduct,
