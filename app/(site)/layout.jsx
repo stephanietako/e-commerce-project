@@ -8,6 +8,7 @@ import { NextAuthProvider } from "./components/AuthProvider/AuthProvider";
 // import { Suspense } from "react";
 import Cursor from "./components/Cursor/Cursor";
 import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 const robotoSlab = Roboto_Slab({
   weight: ["100", "900"],
@@ -35,6 +36,9 @@ export default function RootLayout({ children, session }) {
             </div>
             <Cursor />
             {children}
+            <div className="scroll">
+              <ScrollToTop />
+            </div>
             <Footer />
           </main>
         </NextAuthProvider>
