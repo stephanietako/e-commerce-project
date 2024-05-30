@@ -46,12 +46,7 @@ a {
   text-decoration: none;
   cursor: none;
 }
-a:hover {
-  background-image: gray;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
+/*  */
 
 .home_section {
   display: flex;
@@ -96,7 +91,7 @@ a:hover {
   padding-top: 0.5rem;
   cursor: none;
 }
-a:hover {
+.link:hover {
   color: gray;
 }
 
@@ -113,8 +108,6 @@ h1 {
   font-size: 2.5rem;
   font-weight: bolder;
   color: #3c3a3a;
-
-  /* font-family: var(--font-playfair); */
 }
 
 h2 {

@@ -59,6 +59,7 @@ const PlusProductsPages = ({ plusproduct }) => {
                             className="price_content"
                             style={{
                               fontSize: "1rem",
+                              fontWeight: "bold",
                             }}
                           >
                             {plus.price.toFixed(2)}€

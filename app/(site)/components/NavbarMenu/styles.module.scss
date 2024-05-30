@@ -27,16 +27,16 @@
       position: relative;
     }
     &:hover .submenu {
-      display: flex; /* Affiche le sous-menu au survol */
+      display: flex;
     }
     .__link {
       display: flex;
       width: auto;
-      height: 1rem;
+      height: auto;
       font-size: 24px;
-      text-align: center;
-      justify-content: center;
-      padding: 0.5rem;
+      padding: 1rem;
+      align-content: center;
+      align-items: center;
 
       &:hover {
         color: gray;
@@ -48,9 +48,9 @@
       justify-content: center;
       font-size: 1rem;
       flex-direction: column;
-      padding: 0rem 0.5rem 1rem;
+      // padding: 0rem 0.5rem 1rem;
       position: absolute;
-      top: 100%; /* Positionné sous le lien parent */
+      top: 100%;
       left: 7px;
       background-color: rgb(251, 251, 253);
       z-index: 15;
@@ -59,7 +59,7 @@
       height: auto;
 
       .categoryLink {
-        padding-top: 14px;
+        padding: 14px;
         width: auto;
         height: auto;
         display: block;
@@ -70,10 +70,6 @@
         }
       }
     }
-
-    // .__navbar_container__link:hover .submenu {
-    //   display: flex; /* Affiche le sous-menu au survol */
-    // }
   }
 }
 

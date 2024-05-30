@@ -4,15 +4,13 @@
   align-items: center;
 
   .select_big_img {
-    border-radius: 30px;
     position: relative;
     overflow: hidden;
   }
 
   .img {
-    object-fit: cover;
-    padding: 1rem;
-    border-radius: 30px;
+    object-fit: contain;
+    padding-top: 1rem;
   }
 
   .loupe {
@@ -36,17 +34,9 @@
 
   .thumbnailContainer {
     display: flex;
-    margin-top: 1rem;
   }
 
   .thumbnail {
-    margin: 0.5rem;
+    object-fit: contain;
   }
-
-  // .btns_products {
-  //   display: flex;
-  //   flex-direction: column;
-  //   margin-top: 30px;
-  //   border: 3px solid red;
-  // }
 }

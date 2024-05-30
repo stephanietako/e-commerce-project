@@ -37,6 +37,15 @@
         }
       }
 
+      .images_starproducts {
+        display: flex;
+        width: auto;
+        height: auto;
+        justify-content: center;
+        overflow: hidden;
+        // border: 3px solid red;
+      }
+
       .display_all_starproducts {
         display: flex;
         width: 100%;
@@ -63,23 +72,24 @@
 
             .data_group_starproducts {
               display: flex;
-              padding: 1rem;
               width: 100%;
               height: auto;
 
               .content_starproducts {
                 display: flex;
-                flex-direction: column;
                 justify-content: center;
                 width: 24rem;
-                height: 24rem;
-                padding: 1rem;
+                height: 22rem;
 
                 .starproducts__cards_infos {
                   display: flex;
                   width: auto;
                   justify-content: center;
                   flex-direction: column;
+
+                  .price_content {
+                    font-weight: bold;
+                  }
 
                   .title__content {
                     display: flex;

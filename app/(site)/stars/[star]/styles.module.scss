@@ -28,6 +28,10 @@
   .products__content {
     display: flex;
     flex-direction: column;
+
+    .priceContent {
+      font-weight: bold;
+    }
   }
 
   .refProducts_categories {

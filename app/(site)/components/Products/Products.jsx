@@ -101,6 +101,7 @@ const Products = ({ allproducts }) => {
                                           style={{
                                             fontSize: "1rem",
                                             textAlign: "end",
+                                            fontWeight: "bold",
                                           }}
                                         >
                                           {/* {category.price.toFixed(2)}€ */}

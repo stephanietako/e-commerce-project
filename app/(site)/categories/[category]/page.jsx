@@ -1,11 +1,12 @@
 import { getData } from "@/sanity/lib/client";
 import { getDataAccessoires } from "@/sanity/lib/client";
+import { PortableText } from "@portabletext/react";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import Button from "../../components/Button/Button";
-
 // Styles
 import styles from "./styles.module.scss";
 import CarouselBeLike from "../../components/CarouselBeLike/CarouselBeLike";
+
 export const dynamic = "force-dynamic";
 
 const CategoryDetails = async ({ params }) => {
@@ -17,24 +18,24 @@ const CategoryDetails = async ({ params }) => {
     <>
       {data ? (
         <div className={styles.categoryDetails__container}>
-          <div className={styles.categoryDetails__title}>
-            <h1>{data.name}</h1>
-          </div>
-          <div className={styles.gallery__container}>
-            <div className={styles.gallery__content}>
-              <ImageGallery images={data.images} />
-              <div className={styles.productsText__container}>
+          <div className={styles.categoryDetails__content}>
+            <div className={styles.categoryDetails__title}>
+              <h1>{data.name}</h1>
+            </div>
+            <div className={styles.gallery__container}>
+              <div className={styles.gallery__content}>
+                <ImageGallery images={data.images} />
                 <div className={styles.products__content}>
-                  <span>
-                    <p>{data.type}</p>
-                  </span>
-
-                  <div className={styles.productsPrice}>
+                  <div className={styles.products__infos}>
                     <span>
-                      <p className={styles.priceContent}>
+                      <p>{data.type}</p>
+                    </span>
+                    <span>
+                      <p className={styles.products__price}>
                         {data.price.toFixed(2)}€
                       </p>
                     </span>
+                    <p className={styles.products__text}>{data.body}</p>
                     <br />
                     <span>
                       <p>2-4 Day Shipping</p>
@@ -61,6 +62,7 @@ const CategoryDetails = async ({ params }) => {
       ) : (
         <p>Not found</p>
       )}
+
       <div
         className={styles.carouselBelike_box}
         style={{

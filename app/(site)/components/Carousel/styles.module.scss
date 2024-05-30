@@ -55,7 +55,8 @@ $img-height: 100%;
   width: 100%;
   height: $img-height;
   overflow: hidden;
-  border: 4px solid $turquoise;
+  // border: 4px solid $turquoise;
+  border-radius: 17px;
 }
 
 .title_content {

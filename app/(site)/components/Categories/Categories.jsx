@@ -101,6 +101,7 @@ const Categories = ({ category }) => {
                             className="price_content"
                             style={{
                               fontSize: "1rem",
+                              fontWeight: "bold",
                             }}
                           >
                             {categories.price.toFixed(2)}€

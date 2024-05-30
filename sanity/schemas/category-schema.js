@@ -23,6 +23,11 @@ const category = {
       of: [{ type: "block" }],
     },
     {
+      name: "body",
+      title: "Body",
+      type: "blockContent",
+    },
+    {
       name: "images",
       title: "Category Images",
       type: "array",

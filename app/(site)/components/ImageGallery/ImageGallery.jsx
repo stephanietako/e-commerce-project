@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/config/client-config";
-import Button from "../Button/Button";
 // Styles
 import styles from "./styles.module.scss";
 
@@ -44,6 +43,9 @@ const ImageGallery = ({ images, productData }) => {
           alt="Produits CBD"
           width={350}
           height={250}
+          loading="lazy"
+          placeholder="blur"
+          blurDataURL="data:image/jpeg..."
           className={styles.img}
         />
         {showLoupe && (
@@ -57,8 +59,8 @@ const ImageGallery = ({ images, productData }) => {
             <Image
               src={urlFor(bigImage).url()}
               alt="Zoom"
-              width={350}
-              height={250}
+              width={400}
+              height={280}
               className={styles.zoomedImage}
               style={{
                 top: -mousePosition.y * 2 + 100,
@@ -74,25 +76,13 @@ const ImageGallery = ({ images, productData }) => {
             <Image
               src={urlFor(image).url()}
               alt={`Thumbnail ${index + 1}`}
-              width={70}
-              height={70}
+              width={90}
+              height={90}
               className={styles.thumbnail}
             />
           </div>
         ))}
       </div>
-      {/* <div className={styles.btns_products}>
-        <Button
-          onClick={() => console.log("Add to Bag")}
-          text="Add to Bag"
-          className={styles.addToBagBtn}
-        />
-        <Button
-          onClick={() => console.log("Checkout now")}
-          text="Checkout now"
-          className={styles.checkoutNowBtn}
-        />
-      </div> */}
     </div>
   );
 };

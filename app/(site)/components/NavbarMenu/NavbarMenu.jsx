@@ -1,5 +1,7 @@
 "use client";
 
+"use client";
+
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
@@ -113,7 +115,7 @@ const NavbarMenu = () => {
   const [categoryTypeFilter, setCategoryTypeFilter] = useState("");
   const [showCategories, setShowCategories] = useState(null);
   const [currentCategories, setCurrentCategories] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [hoveredLink, setHoveredLink] = useState(null); // State to track hovered link
   const router = useRouter();
 
   const handleLinkClick = (link) => {
@@ -127,6 +129,15 @@ const NavbarMenu = () => {
     console.log("Show categories state:", showCategories);
   };
 
+  const handleMouseEnter = (link) => {
+    setShowCategories(link.name);
+    setCurrentCategories(link.types || link.categories);
+  };
+
+  const handleMouseLeave = () => {
+    setShowCategories(null);
+  };
+
   return (
     <nav className={styles.navbarMenu}>
       <div className={styles.__navbarMenu_container}>
@@ -136,6 +147,8 @@ const NavbarMenu = () => {
             className={`${styles.__navbarMenu_container__link} ${
               showCategories === link.name ? styles.active : ""
             }`}
+            onMouseEnter={() => handleMouseEnter(link)}
+            onMouseLeave={handleMouseLeave}
           >
             <span
               className={

@@ -65,6 +65,7 @@ const ProductsPages = ({ product }) => {
                             className="price_content"
                             style={{
                               fontSize: "1rem",
+                              fontWeight: "bold",
                             }}
                           >
                             {category.price.toFixed(2)}€

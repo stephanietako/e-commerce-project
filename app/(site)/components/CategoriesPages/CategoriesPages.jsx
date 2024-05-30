@@ -22,11 +22,11 @@ const CategoriesPages = ({ category }) => {
                   src={category.coverImages}
                   alt="les fleurs"
                   className="product__img"
-                  width={475}
-                  height={320}
+                  width={370}
+                  height={250}
                   style={{
                     objectFit: "cover",
-                    borderRadius: "30px",
+                    borderRadius: "17px",
                     padding: "0.5rem",
                     // justifyContent: "center",
                   }}
@@ -49,6 +49,7 @@ const CategoriesPages = ({ category }) => {
                   className="price_content"
                   style={{
                     fontSize: "1rem",
+                    fontWeight: "bold",
                   }}
                 >
                   {category.price}€

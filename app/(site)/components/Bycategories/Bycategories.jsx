@@ -75,6 +75,7 @@ const ByCategory = ({ bycategory }) => {
                                   style={{
                                     fontSize: "1rem",
                                     textAlign: "right",
+                                    fontWeight: "bold",
                                   }}
                                 >
                                   {/* {categories.price.toFixed(2)}€ */}

@@ -120,7 +120,7 @@ _id,
     "slug": slug.current,
          "coverImages": images[0].asset->url,
            content, 
-            "body": pt::text(body),    
+              
   "plus": *[_type == 'plus' && references(^._id)][0...100] | order(_createdAt desc) {
     _id,
     _createdAt,
@@ -209,7 +209,7 @@ _id,
     "slug": slug.current,
          "coverImages": images[0].asset->url,
            content, 
-            "body": pt::text(body),    
+             
   "stars": *[_type == 'star' && references(^._id)][0...100] | order(_createdAt desc) {
     _id,
     _createdAt,
@@ -319,7 +319,7 @@ _id,
     "slug": slug.current,
          "coverImages": images[0].asset->url,
            content, 
-            "body": pt::text(body),    
+              
   "categories": *[_type == 'category' && references(^._id)][0...100] | order(_createdAt desc) {
     _id,
     _createdAt,
@@ -458,6 +458,7 @@ export async function getData(slug) {
       name,
       "slug": slug.current,
       content,
+        "body": pt::text(body),
       type,
     }`,
     { slug },

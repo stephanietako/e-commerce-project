@@ -135,7 +135,14 @@ const PlusProductsDetails = async ({ params }) => {
                         <PortableText value={item.content} />
                       </span>
                       <span>
-                        <p className="price_content">{item.price}€</p>
+                        <p
+                          className="price_content"
+                          style={{
+                            fontWeight: "bold",
+                          }}
+                        >
+                          {item.price}€
+                        </p>
                       </span>
                       <span>
                         <button
