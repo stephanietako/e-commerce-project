@@ -66,7 +66,7 @@ const cosmetiquesCBD = {
     { name: "Chanvria crème mains", href: "/categories/chanvria-creme-mains" },
     {
       name: "Chanvria serum huile de chanvre bio",
-      href: "/categories/chanvria-serum-huile-chanvre-bio",
+      href: "/categories/chanvria-serum-huile-de-chanvre-bio",
     },
     { name: "Baume", href: "/categories/baume" },
     { name: "Roller", href: "/categories/roller" },

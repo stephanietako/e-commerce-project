@@ -169,7 +169,7 @@ export async function getDataPlus(slug) {
 //STARPRODUCTS //////////////////////
 export async function getDataStarProductsPages() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "starProduct"] [0...3] | order(_createdAt desc){
+    groq`*[_type == "starProduct"] [0...4] | order(_createdAt asc){
   _id,
       _createdAt,
       _type,
