@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import CheckboxCategories from "../CheckboxCategories/CheckboxCategories";
-
+import { urlFor } from "@/sanity/lib/sanity";
 import { Suspense } from "react";
 // Styles
 import styles from "./styles.module.scss";
@@ -48,7 +48,7 @@ const ByCategory = ({ bycategory }) => {
                             >
                               {categories.coverImages && (
                                 <Image
-                                  src={categories.coverImages}
+                                  src={urlFor(categories.coverImages).url()}
                                   alt="les fleurs"
                                   className="product__img"
                                   width={250}

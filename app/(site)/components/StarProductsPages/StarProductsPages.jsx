@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/sanity";
 import { PortableText } from "@portabletext/react";
 
 // Styles
@@ -62,7 +63,7 @@ const StarProductsPages = ({ starproducts }) => {
                                     <div className={styles.images_starproducts}>
                                       {item.coverImages && (
                                         <Image
-                                          src={item.coverImages}
+                                          src={urlFor(item.coverImages).url()}
                                           className="product__img"
                                           width={300}
                                           height={220}

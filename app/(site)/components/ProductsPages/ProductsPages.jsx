@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 // Styles
 import styles from "./styles.module.scss";
+import { urlFor } from "@/sanity/config/client-config";
 export const dynamic = "force-dynamic";
 
 const ProductsPages = ({ product }) => {
@@ -45,7 +46,7 @@ const ProductsPages = ({ product }) => {
                       >
                         {category.coverImages ? (
                           <Image
-                            src={category.coverImages}
+                            src={urlFor(category.coverImages).url()}
                             alt={`Image de ${category.name}`}
                             className="product__img"
                             width={300}

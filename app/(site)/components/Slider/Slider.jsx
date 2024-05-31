@@ -1,10 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/sanity";
 import Link from "next/link";
-
 // Styles
 import styles from "./styles.module.scss";
+
+export const dynamic = "force-dynamic";
 
 const Slider = ({ allproducts }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -36,7 +38,7 @@ const Slider = ({ allproducts }) => {
             <div key={index} className={styles.carousel__bloc__img}>
               <Link href={`/products/${product.slug}`}>
                 <Image
-                  src={product.coverImages}
+                  src={urlFor(product.coverImages).url()}
                   alt={`Slide ${index}`}
                   className={styles.carousel__img}
                   width={300}

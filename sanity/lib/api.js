@@ -1,11 +1,11 @@
 // api.js
 //import { getCategory, getData } from "@/sanity/lib/client";
-import sanityClient from "./sanity";
+import { client } from "./sanity";
 import { groq } from "next-sanity";
 //import { getProductsByCategories } from "@/sanity/lib/client";
 // import { getCategories } from "@/sanity/lib/client";
 export async function fetchData() {
-  return await sanityClient.fetch(
+  return await client.fetch(
     groq` *[_type == "category"] | order(_createdAt desc){
   _id,
       _createdAt,
@@ -39,7 +39,7 @@ _ref,
 }
 ///////////
 export async function fetchDataProduct() {
-  return await sanityClient.fetch(
+  return await client.fetch(
     groq`*[_type == "product"] | order(_createdAt desc){
   _id,
       _createdAt,
@@ -70,7 +70,7 @@ export async function fetchDataProduct() {
 }
 //////////////////////////
 export async function fetchDataSearchBarSlug(slug) {
-  return await sanityClient.fetch(
+  return await client.fetch(
     groq`*[_type in ["product", "category"] && defined(slug.current)]  {
   _id,
   _createdAt,
@@ -93,7 +93,7 @@ export async function fetchDataSearchBarSlug(slug) {
 }
 ////////
 export async function fetchDataSearchBar() {
-  return await sanityClient.fetch(
+  return await client.fetch(
     groq`*[_type in ['product', 'category'] && (
   _type match "product" + "*" || _type match "category" + "*"
 ) && !(_id in path('drafts.**'))] | order(name asc){

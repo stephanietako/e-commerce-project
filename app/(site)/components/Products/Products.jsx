@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { urlFor } from "@/sanity/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import canaIcon from "@/public/assets/canaleaf.png";
 import CheckboxProducts from "../CheckboxProducts/CheckboxProducts";
@@ -74,14 +75,15 @@ const Products = ({ allproducts }) => {
                                       <div className={styles.bloc_img_products}>
                                         {category.coverImages && (
                                           <Image
-                                            src={category.coverImages}
+                                            src={urlFor(
+                                              category.coverImages
+                                            ).url()}
                                             alt="les fleurs"
                                             className="product__img"
                                             width={150}
                                             height={150}
                                             style={{
                                               objectFit: "cover",
-                                              borderRadius: "30px",
                                             }}
                                           />
                                         )}

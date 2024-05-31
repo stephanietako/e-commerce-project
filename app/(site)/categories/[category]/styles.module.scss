@@ -23,6 +23,18 @@
       display: flex;
       justify-content: center;
       width: 100%;
+      flex-direction: column;
+    }
+
+    .btns_products {
+      display: flex;
+      flex-direction: column;
+
+      .addToBagBtn,
+      .checkoutNowBtn {
+        margin: 0.5rem;
+        width: 18rem;
+      }
     }
 
     .gallery__content {
@@ -57,17 +69,6 @@
       .refProducts_categories {
         color: gray;
         font-size: 8px;
-      }
-
-      .btns_products {
-        display: flex;
-        flex-direction: column;
-
-        .addToBagBtn,
-        .checkoutNowBtn {
-          margin: 0.5rem;
-          width: 18rem;
-        }
       }
     }
   }

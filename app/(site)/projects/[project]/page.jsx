@@ -1,14 +1,14 @@
 import { getProject } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/sanity";
+
 export const dynamic = "force-dynamic";
 
 // ici page individuelle get project
 const Project = async ({ params }) => {
   const slug = params.project;
   const project = await getProject(slug);
-
-  //console.log("PROJECT!!!!", project);
 
   return (
     <div className="project_slug_getproject">
@@ -18,10 +18,10 @@ const Project = async ({ params }) => {
       <div>
         <PortableText value={project.content} />
       </div>
-      ici c est IMAGES
+
       {project.image && (
         <Image
-          src={project.image}
+          src={urlFor(project.image).url()}
           alt={project.name}
           width={250}
           height={100}

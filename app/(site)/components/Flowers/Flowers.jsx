@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { urlFor } from "@/sanity/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import SearchFlowers from "../SearchFlowers/SearchFlowers";
 import canaIcon from "@/public/assets/canaleaf.png";
@@ -65,7 +66,7 @@ const Flowers = ({ allflowers }) => {
                                   <div className={styles.__flowers_images}>
                                     {category.coverImages && (
                                       <Image
-                                        src={category.coverImages}
+                                        src={urlFor(category.coverImages).url()}
                                         alt="les fleurs"
                                         className="product__img"
                                         width={315}

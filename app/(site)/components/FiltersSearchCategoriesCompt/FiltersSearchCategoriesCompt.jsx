@@ -6,6 +6,7 @@ import CategoriesPages from "../CategoriesPages/CategoriesPages";
 
 // Styles
 import styles from "./styles.module.scss";
+
 export const dynamic = "force-dynamic";
 
 const FiltersSearchCategoriesCompt = ({ data }) => {

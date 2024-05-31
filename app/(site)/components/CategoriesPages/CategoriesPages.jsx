@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
+import { urlFor } from "@/sanity/lib/sanity";
 // Styles
 import styles from "./styles.module.scss";
 
@@ -19,7 +20,7 @@ const CategoriesPages = ({ category }) => {
             {category.coverImages ? (
               <>
                 <Image
-                  src={category.coverImages}
+                  src={urlFor(category.coverImages).url()}
                   alt="les fleurs"
                   className="product__img"
                   width={370}

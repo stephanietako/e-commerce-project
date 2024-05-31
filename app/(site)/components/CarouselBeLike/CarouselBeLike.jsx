@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/sanity";
 // Styles
 import styles from "./styles.module.scss";
 
@@ -11,7 +12,7 @@ export const dynamic = "force-dynamic";
 const CarouselBeLike = ({ accessoires }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const itemsToShow = 3;
+  const itemsToShow = 2;
   const totalItems = accessoires.length;
 
   const nextSlide = () => {
@@ -49,11 +50,11 @@ const CarouselBeLike = ({ accessoires }) => {
                 <div className={styles.image_container}>
                   <Link href={`/plus/${item.slug}`}>
                     <Image
-                      src={item.coverImages}
+                      src={urlFor(item.coverImages).url()}
                       alt={`Slide ${index}`}
                       className={styles.carouselBeLike_img}
                       width={150}
-                      height={100}
+                      height={120}
                       loading="lazy"
                       placeholder="blur"
                       blurDataURL="data:image/jpeg..."

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/sanity";
 // Styles
 import styles from "./styles.module.scss";
 
@@ -46,7 +47,7 @@ const Carousel = ({ plusproduct }) => {
                 <div className={styles.image_container}>
                   <Link href={`/plusProducts/${item.slug}`}>
                     <Image
-                      src={item.coverImages}
+                      src={urlFor(item.coverImages).url()}
                       alt={`Slide ${index}`}
                       className={styles.carousel_img}
                       width={350}

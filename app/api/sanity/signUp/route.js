@@ -1,5 +1,5 @@
 import { signUpHandler } from "next-auth-sanity";
 
-import sanityClient from "../../../../sanity/lib/sanity";
+import { client } from "@/sanity/lib/sanity";
 
-export const POST = signUpHandler(sanityClient);
+export const POST = signUpHandler(client);

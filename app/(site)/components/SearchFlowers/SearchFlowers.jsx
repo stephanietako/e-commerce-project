@@ -3,6 +3,7 @@ import { useState } from "react";
 // Styles
 import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
+
 export const dynamic = "force-dynamic";
 
 const SearchFlowers = () => {

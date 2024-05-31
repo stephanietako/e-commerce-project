@@ -1,6 +1,6 @@
 import { getData } from "@/sanity/lib/client";
 import { getDataAccessoires } from "@/sanity/lib/client";
-import { PortableText } from "@portabletext/react";
+// import { PortableText } from "@portabletext/react";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import Button from "../../components/Button/Button";
 // Styles
@@ -44,25 +44,21 @@ const CategoryDetails = async ({ params }) => {
                       REF: {data._id}
                     </span>
                   </div>
-                  <div className={styles.btns_products}>
-                    <Button
-                      text="Ajouter au panier"
-                      className={styles.addToBagBtn}
-                    />
-                    <Button
-                      text="Commander maintenant"
-                      className={styles.checkoutNowBtn}
-                    />
-                  </div>
                 </div>
               </div>
+            </div>
+            <div className={styles.btns_products}>
+              <Button text="Ajouter au panier" className={styles.addToBagBtn} />
+              <Button
+                text="Commander maintenant"
+                className={styles.checkoutNowBtn}
+              />
             </div>
           </div>
         </div>
       ) : (
         <p>Not found</p>
       )}
-
       <div
         className={styles.carouselBelike_box}
         style={{
@@ -70,9 +66,21 @@ const CategoryDetails = async ({ params }) => {
           width: "100%",
           height: "100%",
           justifyContent: "center",
+          // border: "3px solid blue",
         }}
       >
-        <CarouselBeLike accessoires={accessoires} />
+        <div
+          className={styles.carouselBelike_box}
+          style={{
+            display: "flex",
+            width: "50%",
+            height: "100%",
+            justifyContent: "center",
+            // border: "3px solid red",
+          }}
+        >
+          <CarouselBeLike accessoires={accessoires} />
+        </div>
       </div>
     </>
   );

@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { urlFor } from "@/sanity/lib/sanity";
 // Styles
 import styles from "./styles.module.scss";
+
 export const dynamic = "force-dynamic";
 
 const PlusProductsPages = ({ plusproduct }) => {
@@ -39,7 +41,7 @@ const PlusProductsPages = ({ plusproduct }) => {
                       >
                         {plus.coverImages ? (
                           <Image
-                            src={plus.coverImages}
+                            src={urlFor(plus.coverImages).url()}
                             alt={`Image de ${plus.name}`}
                             className="product__img"
                             width={300}

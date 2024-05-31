@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { urlFor } from "@/sanity/config/client-config";
+import { urlFor } from "@/sanity/lib/sanity";
 // Styles
 import styles from "./styles.module.scss";
 
-const ImageGallery = ({ images, productData }) => {
+const ImageGallery = ({ images }) => {
   const [bigImage, setBigImage] = useState(images[0]);
   const [showLoupe, setShowLoupe] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });

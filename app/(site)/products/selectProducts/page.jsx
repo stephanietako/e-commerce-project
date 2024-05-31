@@ -1,4 +1,3 @@
-import Products from "../../components/Products/Products";
 import { fetchDataProduct } from "@/sanity/lib/api";
 
 // Styles

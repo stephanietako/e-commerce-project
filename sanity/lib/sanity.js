@@ -1,11 +1,21 @@
-import { createClient } from "next-sanity";
+// ./sanity/index.js
 
-const sanityClient = createClient({
+import { createClient } from "next-sanity";
+import imageUrlBuilder from "@sanity/image-url";
+
+export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-  useCdn: process.env.NODE_ENV === "production",
+  useCdn: false,
   token: process.env.NEXT_SANITY_SECRET_TOKEN,
-  apiVersion: "2024-01-05",
+  apiVersion: "2023-05-03",
 });
 
-export default sanityClient;
+const builder = imageUrlBuilder(client);
+
+export function urlFor(source) {
+  return builder.image(source);
+}
+
+// Ajoutez ceci pour résoudre l'erreur
+export default client;

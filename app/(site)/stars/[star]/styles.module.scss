@@ -42,6 +42,11 @@
   .btns_products {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+
+    .addToBagBtn,
+    .checkoutNowBtn {
+      margin: 0.5rem;
+      width: 18rem;
+    }
   }
 }

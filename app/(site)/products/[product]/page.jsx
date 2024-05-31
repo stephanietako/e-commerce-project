@@ -2,6 +2,7 @@ import { getDataProduct } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/sanity";
 
 export const dynamic = "force-dynamic";
 
@@ -100,7 +101,7 @@ const ProductsDetails = async ({ params }) => {
                       >
                         {category.coverImages ? (
                           <Image
-                            src={category.coverImages}
+                            src={urlFor(category.coverImages).url()}
                             alt="les fleurs"
                             className="product__img"
                             width={450}

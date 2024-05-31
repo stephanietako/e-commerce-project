@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { urlFor } from "@/sanity/lib/sanity";
 // import { getProductsByCategories } from "@/sanity/lib/client";
 export const dynamic = "force-dynamic";
 // AFFICHAGE
@@ -72,7 +73,7 @@ const Categories = ({ category }) => {
                         {categories.coverImages ? (
                           <>
                             <Image
-                              src={categories.coverImages}
+                              src={urlFor(categories.coverImages).url()}
                               alt="les fleurs"
                               className="product__img"
                               width={200}

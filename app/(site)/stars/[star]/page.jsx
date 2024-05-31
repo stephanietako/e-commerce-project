@@ -1,9 +1,9 @@
 import { getDataStar } from "@/sanity/lib/client";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import Button from "../../components/Button/Button";
-
 // Styles
 import styles from "./styles.module.scss";
+
 export const dynamic = "force-dynamic";
 
 const StarDetails = async ({ params }) => {
