@@ -120,7 +120,7 @@ _id,
     "slug": slug.current,
          "coverImages": images[0].asset->url,
            content, 
-              
+           "body": pt::text(body),
   "plus": *[_type == 'plus' && references(^._id)][0...100] | order(_createdAt desc) {
     _id,
     _createdAt,
@@ -132,6 +132,7 @@ _id,
      "coverImages": images[0].asset->url,
     "images": images[0].asset->url,
     content,
+    "body": pt::text(body),
       plus,
        "ref": plus[]{
 _ref,
@@ -157,6 +158,7 @@ export async function getDataPlus(slug) {
       name,
       "slug": slug.current,
       content,
+   "body": pt::text(body),
       type,
     }`,
     { slug },
@@ -178,7 +180,6 @@ export async function getDataStarProductsPages() {
     "coverImages": images[0].asset->url,
    body,
     content, 
-    
   "stars": *[_type == 'star' && references(^._id)][0...1]  {
     _id,
      _createdAt,
@@ -190,7 +191,7 @@ export async function getDataStarProductsPages() {
      "coverImages": images[0].asset->url,
     "images": images[0].asset->url,
     content,
-      
+  "body": pt::text(body),
   }
     }`,
     {
@@ -209,7 +210,7 @@ _id,
     "slug": slug.current,
          "coverImages": images[0].asset->url,
            content, 
-             
+             "body": pt::text(body),
   "stars": *[_type == 'star' && references(^._id)][0...100] | order(_createdAt desc) {
     _id,
     _createdAt,
@@ -221,7 +222,7 @@ _id,
      "coverImages": images[0].asset->url,
     "images": images[0].asset->url,
     content,
-      
+      "body": pt::text(body),
   }
 }`,
     { slug },
@@ -243,6 +244,7 @@ export async function getDataStar(slug) {
       name,
       "slug": slug.current,
       content,
+        "body": pt::text(body),
       type,
     }`,
     { slug },

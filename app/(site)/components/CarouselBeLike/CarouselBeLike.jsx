@@ -53,12 +53,12 @@ const CarouselBeLike = ({ accessoires }) => {
                       src={urlFor(item.coverImages).url()}
                       alt={`Slide ${index}`}
                       className={styles.carouselBeLike_img}
-                      width={150}
-                      height={120}
+                      width={250}
+                      height={220}
                       loading="lazy"
                       placeholder="blur"
                       blurDataURL="data:image/jpeg..."
-                      style={{ objectFit: "cover" }}
+                      style={{ objectFit: "contain" }}
                     />
                   </Link>
                 </div>

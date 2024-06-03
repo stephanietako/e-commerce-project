@@ -3,8 +3,8 @@
  */
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
-import { schema } from "./schema";
 import { schemaTypes } from "./schema";
+import { visionTool } from "@sanity/vision";
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from "./sanity/env";
 
@@ -14,7 +14,7 @@ export default defineConfig({
   projectId,
   dataset,
   apiVersion,
-  plugins: [structureTool()],
+  plugins: [structureTool(), visionTool()],
   schema: {
     types: schemaTypes,
   },

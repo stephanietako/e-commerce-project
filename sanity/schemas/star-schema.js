@@ -11,6 +11,11 @@ const star = {
       of: [{ type: "block" }],
     },
     {
+      name: "body",
+      title: "Body",
+      type: "blockContent",
+    },
+    {
       name: "images",
       title: "Star Images",
       type: "array",

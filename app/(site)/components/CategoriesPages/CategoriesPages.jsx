@@ -19,19 +19,21 @@ const CategoriesPages = ({ category }) => {
           <div className={styles.images}>
             {category.coverImages ? (
               <>
-                <Image
-                  src={urlFor(category.coverImages).url()}
-                  alt="les fleurs"
-                  className="product__img"
-                  width={370}
-                  height={250}
-                  style={{
-                    objectFit: "cover",
-                    borderRadius: "17px",
-                    padding: "0.5rem",
-                    // justifyContent: "center",
-                  }}
-                />
+                <Link href={`/categories/${category.slug}`}>
+                  <Image
+                    src={urlFor(category.coverImages).url()}
+                    alt="les fleurs"
+                    className="product__img"
+                    width={370}
+                    height={250}
+                    style={{
+                      objectFit: "cover",
+                      borderRadius: "17px",
+                      padding: "0.5rem",
+                      cursor: "pointer", // Ajoutez un pointeur pour indiquer que l'image est cliquable
+                    }}
+                  />
+                </Link>
               </>
             ) : (
               <p>No image available</p>

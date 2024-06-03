@@ -59,26 +59,8 @@ const CategoryDetails = async ({ params }) => {
       ) : (
         <p>Not found</p>
       )}
-      <div
-        className={styles.carouselBelike_box}
-        style={{
-          display: "flex",
-          width: "100%",
-          height: "100%",
-          justifyContent: "center",
-          // border: "3px solid blue",
-        }}
-      >
-        <div
-          className={styles.carouselBelike_box}
-          style={{
-            display: "flex",
-            width: "50%",
-            height: "100%",
-            justifyContent: "center",
-            // border: "3px solid red",
-          }}
-        >
+      <div className={styles.carouselBelike_container}>
+        <div className={styles.carouselBelike_box}>
           <CarouselBeLike accessoires={accessoires} />
         </div>
       </div>

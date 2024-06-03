@@ -17,5 +17,4 @@ export function urlFor(source) {
   return builder.image(source);
 }
 
-// Ajoutez ceci pour résoudre l'erreur
 export default client;

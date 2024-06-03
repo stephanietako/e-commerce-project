@@ -17,6 +17,11 @@ const plus = {
       of: [{ type: "block" }],
     },
     {
+      name: "body",
+      title: "Body",
+      type: "blockContent",
+    },
+    {
       name: "images",
       title: "Plus Images",
       type: "array",
