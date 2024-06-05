@@ -46,8 +46,8 @@ const plus = {
       initialValue: "basic",
     },
     {
-      name: "numberOfOrder",
-      title: "Number of Order",
+      name: "quantity",
+      title: "Quantity",
       type: "number",
       validation: (Rule) => Rule.min(1),
       initialValue: 1,

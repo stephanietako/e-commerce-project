@@ -29,8 +29,8 @@ const star = {
         Rule.required().min(1).error("Minimum of 1 image required"),
     },
     {
-      name: "numberOfOrder",
-      title: "Number of Order",
+      name: "quantity",
+      title: "Quantity",
       type: "number",
       validation: (Rule) => Rule.min(1),
       initialValue: 1,

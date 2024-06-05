@@ -56,7 +56,6 @@ const ByCategory = ({ bycategory }) => {
                                   style={{
                                     display: "block",
                                     objectFit: "contain",
-                                    borderRadius: "30px",
                                   }}
                                 />
                               )}

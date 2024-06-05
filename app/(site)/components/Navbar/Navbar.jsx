@@ -3,15 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-
 // Styles
 import styles from "./styles.module.scss";
 import logo from "@/public/assets/vibes.png";
-import cart from "@/public/assets/cart.png";
-import CartBtn from "../CartBtn/Cartbtn";
+// import cart from "@/public/assets/cart.png";
+// import CartBtn from "../CartBtn/Cartbtn";
 import AccountProfil from "../AccountProfil/AccountProfil";
+// import { useSession } from "next-auth/react";
+import useCartStore from "@/cartStore";
+import { FaShoppingCart } from "react-icons/fa";
 // import Contact from "../Contact/Contact";
-
+import { MdLocalShipping } from "react-icons/md";
 const navLinks = [
   { name: "Guide du CBD", href: "/" },
   { name: "Qui sommes-nous", href: "/" },
@@ -19,6 +21,9 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  // const { data: session } = useSession();
+  //console.log("SESSION !!!!", session);
+  const totaItems = useCartStore((state) => state.totaItems);
   const pathname = usePathname();
   return (
     <>
@@ -63,9 +68,27 @@ const Navbar = () => {
               <AccountProfil />
             </div>
             <div className={styles.btn_cart}>
-              <CartBtn img={cart} />
+              {/* <CartBtn img={cart} /> */}
+              <FaShoppingCart
+                style={{
+                  width: "34px",
+                  height: "34px",
+                  padding: "4px",
+                }}
+              />
+              <div className={styles.btn_cart__items_number}>1</div>
             </div>
           </span>
+          <div className={styles.btn_cart__items_delivery}>
+            {" "}
+            <MdLocalShipping
+              style={{
+                width: "34px",
+                height: "34px",
+                padding: "4px",
+              }}
+            />
+          </div>
         </ul>
       </nav>
     </>
