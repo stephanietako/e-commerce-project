@@ -24,6 +24,10 @@
         border: 1px solid #ddd; // Bordure autour des cellules
         padding: 8px;
       }
+      .product_name {
+        display: flex;
+        padding: 4px;
+      }
       .price {
         font-weight: bold;
       }

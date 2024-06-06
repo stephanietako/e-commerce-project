@@ -47,6 +47,7 @@ const ImageGallery = ({ images }) => {
           placeholder="blur"
           blurDataURL="data:image/jpeg..."
           className={styles.img}
+          style={{ width: "auto", height: "auto" }}
         />
         {showLoupe && (
           <div

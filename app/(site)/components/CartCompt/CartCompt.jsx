@@ -2,7 +2,7 @@
 
 import React from "react";
 import { FaTrash } from "react-icons/fa";
-// import { urlFor } from "@/sanity/lib/sanity";
+//import { urlFor } from "@/sanity/lib/sanity";
 import Image from "next/image";
 import Button from "../../components/Button/Button";
 import useCartStore from "@/cartStore";
@@ -18,24 +18,7 @@ const CartCompt = () => {
   const handleRemoveFromCart = (productId) => {
     removeFromCart(productId);
   };
-  // const product = [
-  //   {
-  //     id: 1,
-  //     name: "Gandalf",
-  //     price: 18,
-  //     image: "/assets/background.webp",
-  //     quantity: 1,
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Charas",
-  //     price: 18,
-  //     image: "/assets/background.webp",
-  //     quantity: 2,
-  //   },
-  // ];
 
-  // const total = product.reduce((a, b) => a + b.price * b.quantity, 0);
   return (
     <>
       <div className={styles.cartCompt_container}>
@@ -52,30 +35,28 @@ const CartCompt = () => {
             </thead>
             <tbody>
               {cart.map((item) => (
-                <tr key={item.id} className={styles.tr}>
+                <tr key={item._id} className={styles.tr}>
                   <td className={styles.td}>
-                    <span>
-                      {" "}
+                    {item.coverImages ? (
                       <Image
-                        //src={urlFor(item.image).url()}
-                        src={item.image}
+                        src={item.coverImages}
                         alt="les fleurs"
                         className="product__img"
-                        width={50}
-                        height={50}
+                        width={70}
+                        height={40}
                         style={{
-                          display: "block",
                           objectFit: "contain",
                         }}
                       />
-                    </span>
-                    <span> {item.name}</span>
+                    ) : (
+                      <p>No image available</p>
+                    )}
+                    <span className={styles.product_name}> {item.name}</span>
                   </td>
                   <td className={styles.td}>{item.quantity}</td>
                   <td className={`${styles.td} ${styles.price}`}>
                     {item.price}€
                   </td>
-
                   <td className={styles.td}>
                     <FaTrash />
                   </td>
