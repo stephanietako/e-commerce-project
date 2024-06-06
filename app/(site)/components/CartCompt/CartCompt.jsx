@@ -2,6 +2,7 @@
 
 import React from "react";
 import { FaTrash } from "react-icons/fa";
+import Link from "next/link";
 //import { urlFor } from "@/sanity/lib/sanity";
 import Image from "next/image";
 import Button from "../../components/Button/Button";
@@ -16,6 +17,7 @@ const CartCompt = () => {
   const cartTotal = useCartStore((state) => state.cartTotal);
 
   const handleRemoveFromCart = (productId) => {
+    console.log("Removing product with ID:", productId);
     removeFromCart(productId);
   };
 
@@ -58,7 +60,14 @@ const CartCompt = () => {
                     {item.price}€
                   </td>
                   <td className={styles.td}>
-                    <FaTrash />
+                    <FaTrash
+                      onClick={() => {
+                        handleRemoveFromCart(item._id);
+                      }}
+                      style={{
+                        cursor: "pointer",
+                      }}
+                    />
                   </td>
                 </tr>
               ))}
@@ -72,10 +81,12 @@ const CartCompt = () => {
               text="Acheter maintenant"
               className={styles.checkoutNowBtn}
             />
-            <Button
-              text="Continuer vos achats"
-              className={styles.returnShopping}
-            />
+            <Link className="" href="/">
+              <Button
+                text="Continuer vos achats"
+                className={styles.returnShopping}
+              />
+            </Link>
           </div>
         </div>
       </div>
