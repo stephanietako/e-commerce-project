@@ -1,4 +1,4 @@
-import { fetchDataProduct } from "@/sanity/lib/api";
+import { fetchDataProduct } from "@/sanity/lib/apis";
 import FiltersProductsCompt from "../../components/FiltersProductsCompt/FiltersProductsCompt";
 
 const FiltersProducts = async ({ searchQuery }) => {

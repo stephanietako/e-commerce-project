@@ -1,5 +1,3 @@
-// api.js
-//import { getCategory, getData } from "@/sanity/lib/client";
 import { client } from "./sanity";
 import { groq } from "next-sanity";
 //import { getProductsByCategories } from "@/sanity/lib/client";

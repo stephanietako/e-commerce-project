@@ -1,4 +1,4 @@
-import { fetchDataProduct } from "@/sanity/lib/api";
+import { fetchDataProduct } from "@/sanity/lib/apis";
 
 // Styles
 import styles from "./styles.module.scss";

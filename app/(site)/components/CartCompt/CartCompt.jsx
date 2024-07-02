@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import Link from "next/link";
-//import { urlFor } from "@/sanity/lib/sanity";
 import Image from "next/image";
 import Button from "../../components/Button/Button";
 import useCartStore from "@/cartStore";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 // Styles
 import styles from "./styles.module.scss";
 
@@ -15,10 +15,58 @@ const CartCompt = () => {
   const removeFromCart = useCartStore((state) => state.removeFromCart);
   const totalItems = useCartStore((state) => state.totalItems);
   const cartTotal = useCartStore((state) => state.cartTotal);
+  const [loading, setLoading] = useState(false);
+
+  const stripe = useStripe();
+  const elements = useElements();
 
   const handleRemoveFromCart = (productId) => {
     console.log("Removing product with ID:", productId);
     removeFromCart(productId);
+  };
+
+  const onSubmit = async (e) => {
+    const cardElement = elements?.getElement("card");
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      if (!stripe || !elements) {
+        return;
+      }
+
+      const response = await fetch("/api/stripe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: {
+            amount: cartTotal.toFixed(0),
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+
+      const res = await stripe.confirmCardPayment(data?.intent, {
+        payment_method: {
+          card: cardElement,
+        },
+      });
+
+      const status = res?.paymentIntent?.status;
+
+      console.log(status);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -75,12 +123,28 @@ const CartCompt = () => {
           </table>
           <div className={styles.bottom_bar}></div>{" "}
           {/* Ajout de la barre grise */}
+          {/* section total */}
           <div className={styles.total}>Total: {cartTotal.toFixed(2)}€</div>
+          <div className={styles.credit_card__bloc}>
+            {cartTotal > 0 && (
+              <>
+                <CardElement />
+              </>
+            )}
+          </div>
           <div className={styles.btns_products}>
-            <Button
-              text="Acheter maintenant"
-              className={styles.checkoutNowBtn}
-            />
+            {cartTotal > 0 && (
+              <>
+                <Button
+                  text="Acheter maintenant"
+                  className={styles.checkoutNowBtn}
+                  onClick={onSubmit}
+                >
+                  {loading ? "Loading..." : "Acheter maintenant"}
+                </Button>
+              </>
+            )}
+
             <Link className="" href="/">
               <Button
                 text="Continuer vos achats"

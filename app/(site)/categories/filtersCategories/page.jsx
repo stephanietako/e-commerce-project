@@ -1,4 +1,4 @@
-import { fetchData } from "@/sanity/lib/api";
+import { fetchData } from "@/sanity/lib/apis";
 import FiltersCategoriesCompt from "../../components/FiltersCategoriesCompt/FiltersCategoriesCompt";
 export const dynamic = "force-dynamic";
 const FiltersCategories = async ({ searchQuery }) => {

@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import useSWR from "swr";
 import FlipCard from "../FlipCard/FlipCard";
-import { fetchDataProduct } from "@/sanity/lib/api";
+import { fetchDataProduct } from "@/sanity/lib/apis";
 import canaIcon from "@/public/assets/canaleaf.png";
 // Styles
 import styles from "./styles.module.scss";

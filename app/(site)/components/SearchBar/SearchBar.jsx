@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import { slugWithType } from "@/app/helpers/slugWithType";
-import { fetchDataSearchBarSlug } from "@/sanity/lib/api";
+import { fetchDataSearchBarSlug } from "@/sanity/lib/apis";
 
 import styles from "./styles.module.scss";
 
