@@ -10,6 +10,7 @@ import account from "./sanity/schemas/account-schema";
 import verificationToken from "./sanity/schemas/verificationToken-schema";
 import plusProduct from "./sanity/schemas/plusProduct-schema";
 import star from "./sanity/schemas/star-schema";
+import order from "./sanity/schemas/order-schema";
 
 export const schemaTypes = [
   project,
@@ -23,5 +24,6 @@ export const schemaTypes = [
   plusProduct,
   user,
   account,
+  order,
   verificationToken,
 ];

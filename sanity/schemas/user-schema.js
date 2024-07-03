@@ -1,53 +1,36 @@
 const user = {
   name: "user",
-  title: "user",
+  title: "Users",
   type: "document",
   fields: [
-    {
-      name: "isAdmin",
-      title: "Is Admin",
-      type: "boolean",
-      description: "Check if the user is admin",
-      initialValue: false,
-      validation: (Rule) => Rule.required(),
-      // readOnly: true,
-      // hidden: true,
-    },
     {
       name: "name",
       title: "Name",
       type: "string",
-      description: "Name of the user",
-      readOnly: true,
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "image",
-      title: "image",
-      type: "url",
-    },
-    {
-      name: "password",
-      type: "string",
-      hidden: true,
-    },
-    {
       name: "email",
-      type: "string",
       title: "Email",
+      type: "string",
+      validation: (Rule) =>
+        Rule.required()
+          .email({ message: "Must be a valid email address" })
+          .unique(),
     },
     {
-      name: "emailVerified",
+      name: "createdAt",
+      title: "Created At",
       type: "datetime",
-      hidden: true,
-    },
-    {
-      name: "about",
-      title: "About",
-      type: "text",
-      description: "Description about the user",
+      options: {
+        dateFormat: "YYYY-MM-DDTHH:mm:ssZ",
+      },
+      readOnly: true,
     },
   ],
+  initialValue: {
+    createdAt: new Date().toISOString(),
+  },
 };
 
 export default user;
