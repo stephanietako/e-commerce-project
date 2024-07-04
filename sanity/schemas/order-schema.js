@@ -27,7 +27,6 @@ const order = {
       type: "number",
       validation: (Rule) => Rule.required().min(0),
     },
-
     {
       name: "createdAt",
       title: "Created At",
