@@ -4,9 +4,8 @@ const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   useCdn: false,
-  //   token: process.env.NEXT_PUBLIC_SANITY_SECRET_TOKEN,
-  token:
-    "skjcVMZaYg6nWT9wZvkcQVB6nmJI4Ifd5Lv6eoMxz9W0P1XJEPkykpJR9CgIkVxmqTRQY3Y32BdcxvjyunTKpDoT2YEKvae3Pb1QKTj8Uyhxycv11dlImWG4oUtNHeKZZuMLOI9X1z7ek8A2dSyxlWYY3UuXC7BbxQauDn0Yg6L9fPxyipWu",
+  token: process.env.NEXT_PUBLIC_SANITY_SECRET_TOKEN,
+
   apiVersion: "2023-05-03",
 });
 

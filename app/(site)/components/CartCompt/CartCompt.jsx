@@ -70,8 +70,8 @@ const CartCompt = () => {
       if (status === "succeeded") {
         setLoading(false);
         console.log("success");
-        const email = session?.email;
-        const res = await createOrder(email, cart);
+        const email = session.user?.email;
+        const res = await createOrder(email, cart, session);
         console.log("email !!!!!!!:", session);
 
         console.log("cart !!!!!!!!:", cart);
