@@ -17,14 +17,10 @@ const nextConfig = {
         hostname: "avatars.githubusercontent.com",
         port: "",
       },
-
-      // {
-      //   protocol: "https",
-      //   hostname: "assets.example.com",
-      //   port: "",
-      //   pathname: "/Volumes/T7/ECOMMERCE-PROJECT/public/assets/vibes.png",
-      // },
     ],
+  },
+  env: {
+    token: process.env.NEXT_SANITY_SECRET_TOKEN,
   },
 };
 

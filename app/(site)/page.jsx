@@ -10,7 +10,6 @@ import Banner from "./components/Banner/Banner";
 import Slider from "./components/Slider/Slider";
 import Carousel from "./components/Carousel/Carousel";
 import HR from "./components/HR/HR";
-// import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 const Home = async () => {
   const starproducts = await getDataStarProductsPages();

@@ -4,6 +4,9 @@ import React, { useState, useEffect } from "react";
 import { getDataStar } from "@/sanity/lib/client";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import Button from "../../components/Button/Button";
+import { toast } from "react-hot-toast";
+import useCartStore from "@/cartStore"; // Importer le store du panier
+// Styles
 import styles from "./styles.module.scss";
 
 export const dynamic = "force-dynamic";
@@ -12,6 +15,7 @@ const StarDetails = ({ params }) => {
   const [data, setData] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
+  const addToCart = useCartStore((state) => state.addToCart); // Utiliser le store du panier
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +37,11 @@ const StarDetails = ({ params }) => {
   const handleQuantityChange = (event) => {
     const qty = parseInt(event.target.value);
     setQuantity(qty > 0 ? qty : 1); // Ensure quantity is at least 1
+  };
+
+  const handleAddToCart = () => {
+    addToCart({ product: data, quantity: quantity });
+    toast.success("Added to cart");
   };
 
   return (
@@ -87,7 +96,11 @@ const StarDetails = ({ params }) => {
               </div>
             </div>
             <div className={styles.btns_products}>
-              <Button text="Ajouter au panier" className={styles.addToBagBtn} />
+              <Button
+                text="Ajouter au panier"
+                onClick={handleAddToCart}
+                className={styles.addToBagBtn}
+              />
               <Button
                 text="Commander maintenant"
                 className={styles.checkoutNowBtn}

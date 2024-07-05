@@ -8,6 +8,7 @@ import CarouselBeLike from "../../components/CarouselBeLike/CarouselBeLike";
 import { toast } from "react-hot-toast";
 // Styles
 import styles from "./styles.module.scss";
+export const dynamic = "force-dynamic";
 
 const Details = ({ data, accessoires }) => {
   const [quantity, setQuantity] = useState(1);

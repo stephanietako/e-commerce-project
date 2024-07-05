@@ -1,36 +1,44 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { useSession } from "next-auth/react"; // Assurez-vous que cette importation est correcte
+import React, { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
 import styles from "./styles.module.scss";
-import { getOrdersByEmail } from "@/sanity/lib/apis";
+import { getOrdersByEmail } from "@/sanity/order-utils";
 
 const OrderCompt = () => {
-  const { data: session, status } = useSession(); // Utiliser useSession pour obtenir l'état de la session
+  const { data: session, status } = useSession();
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchOrders = async () => {
+    const fetchData = async () => {
       if (session?.user?.email) {
         try {
-          const fetchedOrders = await getOrdersByEmail(session.user.email); // Utiliser session.user.email pour récupérer les commandes par email
+          const fetchedOrders = await getOrdersByEmail(session.user.email);
           setOrders(fetchedOrders);
         } catch (error) {
           console.error("Error fetching orders:", error);
-          setOrders([]); // Gérer les erreurs de manière appropriée
+        } finally {
+          setLoading(false);
         }
+      } else {
+        setLoading(false);
       }
     };
 
-    fetchOrders();
+    fetchData();
   }, [session]);
 
-  if (status === "loading") {
+  if (loading) {
     return <div>Loading...</div>;
   }
 
-  if (!session) {
-    return <div>Not logged in</div>;
+  if (status !== "authenticated") {
+    return (
+      <div className={styles.sign_in_for_order}>
+        Veuillez vous connecter pour faire vos achats
+      </div>
+    );
   }
 
   return (
@@ -38,34 +46,41 @@ const OrderCompt = () => {
       <div className={styles.orderCompt_container}>
         <div className={styles.boxone}>
           <h1 className={styles.boxtone_header}>Vos Achats</h1>
+
           <table className={styles.table}>
             <thead>
               <tr className={styles.tr}>
-                <th className={styles.th}>Product</th>
+                <th className={styles.th}>Produit</th>
                 <th className={styles.th}>Email</th>
-                <th className={styles.th}>Quantity</th>
-                <th className={styles.th}>Paid</th>
-                <th className={styles.th}>Status</th>
+                <th className={styles.th}>Quantité</th>
+                <th className={styles.th}>Payé</th>
+                <th className={styles.th}>Statut</th>
               </tr>
             </thead>
             <tbody>
-              {orders.map((order) => (
+              {orders?.map((order) => (
                 <tr key={order._id} className={styles.tr}>
                   <td className={styles.td}>
-                    <span> {order.name}</span>
+                    <span>{order.name}</span>
                   </td>
                   <td className={styles.td}>
-                    <span> {order.email}</span>
+                    <span>{order.email}</span>
                   </td>
                   <td className={styles.td}>{order.qty}</td>
-                  <td className={`${styles.td} ${styles.paid}`}>
-                    {order.price}€
+                  <td className={styles.td}>
+                    {order.paid ? (
+                      <span className={styles.paid}>Montant payé</span>
+                    ) : (
+                      <span className={styles.not_paid}>Montant non payé</span>
+                    )}
                   </td>
                   <td className={styles.td}>
                     {order.delivered ? (
-                      <span className="delivered">Delivered</span>
+                      <span className={styles.delivered}>Livré</span>
                     ) : (
-                      <span className="intransit">In transit</span>
+                      <span className={styles.intransit}>
+                        Livraison en cours
+                      </span>
                     )}
                   </td>
                 </tr>

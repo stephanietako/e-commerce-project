@@ -17,7 +17,6 @@
     width: 100%;
     height: auto;
     align-items: center;
-
     justify-content: center;
     position: absolute;
     top: 0;
@@ -26,7 +25,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
     width: 100%;
     height: 12rem;
     position: relative;
@@ -34,9 +32,7 @@
 
     li {
       display: flex;
-
       align-items: center;
-      /* justify-content: space-around; */
       padding-right: 1rem;
       z-index: 3;
     }
@@ -55,7 +51,6 @@
       width: auto;
       height: auto;
       color: gray;
-      /* justify-content: flex-end; */
       align-items: flex-end;
       z-index: 3;
       align-content: center;
@@ -91,5 +86,7 @@
     height: 37px;
     background-color: #fff;
     color: gray;
+    z-index: 3;
+    cursor: pointer;
   }
 }

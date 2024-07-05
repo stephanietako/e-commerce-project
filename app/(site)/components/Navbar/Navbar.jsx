@@ -89,7 +89,8 @@ const Navbar = () => {
                 style={{
                   width: "34px",
                   height: "34px",
-                  padding: "4px",
+                  padding: "2px",
+                  cursor: "pointer",
                 }}
               />
             </Link>
