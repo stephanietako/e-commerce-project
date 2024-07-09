@@ -1,20 +1,18 @@
-"use client";
-
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import userCircleImage from "@/public/assets/user-circle.png";
 import Image from "next/image";
-// Styles
+import { FaUserCircle } from "react-icons/fa";
 import styles from "./styles.module.scss";
 
 const AccountProfil = () => {
   const { data: session } = useSession();
+
   return (
     <div className={styles.header_container}>
       <ul>
         <li className={styles.__session_users}>
           {session?.user ? (
-            <Link href={`/users/${session.user.id}`}>
+            <Link href={`/user/${session.user.id}`}>
               {session.user.image ? (
                 <div className={styles.profil_user_header}>
                   <Image
@@ -26,24 +24,12 @@ const AccountProfil = () => {
                   />
                 </div>
               ) : (
-                <Image
-                  src={userCircleImage}
-                  alt="User Circle"
-                  className={styles.icon_image_user_identification_page}
-                  width={40}
-                  height={40}
-                />
+                <FaUserCircle className="cursor-pointer" />
               )}
             </Link>
           ) : (
             <Link href="/auth">
-              <Image
-                src={userCircleImage}
-                alt="User Circle"
-                className={styles.icon_image_user}
-                width={40}
-                height={40}
-              />
+              <FaUserCircle className="cursor-pointer" />
             </Link>
           )}
         </li>

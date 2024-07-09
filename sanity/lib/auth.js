@@ -31,7 +31,8 @@ export const authOptions = {
       const id = token._id;
       const userIdObj = await client.fetch(
         `*[_type == "user" && email == $email][0] {
-        _id
+        _id,
+      _createdAt,
       }`,
         { email: userEmail }
       );

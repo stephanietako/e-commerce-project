@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: "2024-06-20",
+});
 
 export async function POST(req) {
   try {
@@ -16,7 +18,7 @@ export async function POST(req) {
 
     // Créer une intention de paiement avec Stripe
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: Number(amount) * 100, // Montant en centimes (EUR)
+      amount: Number(amount),
       currency: "EUR",
     });
 
