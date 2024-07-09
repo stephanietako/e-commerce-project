@@ -4,8 +4,7 @@ const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   useCdn: false,
-  token:
-    "sknXB5IpQWIIJaRUGKo8Hg6xNKbVzgHvn7eHfxXwWSZmpwDXeRD5afEQcBbmD90lsieqReZ6yDcvf2idQnGrufLJQNmNNBR3y25L1EaFqA68etGomqHQlWRyKz8cCRS863nlg39d7nF6uV6ebI6ewHFPEGcYElSkYftMbmvyybM8805C7FQv",
+  token: process.env.NEXT_SANITY_SECRET_TOKEN,
 
   apiVersion: "2023-05-03",
 });
@@ -13,13 +12,24 @@ const client = createClient({
 // Function to get orders by email and sort by the latest
 export async function getOrdersByEmail(email) {
   try {
+    //Chanvria serum huile de chanvre bio
+    //HjQFmp56p5i3GVxCjAX827
     // Query orders from Sanity with a GROQ query
     const orders = await client.fetch(
-      groq`*[_type == 'order' && email == $email] | order(createdAt desc)`,
+      groq`*[_type == 'order' && email == $email] {
+        _id,
+        name,
+        qty,
+        price,
+        paid,
+        delivered,
+        email,
+        createdAt
+      } | order(createdAt desc)`,
       { email },
       {
         next: {
-          revalidate: 1, //revalidate every 30 days
+          revalidate: 1, // revalidate every 30 days
         },
       }
     );

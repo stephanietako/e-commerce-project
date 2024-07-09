@@ -6,8 +6,6 @@ import { usePathname } from "next/navigation";
 // Styles
 import styles from "./styles.module.scss";
 import logo from "@/public/assets/vibes.png";
-// import cart from "@/public/assets/cart.png";
-// import CartBtn from "../CartBtn/Cartbtn";
 import AccountProfil from "../AccountProfil/AccountProfil";
 // import { useSession } from "next-auth/react";
 import useCartStore from "@/cartStore";
@@ -41,8 +39,8 @@ const Navbar = () => {
                 style={{
                   display: "block",
                   objectFit: "contain",
-                  // width: "auto",
-                  // height: "auto",
+                  width: "auto",
+                  height: "auto",
                 }}
               />
             </a>

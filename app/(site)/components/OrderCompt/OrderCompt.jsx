@@ -9,13 +9,28 @@ const OrderCompt = () => {
   const { data: session, status } = useSession();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       if (session?.user?.email) {
         try {
           const fetchedOrders = await getOrdersByEmail(session.user.email);
-          setOrders(fetchedOrders);
+
+          // Vérification et traitement des valeurs NaN
+          const ordersWithValidAmount = fetchedOrders.map((order) => ({
+            ...order,
+            amount: parseFloat(order.amount) || 0, // Convertit en nombre ou met 0 si NaN
+          }));
+
+          setOrders(ordersWithValidAmount);
+
+          // Calculer le montant total
+          const total = ordersWithValidAmount.reduce(
+            (acc, order) => acc + order.price * order.qty,
+            0
+          );
+          setTotalAmount(total);
         } catch (error) {
           console.error("Error fetching orders:", error);
         } finally {
@@ -45,8 +60,10 @@ const OrderCompt = () => {
     <>
       <div className={styles.orderCompt_container}>
         <div className={styles.boxone}>
-          <h1 className={styles.boxtone_header}>Vos Achats</h1>
-
+          <h1 className={styles.boxone_header}>Vos Achats</h1>
+          <div className={styles.totalAmount}>
+            Montant total des commandes : {totalAmount.toFixed(2)}€
+          </div>
           <table className={styles.table}>
             <thead>
               <tr className={styles.tr}>
@@ -55,6 +72,7 @@ const OrderCompt = () => {
                 <th className={styles.th}>Quantité</th>
                 <th className={styles.th}>Payé</th>
                 <th className={styles.th}>Statut</th>
+                <th className={styles.th}>Prix Total</th>
               </tr>
             </thead>
             <tbody>
@@ -82,6 +100,9 @@ const OrderCompt = () => {
                         Livraison en cours
                       </span>
                     )}
+                  </td>
+                  <td className={styles.td}>
+                    <span>{(order.price * order.qty).toFixed(2)}€</span>
                   </td>
                 </tr>
               ))}

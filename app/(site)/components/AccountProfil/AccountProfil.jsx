@@ -24,12 +24,28 @@ const AccountProfil = () => {
                   />
                 </div>
               ) : (
-                <FaUserCircle className="cursor-pointer" />
+                <FaUserCircle
+                  className="user_icon"
+                  style={{
+                    width: "34px",
+                    height: "34px",
+                    padding: "4px",
+                    cursor: "pointer",
+                  }}
+                />
               )}
             </Link>
           ) : (
             <Link href="/auth">
-              <FaUserCircle className="cursor-pointer" />
+              <FaUserCircle
+                className="user_icon"
+                style={{
+                  width: "34px",
+                  height: "34px",
+                  padding: "4px",
+                  cursor: "pointer",
+                }}
+              />
             </Link>
           )}
         </li>
