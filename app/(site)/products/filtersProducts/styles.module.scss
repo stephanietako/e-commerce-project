@@ -15,12 +15,12 @@
 
     .filter_products__list__box {
       display: flex;
-      width: 100%;
+      width: 22rem;
       height: auto;
       flex-wrap: wrap;
-      padding: 3rem;
+      margin-top: 4rem;
       flex-direction: column;
-      margin-top: 7rem;
+      border: 3px solid red;
 
       .filter_products__item {
         width: auto;

@@ -8,17 +8,18 @@
 
   .sliderShow__title {
     padding: 2rem;
+    cursor: none;
   }
 
   .carousel {
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
     width: 100%;
     height: auto;
 
     .carousel__track {
       display: flex;
-      width: calc(200%); /* Double la largeur pour les éléments dupliqués */
+      width: calc(100%);
       height: auto;
       animation: scroll 20s linear infinite;
 
@@ -53,26 +54,28 @@
         width: 300px;
         height: auto;
         flex-direction: column;
-        // border: 3px solid blue;
         overflow: hidden;
         margin-right: 5px;
 
         .carousel__img {
+          padding: 1rem;
           border: 3px solid whitesmoke;
           width: 100%;
-          height: 12rem;
+          height: 350px;
           object-fit: cover;
-          transition: transform 0.3s ease-in-out;
+          transition:
+            transform 0.3s ease-in-out,
+            border 0.3s ease-in-out;
         }
 
-        &:hover {
-          transform: scale(1.05);
+        &:hover .carousel__img {
+          transform: scale(1.3);
+          border: none; /* Supprimer la bordure lors du survol */
         }
       }
 
       .title__content {
-        background-color: whitesmoke;
-        padding: 1rem;
+        padding: 2rem;
 
         .title {
           margin-top: 0;

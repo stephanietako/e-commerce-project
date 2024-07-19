@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 // Styles
 import styles from "./styles.module.scss";
-import logo from "@/public/assets/vibes.png";
+import logo from "@/public/assets/palmtrees_icon_white.png";
 import AccountProfil from "../AccountProfil/AccountProfil";
 // import { useSession } from "next-auth/react";
 import useCartStore from "@/cartStore";
@@ -14,14 +14,12 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
 
 const navLinks = [
-  { name: "Guide du CBD", href: "/" },
+  { name: "Guide du palmier", href: "/" },
   { name: "Qui sommes-nous", href: "/" },
-  { name: "Contact", href: "/" },
+  { name: "Contact", href: "#footer" },
 ];
 
 const Navbar = () => {
-  // const { data: session } = useSession();
-  //console.log("SESSION !!!!", session);
   const totalItems = useCartStore((state) => state.totalItems);
   const pathname = usePathname();
   return (
@@ -33,13 +31,13 @@ const Navbar = () => {
               <Image
                 className={styles.__img}
                 src={logo}
-                alt="Boutique Vibes CBD Saint-Troez "
-                width={100}
-                height={170}
+                alt="Palm trees affair la ferme des palmiers "
+                width={140}
+                height={140}
                 style={{
                   display: "block",
-                  objectFit: "contain",
-                  width: "auto",
+                  objectFit: "cover",
+                  width: "100%",
                   height: "auto",
                 }}
               />
@@ -71,9 +69,7 @@ const Navbar = () => {
                 <FaShoppingCart
                   style={{
                     width: "34px",
-                    height: "34px",
-                    padding: "4px",
-                    cursor: "pointer",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -86,9 +82,7 @@ const Navbar = () => {
               <MdLocalShipping
                 style={{
                   width: "34px",
-                  height: "34px",
-                  padding: "2px",
-                  cursor: "pointer",
+                  height: "auto",
                 }}
               />
             </Link>

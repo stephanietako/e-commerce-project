@@ -2,78 +2,6 @@ import { createClient, groq } from "next-sanity";
 import clientConfig from "../config/client-config";
 export const revalidate = 10;
 
-// PAGES & PAGE ///////////////////////////
-export async function getPages() {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "page"]{
-        _id,
-        _createdAt,
-     title,
-        "slug": slug.current,
-    }`,
-    {
-      cache: "no-store",
-    }
-  );
-}
-
-export async function getPage(slug) {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "page" && slug.current == $slug][0]{
-       _id,
-       _createdAt,
-   title,
-       "slug":slug.current,
-             content,
-
-    }`,
-    { slug },
-    {
-      cache: "no-store",
-    }
-  );
-}
-
-//PROJECTS & PROJECT //////////////////////
-export async function getProjects() {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "project"]{
-        _id,
-        _createdAt,
-      name,
-        "slug": slug.current,
-        "image": image.asset->url,
-        url,
-        content,
-              "body": pt::text(body),
-    }`,
-    {
-      cache: "no-store",
-    }
-  );
-}
-
-export async function getProject(slug) {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "project" && slug.current == $slug][0]{
-      _id,
-      _createdAt,
-   name,
-        "image": image.asset->url,
-        url,
-      "slug":slug.current,
-      content,
-        "body": pt::text(body),
- 
-    }`,
-
-    { slug },
-    {
-      cache: "no-store",
-    }
-  );
-}
-
 //PLUSPRODUCTSPAGES ////////////////////////////
 export async function getDataPlusProductsPages() {
   return createClient(clientConfig).fetch(
@@ -192,6 +120,7 @@ export async function getDataStarProductsPages() {
     "images": images[0].asset->url,
     content,
   "body": pt::text(body),
+  stars,
   }
     }`,
     {
@@ -470,51 +399,52 @@ export async function getData(slug) {
   );
 }
 //////////////////////////
-export async function getDataFlowers() {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "product" && name == "Fleurs CBD"] [0...50]  {
-  _id,
-       _createdAt,
-      _type,
-  name,
-    "slug": slug.current,
-         "coverImages": images[0].asset->url,
-           content, 
-            "body": pt::text(body),    
-  "categories": *[_type == 'category' && references(^._id)][0...30] | order(name asc) {
-    _id,
-     _createdAt,
-      _type,
-    price,
-    currency,
-    name,
-    "slug": slug.current,
-     "coverImages": images[0].asset->url,
-    "images": images[0].asset->url,
-    content,
-      products,
-       "ref": products[]{
-_ref,
-    }
-  }
-}`,
-    {
-      cache: "no-cache",
-    }
-  );
-}
+// export async function getDataFlowers() {
+//   return createClient(clientConfig).fetch(
+//     groq`*[_type == "product" && name == "Palmiers"] [0...50]  {
+//   _id,
+//        _createdAt,
+//       _type,
+//   name,
+//     "slug": slug.current,
+//          "coverImages": images[0].asset->url,
+//            content,
+//             "body": pt::text(body),
+//   "categories": *[_type == 'category' && references(^._id)][0...30] | order(name asc) {
+//     _id,
+//      _createdAt,
+//       _type,
+//     price,
+//     currency,
+//     name,
+//     "slug": slug.current,
+//      "coverImages": images[0].asset->url,
+//     "images": images[0].asset->url,
+//     content,
+//       products,
+//        "ref": products[]{
+// _ref,
+//     }
+//   }
+// }`,
+//     {
+//       cache: "no-cache",
+//     }
+//   );
+// }
 //////////////////////////
-export async function getDataAccessoires() {
+export async function getDataMinipalms() {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "plus" && type == "accessoires"] {
-  _id,
+    groq`*[_type == "plus" && type == "palmiers nains"] {
+   _id,
   _createdAt,
   _type,
   name,
   "slug": slug.current,
   "coverImages": images[0].asset->url,
+    price,
   content, 
-  body 
+  body,
 }`,
     {
       cache: "no-cache",

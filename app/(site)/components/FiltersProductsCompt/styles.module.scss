@@ -3,29 +3,32 @@
   width: 100%;
   height: auto;
   margin: 0 3rem 0;
+  justify-content: center;
+  flex-direction: column;
 
   .filter_products__list {
     display: flex;
-    width: 33rem;
+    width: auto;
     height: auto;
     position: relative;
+    justify-content: flex-end;
 
     .filter_products__list__box {
       display: flex;
-      width: 100%;
+      width: auto;
       height: auto;
       flex-wrap: wrap;
-      margin-top: 4rem;
       flex-direction: column;
+      //border: 3px solid red;
 
       .filter_products__item {
-        width: auto;
+        width: 17rem;
         height: auto;
         display: flex;
         margin-top: 0.3rem;
 
         .check_section {
-          width: 10rem;
+          width: 100%;
           height: auto;
           display: flex;
         }

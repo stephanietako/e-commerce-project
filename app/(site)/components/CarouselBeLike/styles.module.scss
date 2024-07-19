@@ -1,6 +1,5 @@
 // Variables
-$blue: blue;
-$turquoise: turquoise;
+
 $hover-background-color: rgba(255, 255, 255, 0.7);
 $border-width: 3px;
 $font-size: 4rem;
@@ -21,12 +20,14 @@ $img-height: 100%;
   align-items: center;
   overflow: hidden;
   width: 100%;
+  height: auto;
+  margin: 3rem;
 }
 
 .carouselBeLike_slide {
   display: flex;
-  width: 100%;
-  justify-content: center;
+  width: auto;
+  height: auto;
   transition: transform 0.5s ease;
 }
 
@@ -49,13 +50,15 @@ $img-height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
 }
 
 .carouselBeLike_img {
-  width: 100%;
-  height: $img-height;
-  overflow: hidden;
-  //   border: 4px solid $turquoise;
+  .carouselBeLike_img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
 }
 
 .title_content {

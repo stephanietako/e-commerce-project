@@ -4,13 +4,15 @@ import { useState } from "react";
 import useCartStore from "@/cartStore";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import Button from "../../components/Button/Button";
-import CarouselBeLike from "../../components/CarouselBeLike/CarouselBeLike";
+import CarouselBeLike from "../CarouselBeLike/CarouselBeLike";
 import { toast } from "react-hot-toast";
 // Styles
 import styles from "./styles.module.scss";
 export const dynamic = "force-dynamic";
 
-const Details = ({ data, accessoires }) => {
+const Details = ({ data, minipalms }) => {
+  console.log("Details minipalms:", minipalms);
+  console.log("data:", data);
   const [quantity, setQuantity] = useState(1);
   const addToCart = useCartStore((state) => state.addToCart);
 
@@ -95,7 +97,7 @@ const Details = ({ data, accessoires }) => {
       </div>
       <div className={styles.carouselBelike_container}>
         <div className={styles.carouselBelike_box}>
-          <CarouselBeLike accessoires={accessoires} />
+          <CarouselBeLike minipalms={minipalms} />
         </div>
       </div>
     </div>

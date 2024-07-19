@@ -30,7 +30,6 @@ const AccountProfil = () => {
                     width: "34px",
                     height: "34px",
                     padding: "4px",
-                    cursor: "pointer",
                   }}
                 />
               )}
@@ -43,7 +42,6 @@ const AccountProfil = () => {
                   width: "34px",
                   height: "34px",
                   padding: "4px",
-                  cursor: "pointer",
                 }}
               />
             </Link>

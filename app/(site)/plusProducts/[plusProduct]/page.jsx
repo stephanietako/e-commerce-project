@@ -13,7 +13,7 @@ const PlusProductsDetails = async ({ params }) => {
   return (
     <>
       <section
-        className="products_details__section"
+        className="plusProducts_details__section"
         style={{
           display: "flex",
           width: "auto",
@@ -22,7 +22,7 @@ const PlusProductsDetails = async ({ params }) => {
         }}
       >
         <div
-          className="products_details__container"
+          className="plusProducts_details__container"
           style={{
             display: "flex",
             width: "100%",
@@ -34,7 +34,7 @@ const PlusProductsDetails = async ({ params }) => {
           }}
         >
           <div
-            className="products_details__bloc"
+            className="plusProducts_details__bloc"
             style={{
               display: "flex",
               width: "100%",
@@ -45,7 +45,7 @@ const PlusProductsDetails = async ({ params }) => {
             }}
           >
             <div
-              className="products_details__title"
+              className="plusProducts_details__title"
               style={{
                 display: "flex",
                 width: "100%",
@@ -59,30 +59,29 @@ const PlusProductsDetails = async ({ params }) => {
             </div>
           </div>
 
-          <div className="products_details__categories">
+          <div className="plusProducts_details__categories">
             <div
-              className="display_categories"
+              className="plusProducts__display_categories"
               style={{
                 display: "flex",
                 width: "100%",
-                justifyContent: "center",
                 height: "auto",
                 flexWrap: "wrap",
+                justifyContent: "center",
+                padding: "2rem",
+                marginBottom: "3rem",
               }}
             >
               {plusProduct.plus.map((item) => (
                 <Link href={`/plus/${item.slug}`} key={item._id}>
                   <div
-                    className="data_group__categories"
+                    className="plusProducts__data_group_categories"
                     style={{
                       display: "flex",
-                      padding: "2rem",
-                      borderRadius: "12px",
-                      width: "27 rem",
+                      width: "27rem",
                       height: "auto",
                       justifyContent: "center",
                       flexDirection: "column",
-                      background: "#fff",
                     }}
                   >
                     <span>
@@ -93,19 +92,17 @@ const PlusProductsDetails = async ({ params }) => {
                           width: "auto",
                           height: "auto",
                           justifyContent: "center",
-                          borderRadius: "17px",
                         }}
                       >
                         {item.coverImages ? (
                           <Image
                             src={urlFor(item.coverImages).url()}
-                            alt="les fleurs"
-                            className="product__img"
+                            alt="Les palmiers"
+                            className="plusProducts__img"
                             width={450}
-                            height={300}
+                            height={550}
                             style={{
-                              objectFit: "cover",
-                              borderRadius: "18px",
+                              objectFit: "contain",
                             }}
                           />
                         ) : (
@@ -118,20 +115,17 @@ const PlusProductsDetails = async ({ params }) => {
                         className="title"
                         style={{
                           display: "flex",
-                          alignItems: "center",
                           width: "100%",
                           height: "auto",
                           position: "relative",
                           zIndex: 1,
-                          // justifyContent: "center",
-                          color: "#000",
                           fontSize: "27px",
                         }}
                       >
                         {item.name}
                       </h3>
                     </div>
-                    <div className="productDetails__infos">
+                    <div className="plusProducts_details__infos">
                       <span>
                         <PortableText value={item.content} />
                       </span>

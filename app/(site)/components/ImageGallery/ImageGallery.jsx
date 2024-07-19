@@ -41,13 +41,13 @@ const ImageGallery = ({ images }) => {
         <Image
           src={urlFor(bigImage).url()}
           alt="Produits CBD"
-          width={350}
-          height={250}
+          width={750}
+          height={550}
           loading="lazy"
           placeholder="blur"
           blurDataURL="data:image/jpeg..."
           className={styles.img}
-          style={{ width: "auto", height: "auto" }}
+          style={{ width: "100%", height: "100%" }}
         />
         {showLoupe && (
           <div

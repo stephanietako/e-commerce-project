@@ -1,11 +1,6 @@
-import Contactlinks from "../../contactlinks/[contactlink]/page";
-const Contact = ({ pages }) => {
+const Contact = () => {
   // const contact = await getPages();
-  return (
-    <div className="about">
-      <Contactlinks pages={pages} />
-    </div>
-  );
+  return <div className="about">hello world contact page</div>;
 };
 
 export default Contact;

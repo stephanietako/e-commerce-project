@@ -1,12 +1,7 @@
 const categoryTypes = [
-  { title: "Sativa", value: "sativa" },
-  { title: "Indica", value: "indica" },
-  { title: "Indoor", value: "indoor" },
-  { title: "Outdoor", value: "outdoor" },
-  { title: "Hybride", value: "hybride" },
-  { title: "Vape", value: "vape" },
-  { title: "Pen", value: "pen" },
-  { title: "Basic", value: "basic" },
+  { title: "Grands", value: "grands" },
+  { title: "Moyens", value: "moyens" },
+  { title: "Nains", value: "nains" },
 ];
 
 const category = {

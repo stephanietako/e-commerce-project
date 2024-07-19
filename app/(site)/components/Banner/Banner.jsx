@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import delivery from "@/public/assets/delivery.png";
 import payment from "@/public/assets/payment.png";
-import quality from "@/public/assets/quality.png";
+import quality from "@/public/assets/palmtrees_leaf.png";
 // Styles
 import styles from "./styles.module.scss";
 
@@ -36,7 +36,7 @@ const Banner = () => {
             objectPosition: "center",
           }}
         />
-        <p>Paiement sécurisé et en toute discrétion</p>
+        <p>Paiement sécurisé</p>
       </div>
       {/* Troisième icône */}
       <div className={styles.iconWrapper}>
@@ -50,7 +50,7 @@ const Banner = () => {
             objectPosition: "center",
           }}
         />
-        <p>CBD de qualité supérieure</p>
+        <p>Palmiers de qualité supérieure</p>
       </div>
     </div>
   );

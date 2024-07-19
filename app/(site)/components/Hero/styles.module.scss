@@ -1,14 +1,15 @@
 .heroWrapper {
   position: relative;
   width: 100vw;
-  height: 50vh;
-  z-index: 1;
+  height: 70vh;
+  // z-index: 1;
+  box-shadow: inset 0px 0px 40px 40px #92e6f5;
 
   .heroImage {
     object-fit: cover;
-    object-position: center;
     -webkit-filter: opacity(49%);
     filter: opacity(49%);
+    object-position: bottom;
   }
 
   .heroContent {
@@ -20,13 +21,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2; /* Inférieur à celui du sous-menu */
-    color: #fff;
-    text-align: center;
+    width: 100%;
+    height: auto;
   }
   h1 {
     margin: 0;
-    font-size: 4rem;
+    font-size: 7rem;
   }
 
   h2 {

@@ -1,5 +1,5 @@
 const plusTypes = [
-  { title: "Accessoires", value: "accessoires" },
+  { title: "Palmiers nains", value: "palmiers nains" },
   { title: "Goodies", value: "goodies" },
 ];
 

@@ -59,7 +59,17 @@ const ProductsDetails = async ({ params }) => {
               <h1>{product && product.name}</h1>
             </div>
           </div>
-
+          <h2
+            style={{
+              display: "block",
+              width: "100%",
+              textAlign: "center",
+              padding: "3rem",
+            }}
+          >
+            {" "}
+            Tous nos palmiers
+          </h2>
           <div className="products_details__categories">
             <div
               className="display_categories"
@@ -69,7 +79,6 @@ const ProductsDetails = async ({ params }) => {
                 justifyContent: "center",
                 height: "auto",
                 flexWrap: "wrap",
-                margin: "2rem",
               }}
             >
               {product.categories.map((category) => (
@@ -78,13 +87,11 @@ const ProductsDetails = async ({ params }) => {
                     className="data_group__categories"
                     style={{
                       display: "flex",
-                      padding: "2rem",
-                      borderRadius: "12px",
-                      width: "27 rem",
+                      margin: "3rem",
                       height: "auto",
-                      //  justifyContent: "center",
                       flexDirection: "column",
-                      background: "#fff",
+                      background: "transparent",
+                      width: "27rem",
                     }}
                   >
                     <span>
@@ -107,8 +114,7 @@ const ProductsDetails = async ({ params }) => {
                             width={450}
                             height={300}
                             style={{
-                              objectFit: "cover",
-                              borderRadius: "18px",
+                              objectFit: "contain",
                             }}
                           />
                         ) : (
@@ -126,8 +132,6 @@ const ProductsDetails = async ({ params }) => {
                           height: "auto",
                           position: "relative",
                           zIndex: 1,
-                          justifyContent: "center",
-                          color: "#000",
                           fontSize: "27px",
                         }}
                       >

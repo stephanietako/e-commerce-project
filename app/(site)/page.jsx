@@ -35,11 +35,11 @@ const Home = async () => {
         <section className="slider_section">
           <Slider allproducts={allproducts} />
         </section>
-        <HR color="gray" />
+        <HR color="whitesmoke" />
         <section className="starproducts_section">
           <StarProductsPages starproducts={starproducts} />
         </section>
-        <HR color="gray" />
+        <HR color="whitesmoke" />
         <section className="productspages_section">
           <div
             className="productspages_main_title"
@@ -47,16 +47,17 @@ const Home = async () => {
             style={{
               display: "flex",
               width: "100%",
-              height: "auto%",
+              height: "auto",
               paddingLeft: "3rem",
               marginTop: "2rem",
+              justifyContent: "center",
             }}
           >
             <h1>TOUS LES PRODUITS</h1>
           </div>
           <FiltersProducts />
         </section>
-        <HR color="gray" />
+        <HR color="whitesmoke" />
         <section
           style={{
             display: "flex",
@@ -75,7 +76,7 @@ const Home = async () => {
               justifyContent: "center",
             }}
           >
-            <h1>LES PLUS DE VIBES CBD SHOP</h1>
+            <h1>LES PETITS PLUS</h1>
           </div>
           <Carousel plusproduct={plusproduct} />
         </section>

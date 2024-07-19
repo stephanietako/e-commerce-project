@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   height: auto;
-  // border: 3px solid blue;
+  border: 3px solid blue;
   position: relative;
   justify-content: flex-end;
 
@@ -18,7 +18,6 @@
       width: 100%;
       height: auto;
       flex-wrap: wrap;
-      border-radius: --border-radius;
       flex-direction: column;
 
       .categories__item {
@@ -29,7 +28,7 @@
         justify-content: flex-end;
 
         .check_section {
-          width: 10rem;
+          width: 100%;
           height: auto;
           display: flex;
         }

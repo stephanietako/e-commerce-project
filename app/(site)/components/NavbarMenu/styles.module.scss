@@ -23,20 +23,22 @@
       width: auto;
       height: auto;
       align-items: center;
-      padding: 1rem 0 2rem 1rem;
       position: relative;
     }
     &:hover .submenu {
       display: flex;
+      -webkit-filter: opacity(59%);
+      filter: opacity(59%);
     }
+
     .__link {
       display: flex;
       width: auto;
       height: auto;
-      font-size: 24px;
       padding: 1rem;
       align-content: center;
       align-items: center;
+      color: rgb(43, 41, 41);
 
       &:hover {
         color: gray;
@@ -46,27 +48,25 @@
     .submenu {
       display: none;
       justify-content: center;
-      font-size: 1rem;
       flex-direction: column;
-      // padding: 0rem 0.5rem 1rem;
       position: absolute;
       top: 100%;
-      left: 7px;
-      background-color: rgb(251, 251, 253);
-      z-index: 15;
-      margin-top: -0.5rem;
+      left: 12px;
+      background: linear-gradient(to top, #a7ebf7, #e9e6e6, #f3d3ed, #c8c6ed);
+      margin-top: -1.5rem;
       width: 18rem;
       height: auto;
 
       .categoryLink {
-        padding: 14px;
+        padding: 4px 0 4px 22px;
         width: auto;
         height: auto;
         display: block;
         color: #000;
+        font-size: 1rem;
 
         &:hover {
-          color: gray;
+          color: #fff;
         }
       }
     }

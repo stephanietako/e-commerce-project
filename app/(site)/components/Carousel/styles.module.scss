@@ -1,12 +1,3 @@
-// Variables
-$blue: blue;
-$turquoise: turquoise;
-$hover-background-color: rgba(255, 255, 255, 0.7);
-$border-width: 3px;
-$font-size: 4rem;
-$img-width: 100%;
-$img-height: 100%;
-
 .carousel_container {
   position: relative;
   width: 100%;
@@ -17,7 +8,7 @@ $img-height: 100%;
 }
 
 .carousel {
-  display: inline-block;
+  display: flex;
   align-items: center;
   overflow: hidden;
   width: 100%;
@@ -26,7 +17,7 @@ $img-height: 100%;
 .carousel_slide {
   display: flex;
   width: 100%;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease-in-out;
 }
 
 .carousel_item {
@@ -46,7 +37,7 @@ $img-height: 100%;
 .image_container {
   display: flex;
   width: 100%;
-  height: $img-height;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -54,7 +45,7 @@ $img-height: 100%;
 
 .carousel_img {
   width: 100%;
-  height: $img-height;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -69,13 +60,12 @@ $img-height: 100%;
   top: 50%;
   transform: translateY(-50%);
   background-color: transparent;
-  font-size: $font-size;
+  font-size: 4rem;
   cursor: pointer;
   z-index: 10;
-  color: #000;
   border: none;
   &:hover {
-    background-color: $hover-background-color;
+    background: linear-gradient(to top, #a7ebf7, #e9e6e6, #f3d3ed, #c8c6ed);
   }
 }
 

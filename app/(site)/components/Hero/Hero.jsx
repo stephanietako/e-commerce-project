@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import backgroundImg from "@/public/assets/canaleafimg.jpg";
+import backgroundImg from "@/public/assets/wallpalm2.jpg";
 import Button from "../Button/Button";
 // Styles
 import styles from "./styles.module.scss";
@@ -22,13 +22,10 @@ const Hero = () => {
         placeholder="blur"
       />
       <div className={styles.heroContent}>
-        <h1>VIBES CBD SHOP</h1>
-        <h2>FRENCH EXPERT CANNABIS</h2>
+        <h1 className="poppins">PALM TREES AFFAIR</h1>
+        <h2 className="roboto">LA FERME DES PALMIERS</h2>
 
-        <Button
-          text="DÉCOUVRIR NOS PRODUITS"
-          onClick={() => router.push("#all_products")}
-        />
+        <Button text="DÉCOUVRIR" onClick={() => router.push("#all_products")} />
       </div>
     </div>
   );

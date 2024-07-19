@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 export const dynamic = "force-dynamic";
 
 const StarProductsPages = ({ starproducts }) => {
-  //console.log("starproducts:", starproducts);
+  console.log("starproducts:", starproducts);
   if (!starproducts || !Array.isArray(starproducts)) {
     console.log("starproducts is not defined or is not an array");
     return <div>Loading...</div>;
@@ -28,11 +28,10 @@ const StarProductsPages = ({ starproducts }) => {
           <div className={styles.display_all_starproducts}>
             <div className={styles.starproducts__cards}>
               {starproducts.map((product) => {
-                //console.log("product:", product);
                 if (!product.stars || !Array.isArray(product.stars)) {
-                  // console.log(
-                  //   "product.stars is not defined or is not an array"
-                  // );
+                  console.log(
+                    "product.stars is not defined or is not an array"
+                  );
                   return (
                     <div key={product._id}>
                       <p>No item available for this product.</p>
@@ -57,9 +56,6 @@ const StarProductsPages = ({ starproducts }) => {
                                   <div
                                     className={styles.starproducts__cards_infos}
                                   >
-                                    <div
-                                      className={styles.title__content}
-                                    ></div>
                                     <div className={styles.images_starproducts}>
                                       {item.coverImages && (
                                         <Image

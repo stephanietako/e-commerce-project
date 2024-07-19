@@ -82,9 +82,7 @@ const StarProductsDetails = async ({ params }) => {
                       borderRadius: "12px",
                       width: "27 rem",
                       height: "auto",
-                      //  justifyContent: "center",
                       flexDirection: "column",
-                      background: "#fff",
                     }}
                   >
                     <span>

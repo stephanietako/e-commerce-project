@@ -32,10 +32,12 @@ const FiltersProductsCompt = ({ data, isLoading, error }) => {
     return products.filter((el) => el.name.includes(searchQuery));
   };
 
-  // Produits filtrés en fonction de la sélection ou par défaut sur "Fleurs"
+  // Produits filtrés en fonction de la sélection ou par défaut sur "Palmiers Tropicaux"
   const getDisplayedProducts = () => {
     if (selectedProducts.length === 0) {
-      return data.filter((product) => product.name.includes("Fleurs"));
+      return data.filter((product) =>
+        product.name.includes("Palmiers Tropicaux")
+      );
     }
     return data.filter((product) => selectedProducts.includes(product.name));
   };

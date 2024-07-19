@@ -9,11 +9,18 @@ import styles from "./styles.module.scss";
 
 export const dynamic = "force-dynamic";
 
-const CarouselBeLike = ({ accessoires }) => {
+const CarouselBeLike = ({ minipalms }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  console.log("CarouselBeLike minipalms:", minipalms);
 
-  const itemsToShow = 2;
-  const totalItems = accessoires.length;
+  // Vérifiez si minipalms est défini et a des éléments
+  if (!minipalms || minipalms.length === 0) {
+    return <div>No items to display</div>;
+  }
+
+  const itemsToShow = 1; // Afficher une image par ligne
+  const totalItems = minipalms.length;
+  console.log("CarouselBeLike minipalms.length:", minipalms.length);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -37,14 +44,14 @@ const CarouselBeLike = ({ accessoires }) => {
         <div
           className={styles.carouselBeLike_slide}
           style={{
-            transform: `translateX(-${currentIndex * (100 / itemsToShow)}%)`, // Réglage pour afficher trois images par ligne
+            transform: `translateX(-${currentIndex * (100 / itemsToShow)}%)`,
           }}
         >
-          {accessoires.map((item, index) => (
+          {minipalms.map((item, index) => (
             <div
               key={index}
               className={styles.carouselBeLike_item}
-              style={{ flex: `0 0 calc(100% / ${itemsToShow})` }} // Réglage pour afficher trois images par ligne
+              style={{ flex: `0 0 calc(100% / ${itemsToShow})` }}
             >
               <div className={styles.inner_container}>
                 <div className={styles.image_container}>
@@ -53,8 +60,8 @@ const CarouselBeLike = ({ accessoires }) => {
                       src={urlFor(item.coverImages).url()}
                       alt={`Slide ${index}`}
                       className={styles.carouselBeLike_img}
-                      width={250}
-                      height={220}
+                      width={350}
+                      height={350}
                       loading="lazy"
                       placeholder="blur"
                       blurDataURL="data:image/jpeg..."

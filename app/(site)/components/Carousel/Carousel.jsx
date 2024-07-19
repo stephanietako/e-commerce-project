@@ -48,14 +48,15 @@ const Carousel = ({ plusproduct }) => {
                   <Link href={`/plusProducts/${item.slug}`}>
                     <Image
                       src={urlFor(item.coverImages).url()}
-                      alt={`Slide ${index}`}
+                      // alt={`Slide ${index}`}
+                      alt="Palm trees Affair la ferme des palmiers"
                       className={styles.carousel_img}
                       width={350}
-                      height={150}
+                      height={350}
                       loading="lazy"
                       placeholder="blur"
                       blurDataURL="data:image/jpeg..."
-                      style={{ objectFit: "cover" }}
+                      style={{ objectFit: "contain" }}
                     />
                   </Link>
                 </div>

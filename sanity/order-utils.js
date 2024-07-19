@@ -12,9 +12,6 @@ const client = createClient({
 // Function to get orders by email and sort by the latest
 export async function getOrdersByEmail(email) {
   try {
-    //Chanvria serum huile de chanvre bio
-    //HjQFmp56p5i3GVxCjAX827
-    // Query orders from Sanity with a GROQ query
     const orders = await client.fetch(
       groq`*[_type == 'order' && email == $email] {
         _id,

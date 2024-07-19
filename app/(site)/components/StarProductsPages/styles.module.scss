@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   height: auto;
-  // border: 3px solid red;
+  //border: 3px solid pink;
 
   .starproducts__container {
     display: flex;
@@ -20,7 +20,7 @@
       justify-content: center;
       flex-wrap: wrap;
       margin-bottom: 2rem;
-      // border: 3px solid yellow;
+      //border: 3px solid yellow;
 
       .title__content {
         display: flex;
@@ -42,8 +42,7 @@
         width: auto;
         height: auto;
         justify-content: center;
-        overflow: hidden;
-        // border: 3px solid red;
+        //border: 3px solid red;
       }
 
       .display_all_starproducts {
@@ -52,7 +51,7 @@
         height: auto;
         align-items: center;
         justify-content: center;
-        // border: 3px solid black;
+        //border: 3px solid black;
 
         .starproducts__cards {
           display: flex;
@@ -67,12 +66,14 @@
 
           .display_infos__products {
             display: flex;
-            height: 24rem;
+            height: auto;
             width: auto;
             margin: 1rem;
+            //border: 3px solid rgb(16, 222, 20);
 
             .data_group_starproducts {
               display: flex;
+              justify-content: center;
               width: 100%;
               height: auto;
 
@@ -80,24 +81,22 @@
                 display: flex;
                 justify-content: center;
                 width: 24rem;
-                height: 22rem;
+                height: auto;
 
                 .starproducts__cards_infos {
                   display: flex;
                   width: auto;
-                  justify-content: center;
                   flex-direction: column;
+                  //border: 3px solid blue;
+                  border: 1px solid whitesmoke;
+                  padding: 1rem;
 
-                  .price_content {
-                    font-weight: bold;
-                  }
-
-                  .title__content {
+                  .starproducts__infos {
                     display: flex;
-                    width: 100%;
+                    width: auto;
+                    flex-direction: column;
+                    //border: 3px solid rgb(255, 0, 200);
                     height: auto;
-                    align-items: center;
-                    justify-content: center;
 
                     .title {
                       display: flex;
@@ -106,8 +105,20 @@
                       height: auto;
                       position: relative;
                       z-index: 1;
+                      // justify-content: center;
+                      font-size: 1.5rem;
+                    }
+
+                    .price_content {
+                      font-weight: bold;
+                    }
+
+                    .title__content {
+                      display: flex;
+                      width: 100%;
+                      height: auto;
+                      align-items: center;
                       justify-content: center;
-                      font-size: 27px;
                     }
                   }
                 }
