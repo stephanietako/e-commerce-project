@@ -64,9 +64,10 @@
   cursor: pointer;
   z-index: 10;
   border: none;
-  &:hover {
-    background: linear-gradient(to top, #a7ebf7, #e9e6e6, #f3d3ed, #c8c6ed);
-  }
+  // &:hover {
+  //   background: linear-gradient(to top, #a7ebf7, #e9e6e6, #f3d3ed, #c8c6ed);
+  // }
+  background-color: transparent;
 }
 
 .prev_button {
