@@ -7,7 +7,7 @@ import Toast from "./components/Toasts/Toasts";
 import { NextAuthProvider } from "./components/AuthProvider/AuthProvider";
 // import { Suspense } from "react";
 import Cursor from "./components/Cursor/Cursor";
-import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
+//import NavbarMenu from "./components/NavbarMenu/NavbarMenu";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 const roboto_init = Roboto({
@@ -35,9 +35,9 @@ export default function RootLayout({ children, session }) {
           <Toast />
           <main className="main">
             <Navbar />
-            <div className="menu">
+            {/* <div className="menu">
               <NavbarMenu />{" "}
-            </div>
+            </div> */}
             <Cursor />
             {children}
             <div className="scroll">
