@@ -1,112 +1,17 @@
-// "use client";
-
-// import Link from "next/link";
-// import Image from "next/image";
-// import { usePathname } from "next/navigation";
-// // Styles
-// import styles from "./styles.module.scss";
-// import logo from "@/public/assets/palmtrees_icon_white.png";
-// import AccountProfil from "../AccountProfil/AccountProfil";
-// // import { useSession } from "next-auth/react";
-// import useCartStore from "@/cartStore";
-// import { FaShoppingCart } from "react-icons/fa";
-// // import Contact from "../Contact/Contact";
-// import { MdLocalShipping } from "react-icons/md";
-
-// const navLinks = [
-//   { name: "Guide du palmier", href: "/" },
-//   { name: "Qui sommes-nous", href: "/" },
-//   { name: "Contact", href: "#footer" },
-// ];
-
-// const Navbar = () => {
-//   const totalItems = useCartStore((state) => state.totalItems);
-//   const pathname = usePathname();
-//   return (
-//     <>
-//       <nav className={styles.navbar}>
-//         <ul className={styles.__navbar_container}>
-//           <div className={styles.__logo}>
-//             <a href="/">
-//               <Image
-//                 className={styles.__img}
-//                 src={logo}
-//                 alt="Palm trees affair la ferme des palmiers "
-//                 width={140}
-//                 height={140}
-//                 style={{
-//                   display: "block",
-//                   objectFit: "cover",
-//                   width: "100%",
-//                   height: "auto",
-//                 }}
-//               />
-//             </a>
-//           </div>
-//           <div className={styles.__link_navbar}>
-//             {navLinks.map((link, index) => (
-//               <li key={index}>
-//                 <Link
-//                   href={link.href}
-//                   className={
-//                     pathname === link.href
-//                       ? `${styles.active_link} ${styles.autre_classe_link_hover_transition}`
-//                       : styles.autre_classe_link_hover_transition
-//                   }
-//                 >
-//                   {link.name}
-//                 </Link>
-//               </li>
-//             ))}
-//           </div>
-//           <span className={styles.__link_navbar_user_cart}>
-//             {" "}
-//             <div>
-//               <AccountProfil />
-//             </div>
-//             <div className={styles.btn_cart}>
-//               <Link href="/cart">
-//                 <FaShoppingCart
-//                   style={{
-//                     width: "34px",
-//                     height: "auto",
-//                   }}
-//                 />
-//               </Link>
-//               <div className={styles.btn_cart__items_number}>{totalItems}</div>
-//             </div>
-//           </span>
-
-//           <div className={styles.btn_cart__items_delivery}>
-//             <Link href="/order">
-//               <MdLocalShipping
-//                 style={{
-//                   width: "34px",
-//                   height: "auto",
-//                 }}
-//               />
-//             </Link>
-//           </div>
-//         </ul>
-//       </nav>
-//     </>
-//   );
-// };
-
-// export default Navbar;
 "use client";
 
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import styles from "./styles.module.scss";
 import logo from "@/public/assets/palmtrees_icon_white.png";
 import arrowIcon from "@/public/assets/arrow-colored.png";
 import AccountProfil from "../AccountProfil/AccountProfil";
 import useCartStore from "@/cartStore";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
+// Styles
+import styles from "./styles.module.scss";
 
 const mainNavLinks = [
   { name: "Guide du palmier", href: "/" },
@@ -167,25 +72,8 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <ul className={styles.__navbar_container}>
-        {/* <div className={styles.__logo}>
-          <a href="/">
-            <Image
-              className={styles.__img}
-              src={logo}
-              alt="Palm trees affair la ferme des palmiers "
-              width={140}
-              height={140}
-              style={{
-                display: "block",
-                objectFit: "cover",
-                width: "100%",
-                height: "auto",
-              }}
-            />
-          </a>
-        </div> */}
-        <div className={styles.__link_navbar}>
+      <ul className={styles.top_navbar__container}>
+        <div className={styles.__bloc}>
           <div className={styles.__logo}>
             <a href="/">
               <Image
@@ -199,26 +87,28 @@ const Navbar = () => {
                   objectFit: "cover",
                   width: "100%",
                   height: "auto",
+                  cursor: "pointer",
                 }}
               />
             </a>
           </div>
-          <div className={styles.__link}>
+          <ul className={styles.__link}>
             {mainNavLinks.map((link, index) => (
               <li key={index}>
                 <Link
                   href={link.href}
                   className={
                     pathname === link.href
-                      ? `${styles.active_link} `
-                      : styles.autre_classe_link_hover_transition
+                      ? `${styles.active_link}`
+                      : styles.__link
                   }
                 >
                   {link.name}
                 </Link>
               </li>
             ))}
-          </div>
+          </ul>
+
           <span className={styles.__link_navbar_user_cart}>
             <div>
               <AccountProfil />
@@ -247,22 +137,15 @@ const Navbar = () => {
           </span>
         </div>
       </ul>
-      <div className={styles.__link_navbar__test}>
+      <div className={styles.__navLinks_container}>
         {detailedNavLinks.map((link, index) => (
           <div
             key={index}
-            className={`${styles.__navbarMenu_container__link} ${activeLink?.name === link.name ? styles.active : ""}`}
+            className={`${styles.__navLinks_container__link} ${activeLink?.name === link.name ? styles.active : ""}`}
             onMouseEnter={() => handleMouseEnter(link)}
             onMouseLeave={handleMouseLeave}
           >
-            <span
-              className={styles.__navbarMenu_container__link}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                padding: "1rem",
-              }}
-            >
+            <span className={styles.__navLinks_container__link}>
               <h2>{link.name}</h2>
               <span className={styles.icon}>
                 <Image
@@ -279,18 +162,19 @@ const Navbar = () => {
                   }}
                 />
               </span>
+              {/* submenu */}
+              {activeLink?.name === link.name && (
+                <ul className={styles.submenu}>
+                  {(link.types || link.categories).map((item, idx) => (
+                    <li key={idx}>
+                      <Link href={item.href}>
+                        <p className={styles.categoryLink}>{item.name}</p>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </span>
-            {activeLink?.name === link.name && (
-              <ul className={styles.submenu}>
-                {(link.types || link.categories).map((item, idx) => (
-                  <li key={idx}>
-                    <Link href={item.href}>
-                      <p className={styles.categoryLink}>{item.name}</p>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
           </div>
         ))}
       </div>

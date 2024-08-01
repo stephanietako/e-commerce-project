@@ -128,3 +128,42 @@ const Footer = () => {
 };
 
 export default Footer;
+// import React from "react";
+
+// export default function Footer() {
+//   return (
+//     <footer className="Footer">
+//       <div id="bg-circle"></div>
+//       <div class="l-footer">
+//         <p class="footer__copyright">(C) NOW ROADING Co. Ltd.</p>
+//       </div>
+//     </footer>
+//   );
+// }
+// footer {
+//   width: 100%;
+//   margin-top: 40px;
+//   position: relative;
+// }
+// footer #bg-circle {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   bottom: 34px;
+//   margin: auto;
+//   background: url("../img/foot_circle.png") no-repeat;
+//   background-position: bottom;
+//   background-size: cover;
+//   width: 100%;
+//   height: 210px;
+// }
+
+// .l-footer {
+//   background-color: #febb35;
+//   padding: 10px 0;
+// }
+// .footer__copyright {
+//   font-size: 120%;
+//   font-family: "Comfortaa", cursive;
+//   text-align: center;
+// }
