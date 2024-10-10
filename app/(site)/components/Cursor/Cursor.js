@@ -29,11 +29,11 @@ const Cursor = () => {
       }}
     >
       <Image
-        src={cursorImage} // Utilisez l'import pour le chemin de l'image
+        src={cursorImage}
         alt="Custom Cursor"
-        width={20} // Ajustez la largeur selon vos besoins
-        height={20} // Ajustez la hauteur selon vos besoins
-        style={{ pointerEvents: "none" }} // Assurez-vous que l'image n'interfère pas avec les événements de la souris
+        width={20}
+        height={20}
+        style={{ pointerEvents: "none" }}
       />
     </div>
   );

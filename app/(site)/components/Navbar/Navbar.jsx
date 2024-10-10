@@ -2,16 +2,15 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
-import logo from "@/public/assets/palmtrees_icon_white.png";
-import arrowIcon from "@/public/assets/arrow-colored.png";
-import AccountProfil from "../AccountProfil/AccountProfil";
-import useCartStore from "@/cartStore";
+import { usePathname } from "next/navigation";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
-// Styles
+import AccountProfil from "../AccountProfil/AccountProfil";
+import useCartStore from "@/cartStore";
 import styles from "./styles.module.scss";
+import logo from "@/public/assets/palmtrees_icon_white.png";
+import arrowIcon from "@/public/assets/arrow-colored.png";
 
 const mainNavLinks = [
   { name: "Guide du palmier", href: "/" },
@@ -58,9 +57,17 @@ const detailedNavLinks = [
 ];
 
 const Navbar = () => {
-  const totalItems = useCartStore((state) => state.totalItems);
-  const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+  const [navActive, setNavActive] = useState(false);
+  //const [activeIdx, setActiveIdx] = useState(-1);
   const [activeLink, setActiveLink] = useState(null);
+  const pathname = usePathname();
+  const totalItems = useCartStore((state) => state.totalItems);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    setNavActive(!navActive);
+  };
 
   const handleMouseEnter = (link) => {
     setActiveLink(link);
@@ -71,115 +78,190 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={styles.navbar}>
-      <ul className={styles.top_navbar__container}>
-        <div className={styles.__bloc}>
-          <div className={styles.__logo}>
-            <a href="/">
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+        <div className={styles.topNavbarContainer}>
+          <div className={styles.logo}>
+            <Link href="/">
               <Image
-                className={styles.__img}
                 src={logo}
-                alt="Palm trees affair la ferme des palmiers "
-                width={140}
-                height={140}
-                style={{
-                  display: "block",
-                  objectFit: "cover",
-                  width: "100%",
-                  height: "auto",
-                  cursor: "pointer",
-                }}
+                alt="Palm trees affair la ferme des palmiers"
+                width={100}
+                height={100}
+                className={styles.logo__img}
               />
-            </a>
+            </Link>
           </div>
-          <ul className={styles.__link}>
+          <div className={styles.links}>
             {mainNavLinks.map((link, index) => (
-              <li key={index}>
-                <Link
-                  href={link.href}
-                  className={
-                    pathname === link.href
-                      ? `${styles.active_link}`
-                      : styles.__link
-                  }
-                >
-                  {link.name}
-                </Link>
-              </li>
+              <Link
+                key={index}
+                href={link.href}
+                className={
+                  pathname === link.href ? styles.activeLink : styles.link
+                }
+              >
+                {link.name}
+                ici !!!!!!!!!!!!!!!!
+              </Link>
             ))}
-          </ul>
-
-          <span className={styles.__link_navbar_user_cart}>
-            <div>
-              <AccountProfil />
-            </div>
-            <div className={styles.btn_cart}>
-              <Link href="/cart">
-                <FaShoppingCart
-                  style={{
-                    width: "34px",
-                    height: "auto",
-                  }}
-                />
-              </Link>
-              <div className={styles.btn_cart__items_number}>{totalItems}</div>
-            </div>
-            <div className={styles.btn_cart__items_delivery}>
-              <Link href="/order">
-                <MdLocalShipping
-                  style={{
-                    width: "34px",
-                    height: "auto",
-                  }}
-                />
-              </Link>
-            </div>
-          </span>
-        </div>
-      </ul>
-      <div className={styles.__navLinks_container}>
-        {detailedNavLinks.map((link, index) => (
+          </div>
+          <div className={styles.userCart}>
+            <AccountProfil />
+            <Link href="/cart" className={styles.cart}>
+              <FaShoppingCart />
+              <span className={styles.cartItems}>{totalItems}</span>
+            </Link>
+            <Link href="/order" className={styles.delivery}>
+              <MdLocalShipping />
+            </Link>
+          </div>
           <div
-            key={index}
-            className={`${styles.__navLinks_container__link} ${activeLink?.name === link.name ? styles.active : ""}`}
-            onMouseEnter={() => handleMouseEnter(link)}
-            onMouseLeave={handleMouseLeave}
+            className={styles.burgerMenu}
+            onClick={toggleMenu}
+            onMouseEnter={toggleMenu}
           >
-            <span className={styles.__navLinks_container__link}>
-              <h2>{link.name}</h2>
-              <span className={styles.icon}>
+            {/* <div className={`menu__icon ${navActive ? "active" : "inactive"}`}> */}
+            <div className={`menu__icon ${navActive ? "active" : ""}`}>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+        <div className={styles.navLinksContainer}>
+          {detailedNavLinks.map((link, index) => (
+            <div
+              key={index}
+              className={`${styles.navLink} ${activeLink?.name === link.name ? styles.active : ""}`}
+              onMouseEnter={() => handleMouseEnter(link)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span>
+                <h2>{link.name}</h2>
                 <Image
                   src={arrowIcon}
-                  alt="flêche"
-                  className="arrow_icon__img"
+                  alt="flèche"
+                  className={styles.arrowIcon}
                   width={18}
                   height={18}
-                  style={{
-                    objectFit: "cover",
-                    paddingTop: "34px",
-                    width: "auto",
-                    height: "auto",
-                  }}
                 />
+                {activeLink?.name === link.name && (
+                  <ul className={styles.submenu}>
+                    {(link.types || link.categories).map((item, idx) => (
+                      <li key={idx} className={styles.submenu__item}>
+                        <Link href={item.href}>
+                          <p>{item.name}</p>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </span>
-              {/* submenu */}
-              {activeLink?.name === link.name && (
-                <ul className={styles.submenu}>
+            </div>
+          ))}
+        </div>
+        {isOpen && (
+          <div className={styles.menuMobile}>
+            {mainNavLinks.map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                onClick={toggleMenu}
+                className={styles.linkMobile}
+              >
+                {link.name}
+              </Link>
+            ))}
+            {detailedNavLinks.map((link, index) => (
+              <div key={index} className={styles.navLinkMobile}>
+                <Link href={link.href}>
+                  <h2>{link.name}</h2>
+                </Link>
+                <ul className={styles.submenuMobile}>
                   {(link.types || link.categories).map((item, idx) => (
                     <li key={idx}>
                       <Link href={item.href}>
-                        <p className={styles.categoryLink}>{item.name}</p>
+                        <p>{item.name}</p>
                       </Link>
                     </li>
                   ))}
                 </ul>
-              )}
-            </span>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </nav>
+        )}
+      </nav>
+    </header>
   );
 };
 
 export default Navbar;
+
+/////////////////////////////////
+// "use client";
+// import Link from "next/link";
+// import Image from "next/image";
+// import React, { useState } from "react";
+// // import { Logo, NavItem } from "../NavItem";
+// import NavItem from "../NavItem/NavItem";
+
+// const MENU_LIST = [
+//   { text: "Services", href: "/services" },
+//   { text: "Privacy Policy", href: "/privacypolicy" },
+//   { text: "Terms & Conditions", href: "/terms-and-conditions" },
+// ];
+// const Navbar = () => {
+//   const [navActive, setNavActive] = useState(null);
+//   const [activeIdx, setActiveIdx] = useState(-1);
+//   return (
+//     <header
+//       className="header "
+//       // style={{
+//       //   position: "sticky",
+//       //   zIndex: 30,
+//       //   top: 0,
+//       //   backgroundColor: "blue",
+//       // }}
+//     >
+//       <nav
+//         className={`nav ${navActive ? "active" : ""}
+//         `}
+//       >
+//         <Link href={"/"} onClick={() => setActiveIdx(-1)}>
+//           <h1
+//             className="title"
+//             style={{
+//               fontWeight: "bold",
+//             }}
+//           >
+//             HELLO WORLD
+//           </h1>
+//         </Link>
+//         <div
+//           className={`menu__icon ${navActive ? "active" : "inactive"}`}
+//           onClick={() => setNavActive(!navActive)}
+//         >
+//           <div></div>
+//           <div></div>
+//           <div></div>
+//         </div>
+//         <div className={`nav__menu ${navActive ? "active" : ""}`}>
+//           {MENU_LIST.map((menu, idx) => (
+//             <div
+//               onClick={() => {
+//                 setActiveIdx(idx);
+//                 setNavActive(false);
+//               }}
+//               key={menu.href}
+//             >
+//               <NavItem {...menu} active={idx === activeIdx} />
+//             </div>
+//           ))}
+//         </div>
+//       </nav>
+//     </header>
+//   );
+// };
+
+// export default Navbar;
