@@ -16,7 +16,7 @@ const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleScroll = () => {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 114) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -35,7 +35,7 @@ const ScrollToTop = () => {
       className={`${styles.scrollToTopButton} ${isVisible ? styles.visible : ""}`}
       onClick={scrollToTop}
     >
-      <Image src={scrollIcon} alt="Scroll to top" width={30} height={30} />
+      <Image src={scrollIcon} alt="Scroll to top" width={25} height={30} />
     </button>
   );
 };

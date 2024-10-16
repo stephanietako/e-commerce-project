@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import styles from "./styles.module.scss";
-import { getOrdersByEmail } from "@/sanity/order-utils";
+import { getOrdersByEmail } from "@/utils/order-utils";
 
 const OrderCompt = () => {
   const { data: session, status } = useSession();

@@ -1,0 +1,64 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50vw;
+  height: 100vh;
+  background-color: rgba(237, 223, 223, 0.7);
+  z-index: 1000;
+  //transition: transform 0.5s ease-in-out;
+  animation: popup 0.7s;
+
+  .modalContent {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 500px; // Limiter la largeur du modal
+    width: 90%; // Largeur responsive
+
+    .closeButton {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
+
+      &:hover {
+        color: #1620dd;
+      }
+    }
+  }
+
+  @keyframes popup {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    60% {
+      transform: scale(1.1);
+    }
+    // 70% {
+    //   transform: scale(1.2);
+    // }
+    // 80% {
+    //   transform: scale(1);
+    // }
+    // 90% {
+    //   transform: scale(1.1);
+    // }
+    100% {
+      transform: scale(1);
+    }
+  }
+}

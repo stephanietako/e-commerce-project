@@ -6,6 +6,7 @@
   z-index: 30;
   top: 0;
 }
+
 .nav {
   display: flex;
   flex-direction: column;
@@ -63,13 +64,13 @@
       .cart,
       .delivery {
         margin-left: 1rem;
-        color: white;
+        color: #fff;
       }
 
       .cartItems {
         background-color: gray;
         border-radius: 50%;
-        color: white;
+        color: #fff;
         padding: 0.5rem;
         margin-left: 0.5rem;
       }
@@ -121,7 +122,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    //background-color: white;
+    //background-color: #fff;
     //border-top: 1px solid gray;
 
     .navLink {
@@ -146,8 +147,14 @@
         position: absolute;
         top: 100%;
         left: 0.7rem;
-        background: linear-gradient(to top, #e9e6e6, #e9e6e6, #d3e9f3, #c4f3fb);
-        margin-top: -25px;
+        background: linear-gradient(
+          to bottom,
+          #e9e6e6,
+          #e9e6e6,
+          #d3e9f3,
+          #c4f3fb
+        );
+        margin-top: -20px;
         width: 18rem;
         height: auto;
         z-index: 100;
@@ -158,9 +165,11 @@
           //border: 3px solid blue;
 
           p {
-            color: #000;
+            color: gray;
+            font-weight: lighter;
+
             &:hover {
-              color: #fff;
+              color: #2e2b2b;
             }
           }
         }
@@ -297,32 +306,52 @@
     transform: translateY(0) rotateZ(0);
   }
 }
+.cartModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed; // Fixe le modal par rapport à l'écran
+  top: 0;
+  left: 0;
+  width: 100vw; // Prend toute la largeur de la fenêtre
+  height: 100vh; // Prend toute la hauteur de la fenêtre
+  background-color: rgba(0, 0, 0, 0.7); // Fond sombre et transparent
+  z-index: 100; // Doit être au-dessus d'autres éléments
 
-// @media screen and (min-width: 768px) {
-//   .menu {
-//     flex-direction: row;
-//     column-gap: 24px;
-//     position: unset;
-//     width: fit-content;
-//     height: fit-content;
-//   }
+  .cartModalContent {
+    background-color: white; // Couleur de fond du modal
+    padding: 2rem; // Espacement interne
+    border-radius: 8px; // Bords arrondis
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); // Ombre portée
+    width: 90%; // Largeur du modal (90% de l'écran)
+    max-width: 500px; // Largeur maximale pour les grands écrans
+    position: relative; // Nécessaire pour positionner le bouton de fermeture
 
-//   .nav__item::after {
-//     position: absolute;
-//     content: "";
-//     bottom: -26px;
-//     width: 0%;
-//     left: 0;
-//     height: 6px;
-//     background-color: black;
-//     transition: all 0.2s;
-//   }
+    .closeButton {
+      position: absolute; // Position absolue par rapport au modal
+      top: 1rem; // Espacement du haut
+      right: 1rem; // Espacement de droite
+      background: none; // Pas de fond
+      border: none; // Pas de bordure
+      font-size: 1.5rem; // Taille de la police
+      cursor: pointer; // Pointeur sur hover
+      color: #333; // Couleur du texte
 
-//   .nav__item:hover::after,
-//   .nav__item.active::after {
-//     width: 100%;
-//   }
-// }
+      &:hover {
+        color: #e74c3c; // Change la couleur au survol
+      }
+    }
+  }
+
+  .overlay {
+    position: absolute; // Positionne l'overlay par rapport au modal
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; // Couvre tout l'écran
+    background-color: rgba(0, 0, 0, 0.5); // Fond semi-transparent
+  }
+}
 
 ////////////// RESPONSIVE //////////////////////
 @media (max-width: 768px) {

@@ -10,11 +10,11 @@
 
   .categoriespages__container {
     display: flex;
-    padding: 2rem;
-    width: 45rem;
+    margin: 3rem;
     height: auto;
     flex-direction: column;
-    border: 3px solid rgb(182, 193, 227);
+    background: transparent;
+    width: 27rem;
 
     .title {
       display: flex;

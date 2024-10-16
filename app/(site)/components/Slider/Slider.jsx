@@ -29,18 +29,21 @@ const Slider = ({ allproducts }) => {
       </span>
 
       <div
-        className={styles.carousel}
+        className={styles.carousel_slide}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className={styles.carousel__track} data-ishovered={isHovered}>
+        <div
+          className={styles.carousel_slide__track}
+          data-ishovered={isHovered}
+        >
           {duplicatedProducts.map((product, index) => (
-            <div key={index} className={styles.carousel__bloc__img}>
+            <div key={index} className={styles.carousel_slide__bloc__img}>
               <Link href={`/products/${product.slug}`}>
                 <Image
                   src={urlFor(product.coverImages).url()}
                   alt={`Slide ${index}`}
-                  className={styles.carousel__img}
+                  className={styles.carousel_slide__img}
                   width={300}
                   height={350}
                   loading="lazy"
@@ -49,12 +52,13 @@ const Slider = ({ allproducts }) => {
                   blurDataURL="data:image/jpeg..."
                   style={{ objectFit: "contain" }}
                 />
+
+                <div className={styles.title_slide__content}>
+                  <h1 className={styles.title_slide}>
+                    <p>{product.name}</p>
+                  </h1>
+                </div>
               </Link>
-              <div className={styles.title__content}>
-                <h1 className={styles.title}>
-                  <p>{product.name}</p>
-                </h1>
-              </div>
             </div>
           ))}
         </div>

@@ -1,16 +1,19 @@
 "use client";
 
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
 import AccountProfil from "../AccountProfil/AccountProfil";
 import useCartStore from "@/cartStore";
+import Modal from "../Modal/Modal";
+// Styles
 import styles from "./styles.module.scss";
 import logo from "@/public/assets/palmtrees_icon_white.png";
 import arrowIcon from "@/public/assets/arrow-colored.png";
+import CartCompt from "../CartCompt/CartCompt";
 
 const mainNavLinks = [
   { name: "Guide du palmier", href: "/" },
@@ -57,12 +60,17 @@ const detailedNavLinks = [
 ];
 
 const Navbar = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [navActive, setNavActive] = useState(false);
   //const [activeIdx, setActiveIdx] = useState(-1);
   const [activeLink, setActiveLink] = useState(null);
   const pathname = usePathname();
   const totalItems = useCartStore((state) => state.totalItems);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -108,10 +116,21 @@ const Navbar = () => {
           </div>
           <div className={styles.userCart}>
             <AccountProfil />
-            <Link href="/cart" className={styles.cart}>
+            {/* CART */}
+            <button onClick={toggleModal}>
               <FaShoppingCart />
               <span className={styles.cartItems}>{totalItems}</span>
-            </Link>
+            </button>
+            <Modal isOpen={isModalOpen} onClose={toggleModal}>
+              <h1>Palm Trees Affair</h1>
+              <p>Votre Panier</p>
+              <CartCompt />
+            </Modal>
+
+            {/* <Link href="/cart" className={styles.cart}>
+              <FaShoppingCart />
+              <span className={styles.cartItems}>{totalItems}</span>
+            </Link> */}
             <Link href="/order" className={styles.delivery}>
               <MdLocalShipping />
             </Link>
@@ -197,71 +216,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-/////////////////////////////////
-// "use client";
-// import Link from "next/link";
-// import Image from "next/image";
-// import React, { useState } from "react";
-// // import { Logo, NavItem } from "../NavItem";
-// import NavItem from "../NavItem/NavItem";
-
-// const MENU_LIST = [
-//   { text: "Services", href: "/services" },
-//   { text: "Privacy Policy", href: "/privacypolicy" },
-//   { text: "Terms & Conditions", href: "/terms-and-conditions" },
-// ];
-// const Navbar = () => {
-//   const [navActive, setNavActive] = useState(null);
-//   const [activeIdx, setActiveIdx] = useState(-1);
-//   return (
-//     <header
-//       className="header "
-//       // style={{
-//       //   position: "sticky",
-//       //   zIndex: 30,
-//       //   top: 0,
-//       //   backgroundColor: "blue",
-//       // }}
-//     >
-//       <nav
-//         className={`nav ${navActive ? "active" : ""}
-//         `}
-//       >
-//         <Link href={"/"} onClick={() => setActiveIdx(-1)}>
-//           <h1
-//             className="title"
-//             style={{
-//               fontWeight: "bold",
-//             }}
-//           >
-//             HELLO WORLD
-//           </h1>
-//         </Link>
-//         <div
-//           className={`menu__icon ${navActive ? "active" : "inactive"}`}
-//           onClick={() => setNavActive(!navActive)}
-//         >
-//           <div></div>
-//           <div></div>
-//           <div></div>
-//         </div>
-//         <div className={`nav__menu ${navActive ? "active" : ""}`}>
-//           {MENU_LIST.map((menu, idx) => (
-//             <div
-//               onClick={() => {
-//                 setActiveIdx(idx);
-//                 setNavActive(false);
-//               }}
-//               key={menu.href}
-//             >
-//               <NavItem {...menu} active={idx === activeIdx} />
-//             </div>
-//           ))}
-//         </div>
-//       </nav>
-//     </header>
-//   );
-// };
-
-// export default Navbar;

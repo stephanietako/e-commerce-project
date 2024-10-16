@@ -6,7 +6,7 @@ import * as THREE from "three";
 import { easing } from "maath";
 // SCENE
 // Component for animation
-const ImageEffect = ({ imageSize = [3.33, 3.33] }) => {
+const ImageEffect = () => {
   // Diminution de la taille d'au moins trois fois
   const meshRef = useRef(null);
   const { camera } = useThree();

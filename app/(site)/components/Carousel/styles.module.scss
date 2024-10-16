@@ -64,10 +64,6 @@
   cursor: pointer;
   z-index: 10;
   border: none;
-  // &:hover {
-  //   background: linear-gradient(to top, #a7ebf7, #e9e6e6, #f3d3ed, #c8c6ed);
-  // }
-  background-color: transparent;
 }
 
 .prev_button {
@@ -76,4 +72,37 @@
 
 .next_button {
   right: 10px;
+}
+
+.pagination {
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+@media (max-width: 768px) {
+  .inner_container {
+    padding: 1rem;
+  }
+  .prev_button,
+  .next_button {
+    font-size: 2.5rem;
+  }
 }

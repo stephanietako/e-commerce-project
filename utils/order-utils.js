@@ -49,7 +49,7 @@ export async function createOrder(email, cart) {
     // Iterate over the orderDataArray and create a promise for each order
     cart.forEach((orderData) => {
       // Extract order data
-      const { name, quantity, price } = orderData;
+      const { name, quantity, price, email } = orderData;
       console.log("ORDERDATA !!!:", orderData);
       // Create a promise for creating each order
       const orderCreationPromise = client.create({

@@ -10,7 +10,7 @@ const ThreeCompt = () => {
     <section>
       <div className="canvas__container">
         <main
-          className="canvas__canvas"
+          className="canvas"
           style={{
             display: "flex",
             width: "65rem",

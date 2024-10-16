@@ -11,13 +11,13 @@
     cursor: none;
   }
 
-  .carousel {
+  .carousel_slide {
     position: relative;
     // overflow: hidden;
     width: 100%;
     height: auto;
 
-    .carousel__track {
+    .carousel_slide__track {
       display: flex;
       width: calc(100%);
       height: auto;
@@ -47,7 +47,7 @@
         animation-play-state: paused;
       }
 
-      .carousel__bloc__img {
+      .carousel_slide__bloc__img {
         display: flex;
         justify-content: center;
         flex-shrink: 0;
@@ -57,7 +57,7 @@
         overflow: hidden;
         margin-right: 5px;
 
-        .carousel__img {
+        .carousel_slide__img {
           padding: 1rem;
           border: 3px solid whitesmoke;
           width: 100%;
@@ -68,16 +68,16 @@
             border 0.3s ease-in-out;
         }
 
-        &:hover .carousel__img {
-          transform: scale(1.3);
+        &:hover .carousel_slide__img {
+          transform: scale(1.1);
           border: none; /* Supprimer la bordure lors du survol */
         }
       }
 
-      .title__content {
+      .title_slide__content {
         padding: 2rem;
 
-        .title {
+        .title_slide {
           margin-top: 0;
         }
       }
