@@ -36,6 +36,16 @@
         color: #1620dd;
       }
     }
+    .closeButton_return {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #090df1;
+    }
   }
 
   @keyframes popup {

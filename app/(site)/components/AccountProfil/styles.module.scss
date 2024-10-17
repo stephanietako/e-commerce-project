@@ -7,8 +7,11 @@
   .__session_users {
     display: flex;
     width: auto;
-    height: auto;
-    padding: 0.5rem;
+    height: 100%;
+    /* padding: 0.5rem; */
+    align-items: center;
+    justify-content: center;
+    border: 3px solid limegreen;
 
     .icon_image_user {
       border-radius: 17px;

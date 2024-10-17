@@ -5,17 +5,49 @@
   width: 100%;
   height: 30%;
   padding: 20px;
+
+  .iconWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .iconWrapper img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+}
+///////////// RESPONSIVE /////////////////
+@media (max-width: 1200px) {
+  .banner {
+    .iconWrapper img {
+      width: 35px;
+      height: 35px;
+    }
+    .iconWrapper {
+      p {
+        font-size: 1rem;
+        color: red;
+        text-align: center;
+      }
+    }
+  }
 }
 
-.iconWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-}
-
-.iconWrapper img {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 10px;
+@media (max-width: 600px) {
+  .banner {
+    .iconWrapper img {
+      width: 25px;
+      height: 25px;
+    }
+    .iconWrapper {
+      p {
+        font-size: 0.5rem;
+        color: rgb(34, 0, 255);
+        text-align: center;
+      }
+    }
+  }
 }

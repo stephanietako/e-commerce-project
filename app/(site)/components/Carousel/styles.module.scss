@@ -76,25 +76,26 @@
 
 .pagination {
   position: absolute;
-  bottom: 10px;
+  bottom: 1px;
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
 .dot {
-  height: 15px;
-  width: 15px;
+  height: 20px;
+  width: 20px;
   margin: 0 5px;
-  background-color: #bbb;
+  background-color: whitesmoke;
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
+  border: 2px solid rgb(37, 37, 42);
   transition: background-color 0.6s ease;
 }
 
 .active {
-  background-color: #717171;
+  background-color: #949499;
 }
 
 @media (max-width: 768px) {

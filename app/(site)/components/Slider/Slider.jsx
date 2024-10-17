@@ -20,7 +20,7 @@ const Slider = ({ allproducts }) => {
   };
 
   // Dupliquez les éléments pour le défilement continu
-  const duplicatedProducts = [...allproducts, ...allproducts, ...allproducts];
+  const duplicatedProducts = [...allproducts, ...allproducts];
 
   return (
     <div className={styles.sliderShow__container}>

@@ -63,7 +63,6 @@ const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [navActive, setNavActive] = useState(false);
-  //const [activeIdx, setActiveIdx] = useState(-1);
   const [activeLink, setActiveLink] = useState(null);
   const pathname = usePathname();
   const totalItems = useCartStore((state) => state.totalItems);
@@ -114,25 +113,23 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <div className={styles.userCart}>
+          <div className={styles.user_menu}>
             <AccountProfil />
             {/* CART */}
-            <button onClick={toggleModal}>
-              <FaShoppingCart />
-              <span className={styles.cartItems}>{totalItems}</span>
-            </button>
-            <Modal isOpen={isModalOpen} onClose={toggleModal}>
-              <h1>Palm Trees Affair</h1>
-              <p>Votre Panier</p>
-              <CartCompt />
-            </Modal>
-
-            {/* <Link href="/cart" className={styles.cart}>
-              <FaShoppingCart />
-              <span className={styles.cartItems}>{totalItems}</span>
-            </Link> */}
+            <div className={styles.user_cart}>
+              <button className={styles.cart} onClick={toggleModal}>
+                <FaShoppingCart style={{ fontSize: "24px" }} />
+                <span className={styles.cartItems}>{totalItems}</span>
+              </button>
+              <Modal isOpen={isModalOpen} onClose={toggleModal}>
+                <h1>Palm Trees Affair</h1>
+                <p>Votre Panier</p>
+                <CartCompt onClose={toggleModal} />
+              </Modal>
+            </div>
+            {/* /////// */}
             <Link href="/order" className={styles.delivery}>
-              <MdLocalShipping />
+              <MdLocalShipping style={{ fontSize: "24px" }} />
             </Link>
           </div>
           <div
@@ -140,7 +137,6 @@ const Navbar = () => {
             onClick={toggleMenu}
             onMouseEnter={toggleMenu}
           >
-            {/* <div className={`menu__icon ${navActive ? "active" : "inactive"}`}> */}
             <div className={`menu__icon ${navActive ? "active" : ""}`}>
               <div></div>
               <div></div>

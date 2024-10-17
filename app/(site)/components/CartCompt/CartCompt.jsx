@@ -1,7 +1,7 @@
 "use client";
 
 import { FaTrash } from "react-icons/fa";
-import Link from "next/link";
+//import Link from "next/link";
 import Image from "next/image";
 import Button from "../../components/Button/Button";
 import useCartStore from "@/cartStore";
@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 // Styles
 import styles from "./styles.module.scss";
 
-const CartCompt = () => {
+const CartCompt = ({ onClose }) => {
   const cart = useCartStore((state) => state.cart);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
 
@@ -18,7 +18,7 @@ const CartCompt = () => {
 
   const router = useRouter();
 
-  console.log(cart);
+  // console.log(cart);
 
   const handleRemoveFromCart = (productId) => {
     removeFromCart(productId);
@@ -27,7 +27,12 @@ const CartCompt = () => {
     console.log("Bouton 'Acheter maintenant' cliqué");
     event.preventDefault();
   };
-
+  const handleReturn = async (event) => {
+    console.log("Bouton 'Retour' cliqué");
+    event.preventDefault();
+    onClose(); // Close the modal
+    router.push("/");
+  };
   return (
     <div className={styles.cartCompt_container}>
       <div className={styles.boxone}>
@@ -38,9 +43,7 @@ const CartCompt = () => {
             {totalItems} est le nombre d'article dans votre panier
           </h3>
         )}
-        {/* <h1 className={styles.boxtone_header}>
-          {totalItems} articles dans votre panier
-        </h1> */}
+
         <table className={styles.table}>
           <thead>
             <tr className={styles.tr}>
@@ -87,12 +90,12 @@ const CartCompt = () => {
         <div className={styles.btns}>
           <Button text="CHECKOUT" onClick={handleCheckoutClick} />
         </div>
-        <Link href="/">
-          <Button
-            text="Continuer vos achats"
-            className={styles.returnShopping}
-          />
-        </Link>
+
+        <Button
+          onClick={handleReturn}
+          text="Continuer vos achats"
+          className={styles.returnShopping}
+        />
       </div>
     </div>
   );

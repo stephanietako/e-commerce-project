@@ -12,3 +12,13 @@
     border: 2px solid whitesmoke;
   }
 }
+
+///////////// RESPONSIVE /////////////////
+@media (max-width: 1200px) {
+  .button {
+    background-color: transparent;
+    border: 2px solid gray;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

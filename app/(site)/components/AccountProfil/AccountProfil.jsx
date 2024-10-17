@@ -14,7 +14,14 @@ const AccountProfil = () => {
           {session?.user ? (
             <Link href={`/user/${session.user.id}`}>
               {session.user.image ? (
-                <div className={styles.profil_user_header}>
+                <div
+                  className={styles.profil_user_header}
+                  style={{
+                    border: "4px solid white",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
                   <Image
                     src={session.user.image}
                     alt={session.user.name}
@@ -30,6 +37,7 @@ const AccountProfil = () => {
                     width: "34px",
                     height: "34px",
                     padding: "4px",
+                    color: "white",
                   }}
                 />
               )}
