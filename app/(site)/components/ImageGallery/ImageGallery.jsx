@@ -43,6 +43,7 @@ const ImageGallery = ({ images }) => {
           alt="Produits CBD"
           width={350}
           height={350}
+          priority={false}
           loading="lazy"
           placeholder="blur"
           blurDataURL="data:image/jpeg..."

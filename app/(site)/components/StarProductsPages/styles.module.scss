@@ -59,6 +59,7 @@
           height: 100%;
           flex-wrap: wrap;
           justify-content: center;
+          margin-top: 3rem;
 
           .title_starproducts_products {
             padding-left: 2rem;
@@ -106,7 +107,6 @@
                       position: relative;
                       z-index: 1;
                       // justify-content: center;
-                      font-size: 1.5rem;
                     }
 
                     .price_content {

@@ -153,6 +153,7 @@ const CarouselBeLike = ({ minipalms }) => {
                         width={350}
                         height={350}
                         loading="lazy"
+                        priority={false}
                         placeholder="blur"
                         blurDataURL="data:image/jpeg..."
                         style={{ objectFit: "contain" }}

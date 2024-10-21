@@ -17,7 +17,7 @@ import CartCompt from "../CartCompt/CartCompt";
 
 const mainNavLinks = [
   { name: "Guide du palmier", href: "/" },
-  { name: "Qui sommes-nous", href: "/" },
+  { name: "Qui sommes-nous", href: "#about" },
   { name: "Contact", href: "#footer" },
 ];
 
@@ -109,7 +109,7 @@ const Navbar = () => {
                 }
               >
                 {link.name}
-                ici !!!!!!!!!!!!!!!!
+                ici link name !!!!
               </Link>
             ))}
           </div>

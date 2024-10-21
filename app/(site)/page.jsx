@@ -83,7 +83,15 @@ const Home = async () => {
           </div>
           <Carousel plusproduct={plusproduct} />
         </section>
-        <div>
+        <div
+          id="about"
+          style={{
+            display: "flex",
+            width: "100%",
+            height: "100%",
+            border: "5px solid yellow",
+          }}
+        >
           <ThreeCompt />
         </div>
       </div>

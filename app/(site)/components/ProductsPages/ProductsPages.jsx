@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 const ProductsPages = ({ product }) => {
   if (!product) {
-    return <div>Loading...</div>; // Ajouter une vérification de sécurité
+    return <div>Loading...</div>;
   }
 
   return (

@@ -88,6 +88,7 @@ const StarProductsPages = ({ starproducts }) => {
                                         <PortableText value={item.content} />
                                       </span>
                                       <span className={styles.price_content}>
+                                        <p>A partir de:</p>
                                         <p>{item.price.toFixed(2)}€</p>
                                       </span>
                                       <span className="ref_products_starproducts">
