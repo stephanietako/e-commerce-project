@@ -10,7 +10,9 @@ import Banner from "./components/Banner/Banner";
 import Slider from "./components/Slider/Slider";
 import Carousel from "./components/Carousel/Carousel";
 import HR from "./components/HR/HR";
-import ThreeCompt from "./components/ThreeCompt/ThreeCompt";
+//import ThreeCompt from "./components/ThreeCompt/ThreeCompt";
+import About from "./components/About/About";
+export const dynamic = "force-dynamic";
 
 const Home = async () => {
   const starproducts = await getDataStarProductsPages();
@@ -83,17 +85,9 @@ const Home = async () => {
           </div>
           <Carousel plusproduct={plusproduct} />
         </section>
-        <div
-          id="about"
-          style={{
-            display: "flex",
-            width: "100%",
-            height: "100%",
-            border: "5px solid yellow",
-          }}
-        >
-          <ThreeCompt />
-        </div>
+        <section>
+          <About />
+        </section>
       </div>
     </>
   );

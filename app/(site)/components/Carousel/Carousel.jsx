@@ -93,8 +93,8 @@ const Carousel = ({ plusproduct }) => {
                       src={urlFor(item.coverImages).url()}
                       alt={item.name}
                       className={styles.carousel_img}
-                      width={350}
-                      height={350}
+                      width={450}
+                      height={450}
                       loading="lazy"
                       placeholder="blur"
                       blurDataURL="data:image/jpeg..."
@@ -132,4 +132,4 @@ const Carousel = ({ plusproduct }) => {
   );
 };
 
-export default Carousel; // Exporting the Carousel component
+export default Carousel;

@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+// Styles
 import styles from "./styles.module.scss";
+export const dynamic = "force-dynamic";
 
 const SmoothMouseEffect = () => {
   const [transform, setTransform] = useState({ x: 0, y: 0 });

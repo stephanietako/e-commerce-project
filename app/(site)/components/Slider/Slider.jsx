@@ -25,7 +25,7 @@ const Slider = ({ allproducts }) => {
   return (
     <div className={styles.sliderShow__container}>
       <span className={styles.sliderShow__title}>
-        <h1>DÉCOUVREZ NOS PRODUITS</h1>
+        <h1>DÉCOUVREZ NOS TOUS NOS PALMIERS</h1>
       </span>
 
       <div

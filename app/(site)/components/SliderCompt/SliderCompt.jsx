@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "../Slider/Slider";
 // Styles
 import styles from "./styles.module.scss";
+export const dynamic = "force-dynamic";
 
 const SliderCompt = ({ products }) => {
   return (

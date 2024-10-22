@@ -16,8 +16,8 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  letter-spacing: 4px;
-  word-spacing: -3px;
+  letter-spacing: 3px;
+  /* word-spacing: -3px; */
   /* user-select: none; */
   /* cursor: none; */
 }
@@ -249,5 +249,14 @@ ul {
   .nav__item:hover::after,
   .nav__item.active::after {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.1rem;
+  }
+  p {
+    font-size: 0.8rem;
   }
 }
