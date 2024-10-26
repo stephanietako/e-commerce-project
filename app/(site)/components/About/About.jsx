@@ -10,7 +10,7 @@ const About = () => {
       <div id={styles.about}>
         <ThreeCompt />
       </div>
-      <span className="about__bloc_text">
+      <span className={styles.about__bloc_text}>
         {" "}
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime

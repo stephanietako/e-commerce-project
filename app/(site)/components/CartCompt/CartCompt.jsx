@@ -37,10 +37,10 @@ const CartCompt = ({ onClose }) => {
     <div className={styles.cartCompt_container}>
       <div className={styles.boxone}>
         {totalItems === 0 ? (
-          <h3>Vous n'avez aucun article dans votre panier</h3>
+          <h3>Vous n&apos;avez aucun article dans votre panier</h3>
         ) : (
           <h3 className={styles.boxtone_header}>
-            {totalItems} est le nombre d'article dans votre panier
+            {totalItems} est le nombre d&apos;article dans votre panier
           </h3>
         )}
 

@@ -85,7 +85,7 @@ const Home = async () => {
           </div>
           <Carousel plusproduct={plusproduct} />
         </section>
-        <section>
+        <section id="about_section">
           <About />
         </section>
       </div>

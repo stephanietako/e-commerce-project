@@ -1,101 +1,10 @@
-// "use client";
+"use client";
 
-// import { useFrame, useThree } from "@react-three/fiber";
-// import { useRef, useState, useEffect } from "react";
-// import * as THREE from "three";
-// import { easing } from "maath";
-// export const dynamic = "force-dynamic";
-// // Composant principal pour l'effet d'image
-// const ImageEffect = () => {
-//   const meshRef = useRef(null); // Création d'une référence pour le maillage (mesh)
-//   const { camera } = useThree(); // Accès à la caméra de la scène Three.js
-//   const [texture, setTexture] = useState(null); // État pour stocker la texture chargée
-
-//   // useEffect pour charger la texture au montage du composant
-//   useEffect(() => {
-//     const loader = new THREE.TextureLoader(); // Création d'un nouveau chargeur de textures
-//     loader.load(
-//       "/assets/palm5.webp", // Chemin de l'image à charger
-//       (loadedTexture) => {
-//         setTexture(loadedTexture); // Mise à jour de l'état avec la texture chargée
-//       },
-//       undefined,
-//       (err) => {
-//         console.error("Erreur lors du chargement de la texture :", err);
-//       }
-//     );
-//   }, []);
-
-//   // useFrame est appelé à chaque frame pour animer la scène
-//   useFrame((state, delta) => {
-//     // damp3 damping sur trois dimensions (x, y, z)
-//     // Animation douce de la position de la caméra
-//     // damp fait référence à un type particulier de lissage qui ralentit progressivement les mouvements pour atteindre une position cible.
-//     // C'est une forme de lissage exponentiel où le mouvement décélère à mesure qu'il s'approche de la cible
-//     easing.damp3(
-//       camera.position, // Position actuelle de la caméra
-//       [
-//         state.pointer.x * 2, // Calcul de la nouvelle position x de la caméra en fonction de la position de la souris
-//         1 + state.pointer.y / 2, // Calcul de la nouvelle position y de la caméra
-//         8 + Math.atan(state.pointer.x * 2), // Calcul de la nouvelle position z de la caméra en utilisant la tangente arctan
-//       ],
-//       0.5, // Facteur de lissage pour une interpolation douce
-//       delta // Temps écoulé depuis la dernière frame
-//     );
-
-//     // Faire en sorte que la caméra regarde vers un point spécifique
-//     camera.lookAt(camera.position.x * 0.9, 0, 2);
-
-//     // Rotation douce du maillage en fonction de la position de la souris
-//     if (meshRef.current) {
-//       // Vérifie que le maillage est bien référencé
-//       // Interpolation douce pour la rotation en x
-//       meshRef.current.rotation.x = THREE.MathUtils.lerp(
-//         meshRef.current.rotation.x, // Rotation actuelle en x
-//         state.pointer.y * 0.3, // Nouvelle rotation en x basée sur la position de la souris
-//         0.1 // Facteur de lissage
-//       );
-//       // Spherical Linear Interpolation
-//       // L'interpolation est une méthode pour estimer les valeurs entre deux points connus. Imaginez que vous avez deux points sur une ligne et que vous voulez savoir quelles sont les valeurs entre ces deux points. L'interpolation vous permet de calculer ces valeurs intermédiaires.
-//       // Interpolation douce pour la rotation en y
-//       meshRef.current.rotation.y = THREE.MathUtils.lerp(
-//         meshRef.current.rotation.y, // Rotation actuelle en y
-//         state.pointer.x * 0.3, // Nouvelle rotation basée sur la position de la souris
-//         // L'interpolation est utilisée pour créer des mouvements et des transitions fluides
-//         0.1 // Facteur de lissage
-//         // Le facteur de lissage est un paramètre qui contrôle à quelle vitesse ou avec quelle intensité la transition entre les valeurs doit se faire
-//       );
-//     }
-//   });
-
-//   // Si la texture n'est pas encore chargée, ne rien afficher
-//   if (!texture) return null;
-
-//   // Rendu du maillage avec la texture appliquée
-//   //un mesh est une combinaison d'une géométrie (la forme de l'objet) et d'un matériau (l'apparence de l'objet)
-//   return (
-//     <mesh ref={meshRef} scale={[2, 2, 2]} position={[2, 4, 1]}>
-//       {/* position={[-4, 4, 3] */}
-//       {/* L'objet sera déplacé de tant unités vers la droite (X), de tant unité vers le
-//       haut (Y), et de tant unités vers l'arrière (Z). */}
-//       {/* Création de la géométrie du plan avec les dimensions spécifiées */}
-//       {/* Ajuster l'image */}
-//       <planeGeometry args={[15, 11]} />
-//       {/* Application du matériau de base avec la texture chargée */}
-//       <meshBasicMaterial map={texture} />
-//     </mesh>
-//   );
-// };
-
-// export default ImageEffect;
-///////////////////
 import { useFrame, useThree } from "@react-three/fiber";
 import { useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 import { easing } from "maath";
-import { Html } from "@react-three/drei";
-
-export const dynamic = "force-dynamic";
+import { Html, Text } from "@react-three/drei";
 
 const ImageEffect = () => {
   const meshRef = useRef(null);
@@ -103,13 +12,14 @@ const ImageEffect = () => {
   const [texture, setTexture] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Charger l'image principale pour l'animation du mesh
   useEffect(() => {
     const loader = new THREE.TextureLoader();
     loader.load(
-      "/assets/palm5.webp",
+      "/assets/palm5.webp", // Chemin de l'image principale
       (loadedTexture) => {
-        setTexture(loadedTexture);
-        setLoading(false);
+        setTexture(loadedTexture); // Stocker la texture pour affichage
+        setLoading(false); // Charger terminé
       },
       undefined,
       (err) => {
@@ -119,22 +29,43 @@ const ImageEffect = () => {
     );
   }, []);
 
+  // Animation continue de la scène et des objets dans useFrame
   useFrame((state, delta) => {
+    // Le useFrame de React Three Fiber, qui est appelé à chaque frame de l'animation. Il permet de mettre à jour la position de la caméra en fonction de la position du pointeur de la souris, créant ainsi un effet interactif et dynamique.
+    // Déplacement de la caméra en fonction du pointeur de la souris avec un effet de lissage (damping)
+    // damp3 : Applique un effet de lissage (damping) pour animer la transition de la position de la caméra
+    // en se rapprochant progressivement de la position cible. Cela crée un mouvement fluide et amorti.
+    // - 1er argument : la position actuelle de la caméra (camera.position)
+    // - 2ème argument : le tableau [x, y, z] indiquant la nouvelle position cible de la caméra
+    // - 3ème argument : le facteur de lissage (plus il est faible, plus l'animation est douce)
+    // - 4ème argument : le delta de temps (temps écoulé entre les frames) pour ajuster la vitesse de transition
+
     easing.damp3(
       camera.position,
       [
+        // Cela signifie que la position x de la caméra sera multipliée par 3. En déplaçant la souris de gauche à droite (axe x), la caméra se déplacera également latéralement, amplifiant l'effet de mouvement par un facteur de 3.
         state.pointer.x * 3,
         1 + state.pointer.y / 3,
+        // calcule l'angle tangent basé sur la position x de la souris.
         8 + Math.atan(state.pointer.x * 2),
-      ],
-      0.5,
-      delta
+      ], // Nouvelle position de la caméra
+      1, // Facteur de lissage, le lissage est souvent utilisé en conjonction avec l'interpolation pour adoucir les mouvements et éviter des transitions abruptes
+      // delta est le temps écoulé entre le cadre actuel et le précédent, ce qui est essentiel pour synchroniser le mouvement avec le temps réel
+      delta // Temps écoulé pour le lissage
     );
-    // La camera regardera vers le bas
+    // La caméra est orientée pour regarder vers un point fixe
     camera.lookAt(camera.position.x * 1, 1, -10);
-    camera.updateWorldMatrix();
+    camera.updateWorldMatrix(); // Mise à jour de la matrice de la caméra
 
+    // Rotation et échelle du mesh basé sur la position du pointeur
     if (meshRef.current) {
+      // Rotation progressive du mesh en fonction du pointeur
+      // MathUtils.lerp : Effectue une interpolation linéaire entre deux valeurs pour créer un effet de transition douce.
+      // Utilisé ici pour ajuster progressivement la rotation du mesh en fonction de la position du pointeur.
+      // - 1er argument : la valeur actuelle (ex. meshRef.current.rotation.x)
+      // - 2ème argument : la valeur cible, basée sur la position du pointeur (state.pointer.y * 0.2)
+      // - 3ème argument : le facteur d’interpolation (entre 0 et 1) ; plus il est proche de 1, plus le mouvement est rapide
+
       meshRef.current.rotation.x = THREE.MathUtils.lerp(
         meshRef.current.rotation.x,
         state.pointer.y * 0.2,
@@ -145,34 +76,140 @@ const ImageEffect = () => {
         state.pointer.x * 0.2,
         0.1
       );
-      // Ajustement de l'échelle
-      meshRef.current.scale.set(viewport.width / 7, viewport.height / 7, 1); // Modifiez ici
+      // Ajustement de l'échelle du mesh en fonction des dimensions du viewport
+      meshRef.current.scale.set(viewport.width / 5, viewport.height / 5, 1);
     }
   });
 
   if (loading) {
     return (
       <Html center>
-        <div style={{ color: "#fff", fontSize: "24px" }}>Chargement...</div>
+        <div
+          style={{
+            color: "#000",
+            fontSize: "24px",
+            // backgroundColor: "white",
+            // width: "60rem",
+            // height: "30rem",
+            // textAlign: "center",
+            // justifyContent: "center",
+          }}
+        >
+          Chargement...
+        </div>
       </Html>
     );
   }
-
+  // Si la texture est manquante, ne rien afficher
   if (!texture) return null;
 
-  // Ajustement de la position de l'image
-  {
-    /* position={[-4, 4, 3] */
-  }
-  // L'objet sera déplacé de tant unités vers la droite (X), de tant unité vers le bas (Y), et de tant unités vers l'arrière (Z).
+  // Création du mesh principal avec la texture chargée
   return (
-    <mesh ref={meshRef} scale={[0, 1, 1]} position={[1, 3, 0]}>
-      {" "}
-      {/* Modifiez ici */}
-      <planeGeometry args={[17, 27]} />
-      <meshBasicMaterial map={texture} />
+    <mesh ref={meshRef} scale={[0, 0, 4]} position={[2, 2.5, 0]}>
+      <planeGeometry args={[19, 19]} />{" "}
+      {/* Définition de la géométrie en forme de plan */}
+      <meshBasicMaterial map={texture} color="#ADD8E6" />{" "}
     </mesh>
   );
 };
 
 export default ImageEffect;
+
+// "use client";
+
+// import { useFrame, useThree } from "@react-three/fiber"; // Hooks pour animer et accéder aux propriétés Three.js
+// import { useRef, useState, useEffect } from "react";
+// import * as THREE from "three";
+// import { easing } from "maath";
+// import { Html } from "@react-three/drei";
+
+// const ImageEffect = ({ cameraProps }) => {
+//   const meshRef = useRef(null); // Référence pour le mesh principal
+//   const { camera, viewport } = useThree(); // Accès à la caméra et au viewport de la scène
+//   const [texture, setTexture] = useState(null); // État pour stocker la texture de l'image chargée
+//   const [loading, setLoading] = useState(true); // État de chargement pour l'affichage du message
+
+//   // Chargement de l'image principale pour l'animation
+//   useEffect(() => {
+//     const loader = new THREE.TextureLoader(); // Instancie le chargeur de textures Three.js
+//     loader.load(
+//       "/assets/palm5.webp", // Chemin vers l'image à charger
+//       (loadedTexture) => {
+//         setTexture(loadedTexture); // Stocke la texture une fois chargée
+//         setLoading(false); // Mise à jour de l'état pour indiquer la fin du chargement
+//       },
+//       undefined, // Gestionnaire de progression (inutilisé ici)
+//       (err) => {
+//         console.error("Erreur lors du chargement de la texture :", err); // Affiche une erreur en cas de problème de chargement
+//         setLoading(false); // Arrête le chargement si une erreur survient
+//       }
+//     );
+//   }, []);
+
+//   // Configuration de la caméra après chargement
+//   useEffect(() => {
+//     camera.position.set(...cameraProps.position); // Position initiale de la caméra
+//     camera.fov = cameraProps.fov; // Champ de vision de la caméra
+//     camera.near = cameraProps.near; // Distance minimale de la caméra
+//     camera.far = cameraProps.far; // Distance maximale de la caméra
+//     camera.updateProjectionMatrix(); // Met à jour la matrice de projection de la caméra
+//   }, [cameraProps, camera]);
+
+//   // Animation continue de la scène et du mesh
+//   useFrame((state, delta) => {
+//     // Applique un effet de lissage à la position de la caméra pour la rendre plus fluide
+//     easing.damp3(
+//       camera.position,
+//       [
+//         state.pointer.x * 3, // Ajustement de l'axe X de la caméra en fonction du pointeur
+//         1 + state.pointer.y / 3, // Ajustement de l'axe Y de la caméra en fonction du pointeur
+//         8 + Math.atan(state.pointer.x * 2), // Ajustement de la profondeur (axe Z) en fonction de l'angle
+//       ],
+//       0.8, // Facteur de lissage
+//       delta // Delta pour synchroniser la transition avec le temps
+//     );
+
+//     camera.lookAt(camera.position.x, 1, -5); // La caméra regarde vers un point fixe dans la scène
+//     camera.updateWorldMatrix(); // Mise à jour de la matrice du monde pour la caméra
+
+//     if (meshRef.current) {
+//       // Rotation progressive du mesh en fonction du pointeur
+//       meshRef.current.rotation.x = THREE.MathUtils.lerp(
+//         meshRef.current.rotation.x,
+//         state.pointer.y * 0.2, // Rotation en fonction de l'axe Y du pointeur
+//         0.1 // Facteur de lissage de la rotation
+//       );
+//       meshRef.current.rotation.y = THREE.MathUtils.lerp(
+//         meshRef.current.rotation.y,
+//         state.pointer.x * 0.2, // Rotation en fonction de l'axe X du pointeur
+//         0.1 // Facteur de lissage de la rotation
+//       );
+//       meshRef.current.scale.set(viewport.width / 5, viewport.height / 5, 1); // Ajustement de l'échelle du mesh en fonction du viewport
+//     }
+//   });
+
+//   // Si l'image est en cours de chargement, afficher un message de chargement
+//   if (loading) {
+//     return (
+//       <Html center>
+//         {/* Texte de chargement centré sur l'écran */}
+//         <div style={{ color: "#fff", fontSize: "24px" }}>Chargement...</div>
+//       </Html>
+//     );
+//   }
+
+//   // Si la texture n'a pas pu être chargée, ne rien afficher
+//   if (!texture) return null;
+
+//   // Rendu final du mesh principal avec la texture appliquée
+//   return (
+//     <mesh ref={meshRef} scale={[0, 0, 0]} position={[0, 0, 0]}>
+//       <planeGeometry args={[17, 17]} />{" "}
+//       {/* Dimensions du plan pour l'affichage de l'image */}
+//       <meshBasicMaterial map={texture} />{" "}
+//       {/* Application de la texture sur le mesh */}
+//     </mesh>
+//   );
+// };
+
+// export default ImageEffect;

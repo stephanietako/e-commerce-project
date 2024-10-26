@@ -1,9 +1,8 @@
 "use client";
-
+import { Text } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import ImageEffect from "../ImageEffect/ImageEffect";
-import EffectContrast from "../EffectContrast/EffectContrast";
-// Styles
 import styles from "./styles.module.scss";
 import { useRef, useEffect } from "react";
 
@@ -11,70 +10,65 @@ export const dynamic = "force-dynamic";
 
 const ThreeCompt = () => {
   const canvasRef = useRef();
+  const textRef = useRef();
+
+  const cameraProps = {
+    position: [0, 1, 5],
+    fov: 70,
+    near: 0.1,
+    far: 1000,
+  };
+
+  useEffect(() => {
+    if (canvasRef.current) {
+      canvasRef.current.invalidateFrameloop = true;
+    }
+  }, []);
 
   // useEffect(() => {
-  //   const renderCanvas = canvasRef.current;
-
-  //   // const handleWheel = (event) => {
-  //   //   event.preventDefault(); // Empêche le zoom
-  //   // };
-
-  //   // if (renderCanvas) {
-  //   //   // Ajout du gestionnaire d'événements
-  //   //   renderCanvas.addEventListener("wheel", handleWheel, { passive: false });
-  //   // }
-
-  //   // Nettoyage de l'écouteur d'événements
-  //   return () => {
-  //     if (renderCanvas) {
-  //       renderCanvas.removeEventListener("wheel", handleWheel);
+  //   const handleMouseWheel = (event) => {
+  //     // Accéder à la caméra à partir de la référence
+  //     if (cameraRef.current) {
+  //       cameraRef.current.position.z += event.deltaY / 500;
   //     }
   //   };
-  // }, []);
 
+  //   // Ajouter l'événement d'écouteur
+  //   document.addEventListener("mousewheel", handleMouseWheel);
+
+  //   // Nettoyer l'événement lors du démontage
+  //   return () => {
+  //     document.removeEventListener("mousewheel", handleMouseWheel);
+  //   };
+  // }, []);
   return (
     <section>
-      {/* Conteneur principal pour le canvas Three.js */}
       <div className={styles.canvas__container}>
-        {/* Élément main qui contient le canvas */}
         <main className={styles.canvas}>
-          {/* Initialisation de la scène Three.js avec le composant Canvas */}
           <Canvas
-            ref={canvasRef} // Référence au Canvas
+            id={styles.canvas}
+            ref={canvasRef}
             flat
-            dpr={[1, 1.5]}
-            gl={{ antialias: false }}
-            camera={{ position: [0, 2, 4], fov: 20, near: 1, far: 20 }}
+            // Densité de pixels (DPR, Device Pixel Ratio)
+            dpr={[1, 2]}
+            gl={{ antialias: true }}
+            camera={cameraProps}
           >
-            {/* Éclairage ambiant dans la scène */}
-            <ambientLight intensity={3 * Math.PI} />
-            {/* Composant ImageEffect */}
-            <ImageEffect />
-            {/* Composant EffectContrast */}
-            <EffectContrast />
+            <ambientLight intensity={3} />
+            <directionalLight position={[5, 10, 5]} intensity={3} />
+            <ImageEffect cameraProps={cameraProps} />
+            <OrbitControls enableZoom={false} />
+            {/* Ajoutez une légère position Z et renderOrder pour que le texte soit devant */}
+            <Text
+              ref={textRef}
+              position={[0, 1, 2]} // Position Z légèrement avancée
+              fontSize={1}
+              color="#fff"
+              renderOrder={0} // Rend le texte en dernier
+            >
+              PALMS TREES AFFAIR
+            </Text>
           </Canvas>
-          <div
-            id="info"
-            style={{
-              position: "absolute",
-              top: "10px",
-              width: "100%",
-              textAlign: "center",
-              zIndex: "100",
-              display: "flex",
-              color: "#fff",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "column",
-            }}
-          >
-            <h1 style={{ color: "#fff" }}>PALM TREES AFFAIR</h1>
-            <br />
-            <p style={{ color: "#fff" }}>Découvrez la ferme des palmiers</p>
-          </div>
         </main>
       </div>
     </section>
