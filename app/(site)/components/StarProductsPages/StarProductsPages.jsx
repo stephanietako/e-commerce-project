@@ -29,9 +29,7 @@ const StarProductsPages = ({ starproducts }) => {
             <div className={styles.starproducts__cards}>
               {starproducts.map((product) => {
                 if (!product.stars || !Array.isArray(product.stars)) {
-                  console.log(
-                    "product.stars is not defined or is not an array"
-                  );
+                  console.log("star product is not defined or is not an array");
                   return (
                     <div key={product._id}>
                       <p>No item available for this product.</p>
@@ -61,8 +59,8 @@ const StarProductsPages = ({ starproducts }) => {
                                         <Image
                                           src={urlFor(item.coverImages).url()}
                                           className="product__img"
-                                          width={300}
-                                          height={220}
+                                          width={400}
+                                          height={320}
                                           loading="lazy"
                                           placeholder="blur"
                                           alt="Notre selection de produits"

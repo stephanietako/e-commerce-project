@@ -17,7 +17,7 @@ import CartCompt from "../CartCompt/CartCompt";
 
 const mainNavLinks = [
   { name: "Guide du palmier", href: "/" },
-  { name: "Qui sommes-nous", href: "#about_section" },
+  { name: "Qui sommes-nous", href: "#about" },
   { name: "Contact", href: "#footer" },
 ];
 

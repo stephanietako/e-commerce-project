@@ -60,7 +60,7 @@
           width: 100%;
           height: 100%;
           flex-wrap: wrap;
-          justify-content: center;
+          justify-content: space-evenly;
           margin-top: 3rem;
 
           .title_starproducts_products {
@@ -70,7 +70,7 @@
           .display_infos__products {
             display: flex;
             height: auto;
-            width: auto;
+            width: 27rem;
             margin: 1rem;
             //border: 3px solid rgb(16, 222, 20);
 
@@ -83,7 +83,7 @@
               .content_starproducts {
                 display: flex;
                 justify-content: center;
-                width: 24rem;
+                width: 100%;
                 height: auto;
 
                 .starproducts__cards_infos {
