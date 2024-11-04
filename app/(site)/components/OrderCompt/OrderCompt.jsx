@@ -27,7 +27,7 @@ const OrderCompt = () => {
 
           // Calculer le montant total
           const total = ordersWithValidAmount.reduce(
-            (acc, order) => acc + order.price * order.qty,
+            (acc, order) => acc + order.price * order.quantity,
             0
           );
           setTotalAmount(total);
@@ -59,8 +59,8 @@ const OrderCompt = () => {
   return (
     <>
       <div className={styles.orderCompt_container}>
-        <div className={styles.boxone}>
-          <h1 className={styles.boxone_header}>Vos Achats</h1>
+        <div className={styles.box_one_order}>
+          <h1 className={styles.box_one_order__header}>Vos Achats</h1>
           <div className={styles.totalAmount}>
             Montant total des commandes : {totalAmount.toFixed(2)}€
           </div>
@@ -84,7 +84,7 @@ const OrderCompt = () => {
                   <td className={styles.td}>
                     <span>{order.email}</span>
                   </td>
-                  <td className={styles.td}>{order.qty}</td>
+                  <td className={styles.td}>{order.quantity}</td>
                   <td className={styles.td}>
                     {order.paid ? (
                       <span className={styles.paid}>Montant payé</span>
@@ -93,7 +93,7 @@ const OrderCompt = () => {
                     )}
                   </td>
                   <td className={styles.td}>
-                    {order.delivered ? (
+                    {order.status ? (
                       <span className={styles.delivered}>Livré</span>
                     ) : (
                       <span className={styles.intransit}>
@@ -102,7 +102,7 @@ const OrderCompt = () => {
                     )}
                   </td>
                   <td className={styles.td}>
-                    <span>{(order.price * order.qty).toFixed(2)}€</span>
+                    <span>{(order.price * order.quantity).toFixed(2)}€</span>
                   </td>
                 </tr>
               ))}

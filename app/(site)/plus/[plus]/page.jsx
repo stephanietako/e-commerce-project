@@ -79,8 +79,20 @@ const PlusDetails = ({ params }) => {
                         <label>Quantité</label>
                         <input
                           type="number"
+                          min="0"
                           value={quantity}
-                          onChange={handleQuantityChange}
+                          onChange={(e) => {
+                            const value = Math.max(0, Number(e.target.value));
+                            setQuantity(value);
+                          }}
+                          style={{
+                            cursor: "pointer",
+                            //border: "4px solid red",
+                            width: "4rem",
+                            height: "2rem",
+                            borderRadius: "10px",
+                            padding: "4px",
+                          }}
                         />
                       </div>
                       <p className={styles.products__text}>{data.body}</p>

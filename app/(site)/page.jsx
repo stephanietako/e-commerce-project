@@ -38,6 +38,7 @@ const Home = async () => {
           <Banner />
         </div>
         <section className="slider_section">
+          <p> HELLO WORLD !!!!!!!!!!!</p>
           <Slider allproducts={allproducts} />
         </section>
         <HR color="whitesmoke" />

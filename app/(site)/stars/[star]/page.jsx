@@ -5,7 +5,7 @@ import { getDataStar } from "@/sanity/lib/client";
 import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import Button from "../../components/Button/Button";
 import { toast } from "react-hot-toast";
-import useCartStore from "@/cartStore"; // Importer le store du panier
+import useCartStore from "@/cartStore";
 // Styles
 import styles from "./styles.module.scss";
 
@@ -78,8 +78,20 @@ const StarDetails = ({ params }) => {
                         <label>Quantité</label>
                         <input
                           type="number"
+                          min="0"
                           value={quantity}
-                          onChange={handleQuantityChange}
+                          onChange={(e) => {
+                            const value = Math.max(0, Number(e.target.value));
+                            setQuantity(value);
+                          }}
+                          style={{
+                            cursor: "pointer",
+                            //border: "4px solid red",
+                            width: "4rem",
+                            height: "2rem",
+                            borderRadius: "10px",
+                            padding: "4px",
+                          }}
                         />
                       </div>
                       <p className={styles.products__text}>{data.body}</p>

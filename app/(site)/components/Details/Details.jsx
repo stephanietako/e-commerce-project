@@ -10,6 +10,7 @@ import { toast } from "react-hot-toast";
 import styles from "./styles.module.scss";
 export const dynamic = "force-dynamic";
 
+// card details of all products & products categories on main menu
 const Details = ({ data, minipalms }) => {
   console.log("Details minipalms:", minipalms);
   console.log("data:", data);
@@ -37,7 +38,7 @@ const Details = ({ data, minipalms }) => {
             <div className={styles.products__content}>
               <div className={styles.products__infos}>
                 <span>
-                  <p>{data.type}</p>
+                  <p>ici !!!!!!{data.type}</p>
                 </span>
                 <span>
                   <p className={styles.products__price}>
@@ -56,12 +57,19 @@ const Details = ({ data, minipalms }) => {
                   <label>Quantité</label>
                   <input
                     type="number"
+                    min="0"
                     value={quantity}
                     onChange={(e) => {
-                      setQuantity(e.target.value);
+                      const value = Math.max(0, Number(e.target.value));
+                      setQuantity(value);
                     }}
                     style={{
                       cursor: "pointer",
+                      //border: "4px solid red",
+                      width: "4rem",
+                      height: "2rem",
+                      borderRadius: "10px",
+                      padding: "4px",
                     }}
                   />
                 </div>
@@ -77,6 +85,7 @@ const Details = ({ data, minipalms }) => {
             </div>
           </div>
         </div>
+        {/* add to cart */}
         <div className={styles.btns_products}>
           <Button
             text="Ajouter au panier"

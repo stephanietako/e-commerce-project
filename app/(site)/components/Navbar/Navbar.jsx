@@ -14,6 +14,14 @@ import styles from "./styles.module.scss";
 import logo from "@/public/assets/palmtrees_icon_white.png";
 import arrowIcon from "@/public/assets/arrow-colored.png";
 import CartCompt from "../CartCompt/CartCompt";
+// stripe
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+// Chargez votre clé publique Stripe une seule fois
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
 
 const mainNavLinks = [
   { name: "Guide du palmier", href: "/" },
@@ -124,7 +132,9 @@ const Navbar = () => {
               <Modal isOpen={isModalOpen} onClose={toggleModal}>
                 <h1>Palm Trees Affair</h1>
                 <p>Votre Panier</p>
-                <CartCompt onClose={toggleModal} />
+                <Elements stripe={stripePromise}>
+                  <CartCompt onClose={toggleModal} />
+                </Elements>
               </Modal>
             </div>
             {/* /////// */}

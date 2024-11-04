@@ -1,7 +1,4 @@
-// Importez les variables depuis le fichier "env.js"
 import { apiVersion, dataset, projectId, useCdn, token } from "../env";
-
-// Importez les fonctions depuis les modules nécessaires
 import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 

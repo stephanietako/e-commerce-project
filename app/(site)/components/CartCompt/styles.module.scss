@@ -4,14 +4,14 @@
   width: 100%;
   height: auto;
 
-  .boxone {
+  .box_one {
     display: flex;
     flex-direction: column;
     width: auto;
     height: auto;
     padding: 1rem;
 
-    .boxtone_header {
+    .box_one_header {
       text-align: center;
     }
 
@@ -78,7 +78,7 @@
     padding: 2rem;
   }
   .button {
-    background-color: #3939a9; /* Green */
+    background-color: #3939a9;
     border: none;
     color: white;
     padding: 15px 32px;

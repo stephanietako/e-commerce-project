@@ -156,12 +156,19 @@
         position: absolute;
         top: 100%;
         left: 1rem;
+        // background: linear-gradient(
+        //   to left,
+        //   #eccdec,
+        //   #e9e6e6,
+        //   #78e0f0,
+        //   #a1e3f1
+        // );
         background: linear-gradient(
-          to left,
-          #eccdec,
-          #e9e6e6,
-          #78e0f0,
-          #a1e3f1
+          to right,
+          #84e2f3,
+          #d6d6d6,
+          #e6c1df,
+          #e6c1df
         );
         margin-top: -20px;
         width: 18rem;

@@ -8,7 +8,7 @@ const CheckoutForm = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
     setError(null);
@@ -54,7 +54,7 @@ const CheckoutForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={onSubmit}>
       <CardElement />
       <button type="submit" disabled={!stripe || loading}>
         Pay

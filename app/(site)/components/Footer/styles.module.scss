@@ -64,7 +64,7 @@
 .footer__container {
   display: flex;
   width: 100%;
-  height: 90vh;
+  height: 50vh;
   clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
 
   .footer__bloc {
@@ -75,7 +75,7 @@
     bottom: 0;
     padding: 2rem;
     margin-top: 10vh;
-    //border: 4px solid rgb(0, 179, 255);
+    border: 4px solid rgb(8, 0, 255);
 
     .__bloc_container {
       height: 55%;

@@ -19,7 +19,7 @@ export async function getOrdersByEmail(email) {
         qty,
         price,
         paid,
-        delivered,
+      status,
         email,
         createdAt
       } | order(createdAt desc)`,
@@ -58,7 +58,7 @@ export async function createOrder(email, cart) {
         qty: quantity,
         price,
         paid: true,
-        delivered: false,
+        status: false,
         email: email,
         createdAt: new Date().toISOString(),
       });
