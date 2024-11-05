@@ -27,21 +27,103 @@ const CartCompt = ({ onClose }) => {
   const handleRemoveFromCart = (productId) => {
     removeFromCart(productId);
   };
-
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
       if (!stripe || !elements) {
-        return;
+        throw new Error("Stripe.js has not loaded yet.");
       }
+
+      // Obtenir l'élément de la carte
       const cardElement = elements.getElement(CardElement);
+
+      // Remplacez cartTotal par la valeur réelle que vous souhaitez envoyer
+      //const cartTotal = 100; // Exemple de total du panier
+
+      // Envoyer la requête à l'API /api/stripe
+      const response = await fetch("/api/stripe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: { amount: cartTotal.toFixed(0) },
+        }),
+      });
+
+      // Vérifier si la requête a réussi
+      if (!response.ok) {
+        throw new Error(
+          "Une erreur est survenue lors de la création de l'intention de paiement."
+        );
+      }
+
+      // Analyser la réponse JSON
+      const data = await response.json();
+
+      // Confirmer le paiement avec Stripe
+      const res = await stripe.confirmCardPayment(data.intent, {
+        payment_method: {
+          card: cardElement,
+        },
+      });
+
+      const status = res?.paymentIntent?.status;
+      console.log(status);
+
+      setLoading(false);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       setLoading(false);
     }
   };
+
+  // const onSubmit = async (e) => {
+  //   const cardElement = elements.getElement(CardElement);
+  //   e.preventDefault();
+  //   setLoading(true);
+
+  //   try {
+  //     if (!stripe || !elements) {
+  //       return;
+  //     }
+  //     // const cardElement = elements.getElement(CardElement);
+  //     //const cartTotal = 100; // Exemple de total du panier
+
+  //     const response = await fetch("/api/stripe", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         data: { amount: cartTotal.toFixed(0) },
+  //       }),
+  //     });
+
+  //     // Vérifier si la requête a réussi
+  //     if (!response.ok) {
+  //       throw new Error(
+  //         "Une erreur est survenue lors de la création de l'intention de paiement."
+  //       );
+  //     }
+  //     const res = await stripe.confirmCardPayment(data?.data?.intent, {
+  //       payment_method: {
+  //         card: cardElement,
+  //       },
+  //     });
+
+  //     const status = res?.paymentIntent?.status;
+  //     console.log(status);
+  //     // Analyser la réponse JSON
+  //     const data = await response.json();
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //     setLoading(false);
+  //   }
+  // };
 
   ///////////
   // const handleCheckoutClick = async (event) => {
@@ -110,13 +192,16 @@ const CartCompt = ({ onClose }) => {
         </table>
         {/* Total session */}
         <div className={styles.total}>Total: {cartTotal.toFixed(2)}€</div>
-
-        {cartTotal > 0 && (
-          <>
-            <CardElement />
-          </>
-        )}
-
+        <div
+          className={styles.payement}
+          style={{ background: "#f2f2f2", padding: "1rem" }}
+        >
+          {cartTotal > 0 && (
+            <>
+              <CardElement />
+            </>
+          )}
+        </div>
         <div className={styles.btns}>
           {cartTotal > 0 && (
             <>
