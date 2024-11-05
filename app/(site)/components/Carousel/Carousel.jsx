@@ -11,7 +11,8 @@ const Carousel = ({ plusproduct }) => {
   const [currentIndex, setCurrentIndex] = useState(0); // State to keep track of the current slide index
   const itemsToShow = 1; // Number of items to show in the carousel
   const totalItems = plusproduct.length; // Total number of items in the carousel
-  const autoPlayRef = useRef(); // useRef hook to keep track of the autoplay function
+  //const autoPlayRef = useRef();
+  // useRef hook to keep track of the autoplay function
 
   // useEffect(() => {
   //   // useEffect to set the autoplay function

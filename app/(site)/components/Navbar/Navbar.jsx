@@ -103,6 +103,7 @@ const Navbar = () => {
                 alt="Palm trees affair la ferme des palmiers"
                 width={100}
                 height={100}
+                loading="lazy"
                 className={styles.logo__img}
               />
             </Link>

@@ -8,6 +8,7 @@ import CarouselBeLike from "../CarouselBeLike/CarouselBeLike";
 import { toast } from "react-hot-toast";
 // Styles
 import styles from "./styles.module.scss";
+
 export const dynamic = "force-dynamic";
 
 // card details of all products & products categories on main menu
@@ -91,13 +92,6 @@ const Details = ({ data, minipalms }) => {
             text="Ajouter au panier"
             onClick={handleAddToCart}
             className={styles.addToCartBtn}
-            style={{
-              cursor: "pointer",
-            }}
-          />
-          <Button
-            text="Commander maintenant"
-            className={styles.checkoutNowBtn}
             style={{
               cursor: "pointer",
             }}

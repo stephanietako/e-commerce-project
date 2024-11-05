@@ -10,16 +10,24 @@ const ImageEffect = () => {
   const meshRef = useRef(null);
   const { camera, viewport } = useThree();
   const [isLoading, setIsLoading] = useState(true);
-  const texture = useLoader(THREE.TextureLoader, "/assets/palm5.webp");
-
-  const geometry = useState(new THREE.PlaneGeometry());
-
+  //const texture = useLoader(THREE.TextureLoader, "/assets/palm5.webp");
+  const [hasError, setHasError] = useState(false);
+  const texture = useLoader(
+    THREE.TextureLoader,
+    "/assets/palm5.webp",
+    undefined,
+    (err) => {
+      console.error("Error loading texture:", err);
+      setHasError(true);
+    }
+  );
   useEffect(() => {
     if (texture) {
       setIsLoading(false);
     }
   }, [texture]);
-
+  //   // Pour stocker la position précédente de la souris
+  const previousPointer = useRef({ x: 0, y: 0 });
   useFrame((state, delta) => {
     easing.damp3(
       camera.position,
@@ -52,6 +60,10 @@ const ImageEffect = () => {
       );
       // Mettez à jour l'échelle si besoin
       meshRef.current.scale.set(viewport.width / 5, viewport.height / 5, 1);
+
+      // Mettre à jour la position précédente de la souris
+      previousPointer.current.x = state.pointer.x;
+      previousPointer.current.y = state.pointer.y;
     }
   });
 
@@ -69,14 +81,14 @@ const ImageEffect = () => {
             fontSize: "3rem",
           }}
         >
-          <p>Chargement...</p>
+          <p>{hasError ? "Erreur de chargement" : "Chargement..."}</p>
         </div>
       </Html>
     );
   }
 
   return (
-    <mesh ref={meshRef} scale={[1, 1, 1]} position={[5, 3, 0]}>
+    <mesh ref={meshRef} scale={[1, 1, 1]} position={[5, 1, 0]}>
       <planeGeometry args={[17, 19, 1]} />
       <meshBasicMaterial map={texture} color="#ADD8E6" />
     </mesh>

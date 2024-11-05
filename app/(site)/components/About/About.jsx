@@ -31,7 +31,7 @@ const About = () => {
             magni deleniti quod quam consequuntur!
           </p>
           <br />
-          <h3>L&apos;assurance d&apos;une agriculture resonnée</h3>
+          <h3>L&apos;assurance d&apos;une agriculture raisonnée</h3>
           <p>
             Veritatis obcaecati tenetur iure eius earum ut molestias architecto
             voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit
