@@ -34,6 +34,7 @@ const Auth = () => {
   useEffect(() => {
     if (session) router.push("/");
   }, [router, session]);
+
   const loginHandler = () => {
     signIn()
       .then(() => {

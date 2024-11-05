@@ -6,28 +6,65 @@ import styles from "./styles.module.scss";
 import { getOrdersByEmail } from "@/utils/order-utils";
 
 const OrderCompt = () => {
+  //console.log("Email passé dans OrderCompt:", );
   const { data: session, status } = useSession();
+
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalAmount, setTotalAmount] = useState(0);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     if (session?.user?.email) {
+  //       console.log("Email de la session !!!!!!!!!!!:", session.user?.email);
+
+  //       try {
+  //         const fetchedOrders = await getOrdersByEmail(session.user.email);
+
+  //         // Vérification et traitement des valeurs NaN
+  //         const ordersWithValidAmount = fetchedOrders.map((order) => ({
+  //           ...order,
+  //           amount: parseFloat(order.amount) || 0, // Convertit en nombre ou met 0 si NaN
+  //         }));
+
+  //         setOrders(ordersWithValidAmount);
+
+  //         // Calculer le montant total
+  //         const total = ordersWithValidAmount.reduce(
+  //           (acc, order) => acc + order.price * order.qty,
+  //           0
+  //         );
+  //         setTotalAmount(total);
+  //       } catch (error) {
+  //         console.error("Error fetching orders:", error);
+  //       } finally {
+  //         setLoading(false);
+  //       }
+  //     } else {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [session]);
   useEffect(() => {
     const fetchData = async () => {
-      if (session?.user?.email) {
+      if (session.user.email) {
+        console.log("SESSION !!!!", session);
+        console.log("Email de la session:", session.user.email); // Ajoutez ce log
         try {
           const fetchedOrders = await getOrdersByEmail(session.user.email);
+          console.log("Fetched Orders:", fetchedOrders); // Vérifiez ce qui est retourné par la requête
 
-          // Vérification et traitement des valeurs NaN
           const ordersWithValidAmount = fetchedOrders.map((order) => ({
             ...order,
-            amount: parseFloat(order.amount) || 0, // Convertit en nombre ou met 0 si NaN
+            amount: parseFloat(order.amount) || 0,
           }));
 
           setOrders(ordersWithValidAmount);
 
-          // Calculer le montant total
           const total = ordersWithValidAmount.reduce(
-            (acc, order) => acc + order.price * order.quantity,
+            (acc, order) => acc + order.price * order.qty,
             0
           );
           setTotalAmount(total);
@@ -84,7 +121,7 @@ const OrderCompt = () => {
                   <td className={styles.td}>
                     <span>{order.email}</span>
                   </td>
-                  <td className={styles.td}>{order.quantity}</td>
+                  <td className={styles.td}>{order.qty}</td>
                   <td className={styles.td}>
                     {order.paid ? (
                       <span className={styles.paid}>Montant payé</span>
@@ -93,7 +130,7 @@ const OrderCompt = () => {
                     )}
                   </td>
                   <td className={styles.td}>
-                    {order.status ? (
+                    {order.delivered ? (
                       <span className={styles.delivered}>Livré</span>
                     ) : (
                       <span className={styles.intransit}>
@@ -102,7 +139,7 @@ const OrderCompt = () => {
                     )}
                   </td>
                   <td className={styles.td}>
-                    <span>{(order.price * order.quantity).toFixed(2)}€</span>
+                    <span>{(order.price * order.qty).toFixed(2)}€</span>
                   </td>
                 </tr>
               ))}

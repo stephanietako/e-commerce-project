@@ -20,7 +20,7 @@ const nextConfig = {
     ],
   },
   env: {
-    token: process.env.NEXT_SANITY_SECRET_TOKEN,
+    tokenSanity: "NEXT_SANITY_SECRET_TOKEN",
   },
 };
 

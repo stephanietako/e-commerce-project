@@ -22,13 +22,11 @@
     justify-content: space-between;
     width: 100%;
     padding: 1rem;
-    //background-color: blue;
 
     .logo {
       display: flex;
       width: auto;
       height: auto;
-      //border: 3px solid #a7ebf7;
       align-items: center;
 
       .logo__img {
@@ -131,8 +129,6 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    //background-color: #fff;
-    //border-top: 1px solid gray;
 
     .navLink {
       padding: 1rem;
@@ -145,24 +141,16 @@
 
       .arrowIcon {
         margin-left: 0.5rem;
+        cursor: pointer;
       }
 
       .submenu {
         display: flex;
-        //border: 5px solid blue;
-        // display: none;
         justify-content: center;
         flex-direction: column;
         position: absolute;
         top: 100%;
         left: 1rem;
-        // background: linear-gradient(
-        //   to left,
-        //   #eccdec,
-        //   #e9e6e6,
-        //   #78e0f0,
-        //   #a1e3f1
-        // );
         background: linear-gradient(
           to right,
           #84e2f3,
@@ -177,9 +165,6 @@
         padding-left: 0.7rem;
 
         .submenu__item {
-          //padding: 0.5rem 0;
-          //border: 3px solid blue;
-
           p {
             color: gray;
             font-weight: lighter;
@@ -238,7 +223,6 @@
   right: -288px;
   top: 76px;
   padding: 24px 16px;
-  //row-gap: 16px;
   background-color: #fff;
   transition: all 0.3s;
 }
@@ -335,37 +319,37 @@
   z-index: 100; // Doit être au-dessus d'autres éléments
 
   .cartModalContent {
-    background-color: white; // Couleur de fond du modal
-    padding: 2rem; // Espacement interne
-    border-radius: 8px; // Bords arrondis
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); // Ombre portée
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     width: 90%; // Largeur du modal (90% de l'écran)
-    max-width: 500px; // Largeur maximale pour les grands écrans
-    position: relative; // Nécessaire pour positionner le bouton de fermeture
+    max-width: 500px;
+    position: relative;
 
     .closeButton {
-      position: absolute; // Position absolue par rapport au modal
-      top: 1rem; // Espacement du haut
-      right: 1rem; // Espacement de droite
-      background: none; // Pas de fond
-      border: none; // Pas de bordure
-      font-size: 1.5rem; // Taille de la police
-      cursor: pointer; // Pointeur sur hover
-      color: #333; // Couleur du texte
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
 
       &:hover {
-        color: #e74c3c; // Change la couleur au survol
+        color: turquoise;
       }
     }
   }
 
   .overlay {
-    position: absolute; // Positionne l'overlay par rapport au modal
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0; // Couvre tout l'écran
-    background-color: rgba(0, 0, 0, 0.5); // Fond semi-transparent
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 

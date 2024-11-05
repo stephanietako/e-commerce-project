@@ -7,29 +7,37 @@ import Button from "../../components/Button/Button";
 import useCartStore from "@/cartStore";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useRouter } from "next/navigation";
-
+import { useSession } from "next-auth/react";
+import { createOrder } from "@/utils/order-utils";
+import toast from "react-hot-toast";
 // Styles
 import styles from "./styles.module.scss";
 
 const CartCompt = ({ onClose }) => {
   const router = useRouter();
-  // console.log(cart);
   const cart = useCartStore((state) => state.cart);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
   const totalItems = useCartStore((state) => state.totalItems);
   const cartTotal = useCartStore((state) => state.cartTotal);
   const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState(null);
-  // Stripe
+  const { data: session, status } = useSession();
   const stripe = useStripe();
   const elements = useElements();
 
   const handleRemoveFromCart = (productId) => {
     removeFromCart(productId);
   };
+
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
+    // Vérifier si l'utilisateur est connecté
+    if (!session.user.email) {
+      setLoading(false);
+      toast.error("Vous devez être connecté pour effectuer un paiement.");
+      return; // Sortir de la fonction si l'utilisateur n'est pas connecté
+    }
 
     try {
       if (!stripe || !elements) {
@@ -38,9 +46,6 @@ const CartCompt = ({ onClose }) => {
 
       // Obtenir l'élément de la carte
       const cardElement = elements.getElement(CardElement);
-
-      // Remplacez cartTotal par la valeur réelle que vous souhaitez envoyer
-      //const cartTotal = 100; // Exemple de total du panier
 
       // Envoyer la requête à l'API /api/stripe
       const response = await fetch("/api/stripe", {
@@ -73,68 +78,45 @@ const CartCompt = ({ onClose }) => {
       const status = res?.paymentIntent?.status;
       console.log(status);
 
-      setLoading(false);
+      if (status === "succeeded") {
+        console.log("success");
+        toast.success("Paiement reussi");
+        const email = session.user.email;
+        console.log("email dans cartcompt:", email);
+
+        //const orderResponse = await createOrder(email, cart);
+        if (session.user.email) {
+          const orderResponse = await createOrder(email, cart);
+          console.log("Réponse de la création de commande :", orderResponse);
+          if (session.user.email) {
+            router.push("/order");
+          }
+        }
+        console.log(
+          "Contenu du panier avant la création de la commande :",
+          cart
+        );
+
+        //console.log(" IF ORDER-RESPONSE PUSH !!!!!!!!:", orderResponse);
+
+        // if (orderResponse) {
+        //   router.push("/order");
+        // } else {
+        //   throw new Error("Order creation failed");
+        // }
+      }
     } catch (error) {
       console.error(error);
+      toast.error("Une erreur est survenue lors du paiement.");
+    } finally {
       setLoading(false);
     }
   };
 
-  // const onSubmit = async (e) => {
-  //   const cardElement = elements.getElement(CardElement);
-  //   e.preventDefault();
-  //   setLoading(true);
-
-  //   try {
-  //     if (!stripe || !elements) {
-  //       return;
-  //     }
-  //     // const cardElement = elements.getElement(CardElement);
-  //     //const cartTotal = 100; // Exemple de total du panier
-
-  //     const response = await fetch("/api/stripe", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         data: { amount: cartTotal.toFixed(0) },
-  //       }),
-  //     });
-
-  //     // Vérifier si la requête a réussi
-  //     if (!response.ok) {
-  //       throw new Error(
-  //         "Une erreur est survenue lors de la création de l'intention de paiement."
-  //       );
-  //     }
-  //     const res = await stripe.confirmCardPayment(data?.data?.intent, {
-  //       payment_method: {
-  //         card: cardElement,
-  //       },
-  //     });
-
-  //     const status = res?.paymentIntent?.status;
-  //     console.log(status);
-  //     // Analyser la réponse JSON
-  //     const data = await response.json();
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //     setLoading(false);
-  //   }
-  // };
-
-  ///////////
-  // const handleCheckoutClick = async (event) => {
-  //   console.log("Bouton 'Acheter maintenant' cliqué");
-  //   event.preventDefault();
-  //   router.push("/order");
-  // };
   const handleReturn = async (event) => {
     console.log("Bouton 'Retour' cliqué");
     event.preventDefault();
-    onClose(); // Close the modal
+    onClose(); // Fermer la modal
     router.push("/");
   };
 

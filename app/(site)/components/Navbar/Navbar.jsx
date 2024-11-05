@@ -24,7 +24,6 @@ const stripePromise = loadStripe(
 );
 
 const mainNavLinks = [
-  { name: "Guide du palmier", href: "/" },
   { name: "Qui sommes-nous", href: "#about" },
   { name: "Contact", href: "#footer" },
 ];
@@ -118,7 +117,6 @@ const Navbar = () => {
                 }
               >
                 {link.name}
-                ici link name !!!!
               </Link>
             ))}
           </div>
