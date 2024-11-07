@@ -65,6 +65,7 @@ section {
   flex-wrap: wrap;
   margin-top: 3rem;
   position: relative;
+  justify-content: center;
 }
 
 h1 {

@@ -1,51 +1,46 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useFrame, useThree, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { easing } from "maath";
 import { Html } from "@react-three/drei";
+// Styles
+import styles from "./styles.module.scss";
+
+export const dynamic = "force-dynamic";
 
 const ImageEffect = () => {
   const meshRef = useRef(null);
   const { camera, viewport } = useThree();
   const [isLoading, setIsLoading] = useState(true);
-  //const texture = useLoader(THREE.TextureLoader, "/assets/palm5.webp");
   const [hasError, setHasError] = useState(false);
-  const texture = useLoader(
-    THREE.TextureLoader,
-    "/assets/palm5.webp",
-    undefined,
-    (err) => {
-      console.error("Error loading texture:", err);
-      setHasError(true);
-    }
-  );
+
+  const texture = useLoader(THREE.TextureLoader, "/assets/palm5.webp");
+
+  // Vérifier si la texture est chargée ou en erreur
   useEffect(() => {
     if (texture) {
       setIsLoading(false);
+    } else {
+      setHasError(true);
     }
   }, [texture]);
-  //   // Pour stocker la position précédente de la souris
+
   const previousPointer = useRef({ x: 0, y: 0 });
+
   useFrame((state, delta) => {
     easing.damp3(
       camera.position,
       [
-        // La position x de la caméra est influencée par la position de la souris sur l'axe horizontal, multipliée par 4 pour augmenter la sensibilité.
         state.pointer.x * 2,
-        //  La position y est légèrement ajustée par rapport à la position de la souris sur l'axe vertical, mais elle est décalée pour éviter que la caméra ne descende trop bas.
         1 + state.pointer.y / 2,
-        //  En ajoutant 8, vous fixez la profondeur initiale de la caméra à 8 unités. Cela signifie que la caméra commence à une certaine distance de la scène, en particulier sur l'axe z.
-        // La position z de la caméra utilise la fonction Math.atan, qui renvoie l'arc tangente de la position de la souris multipliée par 4. Cela crée un effet de perspective dynamique en fonction de la position de la souris. Plus la souris se déplace à gauche ou à droite, plus la caméra se rapproche ou s'éloigne de la scène.
-        10 + Math.atan(state.pointer.x * 7),
+        8 + Math.atan(state.pointer.x * 4),
       ],
-      // Ce chiffre est un facteur de raideur qui détermine à quelle vitesse la caméra réagit aux changements de position.
-      // Une valeur de 1 signifie que les changements seront modérés ; des valeurs plus élevées rendraient la réponse plus rapide.
       1,
       delta
     );
-    camera.lookAt(camera.position.x * 0, 0, 0);
+    camera.lookAt(new THREE.Vector3(0, 0, -10));
 
     if (meshRef.current) {
       meshRef.current.rotation.x = THREE.MathUtils.lerp(
@@ -58,38 +53,32 @@ const ImageEffect = () => {
         state.pointer.x * 0.2,
         0.1
       );
-      // Mettez à jour l'échelle si besoin
-      meshRef.current.scale.set(viewport.width / 5, viewport.height / 5, 1);
+      meshRef.current.scale.set(viewport.width / 7, viewport.height / 7, 1);
 
-      // Mettre à jour la position précédente de la souris
+      // Mise à jour de la position précédente de la souris
       previousPointer.current.x = state.pointer.x;
       previousPointer.current.y = state.pointer.y;
     }
   });
 
-  if (isLoading) {
+  // Affichage de l'état de chargement ou d'erreur
+  if (isLoading || hasError) {
     return (
-      <Html center>
-        <div
-          style={{
-            display: "flex",
-            width: "100%",
-            height: "100%",
-            color: "#000",
-            justifyContent: "center",
-            alignItems: "center",
-            fontSize: "3rem",
-          }}
-        >
-          <p>{hasError ? "Erreur de chargement" : "Chargement..."}</p>
-        </div>
+      <Html
+        as="div"
+        wrapperClass={styles.loadingContainer}
+        center
+        distanceFactor={10}
+        zIndexRange={[100, 0]}
+      >
+        <p>{hasError ? "Erreur de chargement" : "Chargement..."}</p>
       </Html>
     );
   }
 
   return (
-    <mesh ref={meshRef} scale={[1, 1, 1]} position={[5, 1, 0]}>
-      <planeGeometry args={[17, 19, 1]} />
+    <mesh ref={meshRef} scale={[1, 0, 1]} position={[0, 0, 0]}>
+      <planeGeometry args={[20, 20, 1]} />
       <meshBasicMaterial map={texture} color="#ADD8E6" />
     </mesh>
   );

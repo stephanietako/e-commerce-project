@@ -5,14 +5,14 @@
   margin: 3rem 3rem;
   //justify-content: center;
   flex-direction: column;
-  border: 4px solid red;
+  //border: 4px solid red;
 
   .__filtered_products_compt__empty_choice {
     display: flex;
     width: 100%;
     height: 50vh;
     //background-color: pink;
-    border: 4px solid rgb(0, 255, 213);
+    //border: 4px solid rgb(0, 255, 213);
     position: relative;
     justify-content: center;
     flex-direction: column;
@@ -29,7 +29,7 @@
       display: flex;
       width: 100%;
       height: auto;
-      border: 4px solid blue;
+      //border: 4px solid blue;
       align-self: center;
       color: #000;
     }
@@ -40,7 +40,7 @@
     height: auto;
     position: relative;
     justify-content: flex-end;
-    border: 4px solid #db0bea;
+    //border: 4px solid #db0bea;
 
     .filter_products_compt__list__box {
       display: flex;
@@ -55,7 +55,7 @@
         height: auto;
         display: flex;
         margin-top: 0.3rem;
-        border: 7px solid rgb(234, 255, 0);
+        //border: 7px solid rgb(234, 255, 0);
 
         .check_section {
           width: 100%;
@@ -113,10 +113,10 @@
 @media (max-width: 768px) {
   .container_filter_products_compt {
     margin: 0;
-    border: 4px solid rgb(208, 0, 255);
+    //border: 4px solid rgb(208, 0, 255);
     .filter_products_compt__list {
       justify-content: center;
-      border: 4px solid #0b0fea;
+      //border: 4px solid #0b0fea;
     }
   }
 }

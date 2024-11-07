@@ -96,14 +96,6 @@ const CartCompt = ({ onClose }) => {
           "Contenu du panier avant la création de la commande :",
           cart
         );
-
-        //console.log(" IF ORDER-RESPONSE PUSH !!!!!!!!:", orderResponse);
-
-        // if (orderResponse) {
-        //   router.push("/order");
-        // } else {
-        //   throw new Error("Order creation failed");
-        // }
       }
     } catch (error) {
       console.error(error);

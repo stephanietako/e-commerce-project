@@ -4,7 +4,7 @@
   align-items: center;
   // border: 4px solid pink;
   width: 100%;
-  height: auto;
+  height: 90vh;
 
   .plusDetails__content {
     display: flex;
@@ -52,6 +52,11 @@
 
       .products__infos {
         padding: 2rem;
+
+        .products__quantity {
+          display: flex;
+          flex-direction: column;
+        }
       }
       .products__price {
         font-weight: bold;

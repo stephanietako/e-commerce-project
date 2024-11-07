@@ -50,6 +50,8 @@
     .products__content {
       display: flex;
       flex-direction: column;
+      width: auto;
+      height: auto;
 
       .products__infos {
         padding: 2rem;

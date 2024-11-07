@@ -17,10 +17,10 @@
       width: auto;
       height: auto;
       align-items: center;
-      justify-content: center;
+      /* justify-content: space-evenly; */
       flex-wrap: wrap;
       margin-bottom: 2rem;
-      //border: 3px solid yellow;
+      flex-direction: column;
 
       .title__content {
         display: flex;
@@ -49,11 +49,17 @@
 
       .display_all_starproducts {
         display: flex;
-        width: 100%;
+        width: auto;
         height: auto;
-        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
         justify-content: center;
-        //border: 3px solid black;
+        // display: flex;
+        // width: 100%;
+        // height: auto;
+        // align-items: center;
+        // justify-content: center;
+        // //border: 3px solid black;
 
         .starproducts__cards {
           display: flex;
@@ -70,7 +76,7 @@
           .display_infos__products {
             display: flex;
             height: auto;
-            width: 27rem;
+            width: 25rem;
             margin: 1rem;
             //border: 3px solid rgb(16, 222, 20);
 
