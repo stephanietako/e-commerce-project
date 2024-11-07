@@ -78,7 +78,7 @@ const PlusProductsDetails = async ({ params }) => {
                     className="plusProducts__data_group_categories"
                     style={{
                       display: "flex",
-                      width: "27rem",
+                      width: "37rem",
                       height: "auto",
                       justifyContent: "center",
                       flexDirection: "column",
@@ -92,6 +92,7 @@ const PlusProductsDetails = async ({ params }) => {
                           width: "auto",
                           height: "auto",
                           justifyContent: "center",
+                          borderRadius: "17px",
                         }}
                       >
                         {item.coverImages ? (
@@ -99,10 +100,10 @@ const PlusProductsDetails = async ({ params }) => {
                             src={urlFor(item.coverImages).url()}
                             alt="Les palmiers"
                             className="plusProducts__img"
-                            width={450}
-                            height={550}
+                            width={550}
+                            height={450}
                             style={{
-                              objectFit: "contain",
+                              objectFit: "cover",
                             }}
                           />
                         ) : (
@@ -110,59 +111,72 @@ const PlusProductsDetails = async ({ params }) => {
                         )}
                       </div>
                     </span>
-                    <div className="title__content">
-                      <h3
-                        className="title"
-                        style={{
-                          display: "flex",
-                          width: "100%",
-                          height: "auto",
-                          position: "relative",
-                          zIndex: 1,
-                          fontSize: "27px",
-                        }}
-                      >
-                        {item.name}
-                      </h3>
-                    </div>
-                    <div className="plusProducts_details__infos">
-                      <span>
-                        <PortableText value={item.content} />
-                      </span>
-                      <span>
-                        <p
-                          className="price_content"
+                    <div
+                      className="bloc_infos"
+                      style={{
+                        display: "flex",
+                        width: "100%",
+                        height: "auto",
+                        padding: "2rem",
+                        justifyContent: "center",
+                        flexDirection: "column",
+                      }}
+                    >
+                      <div className="title__content">
+                        <h3
+                          className="title"
                           style={{
-                            fontWeight: "bold",
+                            display: "flex",
+                            width: "100%",
+                            height: "auto",
+                            position: "relative",
+                            zIndex: 1,
+                            fontSize: "27px",
+                            justifyContent: "center",
                           }}
                         >
-                          {item.price}€
-                        </p>
-                      </span>
-                      <span>
-                        <button
-                          style={{
-                            padding: "10px 0",
-                            backgroundColor: "transparent",
-                            color: "#000",
-                            border: "none",
-                            outline: "none",
-                            cursor: "none",
-                          }}
-                        >
-                          Découvrir
-                        </button>
-                      </span>
-                      <span>
-                        <p
-                          style={{
-                            fontSize: "8px",
-                            color: "gray",
-                          }}
-                        >
-                          REF: {item._id}
-                        </p>
-                      </span>
+                          {item.name}
+                        </h3>
+                      </div>
+                      <div className="plusProducts_details__infos">
+                        <span>
+                          <PortableText value={item.content} />
+                        </span>
+                        <span>
+                          <p
+                            className="price_content"
+                            style={{
+                              fontWeight: "bold",
+                            }}
+                          >
+                            {item.price}€
+                          </p>
+                        </span>
+                        <span>
+                          <button
+                            style={{
+                              padding: "10px 0",
+                              backgroundColor: "transparent",
+                              color: "#000",
+                              border: "none",
+                              outline: "none",
+                              cursor: "none",
+                            }}
+                          >
+                            Découvrir
+                          </button>
+                        </span>
+                        <span>
+                          <p
+                            style={{
+                              fontSize: "8px",
+                              color: "gray",
+                            }}
+                          >
+                            REF: {item._id}
+                          </p>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </Link>

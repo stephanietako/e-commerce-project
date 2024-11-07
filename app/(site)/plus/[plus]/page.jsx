@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
 const PlusDetails = ({ params }) => {
   const [data, setData] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  const addToCart = useCartStore((state) => state.addToCart); // Utiliser le store du panier
+  const addToCart = useCartStore((state) => state.addToCart);
 
   useEffect(() => {
     const fetchData = async () => {

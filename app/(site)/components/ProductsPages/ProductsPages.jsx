@@ -42,6 +42,7 @@ const ProductsPages = ({ product }) => {
                           justifyContent: "center",
                           padding: "0.5rem",
                           flexDirection: "column",
+                          borderRadius: "17px",
                         }}
                       >
                         {category.coverImages ? (

@@ -49,11 +49,11 @@ const OrderCompt = () => {
   // }, [session]);
   useEffect(() => {
     const fetchData = async () => {
-      if (session.user.email) {
+      if (session?.user?.email) {
         console.log("SESSION !!!!", session);
-        console.log("Email de la session:", session.user.email); // Ajoutez ce log
+        console.log("Email de la session:", session?.user?.email); // Ajoutez ce log
         try {
-          const fetchedOrders = await getOrdersByEmail(session.user.email);
+          const fetchedOrders = await getOrdersByEmail(session?.user?.email);
           console.log("Fetched Orders:", fetchedOrders); // Vérifiez ce qui est retourné par la requête
 
           const ordersWithValidAmount = fetchedOrders.map((order) => ({

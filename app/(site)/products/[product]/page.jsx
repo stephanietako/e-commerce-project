@@ -99,11 +99,10 @@ const ProductsDetails = async ({ params }) => {
                         className="images"
                         style={{
                           display: "flex",
-                          width: "auto",
-                          height: "auto",
+                          width: "100%",
+                          height: "300px",
                           justifyContent: "center",
                           padding: "0.5rem",
-                          borderRadius: "30px",
                         }}
                       >
                         {category.coverImages ? (
@@ -114,7 +113,10 @@ const ProductsDetails = async ({ params }) => {
                             width={450}
                             height={300}
                             style={{
-                              objectFit: "contain",
+                              width: "100%",
+                              height: "auto",
+                              objectFit: "cover",
+                              borderRadius: "17px",
                             }}
                           />
                         ) : (
@@ -122,7 +124,12 @@ const ProductsDetails = async ({ params }) => {
                         )}
                       </div>
                     </span>
-                    <div className="title__content">
+                    <div
+                      className="title__content"
+                      style={{
+                        padding: "1rem",
+                      }}
+                    >
                       <h3
                         className="title"
                         style={{
@@ -138,7 +145,12 @@ const ProductsDetails = async ({ params }) => {
                         {category.name}
                       </h3>
                     </div>
-                    <div className="productDetails__infos">
+                    <div
+                      className="productDetails__infos"
+                      style={{
+                        padding: "1rem",
+                      }}
+                    >
                       <span>
                         <PortableText value={category.content} />
                       </span>
