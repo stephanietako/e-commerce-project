@@ -9,10 +9,11 @@
   }
 
   .img {
-    object-fit: contain;
+    object-fit: cover;
     padding-top: 1rem;
-    width: auto;
+    width: 350px;
     height: auto;
+    cursor: zoom-in;
   }
 
   .loupe {
@@ -24,7 +25,6 @@
     overflow: hidden;
     pointer-events: none;
     z-index: 9999;
-    cursor: zoom-in;
   }
 
   .zoomedImage {
