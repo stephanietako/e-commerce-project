@@ -8,20 +8,13 @@ const AccountProfil = () => {
   const { data: session } = useSession();
 
   return (
-    <div className={styles.header_container}>
-      <ul>
+    <div className={styles.account_profil}>
+      <ul className={styles.header_container}>
         <li className={styles.__session_users}>
           {session?.user ? (
-            <Link href={`/user/${session.user.id}`}>
+            <Link href={`/user/${session.user.id}`} className="user_icon">
               {session.user.image ? (
-                <div
-                  className={styles.profil_user_header}
-                  style={{
-                    border: "4px solid white",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
+                <div className={styles.profil_user_header}>
                   <Image
                     src={session.user.image}
                     alt={session.user.name}
@@ -32,25 +25,14 @@ const AccountProfil = () => {
                 </div>
               ) : (
                 <FaUserCircle
-                  className="user_icon"
-                  style={{
-                    width: "34px",
-                    height: "34px",
-                    padding: "4px",
-                    color: "white",
-                  }}
+                  style={{ width: "40px", height: "40px", color: "whitesmoke" }}
                 />
               )}
             </Link>
           ) : (
-            <Link href="/auth">
+            <Link href="/auth" className="user_icon">
               <FaUserCircle
-                className="user_icon"
-                style={{
-                  width: "34px",
-                  height: "34px",
-                  padding: "4px",
-                }}
+                style={{ width: "40px", height: "40px", color: "whitesmoke" }}
               />
             </Link>
           )}

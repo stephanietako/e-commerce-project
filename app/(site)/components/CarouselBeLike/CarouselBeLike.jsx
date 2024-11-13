@@ -150,8 +150,8 @@ const CarouselBeLike = ({ minipalms }) => {
                         src={urlFor(item.coverImages).url()}
                         alt={`Slide ${index}`}
                         className={styles.carouselBeLike_img}
-                        width={350}
-                        height={350}
+                        width={250}
+                        height={250}
                         loading="lazy"
                         priority={false}
                         placeholder="blur"

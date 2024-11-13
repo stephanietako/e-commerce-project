@@ -39,7 +39,7 @@ const Details = ({ data, minipalms }) => {
             <div className={styles.products__content}>
               <div className={styles.products__infos}>
                 <span>
-                  <p>ici !!!!!!{data.type}</p>
+                  <p>{data.type}</p>
                 </span>
                 <span>
                   <p className={styles.products__price}>

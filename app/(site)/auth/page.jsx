@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import styles from "./styles.module.css";
 // SignUp
 import { signUp } from "next-auth-sanity/client";
 // SignIn
@@ -12,6 +11,8 @@ import toast from "react-hot-toast";
 // Assets
 import GithubIcon from "@/public/assets/github.png";
 import GoogleIcon from "@/public/assets/google.png";
+// styles
+import styles from "./styles.module.scss";
 
 const defaultFormData = {
   email: "",
@@ -38,12 +39,11 @@ const Auth = () => {
   const loginHandler = () => {
     signIn()
       .then(() => {
-        // push user to homepage
         router.push("/");
       })
       .catch((error) => {
         console.log(error);
-        toast.error("Something went wrong");
+        toast.error("Oups ... une erreur est survenue");
       });
   };
 
@@ -59,7 +59,7 @@ const Auth = () => {
       })
       .catch((error) => {
         console.log(error);
-        toast.error("Something went wrong");
+        toast.error("Oups ... une erreur est survenue");
       })
       .finally(() => {
         setFormData(defaultFormData);
@@ -70,8 +70,8 @@ const Auth = () => {
     <section className={styles.container}>
       <div className={styles.form}>
         <div className={styles.heading}>
-          <h2 className={styles.subHeading}>Create an account</h2>
-          <p>OR</p>
+          <h2 className={styles.subHeading}>Créer un compte</h2>
+          <p>OU</p>
           <span className={styles.icons_google_github}>
             <Image
               src={GoogleIcon}
@@ -122,12 +122,12 @@ const Auth = () => {
           />
 
           <button type="submit" className={styles.button}>
-            Sign Up
+            <p>S&apos;inscrire</p>
           </button>
         </form>
 
         <button onClick={loginHandler} className={styles.button}>
-          login
+          <p> Connexion </p>
         </button>
       </div>
     </section>

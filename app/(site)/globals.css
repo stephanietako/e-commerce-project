@@ -83,15 +83,12 @@ h2 {
 
 h3 {
   color: gray;
-  /* font-family: var(--font-poppins); */
 }
 
 p {
   font-size: 1rem;
   color: #000;
   font-weight: lighter;
-
-  /* font-family: var(--font-poppins); */
 }
 
 ul {
@@ -104,8 +101,7 @@ ul {
   height: auto;
   justify-content: flex-end;
 }
-/* ///////////// */
-
+/* /////////////Navbar menu burger*/
 .menu__icon {
   width: 40px;
   display: flex;
@@ -218,7 +214,7 @@ ul {
   flex-direction: column;
   position: fixed;
   width: 288px;
-  height: calc(100vh - 76px); /* my header height was 76px */
+  height: calc(100vh - 76px);
   right: -288px;
   top: 76px;
   padding: 24px 16px;

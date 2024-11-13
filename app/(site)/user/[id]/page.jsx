@@ -8,14 +8,14 @@ import { useSession } from "next-auth/react";
 import OrderCompt from "../../components/OrderCompt/OrderCompt";
 
 const UserDetails = ({ params }) => {
-  const { id } = params; // Correction de la déstructuration
+  const { id } = params;
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const { data: session } = useSession();
 
   useEffect(() => {
     const fetchUserData = async () => {
-      if (!session) return; // Attendre que la session soit chargée
+      if (!session) return;
 
       try {
         const response = await fetch(`/api/users/${session.user.id}`); // Correction de l'URL
@@ -33,7 +33,7 @@ const UserDetails = ({ params }) => {
     };
 
     fetchUserData();
-  }, [session]); // Ajout de session comme dépendance
+  }, [session]);
 
   if (loading) {
     return <p style={{ textAlign: "center" }}>Loading...</p>;

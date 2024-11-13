@@ -63,7 +63,13 @@ const StarDetails = ({ params }) => {
                     {data.price.toFixed(2)}€
                   </p>
                 </span>
-                <div className={styles.products__quantity}>
+                <div
+                  className={styles.products__quantity}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
                   <label>Quantité</label>
                   <input
                     type="number"

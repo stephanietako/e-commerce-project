@@ -74,10 +74,18 @@
         color: whitesmoke;
         //border: 2px solid red;
         align-items: center;
-
+        border: none;
+        transition: transform 0.2s;
+        width: 100%;
+        height: auto;
+        //margin: 0 auto;
+        &:hover {
+          color: turquoise;
+          transform: scale(1.5);
+        }
         .cartItems {
           font-size: 1.5rem;
-          color: #000;
+          color: turquoise;
           padding: 0.3rem;
         }
       }
@@ -140,8 +148,12 @@
       }
 
       .arrowIcon {
+        transition: all 0.3s;
         margin-left: 0.5rem;
         cursor: pointer;
+        &:hover {
+          transform: scale(1.5);
+        }
       }
 
       .submenu {
@@ -153,11 +165,12 @@
         left: 1rem;
         background: linear-gradient(
           to right,
-          #84e2f3,
-          #d6d6d6,
-          #e6c1df,
-          #e6c1df
+          rgba(127, 228, 246, 0.8),
+          rgba(214, 214, 214, 0.8),
+          rgba(230, 193, 223, 0.8),
+          rgba(175, 172, 222, 0.8)
         );
+        box-shadow: 0 7px 7px rgba(0, 0, 0, 0.5);
         margin-top: -20px;
         width: 18rem;
         height: auto;
@@ -225,6 +238,7 @@
   padding: 24px 16px;
   background-color: #fff;
   transition: all 0.3s;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }
 
 .menu.active {

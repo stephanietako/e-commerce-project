@@ -15,7 +15,7 @@ const Hero = () => {
     <div className={styles.heroWrapper}>
       <Image
         src={backgroundImg}
-        alt="boutique Vibes Saint-tropez"
+        alt="coucher de soleil avc vue sur des palmiers"
         className={styles.heroImage}
         loading="lazy"
         fill={true}

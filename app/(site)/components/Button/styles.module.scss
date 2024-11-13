@@ -1,13 +1,43 @@
 .button {
-  background-color: transparent;
+  // background: linear-gradient(to right, #76e0f3, #d6d6d6, #e6c1df, #afacde);
   border: 2px solid gray;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 12px;
   margin: 1rem;
-  // cursor: none;
+  position: relative;
   cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    to right,
+    rgba(127, 228, 246, 0.4),
+    rgba(214, 214, 214, 0.4),
+    rgba(230, 193, 223, 0.4),
+    rgba(175, 172, 222, 0.4)
+  );
 
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   // background: linear-gradient(to right, #76e0f3, #d6d6d6, #e6c1df, #afacde);
+  //   //opacity: 0.4;
+  //   background: linear-gradient(
+  //     to right,
+  //     rgba(127, 228, 246, 0.4),
+  //     rgba(214, 214, 214, 0.4),
+  //     rgba(230, 193, 223, 0.4),
+  //     rgba(175, 172, 222, 0.4)
+  //   );
+  // }
+
+  p {
+    position: relative;
+    opacity: 1;
+  }
   &:hover {
     border: 2px solid whitesmoke;
   }
