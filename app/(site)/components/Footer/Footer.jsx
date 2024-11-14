@@ -33,8 +33,10 @@ const Footer = () => {
                         <Image
                           src={phone}
                           alt="Phone Icon"
-                          width={40}
-                          height={40}
+                          width={30}
+                          height={30}
+                          loading="lazy"
+                          sizes="(max-width: 30px) 100vw, 25px 70vw  20px 50vw"
                           className={styles.__icon}
                           tyle={{
                             objectFit: "cover",
@@ -59,8 +61,10 @@ const Footer = () => {
                         <Image
                           src={insta}
                           alt="Instagram Icon"
-                          width={40}
-                          height={40}
+                          width={30}
+                          height={30}
+                          loading="lazy"
+                          sizes="(max-width: 30px) 100vw, 25px 70vw  20px 50vw"
                           className={styles.__icon}
                           tyle={{
                             objectFit: "cover",
@@ -80,8 +84,10 @@ const Footer = () => {
                         <Image
                           src={mail}
                           alt="Mail Icon"
-                          width={35}
-                          height={35}
+                          width={30}
+                          height={30}
+                          loading="lazy"
+                          sizes="(max-width: 30px) 100vw, 25px 70vw  20px 50vw"
                           className={styles.__icon}
                           tyle={{
                             objectFit: "cover",
@@ -137,7 +143,7 @@ const Footer = () => {
                       <br />
                       La Ferme des Palmiers <br />
                       Golfe de Saint-tropez <br />
-                      18 rue de Mars - 83990 Cogolin
+                      18 rue de Mars - 83990 Saint-tropez
                     </p>
                   </div>
                 </li>
@@ -155,8 +161,8 @@ const Footer = () => {
                 <Image
                   src={logo}
                   alt="Palm trees Farmer logo"
-                  width={40}
-                  height={40}
+                  width={30}
+                  height={30}
                   style={{
                     objectFit: "cover",
                     width: "auto",

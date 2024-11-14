@@ -102,7 +102,8 @@ const Navbar = () => {
                 alt="Palm trees affair la ferme des palmiers"
                 width={100}
                 height={100}
-                loading="lazy"
+                // loading="lazy"
+                sizes="(max-width: 100px) 100vw, 78px 70vw  58px 50vw"
                 className={styles.logo__img}
               />
             </Link>

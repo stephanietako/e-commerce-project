@@ -41,7 +41,7 @@
 
       .images_starproducts {
         display: flex;
-        width: auto;
+        max-width: 350px;
         height: auto;
         justify-content: center;
         //border: 3px solid red;
@@ -49,17 +49,12 @@
 
       .display_all_starproducts {
         display: flex;
-        width: auto;
+        width: 100%;
         height: auto;
         flex-wrap: wrap;
         margin-bottom: 2rem;
         justify-content: center;
-        // display: flex;
-        // width: 100%;
-        // height: auto;
-        // align-items: center;
-        // justify-content: center;
-        // //border: 3px solid black;
+        align-items: center;
 
         .starproducts__cards {
           display: flex;
@@ -75,10 +70,10 @@
 
           .display_infos__products {
             display: flex;
-            height: auto;
-            width: 25rem;
-            margin: 2rem;
-            //border: 3px solid rgb(16, 222, 20);
+            width: 24rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2rem;
 
             .data_group_starproducts {
               display: flex;
@@ -97,8 +92,8 @@
                   width: auto;
                   flex-direction: column;
                   //border: 3px solid blue;
-                  border: 1px solid whitesmoke;
-                  padding: 1rem;
+                  // border: 1px solid whitesmoke;
+                  // padding: 2rem;
 
                   .starproducts__infos {
                     display: flex;

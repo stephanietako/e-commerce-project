@@ -52,7 +52,10 @@
           flex-direction: column;
 
           .products__infos {
-            padding: 2rem;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
           }
           .products__price {
             font-weight: bold;
@@ -79,11 +82,12 @@
 @media (max-width: 1200px) {
   .starDetails__container {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     .starDetails__content {
-      padding: 0;
       border: 4px solid rgb(255, 255, 0);
+      padding: 2rem;
       width: auto;
+      height: 100%;
       .gallery__container {
         display: flex;
         width: 100%;
