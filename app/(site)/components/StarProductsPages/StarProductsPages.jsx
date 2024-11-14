@@ -43,7 +43,6 @@ const StarProductsPages = ({ starproducts }) => {
                     style={{
                       display: "flex",
                       width: "auto",
-                      padding: "2rem",
                       marginBottom: "1rem",
                       border: "4px solid whitesmoke",
                     }}
@@ -71,7 +70,7 @@ const StarProductsPages = ({ starproducts }) => {
                                           width={350}
                                           height={250}
                                           loading="lazy"
-                                          sizes="(max-width: 250px) 100vw, 225px 70vw  220px 50vw"
+                                          sizes="(max-width: 350px) 100vw, 200px 70vw  150px 50vw"
                                           placeholder="blur"
                                           alt="Notre selection de produits"
                                           blurDataURL="data:image/jpeg..."
