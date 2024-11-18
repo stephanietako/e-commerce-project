@@ -8,10 +8,10 @@ import Hero from "./components/Hero/Hero";
 import FiltersProducts from "./products/filtersProducts/page";
 import Banner from "./components/Banner/Banner";
 import Slider from "./components/Slider/Slider";
-import Carousel from "./components/Carousel/Carousel";
+import Carousel from "./components/CarouselHome/CarouselHome";
 import HR from "./components/HR/HR";
-//import ThreeCompt from "./components/ThreeCompt/ThreeCompt";
 import About from "./components/About/About";
+
 export const dynamic = "force-dynamic";
 
 const Home = async () => {
@@ -64,13 +64,17 @@ const Home = async () => {
         </section>
         <HR color="whitesmoke" />
         <section
+          className="plusProduct_section"
           style={{
             display: "flex",
-            width: "auto",
+            width: "100%",
             flexDirection: "column",
             overflow: "hidden",
             padding: "2rem",
             height: "auto",
+            border: "5px solid pink",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <div

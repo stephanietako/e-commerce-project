@@ -45,10 +45,7 @@ const ImageGallery = ({ images }) => {
           height={350}
           priority={false}
           loading="lazy"
-          placeholder="blur"
-          blurDataURL="data:image/jpeg..."
           className={styles.img}
-          // style={{ width: "100%", height: "100%" }}
         />
         {showLoupe && (
           <div
@@ -63,7 +60,7 @@ const ImageGallery = ({ images }) => {
               alt="Zoom"
               width={400}
               height={280}
-              className={styles.zoomedImage}
+              className={styles.zoomed_image}
               style={{
                 top: -mousePosition.y * 2 + 100,
                 left: -mousePosition.x * 2 + 100,
@@ -72,7 +69,7 @@ const ImageGallery = ({ images }) => {
           </div>
         )}
       </div>
-      <div className={styles.thumbnailContainer}>
+      <div className={styles.thumbnail_container}>
         {images.map((image, index) => (
           <div key={index} onClick={() => handleSmallImageClick(image)}>
             <Image

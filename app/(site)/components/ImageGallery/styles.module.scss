@@ -14,6 +14,7 @@
     width: 350px;
     height: auto;
     cursor: zoom-in;
+    border-radius: 30px;
   }
 
   .loupe {
@@ -27,21 +28,22 @@
     z-index: 9999;
   }
 
-  .zoomedImage {
+  .zoomed_image {
     position: absolute;
     transform: scale(2);
     transform-origin: top left;
     cursor: zoom-in;
   }
 
-  .thumbnailContainer {
+  .thumbnail_container {
     display: flex;
     width: auto;
     height: auto;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .thumbnail {
-    object-fit: contain;
+    border-radius: 17px;
+    object-fit: cover;
   }
 }

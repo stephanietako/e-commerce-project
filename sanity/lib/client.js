@@ -13,10 +13,10 @@ export async function getDataPlusProductsPages() {
     "slug": slug.current,
          "coverImages": images[0].asset->url,
    body,
-           content, 
+           content,
      "ref": plus[]{
 _ref,
-    
+
   "plus": *[_type == 'plus' && references(^._id)][0...5]  {
     _id,
      _createdAt,
@@ -28,7 +28,7 @@ _ref,
      "coverImages": images[0].asset->url,
     "images": images[0].asset->url,
     content,
-      
+
   }
     }
 }`,
@@ -47,7 +47,7 @@ _id,
   name,
     "slug": slug.current,
          "coverImages": images[0].asset->url,
-           content, 
+           content,
            "body": pt::text(body),
   "plus": *[_type == 'plus' && references(^._id)][0...100] | order(_createdAt desc) {
     _id,
@@ -399,40 +399,7 @@ export async function getData(slug) {
   );
 }
 //////////////////////////
-// export async function getDataFlowers() {
-//   return createClient(clientConfig).fetch(
-//     groq`*[_type == "product" && name == "Palmiers"] [0...50]  {
-//   _id,
-//        _createdAt,
-//       _type,
-//   name,
-//     "slug": slug.current,
-//          "coverImages": images[0].asset->url,
-//            content,
-//             "body": pt::text(body),
-//   "categories": *[_type == 'category' && references(^._id)][0...30] | order(name asc) {
-//     _id,
-//      _createdAt,
-//       _type,
-//     price,
-//     currency,
-//     name,
-//     "slug": slug.current,
-//      "coverImages": images[0].asset->url,
-//     "images": images[0].asset->url,
-//     content,
-//       products,
-//        "ref": products[]{
-// _ref,
-//     }
-//   }
-// }`,
-//     {
-//       cache: "no-cache",
-//     }
-//   );
-// }
-//////////////////////////
+
 export async function getDataMinipalms() {
   return createClient(clientConfig).fetch(
     groq`*[_type == "plus" && type == "palmiers nains"] {
@@ -525,110 +492,3 @@ _ref,
 //     }
 //     }
 //////////////////////////
-// export async function getDataFlowersSlug(slug) {
-//   return createClient(clientConfig).fetch(
-//     groq`*[_type == "category" && name == "Orange"]{
-//     _createdAt,
-//   _id,
-//   name,
-//       type,
-//    "coverImages": images[0].asset->url,
-//     "images": images[0].asset->url,
-//            price,
-//     currency,
-//     content,
-// }`,
-//     { slug },
-//     {
-//       cache: "no-cache",
-//     }
-//   );
-// }
-///////////////
-// *[_type == "product" && name == "fleurs"]{
-//     _createdAt,
-//   _id,
-//   name,
-
-//    "coverImages": images[0].asset->url,
-//     "images": images[0].asset->url,
-//            price,
-//     currency,
-//     content,
-//   "categories": categories[]{
-// _ref,
-
-// }
-
-// }
-//////////////////////
-// *[_type == "category"] | order(name asc){
-//   _id,
-//       _createdAt,
-//   name,
-//     "coverImages": images[0].asset->url,
-//   price,
-//    "slug": slug.current,
-//      "productsRef": products[]{
-// _ref,
-//   "products": *[_type == 'product' && references(^._id)][0...25] | order(name asc){
-//     _id,
-//     price,
-//     currency,
-//     name,
-//     "slug": slug.current,
-//      "coverImages": images[0].asset->url,
-//     "images": images[0].asset->url,
-//     content,
-//     categories,
-
-//   }
-// }
-// }
-//////////////
-// export async function getDataProductSingle(slug) {
-//   return createClient(clientConfig).fetch(
-//     groq`*[_type == "product" && slug.current == "$slug"][0]{
-//  _id,
-//    _createdAt,
-//       name,
-//     "coverImages": images[0].asset->url,
-
-//     "slug": slug.current,
-//    content,
-//        body,
-//   "categories": *[_type == 'category' && references(^._id)][0...20] | order(name asc) {
-//     _id,
-//     price,
-//     currency,
-//     name,
-//     "slug": slug.current,
-//      "coverImages": images[0].asset->url,
-//     "images": images[0].asset->url,
-//     content,
-//       products,
-//        "ref": products[]{
-// _ref,
-//     }
-//     }
-// }`,
-//     { slug },
-//     {
-//       cache: "no-store",
-//     }
-//   );
-// }
-////////////
-// *[_type == 'product' && "orange" in categories[]->slug.current ]{
-//   _id,
-//     name,
-//      "categoriesName": categories[0]->name,
-//     "categoriesPrice": categories[0]->price,
-//   "categoriesImages": categories[0]->images,
-//         currency,
-//         content,
-//         "coverImages": images[0].asset->url,
-//     "images": images[0].asset->url,
-//          body,
-
-// }

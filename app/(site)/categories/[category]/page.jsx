@@ -8,8 +8,7 @@ const CategoryDetails = async ({ params }) => {
   const slug = params.category;
   const data = await getData(slug);
   const minipalms = await getDataMinipalms();
-  console.log("Fetched data:", data);
-  console.log("Fetched minipalms:", minipalms);
+
   return (
     <>
       <Details data={data} minipalms={minipalms} />

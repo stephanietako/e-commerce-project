@@ -143,7 +143,8 @@ const Footer = () => {
                       <br />
                       La Ferme des Palmiers <br />
                       Golfe de Saint-tropez <br />
-                      18 rue de Mars - 83990 Saint-tropez
+                      18 rue de Mars <br />
+                      83990 Saint-Tropez
                     </p>
                   </div>
                 </li>

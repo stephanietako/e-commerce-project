@@ -104,6 +104,7 @@ const PlusProductsDetails = async ({ params }) => {
                             height={450}
                             style={{
                               objectFit: "cover",
+                              borderRadius: "17px",
                             }}
                           />
                         ) : (
