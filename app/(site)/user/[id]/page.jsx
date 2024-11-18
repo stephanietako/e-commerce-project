@@ -444,9 +444,9 @@ const UserDetails = ({ params }) => {
               <Image
                 src={userData.image}
                 alt={userData.name}
-                width={143}
-                height={143}
-                // style={{ borderRadius: "50%", transition: "transform 0.3s" }}
+                width={56}
+                height={56}
+                style={{ borderRadius: "50%", transition: "transform 0.3s" }}
               />
             ) : (
               <div
