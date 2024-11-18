@@ -22,19 +22,36 @@ const defaultFormData = {
 
 const Auth = () => {
   const [formData, setFormData] = useState(defaultFormData);
+  const [formErrors, setFormErrors] = useState({});
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
+    setFormErrors({ ...formErrors, [name]: "" });
   };
-
+  /////////
   const { data: session } = useSession();
-  // console.log("SESSION !!!!", session);
   const router = useRouter();
 
   useEffect(() => {
-    if (session) router.push("/");
-  }, [router, session]);
+    if (session) {
+      router.push("/"); // Redirige seulement si la session est active
+    }
+  }, [session, router]); // Ne se déclenche que lorsqu'il y a une modification de session
+
+  ////////////
+  const validateEmail = (email) => {
+    // Regex to validate email format
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    // S'assurer que le mot de passe contient au moins 8 caractères, une lettre majuscule, un chiffre et un caractère spécial
+    const passwordRegex =
+      /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(password);
+  };
 
   const loginHandler = () => {
     signIn()
@@ -47,14 +64,35 @@ const Auth = () => {
       });
   };
 
-  // finally est utilisé pour garantir que quoi qu'il arrive que la promesse de signUp réussisse ou échoue setFormData(defaultFormData) sera appelé
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // Form validation
+    const errors = {};
+
+    if (!validateEmail(formData.email)) {
+      errors.email = "Veuillez entrer un email valide.";
+    }
+    if (!validatePassword(formData.password)) {
+      errors.password =
+        "Le mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial.";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      return; // Stop form submission if there are validation errors
+    }
 
     signUp(formData)
       .then((user) => {
         if (user) {
-          toast.success("Success. Please sign in");
+          // Connecte automatiquement l'utilisateur après l'inscription
+          signIn("credentials", {
+            email: formData.email,
+            password: formData.password,
+          }).then(() => {
+            toast.success("Inscription réussie ! Bienvenue !");
+          });
         }
       })
       .catch((error) => {
@@ -92,34 +130,48 @@ const Auth = () => {
         </div>
 
         <form className={styles.input} onSubmit={handleSubmit}>
-          <input
-            type="email"
-            name="email"
-            placeholder="name@company.com"
-            required
-            className={styles.input}
-            value={formData.email}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            name="name"
-            placeholder="John Doe"
-            required
-            className={styles.input}
-            value={formData.name}
-            onChange={handleInputChange}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            required
-            minLength={6}
-            className={styles.input}
-            value={formData.password}
-            onChange={handleInputChange}
-          />
+          <div>
+            <input
+              type="email"
+              name="email"
+              placeholder="name@company.com"
+              required
+              className={styles.input}
+              value={formData.email}
+              onChange={handleInputChange}
+            />
+            {formErrors.email && (
+              <p className={styles.error}>{formErrors.email}</p>
+            )}
+          </div>
+
+          <div>
+            <input
+              type="text"
+              name="name"
+              placeholder="John Doe"
+              required
+              className={styles.input}
+              value={formData.name}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div>
+            <input
+              type="password"
+              name="password"
+              placeholder="Mot de passe"
+              required
+              minLength={6}
+              className={styles.input}
+              value={formData.password}
+              onChange={handleInputChange}
+            />
+            {formErrors.password && (
+              <p className={styles.error}>{formErrors.password}</p>
+            )}
+          </div>
 
           <button type="submit" className={styles.button}>
             <p>S&apos;inscrire</p>

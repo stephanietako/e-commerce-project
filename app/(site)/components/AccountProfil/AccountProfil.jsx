@@ -25,7 +25,7 @@ const AccountProfil = () => {
                 </div>
               ) : (
                 <FaUserCircle
-                  style={{ width: "40px", height: "40px", color: "whitesmoke" }}
+                  style={{ width: "40px", height: "40px", color: "aqua" }}
                 />
               )}
             </Link>
