@@ -17,18 +17,19 @@ const Cart = ({ data }) => {
   };
 
   return (
-    <div className={styles.products__content}>
+    <div className={styles.cart__content}>
       <ImageGallery images={data.images} />
-      <div className={styles.products__infos}>
+      <div className={styles.cart__infos}>
         <span>
           <p>{data.type}</p>
         </span>
         <span>
-          <p className={styles.products__price}>{data.price.toFixed(2)}€</p>
+          <p className={styles.cart__price}>{data.price.toFixed(2)}€</p>
         </span>
-        <div className={styles.products__quantity}>
+        <div className={styles.cart__quantity}>
           <label>Quantité</label>
           <input
+            className={styles.cart__input}
             type="number"
             min="0"
             value={quantity}
@@ -36,23 +37,16 @@ const Cart = ({ data }) => {
               const value = Math.max(0, Number(e.target.value));
               setQuantity(value);
             }}
-            style={{
-              cursor: "pointer",
-              width: "4rem",
-              height: "2rem",
-              borderRadius: "10px",
-              padding: "4px",
-            }}
           />
         </div>
-        <p className={styles.products__text}>{data.body}</p>
+        <p className={styles.cart__text}>{data.body}</p>
         <br />
         <span>
           <p>Livraison 2 à 4 jours</p>
         </span>
-        <span className={styles.refProducts_categories}>REF: {data._id}</span>
+        <span className={styles.ref_products_categories}>REF: {data._id}</span>
 
-        <div className={styles.btns_products}>
+        <div className={styles.btns_cart}>
           <span id={styles.add_to_cart}>
             <Button text="Ajouter au panier" onClick={handleAddToCart} />
           </span>

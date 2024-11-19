@@ -1,0 +1,108 @@
+.starProductDetails_section {
+  display: flex;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  border: 5px solid red;
+
+  .starProductDetails_container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    border: 5px solid rgb(21, 0, 255);
+
+    .starProductDetails_title {
+      display: flex;
+      width: 100%;
+      height: auto;
+      justify-content: center;
+      position: absolute;
+      top: 40%;
+      z-index: 2;
+    }
+
+    .starProductDetails_categories {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      height: auto;
+      border: 5px solid rgb(0, 255, 85);
+      .display_categories {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        height: auto;
+        flex-wrap: wrap;
+        margin: 2rem;
+
+        .data_group_categories {
+          display: flex;
+          padding: 2rem;
+          border-radius: 12px;
+          width: 27rem;
+          height: auto;
+          flex-direction: column;
+        }
+
+        .images {
+          display: flex;
+          width: auto;
+          height: auto;
+          justify-content: center;
+          padding: 0.5rem;
+          border-radius: 30px;
+        }
+
+        .product_img {
+          object-fit: cover;
+          border-radius: 18px;
+        }
+
+        .title_content {
+          display: flex;
+        }
+
+        .title {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: auto;
+          position: relative;
+          z-index: 1;
+          justify-content: center;
+          color: #000;
+          font-size: 27px;
+        }
+
+        .productDetails_infos {
+          display: flex;
+          border: 5px solid rgb(225, 0, 255);
+        }
+
+        .item_content {
+          font-weight: bold;
+        }
+        .price_content {
+          font-weight: bold;
+        }
+
+        .discover_button {
+          padding: 10px 0;
+          background-color: transparent;
+          color: #000;
+          border: none;
+          outline: none;
+          cursor: none;
+        }
+
+        .product_ref {
+          font-size: 8px;
+          color: gray;
+        }
+      }
+    }
+  }
+}

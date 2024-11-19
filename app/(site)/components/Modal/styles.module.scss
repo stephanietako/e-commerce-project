@@ -10,7 +10,6 @@
   height: 100vh;
   background-color: rgba(237, 223, 223, 0.7);
   z-index: 1000;
-  //transition: transform 0.5s ease-in-out;
   animation: popup 0.7s;
 
   .modalContent {
@@ -19,8 +18,8 @@
     border-radius: 8px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     position: relative;
-    max-width: 40rem; // Limiter la largeur du modal
-    width: 90%; // Largeur responsive
+    max-width: 40rem;
+    width: 90%;
 
     .closeButton {
       position: absolute;
@@ -62,5 +61,12 @@
     100% {
       transform: scale(1);
     }
+  }
+}
+
+//////////////// RESPONSIVE ////////////
+@media (max-width: 990px) {
+  .modal {
+    width: 100vw;
   }
 }

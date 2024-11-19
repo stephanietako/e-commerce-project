@@ -38,15 +38,7 @@ const StarProductsPages = ({ starproducts }) => {
                 }
 
                 return (
-                  <div
-                    key={product._id}
-                    style={{
-                      display: "flex",
-                      width: "auto",
-                      marginBottom: "1rem",
-                      border: "4px solid whitesmoke",
-                    }}
-                  >
+                  <div key={product._id}>
                     {product.stars && product.stars.length > 0 ? (
                       <div className={styles.display_infos__products}>
                         {product.stars.map((item) => {
@@ -70,13 +62,10 @@ const StarProductsPages = ({ starproducts }) => {
                                           width={350}
                                           height={250}
                                           loading="lazy"
-                                          sizes="(max-width: 350px) 100vw, 200px 70vw  150px 50vw"
                                           placeholder="blur"
-                                          alt="Notre selection de produits"
+                                          quality={80}
                                           blurDataURL="data:image/jpeg..."
-                                          style={{
-                                            objectFit: "contain",
-                                          }}
+                                          alt="Notre selection de palmiers"
                                         />
                                       )}
                                     </div>

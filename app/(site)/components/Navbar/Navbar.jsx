@@ -50,7 +50,7 @@ const detailedNavLinks = [
   },
   {
     name: "Palmiers Méditerranéens",
-    href: "/products/palmiers-méditerranéens",
+    href: "/products/palmiers-mediterraneens",
     categories: [
       { name: "Phoenix dactylifera", href: "/categories/phoenix-dactylifera" },
       { name: "Chamaerops humilis", href: "/categories/chamaerops-humilis" },
@@ -201,7 +201,7 @@ const Navbar = () => {
             {detailedNavLinks.map((link, index) => (
               <div key={index} className={styles.navLinkMobile}>
                 <Link href={link.href}>
-                  <h2>{link.name}</h2>
+                  <h2>{link.name} </h2>
                 </Link>
                 <ul className={styles.submenuMobile}>
                   {(link.types || link.categories).map((item, idx) => (

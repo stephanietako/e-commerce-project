@@ -32,8 +32,8 @@
         font-weight: bold;
       }
       .th {
-        background-color: #f2f2f2; // Couleur de fond des cellules d'en-tête
-        text-align: left; // Alignement du texte dans les cellules d'en-tête
+        background-color: #f2f2f2;
+        text-align: left;
       }
 
       .tr:nth-child(even) {
@@ -86,5 +86,50 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+  }
+}
+
+//////////////// RESPONSIVE ////////////
+@media (max-width: 768px) {
+  .cartCompt_container {
+    height: auto;
+    .box_one {
+      width: 100%;
+      padding: 1rem;
+      h3 {
+        font-size: 0.7rem;
+      }
+      .table {
+        .th,
+        .td {
+          padding: 4px;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .cartCompt_container {
+    height: auto;
+    .box_one {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      .box_one__header {
+        font-size: 0.9rem;
+      }
+      .table {
+        .th,
+        .td {
+          padding: 2px;
+          font-size: 0.7rem;
+        }
+        .paid {
+          font-size: 0.8rem;
+        }
+      }
+    }
   }
 }

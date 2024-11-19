@@ -5,14 +5,12 @@
   overflow: hidden;
   width: 100%;
   height: auto;
-  border: 10px solid rgb(221, 0, 255);
 
   .categoryDetails__content {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 3rem;
-    // border: 4px solid blue;
     width: 70%;
     height: auto;
 
@@ -33,7 +31,6 @@
     height: 100%;
     justify-content: center;
     padding: 2rem;
-    border: 4px solid rgb(221, 255, 0);
   }
 }
 
@@ -42,7 +39,6 @@
   .categoryDetails__container {
     .categoryDetails__content {
       padding: 2rem;
-      border: 4px solid blue;
       width: 100%;
       height: auto;
       .gallery__container {
@@ -53,10 +49,12 @@
 
           .products__infos {
             padding: 0;
-            border: 3px solid blueviolet;
           }
         }
       }
+    }
+    .carouselBelike_container {
+      padding: 1rem;
     }
   }
 }

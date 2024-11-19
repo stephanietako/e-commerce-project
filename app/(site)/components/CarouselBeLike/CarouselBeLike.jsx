@@ -27,7 +27,7 @@ const CarouselBeLike = ({ minipalms }) => {
       </div>
       <div className={styles.title_content}>
         <Link href={`/plus/${item.slug}`}>
-          <h3 className={styles.title}>{item.name}</h3>
+          <p className={styles.title}>{item.name}</p>
         </Link>
       </div>
     </div>

@@ -50,7 +50,6 @@ const Slider = ({ allproducts }) => {
                   placeholder="blur"
                   quality={80}
                   blurDataURL="data:image/jpeg..."
-                  style={{ objectFit: "contain" }}
                 />
 
                 <div className={styles.title_slide__content}>

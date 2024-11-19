@@ -72,7 +72,6 @@ const Home = async () => {
             overflow: "hidden",
             padding: "2rem",
             height: "auto",
-            border: "5px solid pink",
             justifyContent: "center",
             alignItems: "center",
           }}

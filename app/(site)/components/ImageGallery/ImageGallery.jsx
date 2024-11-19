@@ -42,7 +42,7 @@ const ImageGallery = ({ images }) => {
           src={urlFor(bigImage).url()}
           alt="Produits CBD"
           width={350}
-          height={350}
+          height={380}
           priority={false}
           loading="lazy"
           className={styles.img}

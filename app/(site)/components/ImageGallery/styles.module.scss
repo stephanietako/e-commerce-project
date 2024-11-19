@@ -6,22 +6,21 @@
   .select_big_img {
     position: relative;
     overflow: hidden;
-  }
 
-  .img {
-    object-fit: cover;
-    padding-top: 1rem;
-    width: 350px;
-    height: auto;
-    cursor: zoom-in;
-    border-radius: 30px;
+    .img {
+      object-fit: cover;
+      padding-top: 1rem;
+      max-width: 350px;
+      height: auto;
+      cursor: zoom-in;
+    }
   }
 
   .loupe {
     position: absolute;
     width: 350px;
-    height: 350px;
-    border: 1px solid black;
+    height: 380px;
+    border: 1px solid #000;
     border-radius: 50%;
     overflow: hidden;
     pointer-events: none;
@@ -43,7 +42,6 @@
   }
 
   .thumbnail {
-    border-radius: 17px;
     object-fit: cover;
   }
 }

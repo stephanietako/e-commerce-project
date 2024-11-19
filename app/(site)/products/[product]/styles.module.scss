@@ -1,0 +1,142 @@
+.productsDetails_section {
+  display: flex;
+  width: auto;
+  height: auto;
+  justify-content: center;
+
+  .productsDetails_container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    cursor: none;
+
+    .productsDetails_bloc {
+      display: flex;
+      width: 100%;
+      height: auto;
+      position: relative;
+      justify-content: center;
+    }
+
+    .productsDetails_title {
+      display: flex;
+      width: 100%;
+      height: auto;
+      justify-content: center;
+      position: absolute;
+      top: 40%;
+      z-index: 2;
+    }
+
+    .section_title {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 3rem;
+      margin-top: 1rem;
+    }
+
+    .productsDetails_categories {
+      display: flex;
+      width: 100%;
+      height: auto;
+    }
+
+    .display_categories {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      height: auto;
+      flex-wrap: wrap;
+    }
+
+    .data_group_categories {
+      display: flex;
+      margin: 3rem;
+      height: auto;
+      flex-direction: column;
+      background: transparent;
+      width: 27rem;
+    }
+
+    .images {
+      display: flex;
+      max-width: 450px;
+      max-height: 300px;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+
+    .product_img {
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 17px;
+    }
+
+    .title_content {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: auto;
+      position: relative;
+      z-index: 1;
+      padding: 1rem;
+      justify-content: center;
+
+      .title {
+        font-size: 1.5rem;
+      }
+    }
+
+    .productDetails_infos {
+      padding: 1rem;
+    }
+
+    .price_content {
+      font-weight: bold;
+    }
+
+    .discover_button {
+      padding: 10px 0;
+      background-color: transparent;
+      color: #000;
+      border: none;
+      outline: none;
+      cursor: none;
+    }
+
+    .ref {
+      font-size: 8px;
+      color: gray;
+    }
+  }
+}
+
+/////////////////// RESPONSIVE /////////////////
+@media screen and (max-width: 768px) {
+  .productsDetails_section {
+    .productsDetails_container {
+      .section_title {
+        padding: 1rem;
+      }
+      .data_group_categories {
+        margin: 1rem;
+        width: 22rem;
+      }
+      .images {
+        width: 350px;
+        height: 300px;
+      }
+      .title_content {
+        padding: 0.5rem;
+        .title {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

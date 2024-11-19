@@ -3,7 +3,6 @@
   width: 100%;
   height: 25rem;
   clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
-  //border: 8px solid rgb(236, 3, 205);
 
   .footer_infos {
     display: flex;
@@ -14,7 +13,6 @@
     justify-content: center;
     flex-direction: column;
     position: fixed;
-    //border: 4px solid red;
 
     .footer_infos__container {
       display: flex;
@@ -22,7 +20,6 @@
       height: auto;
       justify-content: space-evenly;
       padding: 3rem;
-      //border: 4px solid rgb(13, 0, 255);
 
       .column {
         width: 100%;
@@ -87,12 +84,6 @@
               &:hover {
                 color: #000;
               }
-              // &#__text_insta,
-              // &#__text_mail {
-              //   width: 100%;
-              //   height: auto;
-              //   display: flex;
-              // }
 
               p {
                 font-size: 0.7rem;
@@ -191,11 +182,9 @@
     flex-direction: column;
     .footer_infos {
       height: auto;
-
       .footer_infos__container {
         height: auto;
         width: 100%;
-
         .column {
           width: 100%;
           ul {
@@ -208,10 +197,8 @@
                   height: auto;
                   display: flex;
                   justify-content: left;
-                  border: 3px solid blue;
                 }
               }
-
               .__info_adress_bloc {
                 display: flex;
                 width: 100%;

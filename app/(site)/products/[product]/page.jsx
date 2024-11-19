@@ -3,6 +3,7 @@ import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/sanity";
+import styles from "./styles.module.scss";
 
 export const dynamic = "force-dynamic";
 
@@ -12,181 +13,53 @@ const ProductsDetails = async ({ params }) => {
 
   return (
     <>
-      <section
-        className="products_details__section"
-        style={{
-          display: "flex",
-          width: "auto",
-          height: "auto",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          className="products_details__container"
-          style={{
-            display: "flex",
-            width: "100%",
-            height: "auto",
-            position: "relative",
-            justifyContent: "center",
-            flexDirection: "column",
-            cursor: "none",
-          }}
-        >
-          <div
-            className="products_details__bloc"
-            style={{
-              display: "flex",
-              width: "100%",
-              height: "auto",
-              position: "relative",
-              justifyContent: "center",
-              // border: "4px solid red",
-            }}
-          >
-            <div
-              className="products_details__title"
-              style={{
-                display: "flex",
-                width: "100%",
-                height: "auto",
-                justifyContent: "center",
-                position: "absolute",
-                top: "40%",
-                zIndex: 2,
-              }}
-            >
+      <section className={styles.productsDetails_section}>
+        <div className={styles.productsDetails_container}>
+          <div className={styles.productsDetails_bloc}>
+            <div className={styles.productsDetails_title}>
               <h1>{product && product.name}</h1>
             </div>
           </div>
-          <h2
-            style={{
-              display: "block",
-              width: "100%",
-              textAlign: "center",
-              padding: "3rem",
-            }}
-          >
-            {" "}
-            Tous nos palmiers
-          </h2>
-          <div className="products_details__categories">
-            <div
-              className="display_categories"
-              style={{
-                display: "flex",
-                width: "100%",
-                justifyContent: "center",
-                height: "auto",
-                flexWrap: "wrap",
-              }}
-            >
+          <h2 className={styles.section_title}>Tous nos palmiers</h2>
+          <div className={styles.productsDetails_categories}>
+            <div className={styles.display_categories}>
               {product.categories.map((category) => (
                 <Link href={`/categories/${category.slug}`} key={category._id}>
-                  <div
-                    className="data_group__categories"
-                    style={{
-                      display: "flex",
-                      margin: "3rem",
-                      height: "auto",
-                      flexDirection: "column",
-                      background: "transparent",
-                      width: "27rem",
-                    }}
-                  >
+                  <div className={styles.data_group_categories}>
                     <span>
-                      <div
-                        className="images"
-                        style={{
-                          display: "flex",
-                          width: "100%",
-                          height: "300px",
-                          justifyContent: "center",
-                          padding: "0.5rem",
-                        }}
-                      >
+                      <div className={styles.images}>
                         {category.coverImages ? (
                           <Image
                             src={urlFor(category.coverImages).url()}
                             alt="les fleurs"
-                            className="product__img"
+                            className={styles.product_img}
                             width={450}
                             height={300}
-                            style={{
-                              width: "100%",
-                              height: "auto",
-                              objectFit: "cover",
-                              borderRadius: "17px",
-                            }}
                           />
                         ) : (
                           <p>No image available</p>
                         )}
                       </div>
                     </span>
-                    <div
-                      className="title__content"
-                      style={{
-                        padding: "1rem",
-                      }}
-                    >
-                      <h3
-                        className="title"
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          width: "100%",
-                          height: "auto",
-                          position: "relative",
-                          zIndex: 1,
-                          fontSize: "27px",
-                        }}
-                      >
-                        {category.name}
-                      </h3>
+                    <div className={styles.title_content}>
+                      <h3 className={styles.title}>{category.name}</h3>
                     </div>
-                    <div
-                      className="productDetails__infos"
-                      style={{
-                        padding: "1rem",
-                      }}
-                    >
+                    <div className={styles.productDetails_infos}>
                       <span>
                         <PortableText value={category.content} />
                       </span>
                       <span>
-                        <p
-                          className="price_content"
-                          style={{
-                            fontWeight: "bold",
-                          }}
-                        >
+                        <p className={styles.price_content}>
                           {category.price}€
                         </p>
                       </span>
                       <span>
-                        <button
-                          style={{
-                            padding: "10px 0",
-                            backgroundColor: "transparent",
-                            color: "#000",
-                            border: "none",
-                            outline: "none",
-                            cursor: "none",
-                          }}
-                        >
+                        <button className={styles.discover_button}>
                           Découvrir
                         </button>
                       </span>
                       <span>
-                        <p
-                          style={{
-                            fontSize: "8px",
-                            color: "gray",
-                          }}
-                        >
-                          REF: {category._id}
-                        </p>
+                        <p className={styles.ref}>REF: {category._id}</p>
                       </span>
                     </div>
                   </div>
