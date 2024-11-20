@@ -47,6 +47,7 @@ Ce projet est actuellement en phase de développement. Voici les éléments en c
 
 ### 📊 Progression du projet
 
-![Progression](https://progress-bar.dev/85/)
+Progression : **85 %**  
+|█████████████████████░░░░░░| 85 %
 
 Le projet est fonctionnel mais quelques aspects restent à peaufiner pour atteindre une version finale.
