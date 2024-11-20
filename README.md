@@ -1,4 +1,5 @@
-<img title="palm trees affair" alt="palm trees affair" src="public/assets/palmtrees_icon_black.png"> 
+<img title="palm trees affair" alt="palm trees affair" src="public/assets/palmtrees_icon_white.png" style="width:170px;>
+
 ## Bienvenue sur PALM TREES AFFAIR 🌴
 
 ## PALM TREES AFFAIR 🌴
