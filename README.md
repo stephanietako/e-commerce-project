@@ -1,6 +1,6 @@
 # e-commerce project
 
-# ![Palm Trees Affair](palmtrees_icon_white.png)
+# ![Palm Trees Affair](assets/palmtrees_icon_white.png)
 
 ## PALM TREES AFFAIR 🌴
 
