@@ -9,7 +9,7 @@ import { visionTool } from "@sanity/vision";
 import { apiVersion, dataset, projectId } from "./sanity/env";
 
 export default defineConfig({
-  title: "projet-vibes",
+  title: "e-commerce palm trees affair",
   basePath: "/studio",
   projectId,
   dataset,
