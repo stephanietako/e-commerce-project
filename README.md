@@ -1,6 +1,4 @@
-# e-commerce project
-
-# ![Palm Trees Affair](assets/palmtrees_icon_white.png)
+<img src="https://raw.githubusercontent.com/stephanietako/e-commerce-project/blob/main/public/assets/icons8-palmier-black.png" alt="logo palm trees affair dev" style="width:150px;"/>
 
 ## PALM TREES AFFAIR 🌴
 
