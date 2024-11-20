@@ -2,7 +2,7 @@
 // Importation de useState depuis React pour gérer l'état local dans le composant
 import { useState } from "react";
 // Importation de la liste des garnitures depuis le fichier utils
-import { toppings } from "../../../utils/utils";
+import { toppings } from "../../../../utils/utils";
 // Importation des styles
 import styles from "./styles.module.css";
 
