@@ -1,4 +1,5 @@
-<img src="https://raw.githubusercontent.com/stephanietako/e-commerce-project/blob/main/public/assets/icons8-palmier-black.png" alt="logo palm trees affair dev" style="width:150px;"/>
+<img title="palm trees affair" alt="palm trees affair" src="public/assets/palmtrees_icon_black.png"> 
+## Bienvenue sur PALM TREES AFFAIR 🌴
 
 ## PALM TREES AFFAIR 🌴
 
