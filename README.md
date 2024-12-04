@@ -1,53 +1,53 @@
 <img title="palm trees affair" alt="palm trees affair" style="width:170px;" src="public/assets/palmtrees_icon_white.png" >
 
-## Bienvenue sur PALM TREES AFFAIR 🌴
+## Welcome to PALM TREES AFFAIR 🌴
 
 ## PALM TREES AFFAIR 🌴
 
-> Un projet de e-commerce moderne construit avec **Next.js 14** et **Sanity**.
+> A modern e-commerce project built with **Next.js 14** and **Sanity**.
 
 ---
 
 ### 🛍️ **Description**
 
-PALM TREES AFFAIR est une boutique en ligne fictive offrant une expérience utilisateur moderne et fluide. Ce projet a été conçu comme un défi personnel afin d'explorer les technologies de pointe en développement web. 🚀
+PALM TREES AFFAIR is a fictional online store offering a modern and seamless user experience. This project was created as a personal challenge to explore cutting-edge web development technologies. 🚀
 
 ---
 
-### ✨ **Fonctionnalités clés**
+### ✨ **Key Features**
 
-- Interface utilisateur réactive et performante grâce à **Next.js 14**.
-- Gestion des contenus dynamiques avec **Sanity CMS**.
-- Navigation intuitive avec un système de recherche.
-- Page produit avec détails et galeries d'images.
-- Gestion de panier en local.
-- Déploiement simplifié pour production.
+- Responsive and performant user interface built with **Next.js 14**.
+- Dynamic content management with **Sanity CMS**.
+- Intuitive navigation with a search system.
+- Product pages with detailed information and image galleries.
+- Local cart management.
+- Simplified deployment for production.
 
 ---
 
-### 🛠️ Technologies utilisées
+### 🛠️ Technologies Used
 
 - **Frontend** :
-  - [Next.js 14](https://nextjs.org/) : Framework React moderne.
-  - [Three.js](https://threejs.org/) : Pour des animations 3D immersives.
-- **Backend et CMS** :
-  - [Sanity.io](https://www.sanity.io/) : Gestion dynamique des contenus.
-  - [Stripe](https://stripe.com/) : Intégration de paiements en ligne sécurisés.
+  - [Next.js 14](https://nextjs.org/) : A modern React framework.
+  - [Three.js](https://threejs.org/) : For immersive 3D animations.
+- **Backend and CMS** :
+  - [Sanity.io](https://www.sanity.io/) : Dynamic content management.
+  - [Stripe](https://stripe.com/) : Secure online payment integration.
 - **Styling** : SCSS.
-- **Gestion d'état** : Zustand / NextAuth.js.
+- **State Management** : Zustand / NextAuth.js.
 
 ---
 
-### 🚧 Statut du projet
+### 🚧 Project Status
 
-Ce projet est actuellement en phase de développement. Voici les éléments en cours de réalisation :
+This project is currently in development. Here are the ongoing tasks:
 
-- Améliorations et ajouts de fonctionnalités du système de paiement via **Stripe**.
-- Optimisation de l’expérience utilisateur pour desktop et mobile.
+- Improvements and additional features for the payment system via **Stripe**.
+- Optimization of the user experience for both desktop and mobile.
 
-### 📊 Progression du projet
+### 📊 Project Progress
 
-Progression : **85 %**  
+Progress: **85 %**  
 |█████████████████████░░░░░░| 85 %
 
-Le projet est fonctionnel mais quelques aspects restent à peaufiner pour atteindre une version finale.
+The project is functional, but some aspects are still being fine-tuned to reach the final version.
